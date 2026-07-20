@@ -3,13 +3,12 @@
 **Kreyòl Depi Nan Rasin / Building a language model from Kreyòl roots**
 
 > **Note:** This README was AI-generated from the project's research notes. A thought-out,
-> human-written blog post about this work is on the way — it will carry the real voice and
-> reasoning behind the project; this file is the working overview until then.
+> human-written blog post will be written around this work and the process.
 
 No dedicated Haitian Creole generative LLM exists today — the open ecosystem for Kreyòl is
 encoder-decoder machine translation (Kreyòl-MT, OPUS-MT, NLLB) plus large multilingual models
 that carry only trace amounts of it. This repository builds three small models to study what
-changes when Haitian Creole gets its *own* tokenizer, its *own* data priorities, and its *own*
+changes when Haitian Creole gets its _own_ tokenizer, its _own_ data priorities, and its _own_
 evaluation — and it will grow into [kreyol.chat](https://kreyol.chat), a site where you can talk
 to those models and compare them side by side. The goal is not to replace speakers or define
 "correct" Kreyòl; it is to understand how AI represents the language, and to let Haitian speakers
@@ -32,14 +31,15 @@ A few verified facts frame the work (full sourcing in [docs/plan.md](docs/plan.m
   (gpt-3.5-turbo) scores 24.5 spBLEU / 47.0 chrF2++ — while dedicated MT systems score
   substantially higher ([Robinson et al. 2023](https://aclanthology.org/2023.wmt-1.40/)):
 
-  | System | spBLEU | chrF2++ |
-  |---|---|---|
-  | ChatGPT (gpt-3.5-turbo), 0-shot | 24.5 | 47.0 |
-  | NLLB-MoE (54.5B, dedicated MT) | 30.5 | 51.9 |
-  | Google Translate | **31.8** | **53.4** |
+  | System                          | spBLEU   | chrF2++  |
+  | ------------------------------- | -------- | -------- |
+  | ChatGPT (gpt-3.5-turbo), 0-shot | 24.5     | 47.0     |
+  | NLLB-MoE (54.5B, dedicated MT)  | 30.5     | 51.9     |
+  | Google Translate                | **31.8** | **53.4** |
 
   The same ChatGPT matches or beats NLLB on French — but trails dedicated MT by 5–7 spBLEU points
   on Haitian Creole. That is the textbook low-resource gap, in one table.
+
 - **The project is data-bound, not compute-bound.** All deduplicated open Haitian Creole text adds
   up to roughly **100–200M tokens** — dominated by a single Common Crawl-derived source. Training
   small models at this scale costs tens of dollars; assembling and curating the corpus is the
@@ -49,14 +49,14 @@ A few verified facts frame the work (full sourcing in [docs/plan.md](docs/plan.m
 ## The three models
 
 Each model isolates a single variable so that comparing them answers the research question:
-*how do tokenizer design, corpus composition, and language adaptation affect a small model's
-ability to understand and generate natural Haitian Creole?*
+_how do tokenizer design, corpus composition, and language adaptation affect a small model's
+ability to understand and generate natural Haitian Creole?_
 
-| | Model A — Baseline | Model B — Kreyòl-adapted | Model C — Kreyòl-first |
-|---|---|---|---|
-| What | Frontier API + dedicated MT, as-is | Small open model + continued pretraining on Kreyòl | From-scratch small model, Kreyòl tokenizer, Kreyòl-curated corpus |
-| Represents | What the world gets today | What adaptation buys | What starting from Kreyòl looks like |
-| Tokenizer | Their own (~1.7× tax) | Base model's (kept) | Trained on Kreyòl, 16–24k vocab (~1.0× by construction) |
+|            | Model A — Baseline                 | Model B — Kreyòl-adapted                           | Model C — Kreyòl-first                                            |
+| ---------- | ---------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| What       | Frontier API + dedicated MT, as-is | Small open model + continued pretraining on Kreyòl | From-scratch small model, Kreyòl tokenizer, Kreyòl-curated corpus |
+| Represents | What the world gets today          | What adaptation buys                               | What starting from Kreyòl looks like                              |
+| Tokenizer  | Their own (~1.7× tax)              | Base model's (kept)                                | Trained on Kreyòl, 16–24k vocab (~1.0× by construction)           |
 
 Design principle: **one variable per model.** Model B isolates data adaptation (same tokenizer,
 same architecture, new data). Model C isolates starting from Kreyòl (own tokenizer, own data
@@ -69,26 +69,26 @@ priorities). More detail — architecture lineage, training recipes, sizing math
 [docs/phase-0.md](docs/phase-0.md). No training code is in the repo yet; this is the initial
 scaffold and the public project docs.
 
-| Phase | Focus | Status |
-|---|---|---|
+| Phase | Focus                                                                             | Status                                   |
+| ----- | --------------------------------------------------------------------------------- | ---------------------------------------- |
 | **0** | Corpus v0, Kreyòl tokenizer, fertility numbers vs ~8 tokenizers, base-model probe | In progress — [runbook](docs/phase-0.md) |
-| 1 | Model C v0 (from-scratch, nanochat-style) + micro-model mixture ablations | Planned |
-| 2 | Model B (Kreyòl-adapted continued pretraining + instruction stage) | Planned |
-| 3 | Evaluation — CreoleVal, FLORES+, a Kreyòl-construction test suite, human eval | Planned |
-| 4 | The [kreyol.chat](https://kreyol.chat) site / interactive exhibit | Planned |
-| 5 | Post-event & ongoing — community eval set, voice, license consultation | Planned |
+| 1     | Model C v0 (from-scratch, nanochat-style) + micro-model mixture ablations         | Planned                                  |
+| 2     | Model B (Kreyòl-adapted continued pretraining + instruction stage)                | Planned                                  |
+| 3     | Evaluation — CreoleVal, FLORES+, a Kreyòl-construction test suite, human eval     | Planned                                  |
+| 4     | The [kreyol.chat](https://kreyol.chat) site / interactive exhibit                 | Planned                                  |
+| 5     | Post-event & ongoing — community eval set, voice, license consultation            | Planned                                  |
 
 ## Data policy
 
 This repository ships **reproduction scripts, not redistributed corpora.** Source licenses vary and
 several forbid or complicate re-hosting: Kreyòl-MT's dataset is tagged license "other," and
 CreoleVal's sub-datasets carry mixed per-file licenses. The Phase 0 pipeline downloads sources into
-a git-ignored `ml/data/` directory on your own machine; the repo describes *how* to assemble the
+a git-ignored `ml/data/` directory on your own machine; the repo describes _how_ to assemble the
 corpus, and never contains the corpus itself. A license check is required before training on any
 source.
 
 **Model-weight release decisions are deferred to community consultation** (see below) — whether and
-how to publish the trained models and tokenizer is a decision to make *with* Haitian speakers, not
+how to publish the trained models and tokenizer is a decision to make _with_ Haitian speakers, not
 before.
 
 ## Community
@@ -109,7 +109,7 @@ Two efforts are the project's north stars:
   [Kaitiakitanga License](https://github.com/TeHikuMedia/Kaitiakitanga-License) treats
   community-donated language data as a treasure held under guardianship, where the community decides
   how its data is used. The license itself is specific to Māori tikanga and not directly reusable,
-  but the *pattern* guides this project's consent and governance design.
+  but the _pattern_ guides this project's consent and governance design.
 
 No community data-sovereignty license exists yet for Haitian Creole or any Caribbean creole. This
 project does not claim to be community governance — it aims to practice its principles honestly:
