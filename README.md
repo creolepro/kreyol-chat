@@ -2,6 +2,10 @@
 
 **Kreyòl Depi Nan Rasin / Building a language model from Kreyòl roots**
 
+> **Note:** This README was AI-generated from the project's research notes. A thought-out,
+> human-written blog post about this work is on the way — it will carry the real voice and
+> reasoning behind the project; this file is the working overview until then.
+
 No dedicated Haitian Creole generative LLM exists today — the open ecosystem for Kreyòl is
 encoder-decoder machine translation (Kreyòl-MT, OPUS-MT, NLLB) plus large multilingual models
 that carry only trace amounts of it. This repository builds three small models to study what
