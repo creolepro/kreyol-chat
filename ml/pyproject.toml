@@ -1,0 +1,22 @@
+[project]
+name = "kreyol-lm"
+version = "0.0.0"
+description = "Corpus, tokenizer, fertility, and base-model probe workspace for kreyol-chat (Phase 0)."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = [
+    "datasets",
+    "tokenizers",
+    "tiktoken",
+    "transformers",
+    "sacrebleu",
+    "anthropic",
+    "modal",
+    "datasketch",
+    "matplotlib",
+]
+
+# This workspace is a collection of scripts, not an installable package.
+[tool.uv]
+package = false
