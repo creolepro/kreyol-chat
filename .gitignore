@@ -1,0 +1,20 @@
+# Data — corpora and shards are never committed (see README "Data policy")
+data/
+*.jsonl
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.env
+
+# Training artifacts
+checkpoints/
+wandb/
+
+# OS
+.DS_Store
+
+# web/ (reserved for the kreyol.chat Next.js app) — uncomment when scaffolded
+# node_modules/
+# .next/
