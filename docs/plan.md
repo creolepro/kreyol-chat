@@ -86,11 +86,11 @@ The same ChatGPT **matches or beats** NLLB on French (56.4 vs 56.2 spBLEU) and G
 
 Full inventory in §5. Bottom line: all deduplicated open Haitian Creole text ≈ **1–2 × 10⁸ tokens**, dominated by one source (MADLAD-400's Common Crawl harvest). Compute for models at this scale costs tens of dollars (§7). **Corpus assembly and curation is the actual project** — which is exactly the story the exhibit wants to tell.
 
-### 1.6 Nobody has built this yet
+### 1.6 Nobody has built this yet (as far as we can find)
 
-Verified gaps, each an opportunity:
+Gaps verified as of July 2026 — phrased carefully: "we found no publicly released X," not "X cannot exist":
 
-- **No dedicated Haitian Creole generative LLM exists** on Hugging Face — the entire text ecosystem is encoder-decoder MT (Kreyòl-MT, OPUS-MT, NLLB) plus multilingual models with trace HT (mT5 ~0.33%). Masakhane doesn't cover Haitian (African languages only). The earliest academic study of the question is Lent et al. 2021, *On Language Models for Creoles* ([arXiv:2109.06074](https://arxiv.org/abs/2109.06074)) — analysis, not a released HT model.
+- **No dedicated Haitian Creole generative LLM found** on Hugging Face or in the literature — the text ecosystem is encoder-decoder MT (Kreyòl-MT, OPUS-MT, NLLB) plus multilingual models with trace HT (mT5 ~0.33%). Masakhane doesn't cover Haitian (African languages only). The earliest academic study of the question is Lent et al. 2021, *On Language Models for Creoles* ([arXiv:2109.06074](https://arxiv.org/abs/2109.06074)) — analysis, not a released HT model.
 - **No commercial TTS API supports Haitian Creole at all** (verified against Google, Azure, Polly, ElevenLabs docs — §9).
 - **Common Voice has 2.7 minutes of Haitian Creole audio** (30 clips, 3 speakers).
 - **No community data-sovereignty license exists for any Caribbean creole** (§10) — Te Hiku Media's Kaitiakitanga license (Māori) is the precedent, with no Haitian equivalent.
@@ -106,7 +106,7 @@ Verified gaps, each an opportunity:
 - **Our Model C** (nanochat/nanoGPT-style) is the decoder-only branch of the family tree (GPT lineage), with modern refinements (rotary positional embeddings instead of sinusoids, RMSNorm, etc.) — but the attention mechanism is the 2017 mechanism.
 - **Claude and ChatGPT** are the same decoder-only lineage at massive scale.
 
-**The exhibit-ready fact:** the paper that launched all of modern AI trained on **4.5M English–German sentence pairs. Haitian Creole today has ~6M parallel pairs — more data than the dataset that started the Transformer revolution.** The gap was never the data's existence; it's what the field chose to build with it. And Vaswani et al. baked subword tokenization (BPE) into the recipe from day one — the tokenizer question Station 1 explores is literally as old as the architecture.
+**The exhibit-ready fact:** the paper that launched all of modern AI trained on **4.5M English–German sentence pairs. Haitian Creole today has ~6M parallel pairs — more raw pairs than the dataset that started the Transformer revolution.** (Kept honest: quality, domain, alignment, and institutional attention differ — raw pair count was never the whole gap.) And Vaswani et al. baked subword tokenization (BPE) into the recipe from day one — the tokenizer question Station 1 explores is literally as old as the architecture.
 
 **Exhibit tie-in:** an attention-map visualization station ("Anndan tèt modèl la" — inside the model's head) rendering Model C's attention weights on a proverb like *Dèyè mòn gen mòn* — which words attend to which, straight from the mechanism in Figure 2 of the paper.
 
@@ -119,10 +119,14 @@ Verified gaps, each an opportunity:
 | What | Frontier API (Claude) + dedicated MT (NLLB-600M / Google Translate) as-is | Small open model + continued pretraining on Kreyòl | From-scratch small model, Kreyòl tokenizer, Kreyòl-curated corpus |
 | Represents | What the world gets today | What adaptation buys | What starting from Kreyòl looks like |
 | Size | — | 1.7B–4B | ~200M (nanochat d12) + micro-models for ablations |
-| Tokenizer | Their own (1.7× tax) | Base model's (kept — see below) | **Trained on Kreyòl, 16–24k vocab (~1.0× by construction)** |
+| Tokenizer | Their own (1.7× tax) | Base model's (kept — see below) | **Trained on Kreyòl, 16–24k vocab — low fertility on Kreyòl; ht/en parity likely <1 (it flips the tax)** |
 | Compute cost | API pennies | ~$25–75/run | ~$5–100/run |
 
-Design principle: **one variable per model.** Model B isolates *data adaptation* (same tokenizer, same architecture, new data). Model C isolates *starting from Kreyòl* (own tokenizer, own data priorities). Comparing all three against the same eval answers the research question.
+Framing: **three development paths, not a controlled experiment.** A, B, and C differ in size, data, initialization, and training history all at once — comparing them answers "what does each *path* deliver?" (the exhibit's question), but it cannot attribute differences to any single cause. The controlled science lives in three **paired comparisons**, each changing exactly one thing:
+
+- **Adaptation**: Model B's exact base checkpoint *before* vs. *after* CPT — same everything else. (The Phase 0 probe banks the "before" numbers.)
+- **Tokenizer**: two micro-models with identical architecture, data order, and recipe — one on the Kreyòl tokenizer, one on a control tokenizer. ~$10; this is the *actual* tokenizer experiment.
+- **Corpus mixture**: micro-models identical except the data mix (§3.3 experiment 2).
 
 **Training-objective primer** — three pretraining lineages show up around this project; knowing which is which prevents confusion:
 
@@ -151,13 +155,13 @@ What we borrow from Kreyòl-MT is the *principle*, not the objective: **pretrain
 
 **Tokenizer: keep the base model's.** Kreyòl is Latin-script with regular orthography; modern tokenizers handle it passably, full swaps buy efficiency but not measured quality ([arXiv:2408.15793](https://arxiv.org/abs/2408.15793)), and keeping it makes the A-vs-B comparison clean. Optional: light vocab *extension* (a few hundred high-frequency Kreyòl subwords, FOCUS-style init) only if measured fertility is poor.
 
-**Base model candidates** (must be Apache-2.0-clean for a community project, locally runnable at the event):
+**Base model candidates** (must be Apache-2.0-clean for a community project, locally runnable at the event). CPT starts from the **pretrained base checkpoints** — probe and adapt those, not the instruction-tuned variants:
 
-1. **Qwen3-1.7B or -4B** — Apache 2.0, 36T-token pretraining across 119 languages, best small-model quality reputation. *(Whether HT is in the 119 is unverified — run a zero-shot probe first.)*
-2. **SmolLM3-3B** — Apache 2.0 and *fully open* (data recipe, code, public intermediate checkpoints), strong French coverage (helpful for a French-lexifier creole). Best transparency story for an exhibit about openness.
-3. Gemma 3-4B (140+ languages) only if its custom license is acceptable; Llama 3.2's HT quality is likely weak (8 official languages, HT not among them).
+1. **[Qwen3-1.7B-Base](https://huggingface.co/Qwen/Qwen3-1.7B-Base) / [Qwen3-4B-Base](https://huggingface.co/Qwen/Qwen3-4B-Base)** — Apache 2.0, 36T-token pretraining across 119 languages, best small-model quality reputation. *(Whether HT is in the 119 is unverified — the probe settles it.)*
+2. **[SmolLM3-3B-Base](https://huggingface.co/HuggingFaceTB/SmolLM3-3B-Base)** — Apache 2.0 and *fully open* (data recipe, code, public intermediate checkpoints), strong French coverage (helpful for a French-lexifier creole). Best transparency story for an exhibit about openness.
+3. [gemma-3-4b-pt](https://huggingface.co/google/gemma-3-4b-pt) (140+ languages) only if its custom license is acceptable; Llama 3.2's HT quality is likely weak (8 official languages, HT not among them).
 
-**Pre-commit probe:** before choosing, run all candidates zero-shot on FLORES+ hat devtest + a proverb set. Cheap, and the deltas become exhibit content.
+**Pre-commit probe** (staged, on FLORES+ **dev** — devtest is reserved for final reporting): base models don't reliably follow zero-shot instructions, so the primary base-model measures are **bits-per-byte on authored Kreyòl + standardized few-shot completion**, scored on a small scorecard (BPB, few-shot chrF, blinded naturalness) rather than a single metric. Full protocol: [phase-0.md](./phase-0.md) Workstream D. The deltas become exhibit content.
 
 **Tooling: Axolotl on Modal** (YAML-config CPT + SFT, documented Modal path: [modal.com/blog/fine-tuning-llms](https://modal.com/blog/fine-tuning-llms), [modal-labs/llm-finetuning](https://github.com/modal-labs/llm-finetuning)). Unsloth as single-GPU alternative (has an explicit continued-pretraining mode that also trains embeddings/lm_head).
 
@@ -196,9 +200,9 @@ What we borrow from Kreyòl-MT is the *principle*, not the objective: **pretrain
 
    **Measurement protocol** (~150 lines of Python, no GPU, an afternoon):
    - *Data:* FLORES+ `hat/eng/fra` devtest — 1,012 parallel sentences, same content in all three languages (gated HF repo, CC-BY-SA) — plus a small authored-Kreyòl set (proverbs, MIT-Haiti sentences), since FLORES's Haitian side is itself translated; a translated-vs-authored fertility gap would be a finding on its own.
-   - *Tokenizers:* `tiktoken` for cl100k + o200k; HF `AutoTokenizer` for Llama 3 / Gemma 3 (gated repos — accept terms) and Qwen3 / NLLB / SmolLM3 (open); **Claude via the free `count_tokens` API endpoint** (`client.messages.count_tokens` — the tokenizer isn't public; batch the corpus per language so the request-wrapper overhead is negligible). No Claude fertility number for HT exists anywhere — this would be first. Add our rustbpe tokenizer once trained.
-   - *Metrics per tokenizer:* parity ratio vs English **and** vs French (the lexifier angle); tokens/word; whole-word survival of a core vocab list (TMA markers, determiners, top-500 MADLAD words — with and without leading space); sentences-per-fixed-token-budget + $ premium at current API prices.
-   - *Rigor:* NFC-normalize everywhere (è/ò); replicate Petrov's cl100k **1.74×** first as the pipeline sanity check; publish script + output CSV.
+   - *Tokenizers:* `tiktoken` for cl100k + o200k (labeled as tokenizers, not products); HF `AutoTokenizer` for Llama 3 / Gemma 3 (gated repos — accept terms) and Qwen3 / NLLB / SmolLM3 (open); **Claude via the free `count_tokens` API endpoint** — Anthropic documents the result as an *estimate* that may include request overhead, so measure empty-request overhead, pin the exact model ID, and label the result **"Claude API input parity for model X"** rather than a raw tokenizer count. Add our rustbpe tokenizer once trained.
+   - *Metrics per tokenizer:* primary parity = **sum(ht tokens) ÷ sum(eng tokens)** over the whole corpus (and vs French — the lexifier angle), with paired-bootstrap confidence intervals and per-sentence quantiles ("mean of per-sentence ratios" is a different statistic — never silently substitute it); tokens/word under a *defined* segmentation rule (apostrophe clitics like `m'ap` decided up front); whole-word survival of a core vocab list (with/without leading space); sentences-per-fixed-token-budget + $ premium at **date-stamped** API prices, shown only for tokenizers tied to actually-priced APIs.
+   - *Rigor:* NFC-normalize everywhere (è/ò); first **replicate Petrov's 1.74× on his released data** (repo CSV, same tokenizer version) to validate the pipeline, then report FLORES+ as our own measurement (expected close — not gated to match); publish script + output CSV; claim "first *published*, as of <date>" rather than "first-ever."
    - *Reuse:* the same code runs **live in-browser** at Station 1 — js-tiktoken (cl100k/o200k) + transformers.js-loaded HF tokenizers + our BPE as JSON, fully offline; only the Claude numbers are precomputed.
 2. **Corpus experiment** → Station 5. Micro-models on contrasting mixtures: formal/web-dominant vs everyday/conversational-weighted vs balanced; and no-synthetic vs unreviewed-synthetic vs reviewed-synthetic. Same prompts to each → "data selection shapes a model's voice."
 3. **Linguistic construction eval** → §6.1. A Kreyòl-phenomena test suite (TMA markers, postposed determiners, `yo` pluralization, serial verbs, negation, false friends vs French, proverbs) — not translated English benchmarks.
@@ -251,13 +255,17 @@ Kreyòl-MT's own models beat CreoleVal's by +6.4 chrF (X→eng) / +14.1 chrF (en
 
 **Additional sources (private or partnership-dependent, not redistributed in this repo):** a dictionary KV store built on Kreyòl-MT data; translation-platform glossaries; any consented text from events; API-generated synthetic translations (§5.3). Plus partnership targets: Platfòm MIT-Ayiti materials, Haitian publishers/newsrooms, diaspora orgs (licensing conversations required).
 
-### 5.2 Provenance tagging (non-negotiable, from day one)
+### 5.2 Provenance, rights, and splits (non-negotiable — established *before* any ingestion)
 
-Every document carries a provenance tag — this powers both the corpus experiments and Station 5's nutrition label:
+One overloaded "provenance" string can't reproduce or legally audit a corpus build. Every document carries structured metadata — a lightweight Pydantic schema, not a database — with separate fields:
 
-`authored_kreyol` · `human_translation` · `machine_translation` · `machine_translation_reviewed` · `dictionary` · `oral_transcription` · `historical` · `social_conversational` · `synthetic_reviewed` · `synthetic_unreviewed`
+- **origin** — `authored_kreyol` · `human_translation` · `machine_translation` · `machine_translation_reviewed` · `oral_transcription` · `synthetic_reviewed` · `synthetic_unreviewed`
+- **genre** — encyclopedic · conversational · educational · religious · news · dictionary · historical · proverb
+- **source/acquisition** — MADLAD, Wikipedia (dump date), CreolePro, etc., plus URL, download timestamp, stable doc ID, and content hashes (raw + cleaned)
+- **rights** — license ID + URL, plus a per-source **rights matrix**: analysis / tokenizer-training / model-training / redistribution, each explicitly allowed, denied, or **unresolved → quarantined**. Unresolved sources (MIT-Haiti, the Kreyòl-MT-derived dictionary) never enter public artifacts — *including the tokenizer*, which is itself a derived artifact of its training text.
+- **split** — assigned from a registry created before ingestion: `train` / `tokenizer_eval` / `model_selection_dev` / `final_devtest` / `exhibit_examples`. All CreoleVal/FLORES content stays out of training; authored material splits by document or collection, never randomly by sentence; benchmark-contamination checks run against the final training corpus. **Proverbs split deliberately**: a teachable set (models may learn them — Station 2's "who knows the real proverb?" depends on it) and a held-out probe set that never appears in training.
 
-Plus: source URL/name, genre, license, collection date.
+This one schema powers the corpus experiments, the legal audit trail, and Station 5's nutrition label.
 
 ### 5.3 Synthetic data policy (research-backed ceilings)
 
@@ -285,6 +293,8 @@ Fluent speakers rate model output on separate axes: grammatical validity · natu
 
 Sourcing: community reviewers from the event network (compensated where possible), with consented Station 4 contributions accumulating into a community eval set over time. CreoleVal's own ethics framing (DeGraff co-authored) demands exactly this: engage the community, benefit the community.
 
+**Protocol:** model outputs are **blinded and randomized** — raters never see which model (or what size/brand) produced a sample, or expectation bias swamps the signal. Model *selection* happens on dev splits only; `final_devtest` is touched once, for final reporting.
+
 ---
 
 ## 7. Infrastructure & budget
@@ -307,7 +317,7 @@ Alternatives if a big run needs cheaper raw hours: RunPod (~$2–2.7/h H100), Va
 | SFT/LoRA instruction stage | ~1–2 GPU-h on L40S/A100 | **$2–5** |
 | Whole experimental program (incl. iteration ×3–5) | | **≈ $300–800 total** |
 
-Compute is a rounding error next to the human work (corpus curation, native-speaker review, exhibit build). Budget accordingly.
+Compute is a rounding error next to the human work (corpus curation, native-speaker review, exhibit build). Budget accordingly. Treat every figure above as a **hypothesis**: run a 1%-scale throughput benchmark before quoting costs publicly — the Model B ranges in particular may be optimistic.
 
 ### 7.3 Event serving (local-first — venue wifi is the #1 failure mode)
 
@@ -329,7 +339,7 @@ Same arc as Jaden Lakou: interaction → explanation → cultural meaning → pa
 | **3. Literal oswa sans viv la?** | A proverb → literal translation vs. lived meaning vs. usage situation, across models; grounded by dictionary lookups | Models + **the fast dictionary as retrieval layer** (facts vs. interpretation — labeled) |
 | **4. Montre modèl la** | *Kilès ki sonnen pi natirèl?* — fluent visitors rank outputs; consented, recorded, reviewed later into the community eval set | Simple form + consent flow (§10) |
 | **5. Kisa ki fòme modèl sa a?** | The nutrition label: token counts, sources, %authored vs translated vs synthetic, vocab size, params, known weaknesses, underrepresented dialects, who reviewed it | Static from provenance DB |
-| **6. Anndan tèt modèl la** | Attention-map visualization of Model C on a proverb — the Vaswani et al. mechanism, on Kreyòl | Precomputed or in-browser attention weights |
+| **6. Anndan tèt modèl la** | Attention-map visualization of Model C on a proverb — the Vaswani et al. mechanism, on Kreyòl. Presented honestly: one internal routing signal, *not* "what the model thought" | Precomputed or in-browser attention weights |
 | **(Bonus) Gade l ap aprann** | Checkpoint slider: the same prompt at 10M → 1B tokens of training; watch Kreyòl emerge | Pre-generated outputs per Pythia-style checkpoint |
 
 **Dictionary integration** (the grounding layer): word-tap anywhere → definition, pronunciation, POS, example, related words, proverb appearances (KV store, ~100ms) + clearly-labeled model-generated contextual explanation. Teaches the retrieval-vs-generation distinction honestly.
@@ -360,7 +370,7 @@ Same arc as Jaden Lakou: interaction → explanation → cultural meaning → pa
 
 1. Explicit, plain-language (Kreyòl + English) consent at Station 4: what's collected, what it's for, that it's reviewed before any use.
 2. Contributions go to a *review queue*, never silently into training.
-3. Provenance-tagged as community-contributed; contributors can withdraw.
+3. Provenance-tagged as community-contributed; contributors can withdraw — stated honestly: withdrawal removes a contribution from all *future* datasets and training runs, but removing it from already-trained weights would require retraining. This is why review happens *before* anything is trained on.
 4. Publish the nutrition label (Station 5) as the standing transparency commitment.
 5. Longer-term: convene Haitian community stakeholders (Akademi Kreyòl Ayisyen, MIT-Haiti, diaspora orgs) on whether a Kreyòl community-data license should exist — CreolePro as facilitator, not owner.
 
@@ -368,8 +378,11 @@ Same arc as Jaden Lakou: interaction → explanation → cultural meaning → pa
 
 ## 11. Phased plan
 
-**Phase 0 — Probes & tokenizer (1–2 weekends, ≈$0–10)**
-Assemble corpus v0 (MADLAD-clean + Wikipedia + dictionary), provenance-tagged. Train the 16–24k Kreyòl tokenizer. Measure fertility vs cl100k/o200k/Llama-3/Gemma/NLLB + Claude via `count_tokens` (novel numbers — protocol in §3.3). Zero-shot probe Qwen3/SmolLM3/Gemma-3 on FLORES+ hat → pick Model B's base. *Station 1 is already demoable after this phase.*
+**Phase 0a — Rights, corpus, tokenizer, fertility (≈$0, CPU only)**
+Rights matrix + split registry *first*, then corpus v0 (rights-clear sources only: MADLAD-clean + Wikipedia + owned material; unresolved sources quarantined), provenance-tagged, with a stratified quality audit. Train the 16–24k Kreyòl tokenizer (nanochat rustbpe, pinned commit). Measure fertility vs cl100k/o200k/Llama-3/Gemma/NLLB + Claude via `count_tokens` (novel numbers — protocol in §3.3). *Station 1 is already demoable after this phase.*
+
+**Phase 0b — Base-model probe (≈$5–10)**
+Staged probe of the *base* checkpoints (Qwen3-Base / SmolLM3-Base / gemma-3-4b-pt) on FLORES+ **dev**: bits-per-byte + few-shot scorecard → pick Model B's base. Full runbook: [phase-0.md](./phase-0.md).
 
 **Phase 1 — Model C v0 (≈$30–100)**
 nanochat d12 on corpus v0, multi-epoch, Pythia-style checkpoints. Micro-model mixture ablations. GGUF + browser conversion validated *early*. *Stations 2/6/bonus become demoable.*
@@ -381,7 +394,7 @@ Full-param CPT (85–90/10–15 mix) via Axolotl on Modal; instruction stage fro
 CreoleVal + FLORES+ + construction suite on A/B/C; recruit native-speaker reviewers; build the human-eval rubric; assemble nutrition labels.
 
 **Phase 4 — Exhibit build**
-Next.js kiosk pages (in-browser Model C, tokenizer viz, checkpoint slider), Ollama setup on event MacBooks, dictionary integration, consent flow, 5G hotspot + fallbacks, dry run.
+Next.js kiosk pages (in-browser Model C, tokenizer viz, checkpoint slider), Ollama setup on event MacBooks, dictionary integration, consent flow, **a public-interaction safety pass** (toxic-output probing, memorized-PII checks, prompt-abuse handling, kiosk auto-reset between visitors), 5G hotspot + fallbacks, dry run.
 
 **Phase 5 — Post-event / ongoing**
 Fold reviewed Station 4 data into eval set v2. Synthetic-data experiment (no/unreviewed/reviewed). Voice recording with consented speakers. Community-license conversation. Consider publishing: the tokenizer-fertility numbers, the construction suite, and the models (license TBD with community input) — each is a genuine contribution.
