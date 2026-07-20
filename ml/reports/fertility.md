@@ -4,9 +4,9 @@
 
 ## Headline
 
-On 1012 aligned FLORES+ `devtest` sentences, the same content costs **1.74× more tokens in Haitian Creole than in English** on `cl100k` and as little as **1.10×** on `NLLB`. Full parity table below, with paired-bootstrap 95% CIs.
+On 1012 aligned FLORES+ `devtest` sentences, the same content costs **1.74× more tokens in Haitian Creole than in English** on `cl100k` and as little as **1.10×** on `NLLB` — on which Kreyòl is actually *cheaper than French* (ht/fr **0.81**). Full parity table below, with paired-bootstrap 95% CIs.
 
-To our knowledge these are among the **first published Haitian-Creole fertility numbers we could find (as of 2026-07-19)** for several modern tokenizers measured here — e.g. o200k, Gemma-3, Qwen3, SmolLM3 — and for the Claude `count_tokens` API. (cl100k and NLLB already have published figures via Petrov et al.; ours reproduce them.) We say "first published we could find," not "first-ever."
+**This extends Petrov et al. (2023)** ([arXiv:2305.15425](https://arxiv.org/abs/2305.15425)), who measured Haitian Creole through the cl100k-era tokenizers (cl100k, NLLB, Llama 1/2, mT5, …) — our cl100k and NLLB rows reproduce theirs. The new contribution is the post-2023 generation: **as of 2026-07-19 we could find no previously published Haitian-Creole parity numbers for o200k, Gemma-3, Qwen3, SmolLM3/Llama-3, or any Claude API estimate** — those rows are, to our knowledge, first published here. ("First published we could find," not "first-ever.")
 
 ## Pipeline validation (Petrov et al. 2023)
 
@@ -41,6 +41,8 @@ Before measuring anything new, we reproduce Petrov et al.'s published Haitian/En
 | Qwen3 (Qwen/Qwen3-1.7B) | `Qwen/Qwen3-1.7B` | `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e` |
 | NLLB (facebook/nllb-200-distilled-600M) | `facebook/nllb-200-distilled-600M` | `f8d333a098d19b4fd9a8b18f94170487ad3f821d` |
 | SmolLM3 (HuggingFaceTB/SmolLM3-3B) | `HuggingFaceTB/SmolLM3-3B` | `a07cc9a04f16550a088caea529712d1d335b0ac1` |
+
+> **Note:** SmolLM3's tokenizer is the Llama-3 family (vocab size 128,256 — SmolLM3 adopted the Llama 3.2 tokenizer), so its row very likely previews the pending gated Llama-3 row. Verify identity (same encoding of a probe set) when the Meta gate opens, then either merge or report both.
 | claude_api_input_parity (claude-opus-4-8) | `claude-opus-4-8` | `claude-opus-4-8` |
 
 ## Results — parity (Haitian Creole ÷ English)
@@ -48,7 +50,7 @@ Before measuring anything new, we reproduce Petrov et al.'s published Haitian/En
 ![Kreyòl token tax parity](fertility_parity.png)
 
 | Tokenizer / API | ht/en parity | 95% CI | % premium | ht/fr parity | ht tok/word | word survival | sents/8k (ht vs en) |
-|---|--:|:--:|--:|--:|:--:|--:|
+|---|--:|:--:|--:|--:|--:|--:|:--:|
 | NLLB (facebook/nllb-200-distilled-600M) | **1.099** | [1.089, 1.108] | +9.9% | 0.813 | 1.472 | 50/50 | 246.3 vs 270.6 |
 | o200k (GPT-4o-era) | **1.411** | [1.398, 1.425] | +41.1% | 1.032 | 1.659 | 47/50 | 218.6 vs 308.5 |
 | claude_api_input_parity (claude-opus-4-8) | **1.513** | [1.485, 1.541] | +51.3% | 1.022 | 2.839 | — | 127.7 vs 193.2 |
@@ -83,9 +85,9 @@ Shown **only** for tokenizers/APIs tied to an actually-priced API. Prices are an
 
 ## Skipped items & flags
 
-- **SKIPPED Llama-3 (meta-llama/Llama-3.2-3B)** (`meta-llama/Llama-3.2-3B`): OSError: You are trying to access a gated repo. Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B. 403 Client Error. (Request ID: Root=1-6. The script is re-runnable to fill this row later.
+- **SKIPPED Llama-3 (meta-llama/Llama-3.2-3B)**: gated repo, access approval still pending (403). The script is re-runnable to fill this row later — and per the note above, the SmolLM3 row likely already previews it (same tokenizer family).
 - **No authored-Kreyòl set measured.** The translated-vs-authored fertility check (FLORES's Haitian side is itself translated) requires a proverb/authored corpus; none exists in the repo yet. **TODO:** add an authored-Kreyòl set and re-run for the translationese comparison.
-- **Our Kreyòl BPE not included** (`tokenizer/tokenizer.json` absent — Workstream B not yet run). It is expected to land near/below 1.0× by construction; re-run once trained.
+- **Our Kreyòl BPE not included** (`tokenizer/tokenizer.json` absent — Workstream B not yet run). Expected to land near or below 1.0× (a Kreyòl-trained vocab flips the tax by making *English* the inefficient side) — but that's a hypothesis to measure, not a guarantee. Re-run once trained.
 
 ## Reproduce
 

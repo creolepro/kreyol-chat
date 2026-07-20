@@ -10,7 +10,7 @@
 | 0   | **Rights matrix + split registry** — per-source permissions; train/eval/exhibit splits fixed before ingestion                                   | Everything downstream; the legal audit trail                                 |
 | 1   | **Corpus v0** — deduplicated, provenance-tagged JSONL from rights-clear sources + a stats report with a quality audit                           | Model C pretraining (Phase 1), tokenizer training, Station 5 nutrition label |
 | 2   | **Tokenizer v0** — byte-level BPE (nanochat rustbpe, pinned commit), vocab size chosen from a sweep                                             | Model C (Phase 1), Station 1                                                 |
-| 3   | **Fertility report** — parity ratios for Kreyòl vs English vs French across ~8 tokenizers, with CIs; first *published* HT numbers we know of    | Publishable writeup, Station 1, Twitter series                               |
+| 3   | **Fertility report** — parity ratios for Kreyòl vs English vs French across ~8 tokenizers, with CIs; extends Petrov et al. (cl100k era) with the first HT numbers we could find for o200k/Gemma-3/Qwen3/SmolLM3 + a Claude API estimate — **✅ done 2026-07-19**, [report](../ml/reports/fertility.md) | Publishable writeup, Station 1, Twitter series                               |
 | 4   | **Base-model probe (0b)** — BPB + few-shot scorecard for the candidate *base* checkpoints on FLORES+ dev                                        | The Model B base-model decision (Phase 2)                                    |
 
 Success = we can answer three questions with our own defensible numbers: _how much usable Kreyòl text exists (really)_, _what does the token tax measure on modern tokenizers_, and _which base checkpoint starts from the strongest Kreyòl position_.
@@ -108,6 +108,8 @@ Cheap ablation worth 30 minutes (exhibit content): train one 16k tokenizer on _E
 ---
 
 ## Workstream C — Fertility measurement (Phase 0a; the novel numbers)
+
+> **Status 2026-07-19: complete** ([results](../ml/fertility/results.csv), [report](../ml/reports/fertility.md)). Petrov replication passed (1.7383 vs his 1.7388). Headline: cl100k 1.74× · Qwen3 1.72× · SmolLM3/Llama-3-family 1.70× · Gemma-3 1.53× · Claude API 1.51× · o200k 1.41× · NLLB 1.10×. Outstanding: Llama-3 direct row (gate pending; SmolLM3 shares its tokenizer), authored-Kreyòl set (TODO), our tokenizer's row (after Workstream B).
 
 Protocol summary (full rationale in plan.md §3.3):
 

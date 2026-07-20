@@ -46,7 +46,19 @@ Petrov et al. 2023, *"Language Model Tokenizers Introduce Unfairness Between Lan
 
 Station 1 punchline: *same sentence — less memory, slower answer, higher price, weaker learning.*
 
-**Unverified/gap:** no published Haitian Creole fertility numbers exist for the newest tokenizers (GPT-4o's o200k, Llama 3's 128k, Gemma's 256k). Measuring them ourselves is a cheap, publishable contribution — and exactly what Station 1 of the exhibit computes live.
+**Update (2026-07-19): we measured the post-Petrov generation ourselves** — first published HT parity numbers we could find for these tokenizers, on 1,012 FLORES+ devtest sentences with bootstrap CIs (full report: [ml/reports/fertility.md](../ml/reports/fertility.md)):
+
+| Tokenizer (our measurement) | ht/en parity |
+|---|---|
+| NLLB (reproduces Petrov) | 1.10 |
+| **o200k (GPT-4o-era)** | **1.41** |
+| Claude API input parity (claude-opus-4-8) | 1.51 |
+| Gemma-3 (256k vocab) | 1.53 |
+| SmolLM3 (= Llama-3-family tokenizer, 128k) | 1.70 |
+| Qwen3 | 1.72 |
+| cl100k (reproduces Petrov's 1.74) | 1.74 |
+
+Two findings: **o200k roughly halves the tax vs cl100k** — tokenizer progress *can* reach Kreyòl — but **newer ≠ fairer**: Qwen3 and the Llama-3-family tokenizer are still at cl100k-era levels. The tax is a design choice, not an era. Station 1 computes exactly this live.
 
 ### 1.2 The quality gap is real: frontier LLMs measurably lag on Kreyòl
 
@@ -196,7 +208,7 @@ What we borrow from Kreyòl-MT is the *principle*, not the objective: **pretrain
 
 ### 3.3 The four experiments (mapped to stations)
 
-1. **Tokenizer experiment** → Station 1. Train the Kreyòl tokenizer; measure fertility (tokens/sentence) for Kreyòl vs English vs French across: our tokenizer, cl100k, o200k, Llama 3, Gemma, NLLB. The o200k/Llama-3/Gemma numbers for HT are *unpublished* — we'd be first. Show which words survive intact.
+1. **Tokenizer experiment** → Station 1. Train the Kreyòl tokenizer; measure fertility (tokens/sentence) for Kreyòl vs English vs French across: our tokenizer, cl100k, o200k, Llama 3, Gemma, NLLB. *(External-tokenizer measurements ✅ done 2026-07-19 — see §1.1 table + [ml/reports/fertility.md](../ml/reports/fertility.md); our tokenizer's row lands after Workstream B.)* Show which words survive intact.
 
    **Measurement protocol** (~150 lines of Python, no GPU, an afternoon):
    - *Data:* FLORES+ `hat/eng/fra` devtest — 1,012 parallel sentences, same content in all three languages (gated HF repo, CC-BY-SA) — plus a small authored-Kreyòl set (proverbs, MIT-Haiti sentences), since FLORES's Haitian side is itself translated; a translated-vs-authored fertility gap would be a finding on its own.
