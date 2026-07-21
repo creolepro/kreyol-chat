@@ -9,7 +9,7 @@
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | 0   | **Rights matrix + split registry** — per-source permissions; train/eval/exhibit splits fixed before ingestion — **✅ done 2026-07-20** ([rights](../ml/corpus/rights.yaml) · [splits](../ml/corpus/splits.yaml)) | Everything downstream; the legal audit trail                                 |
 | 1   | **Corpus v0** — deduplicated, provenance-tagged JSONL from rights-clear sources + a stats report with a quality audit — **✅ done 2026-07-20** ([report](../ml/reports/corpus_v0.md)) | Model C pretraining (Phase 1), tokenizer training, Station 5 nutrition label |
-| 2   | **Tokenizer v0** — byte-level BPE (nanochat rustbpe, pinned commit), vocab size chosen from a sweep                                             | Model C (Phase 1), Station 1                                                 |
+| 2   | **Tokenizer v0** — byte-level BPE (nanochat rustbpe, pinned commit), vocab size chosen from a sweep — **✅ done 2026-07-20** ([tokenizer_v0](../ml/reports/tokenizer_v0.md) · [B0 spike](../ml/reports/rustbpe_spike.md)) | Model C (Phase 1), Station 1                                                 |
 | 3   | **Fertility report** — parity ratios for Kreyòl vs English vs French across ~8 tokenizers, with CIs; extends Petrov et al. (cl100k era) with the first HT numbers we could find for o200k/Gemma-3/Qwen3/SmolLM3 + a Claude API estimate — **✅ done 2026-07-19**, [report](../ml/reports/fertility.md) | Publishable writeup, Station 1, Twitter series                               |
 | 4   | **Base-model probe (0b)** — BPB + few-shot scorecard for the candidate *base* checkpoints on FLORES+ dev                                        | The Model B base-model decision (Phase 2)                                    |
 
@@ -97,6 +97,8 @@ Output: `data/clean/corpus_v0-*.jsonl` + the report. The ~90–100M figure is an
 
 ## Workstream B — Tokenizer v0 (Phase 0a)
 
+> **Status 2026-07-20: complete** ([tokenizer_v0](../ml/reports/tokenizer_v0.md), [B0 spike](../ml/reports/rustbpe_spike.md)). B0 verdict **GO**: `rustbpe` is a standalone PyPI wheel (no source build); toy round-trips exactly; HF + browser bridges reproduce tiktoken IDs 100% on a 1k-line probe. **Apostrophe decision: Kreyòl-aware pattern** — dropped nanochat's English-contraction clause, which shredded `m'te`/`n'ta` into `'t`+vowel (`m'ap`-family and English contractions unchanged). Sweep 8/16/24/32k on a seeded natural-weighted sample (train split only; holdout + probe proverbs excluded); a crawl-downweighted 16k sensitivity variant barely moved the metrics, so natural weighting stands. **Chosen 24,576** (compression flattens: 24→32k adds only 1.9% bytes/token; embedding table 37.7M params at d12). 100% core-word survival, 78% top-500. Committed under `ml/tokenizer/kreyol-bpe/` (3 formats). On FLORES+ it lands **ht/en 0.67× / ht/fr 0.57×** — it flips the token tax (Workstream C row updated).
+
 **Tool: nanochat's rustbpe, pinned to a specific commit.** Two byte-level BPE implementations are *not* interchangeable (pre-tokenization regex, prefix-space handling, merge ordering, serialization all differ) — using the real Phase 1 tokenizer now avoids a false dress rehearsal. Fallback if rustbpe integration fights back: HF `tokenizers`, explicitly demoted to analysis-only, with a parity test against rustbpe required before Phase 1.
 
 **B0. Integration spike (mandatory first step, ~1–2h — resolves Phase 0a's last unknown):**
@@ -136,7 +138,7 @@ Cheap ablation worth 30 minutes (exhibit content): train one 16k tokenizer on _E
 
 ## Workstream C — Fertility measurement (Phase 0a; the novel numbers)
 
-> **Status 2026-07-19: complete** ([results](../ml/fertility/results.csv), [report](../ml/reports/fertility.md)). Petrov replication passed (1.7383 vs his 1.7388). Headline: cl100k 1.74× · Qwen3 1.72× · SmolLM3/Llama-3-family 1.70× · Gemma-3 1.53× · Claude API 1.51× · o200k 1.41× · NLLB 1.10×. Outstanding: Llama-3 direct row (gate pending; SmolLM3 shares its tokenizer), authored-Kreyòl set (TODO), our tokenizer's row (after Workstream B).
+> **Status 2026-07-19: complete** ([results](../ml/fertility/results.csv), [report](../ml/reports/fertility.md)). Petrov replication passed (1.7383 vs his 1.7388). Headline: cl100k 1.74× · Qwen3 1.72× · SmolLM3/Llama-3-family 1.70× · Gemma-3 1.53× · Claude API 1.51× · o200k 1.41× · NLLB 1.10× · **kreyol-bpe (ours) 0.67×** (added 2026-07-20 — flips the tax; ht/fr 0.57×). Outstanding: Llama-3 direct row (gate still 403; SmolLM3 shares its tokenizer), authored-Kreyòl set (TODO).
 
 Protocol summary (full rationale in plan.md §3.3):
 
