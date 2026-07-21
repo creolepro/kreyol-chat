@@ -1,0 +1,109 @@
+# Split registry — Workstream 0 (kreyol-chat, Phase 0)
+#
+# Fixed BEFORE ingestion and versioned forever. Every document produced by the
+# corpus pipeline carries a `split` field (see schema.Split) assigned from this
+# registry. The registry — not a random per-run shuffle — is what keeps eval
+# clean and reproducible.
+#
+# Spec: docs/phase-0.md §Workstream 0; docs/plan.md §5.2.
+
+meta:
+  workstream: "0 — split registry"
+  spec: "docs/phase-0.md §Workstream 0; docs/plan.md §5.2"
+  authored: "2026-07-20"
+
+# ---------------------------------------------------------------------------
+# The five splits.
+# ---------------------------------------------------------------------------
+splits:
+  - name: train
+    purpose: "Pretraining + tokenizer training corpus (corpus v0)."
+    may_enter_training: true
+    notes: "Rights-clear sources only. Deduplicated, provenance-tagged."
+
+  - name: tokenizer_eval
+    purpose: "Held-out text for evaluating tokenizer compression / fertility (Workstream B/C)."
+    may_enter_training: false
+    notes: "Never used to TRAIN the tokenizer or any model; measurement only."
+
+  - name: model_selection_dev
+    purpose: "Model/hyperparameter selection during Phases 0b–2 (e.g. FLORES+ dev)."
+    may_enter_training: false
+
+  - name: final_devtest
+    purpose: "Touched once, for final reporting on chosen model(s) (e.g. FLORES+ devtest)."
+    may_enter_training: false
+    notes: "Reserved. Workstream C already measures fertility on FLORES+ devtest — a measurement, not training."
+
+  - name: exhibit_examples
+    purpose: "Fixed prompts / demo items for the exhibit (Station 1/2/6); includes the proverb PROBE split."
+    may_enter_training: false
+    notes: "Held-out probe proverbs live here so Station 2 ('who knows the real proverb?') is honest."
+
+# ---------------------------------------------------------------------------
+# Rules (invariants enforced by the pipeline / checked before a training run).
+# ---------------------------------------------------------------------------
+rules:
+  exclude_from_training:
+    # All CreoleVal/FLORES content stays OUT of training (terms + contamination).
+    - flores_plus
+    - mit_haiti_creoleval        # CreoleVal MT dir (also quarantined in rights.yaml)
+    - creolepro_dictionary       # quarantined
+  authored_split_granularity: document_or_collection
+  authored_split_never: sentence
+  # Rationale: splitting authored material by sentence leaks near-duplicates
+  # across train/eval. Split whole documents or whole collections instead.
+  benchmark_contamination_check:
+    enabled: true
+    against: [flores_plus, mit_haiti_creoleval]
+    method: "n-gram overlap (run against the FINAL training corpus, before any training run)"
+    status: "defined here; executed at tokenizer/model-training time, not in corpus v0 assembly"
+
+# ---------------------------------------------------------------------------
+# Proverbs — the deliberate two-way split (docs/phase-0.md §Workstream 0).
+# ---------------------------------------------------------------------------
+proverbs:
+  split_rule:
+    teachable:
+      into: train
+      may_enter_training: true
+      purpose: >-
+        Models MAY learn these — Station 2's 'who knows the real proverb?'
+        requires models to have seen proverbs at all.
+    probe:
+      into: exhibit_examples
+      may_enter_training: false
+      purpose: >-
+        Held-out; NEVER appears in training or the tokenizer corpus. This is the
+        set Station 2 tests against.
+    assignment_granularity: by_collection    # never split a single proverb's variants across sets
+  file:
+    path: "ml/data/eval/proverbs.jsonl"      # git-ignored; rebuilt by corpus/proverbs_fetch.py
+    probe_path: "ml/data/eval/proverbs_probe.jsonl"
+    source_url: "https://www.creolepro.com/blog/haitian-creole-proverbs-cultural-wisdom"
+    status: present
+    count: 50
+    teachable: 35
+    probe: 15
+    split_seed: 20260720
+    note: >-
+      50 CreolePro proverbs. Deterministic split (seed 20260720): the 15 with the
+      smallest seeded hash are the held-out probe set (written to `probe_path`,
+      never ingested); the other 35 are teachable and enter `train`. Re-running
+      the fetch + pipeline reproduces the exact split.
+
+# ---------------------------------------------------------------------------
+# Per-source split assignment for what is actually built in corpus v0.
+# ---------------------------------------------------------------------------
+assignment:
+  madlad_400_ht_clean: train
+  ht_wikipedia: train                 # bot-stubs flagged (wiki_bot_stub), not moved out of train
+  owned_proverbs:
+    teachable: train                  # pending the proverbs file
+    probe: exhibit_examples
+  flores_plus:
+    dev: model_selection_dev
+    devtest: final_devtest
+  # Quarantined sources get no split — they never enter any artifact.
+  mit_haiti_creoleval: null
+  creolepro_dictionary: null

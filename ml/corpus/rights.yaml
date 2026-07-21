@@ -1,0 +1,194 @@
+# Rights matrix — Workstream 0 (kreyol-chat, Phase 0)
+#
+# One entry per source. Written BEFORE any ingestion and versioned forever; this
+# is the legal audit trail. Every document produced by the corpus pipeline
+# carries a `rights` block (see schema.py) whose four per-use verdicts are copied
+# from the matching source entry here.
+#
+# Per-use verdict vocabulary (see schema.RightsVerdict):
+#   allowed    — the use is permitted under the cited license/terms
+#   denied     — the use is NOT permitted (source is quarantined for that use)
+#   unresolved — permission is genuinely unclear; treat as denied until resolved
+#   eval_only  — permitted for evaluation/measurement only, never for training or
+#                redistribution (used for benchmark corpora)
+#
+# Uses tracked (mirror docs/plan.md §5.2): analysis, tokenizer_training,
+# model_training, redistribution.
+#
+# Discipline (docs/phase-0.md §Workstream 0 + §11): any source with an
+# `unresolved`/`denied` verdict for a use never enters an artifact built for that
+# use — INCLUDING the tokenizer, which is itself a derived artifact of its
+# training text. Analysis/counting on quarantined sources is fine.
+
+meta:
+  workstream: "0 — rights matrix"
+  spec: "docs/phase-0.md §Workstream 0; docs/plan.md §5.2, §11"
+  authored: "2026-07-20"
+  # Sources actually ingested into corpus v0 (Workstream A). Everything else is
+  # either quarantined or eval-only and is NOT ingested.
+  ingested_in_corpus_v0: [madlad_400_ht_clean, ht_wikipedia, owned_proverbs]
+
+sources:
+
+  - key: madlad_400_ht_clean
+    name: "MADLAD-400 — Haitian Creole (ht), clean split"
+    priority_class: crawl            # dedup survivor priority: owned > wikipedia > crawl
+    hf_repo: "allenai/MADLAD-400"
+    hf_revision: "9d886a76bd8fa69b294f2dd3843dacb8388ee5a5"
+    file: "data/ht/ht_clean_0000.jsonl.gz"
+    license:
+      id: "UNRESOLVED"
+      status: unresolved
+      # The discrepancy is tracked as an explicit item under `unresolved:` below,
+      # with both citations. Redistribution stays blocked until it is resolved.
+      candidates:
+        - id: "CC-BY-4.0"
+          url: "https://creativecommons.org/licenses/by/4.0/"
+          claimed_by: "HuggingFace dataset card metadata — huggingface.co/datasets/allenai/MADLAD-400"
+        - id: "ODC-BY-1.0"
+          url: "https://opendatacommons.org/licenses/by/1-0/"
+          claimed_by: "MADLAD-400 paper / AllenAI release — arXiv:2309.04662"
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: unresolved       # ⚠️ in the phase-0.md table
+    quarantined: false
+    notes: >-
+      Common-Crawl-derived, machine-mixed web text (the corpus backbone,
+      ~84.3M whitespace "tokens" / 110,443 docs by AllenAI's count). Both
+      candidate licenses permit redistribution WITH attribution, so the open
+      question is which attribution/terms apply, not whether redistribution is
+      possible at all — but per phase-0.md we do not publish artifacts built on
+      it (or excerpt its text in committed files) until the exact license is
+      confirmed. See `unresolved:` below.
+
+  - key: ht_wikipedia
+    name: "Haitian Creole Wikipedia (htwiki)"
+    priority_class: wikipedia
+    dump: "https://dumps.wikimedia.org/htwiki/20260701/htwiki-20260701-pages-articles.xml.bz2"
+    dump_date: "20260701"
+    license:
+      id: "CC-BY-SA-4.0"
+      url: "https://creativecommons.org/licenses/by-sa/4.0/"
+      status: clear
+      terms_url: "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use"
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # ✅ with share-alike + attribution
+    quarantined: false
+    notes: >-
+      Authored encyclopedic text, but bot-generated stubs are a large share of
+      htwiki and are FLAGGED separately (schema field `wiki_bot_stub`) rather
+      than blanket-labeled "authored". Redistribution carries CC-BY-SA
+      obligations (attribution + share-alike on derived text).
+
+  - key: owned_proverbs
+    name: "CreolePro owned proverbs / authored materials"
+    priority_class: owned              # highest dedup survivor priority
+    source_url: "https://www.creolepro.com/blog/haitian-creole-proverbs-cultural-wisdom"
+    fetched: "2026-07-20"
+    license:
+      id: "CreolePro-owned"
+      url: null
+      status: clear
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed          # TEACHABLE split only — see splits.yaml
+      redistribution: allowed
+    quarantined: false
+    ingested_in_v0: true
+    notes: >-
+      Owned outright — 50 traditional Haitian Creole proverbs from CreolePro's
+      own blog (`corpus/proverbs_fetch.py` rebuilds the file). Split
+      deterministically (seed 20260720) into a `teachable` set (35, may enter
+      training) and a held-out `probe` set (15, never in training/tokenizer) —
+      see splits.yaml. Only the Kreyòl text enters the corpus; the English gloss
+      and category are metadata. The extracted file lives under the git-ignored
+      `data/eval/` per the repo data policy (code committed, data not).
+
+  - key: mit_haiti_creoleval
+    name: "MIT-Haiti materials (CreoleVal MT directory)"
+    priority_class: owned
+    license:
+      id: "OTHER-MIXED"
+      url: "https://github.com/hclent/CreoleVal"
+      status: unresolved
+    uses:
+      analysis: allowed
+      tokenizer_training: denied        # quarantine
+      model_training: denied
+      redistribution: denied
+    quarantined: true
+    notes: >-
+      Mixed per-file licenses — unresolved. Also serves as a CreoleVal *eval*
+      set, so training on it would risk benchmark contamination. Sits untouched
+      in data/quarantine/; analysis/counting is permitted, artifacts are not.
+
+  - key: creolepro_dictionary
+    name: "CreolePro dictionary (private)"
+    priority_class: owned
+    license:
+      id: "OTHER"
+      url: null
+      status: unresolved
+    uses:
+      analysis: allowed
+      tokenizer_training: denied        # quarantine
+      model_training: denied
+      redistribution: denied
+    quarantined: true
+    notes: >-
+      Kreyòl-MT-derived, license tagged "other" — unresolved. Quarantined until
+      rights resolve; never enters any artifact, tokenizer included.
+
+  - key: flores_plus
+    name: "FLORES+ (openlanguagedata/flores_plus)"
+    priority_class: eval
+    hf_repo: "openlanguagedata/flores_plus"
+    hf_revision: "b3a5298db5721c8a682e7ef00a37fcc9ab522757"
+    license:
+      id: "CC-BY-SA-4.0"
+      url: "https://creativecommons.org/licenses/by-sa/4.0/"
+      status: clear_but_eval_only
+    uses:
+      analysis: eval_only
+      tokenizer_training: denied         # (terms + contamination)
+      model_training: denied             # (terms)
+      redistribution: denied             # do not re-host sentence text
+    quarantined: false
+    notes: >-
+      Eval-only by its own terms and by our anti-contamination policy. Dataset
+      version pinned (revision above). Already used, correctly, by Workstream C
+      (fertility) without re-hosting any sentence text. NOT ingested into the
+      training corpus.
+
+# ---------------------------------------------------------------------------
+# Explicitly unresolved items — each blocks a specific use until closed.
+# ---------------------------------------------------------------------------
+unresolved:
+  - id: madlad_license_discrepancy
+    source: madlad_400_ht_clean
+    blocks: [redistribution]
+    summary: >-
+      MADLAD-400's license is cited two different ways. Redistribution of MADLAD
+      text (and committing excerpts of it) stays blocked until we confirm which
+      applies and record the exact obligation.
+    citations:
+      - claim: "CC-BY-4.0"
+        where: "HuggingFace dataset card metadata"
+        url: "https://huggingface.co/datasets/allenai/MADLAD-400"
+      - claim: "ODC-BY-1.0"
+        where: "MADLAD-400 paper (Kudugunta et al., 2023) / AllenAI data release"
+        url: "https://arxiv.org/abs/2309.04662"
+    resolution_note: >-
+      Both candidate licenses are attribution licenses that permit
+      redistribution, so downstream use for analysis/tokenizer/model training is
+      not blocked; only redistribution and text-excerpting are held pending a
+      documented final read of the authoritative license file. Verify the exact
+      license text (HF card vs. paper vs. the google-research/madlad-400 repo
+      LICENSE) and update this entry + the source's `license.id` before
+      publishing any artifact or excerpt built on MADLAD.
