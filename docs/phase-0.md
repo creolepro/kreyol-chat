@@ -120,6 +120,20 @@ Cheap ablation worth 30 minutes (exhibit content): train one 16k tokenizer on _E
 
 ---
 
+## Side-quest (optional, queued after B) — Kreyòl language-ID classifier
+
+**Motivation (a Workstream A finding):** off-the-shelf language ID (fasttext `lid.176`) demonstrably can't recognize Haitian Creole — the corpus audit flagged genuine Kreyòl as French/Spanish/Javanese, so our wrong-language rates are tooling artifacts as much as corpus signal. The representation gap extends to the auditing tools themselves.
+
+**Build (~1–2h):** a small fasttext-style supervised classifier, `ml/langid/`.
+
+- **Positives**: high-confidence Kreyòl from corpus v0 — non-stub Wikipedia, teachable proverbs, and human-verified audit docs. (Avoid circularity: don't blindly use crawl text the audit itself questioned.)
+- **Negatives**: French/English/Spanish samples from open sources with clean licenses (e.g., Wikipedia dumps, wikitext). **Not FLORES+** — it stays eval-only, and it doubles as an untouched test set for the classifier itself.
+- **Ground truth for evaluation**: the human-reviewed audit sample — once the human pass labels those 200 docs, they become the classifier's test set for free. Report accuracy vs `lid.176` on the same docs.
+- **Payoff**: a trustworthy **corpus-wide contamination scan** (replacing the machine-estimate upper bounds in the corpus report with defensible numbers for the nutrition label), reusable at Phase 1 data scale, and a finding for the series: *standard tooling can't recognize Kreyòl, so we built our own detector.*
+- Small, self-contained, CPU-only. Blocked on: the human audit pass (its test set). Not a dependency of anything — Phase 1 can proceed without it.
+
+---
+
 ## Workstream C — Fertility measurement (Phase 0a; the novel numbers)
 
 > **Status 2026-07-19: complete** ([results](../ml/fertility/results.csv), [report](../ml/reports/fertility.md)). Petrov replication passed (1.7383 vs his 1.7388). Headline: cl100k 1.74× · Qwen3 1.72× · SmolLM3/Llama-3-family 1.70× · Gemma-3 1.53× · Claude API 1.51× · o200k 1.41× · NLLB 1.10×. Outstanding: Llama-3 direct row (gate pending; SmolLM3 shares its tokenizer), authored-Kreyòl set (TODO), our tokenizer's row (after Workstream B).
@@ -166,6 +180,7 @@ Shareable milestones hiding in here: first published Claude/o200k/Llama-3/Gemma 
 - A (1% first): run the pipeline end-to-end on a 1% sample; fix schema/filters; then full build → quality audit → corpus report
 - B: tokenizer sweep (rustbpe, pinned) → compression + survival eval → pick vocab → export browser JSON
 - C: Petrov replication on his data → FLORES+ measurement → Claude API measurement (separately labeled) → CSV/chart/report
+- (optional, after B + the human audit pass): Kreyòl language-ID classifier → corpus-wide contamination scan
 
 **Phase 0b:**
 
