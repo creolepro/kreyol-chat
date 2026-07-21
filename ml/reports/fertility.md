@@ -8,7 +8,7 @@ On 1012 aligned FLORES+ `devtest` sentences, the same content costs **1.74× mor
 
 **Our Kreyòl tokenizer (`kreyol-bpe`, Workstream B) lands at ht/en parity 0.67× (95% CI [0.67, 0.68]) and ht/fr 0.57× ([0.56, 0.57]).** It **flips the tax**: identical content now costs *fewer* tokens in Kreyòl than in English — the point of training a Kreyòl-first vocabulary.
 
-To our knowledge these are among the **first published Haitian-Creole fertility numbers we could find (as of 2026-07-19)** for several modern tokenizers measured here — e.g. o200k, Gemma-3, Qwen3, SmolLM3 — and for the Claude `count_tokens` API. (cl100k and NLLB already have published figures via Petrov et al.; ours reproduce them.) We say "first published we could find," not "first-ever."
+**This extends Petrov et al. (2023)** ([arXiv:2305.15425](https://arxiv.org/abs/2305.15425)), who measured Haitian Creole through the cl100k-era tokenizers — our cl100k and NLLB rows reproduce theirs. The new contribution is the post-2023 generation: **as of 2026-07-19 we could find no previously published Haitian-Creole parity numbers for o200k, Gemma-3, Qwen3, SmolLM3, or any Claude API estimate** — those rows are, to our knowledge, first published here, alongside our own Kreyòl tokenizer. ("First published we could find," not "first-ever.")
 
 ## Pipeline validation (Petrov et al. 2023)
 
@@ -46,12 +46,14 @@ Before measuring anything new, we reproduce Petrov et al.'s published Haitian/En
 | kreyol-bpe (ours, Workstream B) | `tokenizer/kreyol-bpe/tokenizer.json` | `local` |
 | claude_api_input_parity (claude-opus-4-8) | `claude-opus-4-8` | `claude-opus-4-8` |
 
+> **Note:** SmolLM3's tokenizer is the Llama-3 family (vocab size 128,256 — SmolLM3 adopted the Llama 3.2 tokenizer), so its row very likely previews the gated Llama-3 row. Verify identity (same encoding of a probe set) when the Meta gate opens, then either merge or report both.
+
 ## Results — parity (Haitian Creole ÷ English)
 
 ![Kreyòl token tax parity](fertility_parity.png)
 
 | Tokenizer / API | ht/en parity | 95% CI | % premium | ht/fr parity | ht tok/word | word survival | sents/8k (ht vs en) |
-|---|--:|:--:|--:|--:|:--:|--:|
+|---|--:|:--:|--:|--:|--:|--:|:--:|
 | kreyol-bpe (ours, Workstream B) | **0.674** | [0.668, 0.681] | -32.6% | 0.567 | 1.286 | 50/50 | 281.9 vs 190.1 |
 | NLLB (facebook/nllb-200-distilled-600M) | **1.099** | [1.089, 1.108] | +9.9% | 0.813 | 1.472 | 50/50 | 246.3 vs 270.6 |
 | o200k (GPT-4o-era) | **1.411** | [1.398, 1.425] | +41.1% | 1.032 | 1.659 | 47/50 | 218.6 vs 308.5 |
@@ -88,8 +90,8 @@ Shown **only** for tokenizers/APIs tied to an actually-priced API. Prices are an
 
 ## Skipped items & flags
 
-- **SKIPPED Llama-3 (meta-llama/Llama-3.2-3B)** (`meta-llama/Llama-3.2-3B`): OSError: You are trying to access a gated repo. Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B. 403 Client Error. (Request ID: Root=1-6. The script is re-runnable to fill this row later.
-- **No authored-Kreyòl set measured.** The translated-vs-authored fertility check (FLORES's Haitian side is itself translated) requires a proverb/authored corpus; none exists in the repo yet. **TODO:** add an authored-Kreyòl set and re-run for the translationese comparison.
+- **SKIPPED Llama-3 (meta-llama/Llama-3.2-3B)** (`meta-llama/Llama-3.2-3B`): gated repo, access approval still pending (403). The script is re-runnable to fill this row later.
+- **No authored-Kreyòl set measured yet.** The translated-vs-authored fertility check (FLORES's Haitian side is itself translated) needs an authored corpus of real size; the only authored set in the repo so far is the 15 probe proverbs (too small to measure alone). **TODO:** assemble a fuller authored-Kreyòl set and re-run for the translationese comparison.
 
 ## Reproduce
 
