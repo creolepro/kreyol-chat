@@ -95,6 +95,15 @@ Output: `data/clean/corpus_v0-*.jsonl` + the report. The ~90–100M figure is an
 
 **Tool: nanochat's rustbpe, pinned to a specific commit.** Two byte-level BPE implementations are *not* interchangeable (pre-tokenization regex, prefix-space handling, merge ordering, serialization all differ) — using the real Phase 1 tokenizer now avoids a false dress rehearsal. Fallback if rustbpe integration fights back: HF `tokenizers`, explicitly demoted to analysis-only, with a parity test against rustbpe required before Phase 1.
 
+**B0. Integration spike (mandatory first step, ~1–2h — resolves Phase 0a's last unknown):**
+
+1. Pin a nanochat commit; read the rustbpe crate, `tok_train.py` (invocation + configurability — vocab size must be a clean parameter, we need 8–32k not the 65,536 default), and the tokenizer save/load format.
+2. Build (maturin/uv) and train a **toy tokenizer** on ~10MB of corpus at 16k vocab; record build friction + train time.
+3. **Round-trip test**: encode→decode identity on accent-heavy Kreyòl (`è/ò` are multi-byte UTF-8) + code-switched French/English.
+4. **Apostrophe-regex probe** (the substantive design question): the GPT-4-style pre-tokenization regex nanochat uses hard-codes *English* contraction handling (`'s`, `'t`, `'re`, `'ll`…). Kreyòl clitics attach on the *other side* of the apostrophe (`m'ap`, `l'ap`, `n'ap`, `t'ap`). Tokenize those forms, inspect exactly where the regex splits, and decide: stock pattern vs. a Kreyòl-aware adjustment. Document the decision and its rationale either way — it's a finding in itself.
+5. **Format bridges**: convert the toy tokenizer to HF `tokenizer.json` and plain `{vocab, merges}` JSON; require **identical token IDs** vs. rustbpe on a 1k-sentence probe set (needed for transformers.js/Station 1 and the browser export).
+6. Output: a short go/no-go note in `ml/reports/` (pinned commit, regex decision, timings, format-parity result). Go → run the sweep with rustbpe. No-go → HF fallback with the same 1k-sentence probe run as a rustbpe-divergence measurement, and the artifact demoted per above.
+
 1. **Training data**: a **deterministic sample with explicit source weighting** (seeded; weights recorded in the report) — otherwise a "Kreyòl tokenizer" is mostly a MADLAD-crawl tokenizer. Train split only.
 2. **Train the sweep**: vocab ∈ {8k, 16k, 24k, 32k}; NFC-normalized input; special tokens reserved to match nanochat's expectations.
 3. **Evaluate each size** on `tokenizer_eval`:
