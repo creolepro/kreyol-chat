@@ -265,6 +265,8 @@ Kreyòl-MT's own models beat CreoleVal's by +6.4 chrF (X→eng) / +14.1 chrF (en
 
 **Deduplicated realistic total: ~90–100M tokens (clean build) to ~185–210M (everything incl. noisy web).**
 
+**Measured (2026-07-20, corpus v0 clean build — [report](../ml/reports/corpus_v0.md)):** **143,940 docs / 151.6M `o200k` tokens / 91.1M whitespace words / 484M chars**, from MADLAD-400 ht clean + ht Wikipedia (dump 20260701) + 35 teachable proverbs, after ~20% dedup removal. Note the unit: 151.6M is *o200k* tokens (ht ≈ 1.66 o200k tokens/whitespace word), **not** MADLAD's ~84.3M whitespace-token estimate — the two aren't comparable, and the whitespace-word count (91.1M) is what lines up with the ~90–100M estimate above. ~57% of surviving Wikipedia is bot-stub (flagged).
+
 **Additional sources (private or partnership-dependent, not redistributed in this repo):** a dictionary KV store built on Kreyòl-MT data; translation-platform glossaries; any consented text from events; API-generated synthetic translations (§5.3). Plus partnership targets: Platfòm MIT-Ayiti materials, Haitian publishers/newsrooms, diaspora orgs (licensing conversations required).
 
 ### 5.2 Provenance, rights, and splits (non-negotiable — established *before* any ingestion)

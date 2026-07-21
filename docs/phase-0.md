@@ -7,8 +7,8 @@
 
 | #   | Deliverable                                                                                                                                     | Feeds                                                                        |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 0   | **Rights matrix + split registry** — per-source permissions; train/eval/exhibit splits fixed before ingestion                                   | Everything downstream; the legal audit trail                                 |
-| 1   | **Corpus v0** — deduplicated, provenance-tagged JSONL from rights-clear sources + a stats report with a quality audit                           | Model C pretraining (Phase 1), tokenizer training, Station 5 nutrition label |
+| 0   | **Rights matrix + split registry** — per-source permissions; train/eval/exhibit splits fixed before ingestion — **✅ done 2026-07-20** ([rights](../ml/corpus/rights.yaml) · [splits](../ml/corpus/splits.yaml)) | Everything downstream; the legal audit trail                                 |
+| 1   | **Corpus v0** — deduplicated, provenance-tagged JSONL from rights-clear sources + a stats report with a quality audit — **✅ done 2026-07-20** ([report](../ml/reports/corpus_v0.md)) | Model C pretraining (Phase 1), tokenizer training, Station 5 nutrition label |
 | 2   | **Tokenizer v0** — byte-level BPE (nanochat rustbpe, pinned commit), vocab size chosen from a sweep                                             | Model C (Phase 1), Station 1                                                 |
 | 3   | **Fertility report** — parity ratios for Kreyòl vs English vs French across ~8 tokenizers, with CIs; extends Petrov et al. (cl100k era) with the first HT numbers we could find for o200k/Gemma-3/Qwen3/SmolLM3 + a Claude API estimate — **✅ done 2026-07-19**, [report](../ml/reports/fertility.md) | Publishable writeup, Station 1, Twitter series                               |
 | 4   | **Base-model probe (0b)** — BPB + few-shot scorecard for the candidate *base* checkpoints on FLORES+ dev                                        | The Model B base-model decision (Phase 2)                                    |
@@ -47,6 +47,8 @@ ml/
 
 ## Workstream 0 — Rights matrix & split registry (before any ingestion)
 
+> **Status 2026-07-20: complete.** [`rights.yaml`](../ml/corpus/rights.yaml), [`splits.yaml`](../ml/corpus/splits.yaml), and the Pydantic §5.2 schema ([`schema.py`](../ml/corpus/schema.py)) are committed; every corpus record validates against the schema. The MADLAD CC-BY-4.0-vs-ODC-BY discrepancy is tracked as an explicit unresolved item (both citations) that blocks redistribution only.
+
 Two small files in `ml/corpus/`, written first, versioned forever:
 
 **`rights.yaml`** — one entry per source: license ID + URL, and explicit allowed/denied/unresolved for each of: analysis, tokenizer-training, model-training, redistribution. Current state:
@@ -65,6 +67,8 @@ Two small files in `ml/corpus/`, written first, versioned forever:
 ---
 
 ## Workstream A — Corpus v0 (Phase 0a)
+
+> **Status 2026-07-20: complete** ([report](../ml/reports/corpus_v0.md)). Corpus v0 = **143,940 docs / ~151.6M o200k tokens** (bytes/chars/words also reported) from MADLAD-400 ht clean (`9d886a76`) + ht Wikipedia (dump 20260701) + 35 teachable CreolePro proverbs. ~20% document dedup removal (exact + MinHash near-dup + paragraph-level, with a duplicate map); ~57% of surviving Wikipedia flagged bot-stub; 15 probe proverbs held out (11 with zero training-corpus overlap). Quarantined (MIT-Haiti, dictionary) and eval-only (FLORES+) sources excluded by design. Pipeline: `python -m corpus.run [--sample]`.
 
 ### A1. Sources — rights-clear only (quarantined sources sit in `data/quarantine/` untouched)
 
