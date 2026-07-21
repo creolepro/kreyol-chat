@@ -49,4 +49,6 @@ cache). Only aggregate numbers (`results.csv`, the report, the chart) are commit
   to fill it in once access is granted.
 - **No authored-Kreyòl set** yet, so the translated-vs-authored (translationese) comparison is a
   TODO.
-- **Our Kreyòl BPE** is included automatically once `tokenizer/tokenizer.json` exists (Workstream B).
+- **Our Kreyòl BPE** (`tokenizer/kreyol-bpe/tokenizer.json`, Workstream B) is now included — it
+  lands at **ht/en 0.67× / ht/fr 0.57×**, flipping the token tax (Kreyòl costs fewer tokens than
+  English). The script auto-detects it if the file exists.

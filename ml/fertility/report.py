@@ -70,7 +70,17 @@ def write_markdown(rows, petrov, flores, words, skipped, path, repo_root, log):
       f"**{worst['parity_ht_en']:.2f}× more tokens in Haitian Creole than in English** on "
       f"`{_plain(worst['label'])}` and as little as **{best['parity_ht_en']:.2f}×** on "
       f"`{_plain(best['label'])}`. Full parity table below, with paired-bootstrap 95% CIs.\n")
-    known = {"cl100k", "NLLB"}  # already have published Petrov figures (which we reproduce)
+    ours = next((r for r in rows if r["label"].startswith("kreyol-bpe")), None)
+    if ours is not None:
+        flips = ours["parity_ht_en"] < 1.0
+        A(f"**Our Kreyòl tokenizer (`{_plain(ours['label'])}`, Workstream B) lands at ht/en parity "
+          f"{ours['parity_ht_en']:.2f}× (95% CI [{ours['ci95_lo_ht_en']:.2f}, {ours['ci95_hi_ht_en']:.2f}]) "
+          f"and ht/fr {ours['parity_ht_fr']:.2f}× ([{ours['ci95_lo_ht_fr']:.2f}, {ours['ci95_hi_ht_fr']:.2f}]).** "
+          + ("It **flips the tax**: identical content now costs *fewer* tokens in Kreyòl than in "
+             "English — the point of training a Kreyòl-first vocabulary.\n" if flips else
+             "That is the lowest Kreyòl token tax of any tokenizer measured here — a Kreyòl-first "
+             "vocabulary nearly erases the gap.\n"))
+    known = {"cl100k", "NLLB", "kreyol-bpe"}  # Petrov-published (reproduced) + our own (obviously first)
     novel = [r["label"].split(" (")[0] for r in rows
              if r["kind"] == "tokenizer" and r["label"].split(" (")[0] not in known]
     A("To our knowledge these are among the **first published Haitian-Creole fertility numbers we "

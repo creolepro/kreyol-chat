@@ -58,7 +58,7 @@ HF_TOKENIZERS = [
 
 # Our own Kreyòl BPE tokenizer (Workstream B output). Included automatically if
 # present; absent for now (Workstream B not yet run).
-OUR_TOKENIZER_PATH = "tokenizer/tokenizer.json"
+OUR_TOKENIZER_PATH = "tokenizer/kreyol-bpe/tokenizer.json"
 OUR_TOKENIZER_LABEL = "kreyol-bpe (ours, Workstream B)"
 
 # --- Claude API measurement (separately labeled; NOT a tokenizer count) -------
