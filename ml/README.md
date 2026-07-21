@@ -30,8 +30,12 @@ Implemented so far:
 - **`corpus/`** — Workstreams 0 + A: rights matrix + split registry, and the corpus v0
   pipeline (ingest → normalize → filter → dedup → audit → report). Run `python -m corpus.run
   --sample` then `python -m corpus.run`; see [corpus/README.md](corpus/README.md).
-- **`fertility/`** — Workstream C: tokenizer fertility across ~8 tokenizers; see
-  [fertility/README.md](fertility/README.md) and [reports/fertility.md](reports/fertility.md).
+- **`tokenizer/`** — Workstream B: Kreyòl byte-level BPE (rustbpe, vocab sweep → 24k), the B0
+  integration spike, and the chosen tokenizer under `tokenizer/kreyol-bpe/`; see
+  [tokenizer/README.md](tokenizer/README.md), [reports/tokenizer_v0.md](reports/tokenizer_v0.md),
+  and [reports/rustbpe_spike.md](reports/rustbpe_spike.md).
+- **`fertility/`** — Workstream C: tokenizer fertility across ~8 tokenizers (incl. ours at
+  ht/en 0.67×); see [fertility/README.md](fertility/README.md) and
+  [reports/fertility.md](reports/fertility.md).
 
-`tokenizer/` (Workstream B) and `probe/` (Workstream D) are still scaffold. See the runbook
-before adding scripts.
+`probe/` (Workstream D) is still scaffold. See the runbook before adding scripts.

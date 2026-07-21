@@ -1,0 +1,31 @@
+{
+  "name": "kreyol-bpe",
+  "nanochat_commit": "92d63d4e8bb4df75c3b71618f31ddde2378b2bcd",
+  "pattern": "[^\\r\\n\\p{L}\\p{N}]?+\\p{L}+|\\p{N}{1,2}| ?[^\\s\\p{L}\\p{N}]++[\\r\\n]*|\\s*[\\r\\n]|\\s+(?!\\S)|\\s+",
+  "pattern_name": "kreyol_aware",
+  "vocab_size": 24576,
+  "n_content_tokens": 24567,
+  "special_tokens": [
+    "<|bos|>",
+    "<|user_start|>",
+    "<|user_end|>",
+    "<|assistant_start|>",
+    "<|assistant_end|>",
+    "<|python_start|>",
+    "<|python_end|>",
+    "<|output_start|>",
+    "<|output_end|>"
+  ],
+  "snapshot_date": "2026-07-20",
+  "chosen_vocab": 24576,
+  "chosen_reason": "next size (32,768) improves bytes/token by only 1.9% (< 3%) — compression has flattened",
+  "train_sample": {
+    "weighting": "natural",
+    "chars": 119875649,
+    "composition_chars": {
+      "owned": 436,
+      "wikipedia": 8990591,
+      "crawl": 110884622
+    }
+  }
+}

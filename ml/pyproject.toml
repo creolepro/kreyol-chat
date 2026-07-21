@@ -21,6 +21,7 @@ dependencies = [
     "fasttext-wheel",       # lid.176 language id for the quality audit
     "huggingface-hub",      # pinned-revision source downloads
     "beautifulsoup4",       # parse the CreolePro proverbs blog (corpus/proverbs_fetch.py)
+    "rustbpe>=0.1.0",       # nanochat's byte-level BPE trainer (Workstream B tokenizer)
 ]
 
 # This workspace is a collection of scripts, not an installable package.
