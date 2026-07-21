@@ -1,0 +1,47 @@
+{
+ "sampled": 200,
+ "target_size": 200,
+ "seed": 20260720,
+ "machine_estimated": true,
+ "pending_human_review": true,
+ "overall_rates": {
+  "wrong_language": 0.255,
+  "low_confidence_ht": 0.71,
+  "boilerplate": 0.0,
+  "unreadable": 0.0,
+  "n_ge300": 174,
+  "wrong_language_ge300": 0.2069
+ },
+ "per_source_rates": {
+  "madlad_400_ht_clean": {
+   "wrong_language": 0.1258,
+   "low_confidence_ht": 0.8477,
+   "boilerplate": 0.0,
+   "unreadable": 0.0,
+   "n_ge300": 150,
+   "wrong_language_ge300": 0.12
+  },
+  "ht_wikipedia": {
+   "wrong_language": 0.6458,
+   "low_confidence_ht": 0.2917,
+   "boilerplate": 0.0,
+   "unreadable": 0.0,
+   "n_ge300": 24,
+   "wrong_language_ge300": 0.75
+  },
+  "owned_proverbs": {
+   "wrong_language": 1.0,
+   "low_confidence_ht": 0.0,
+   "boilerplate": 0.0,
+   "unreadable": 0.0,
+   "n_ge300": 0,
+   "wrong_language_ge300": null
+  }
+ },
+ "per_source_n": {
+  "madlad_400_ht_clean": 151,
+  "ht_wikipedia": 48,
+  "owned_proverbs": 1
+ },
+ "langid_note": "fasttext lid.176; short docs are unreliable, and its Kreyòl confidence runs modest — treat wrong-language as an UPPER bound pending human review."
+}

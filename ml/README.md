@@ -25,5 +25,13 @@ reports/     # generated stats and markdown reports
 data/        # git-ignored — downloaded sources (raw/), corpus shards (clean/), eval sets (eval/)
 ```
 
-No implementation code lives here yet — this is the initial scaffold. See the runbook before
-adding scripts.
+Implemented so far:
+
+- **`corpus/`** — Workstreams 0 + A: rights matrix + split registry, and the corpus v0
+  pipeline (ingest → normalize → filter → dedup → audit → report). Run `python -m corpus.run
+  --sample` then `python -m corpus.run`; see [corpus/README.md](corpus/README.md).
+- **`fertility/`** — Workstream C: tokenizer fertility across ~8 tokenizers; see
+  [fertility/README.md](fertility/README.md) and [reports/fertility.md](reports/fertility.md).
+
+`tokenizer/` (Workstream B) and `probe/` (Workstream D) are still scaffold. See the runbook
+before adding scripts.

@@ -15,6 +15,12 @@ dependencies = [
     "modal",
     "datasketch",
     "matplotlib",
+    "pydantic",             # §5.2 document-metadata schema (corpus/schema.py)
+    "pyyaml",               # read rights.yaml / splits.yaml
+    "mwparserfromhell",     # Wikipedia wikitext -> plaintext extractor (Workstream A ingest)
+    "fasttext-wheel",       # lid.176 language id for the quality audit
+    "huggingface-hub",      # pinned-revision source downloads
+    "beautifulsoup4",       # parse the CreolePro proverbs blog (corpus/proverbs_fetch.py)
 ]
 
 # This workspace is a collection of scripts, not an installable package.
