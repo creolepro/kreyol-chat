@@ -107,3 +107,51 @@ assignment:
   # Quarantined sources get no split — they never enter any artifact.
   mit_haiti_creoleval: null
   creolepro_dictionary: null
+
+# ---------------------------------------------------------------------------
+# Standing eval slices — Phase 1 Workstream E (docs/phase-1.md E2).
+# ---------------------------------------------------------------------------
+# Two held-out quality axes carved from corpus v0.1 and NEVER trained on. Like
+# `tokenizer_eval`, membership is materialized as doc_id manifests and excluded
+# by CONSUMERS (training data-prep skips these ids) rather than removed from the
+# corpus shard — the v0.1 shard stays the full de-junked corpus. Built by
+# corpus/evalslices.py from the 200 human-verified audit labels (tier A, gold)
+# plus a conservative, documented heuristic expansion (tier B). Registered here
+# so every model (fleet, d12, Model B later) is measured on the SAME slices.
+eval_slices:
+  built_from: "corpus v0.1 (data/clean/corpus_v0_1-full.jsonl)"
+  builder: "corpus/evalslices.py"
+  seed: 20260721
+  may_enter_training: false        # forever — these are standing quality axes
+  carved_by: consumption_doc_id    # excluded at train time, not removed from shard
+  manifests:                       # git-ignored (contain source text)
+    authored_eval: "ml/data/eval/authored_eval.jsonl"
+    translation_shaped_eval: "ml/data/eval/translation_shaped_eval.jsonl"
+  slices:
+    authored_eval:
+      purpose: >-
+        Native-voice Kreyòl BPB axis (the quality target). Higher-priority signal
+        than raw perplexity because it is the voice we want the model to acquire.
+      tier_a_verified: >-
+        Audit docs the human concurred are language=ht, quality=ok,
+        translation_shaped=natural (audit_model_summary.md §Human verification).
+      tier_b_heuristic: >-
+        Non-bot-stub Wikipedia (wiki_bot_stub=false) — authored encyclopedic
+        Kreyòl — seeded-sampled, capped at 300, disjoint from the audit set.
+    translation_shaped_eval:
+      purpose: >-
+        Machine/translationese Kreyòl BPB axis — the contrast slice. A model whose
+        authored_eval BPB improves faster than its translation_shaped_eval BPB is
+        acquiring native voice, not just web-Kreyòl (Station 5 nutrition label).
+      tier_a_verified: >-
+        Audit docs the human concurred are translation_shaped=translated (all crawl).
+      tier_b_heuristic: >-
+        Crawl docs carrying a residual MT/CMS fingerprint too weak to be dropped as
+        junk (>=1 HTML entity, or exactly one XNUMX placeholder) — seeded-sampled,
+        capped at 300, disjoint from the audit set.
+  note: >-
+    Disjoint by construction: audit natural vs translated labels are mutually
+    exclusive; tier-B authored is Wikipedia-only and tier-B translationese is
+    crawl-only. Some members may also fall in the tokenizer_eval holdout — that is
+    harmless (both are excluded from training). Probe proverbs are absent from the
+    corpus entirely, so they cannot enter either slice.

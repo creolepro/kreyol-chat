@@ -1,0 +1,32 @@
+{
+  "status": "DRAFT — pending human sign-off. NOT frozen, NOT used for any metric.",
+  "purpose": "The ~10 fixed prompts run at EVERY Model-C checkpoint forever — the 'watch it learn Kreyòl' slider asset (Station 6) and a demoable base→chat transition (Station 2). Chosen for the EXHIBIT, not for the metrics. Once the human signs off, this list is frozen; regenerating slider assets for a changed list requires re-running all kept checkpoints, so it is a once-with-care decision (docs/phase-1.md E3, Risks).",
+  "constraints": {
+    "probe_proverbs_excluded": "No probe-split proverb text appears in this file. The proverb-completion slot is a PLACEHOLDER; the human selects a specific probe proverb at freeze time so Station 2 ('who knows the real proverb?') stays honest (the model must not have trained on it).",
+    "style": "Completion seeds — the base model is a text continuer, so each prompt is a stem the model completes greedily. After SFT the same stems become questions the model answers, which is the visible base→chat transition."
+  },
+  "snapshot_date": "2026-07-21",
+  "prompts_draft": [
+    {"id": "greet_1", "category": "greeting",
+     "prompt": "Bonjou! Kijan ou ye jodi a?"},
+    {"id": "proverb_1", "category": "proverb completion (probe split)",
+     "prompt": "<<PLACEHOLDER: first half of a human-selected PROBE-split proverb + ' …'>>",
+     "note": "Do NOT hardcode a probe proverb here. At freeze, the human picks one probe proverb (ideally with 0 training hits per corpus_v0.md) and fills the first half; the model completes the rest. Kept out of this committed file by design."},
+    {"id": "translate_1", "category": "short translation (eng→hat)",
+     "prompt": "Tradui an kreyòl: “Good morning, how are you?”"},
+    {"id": "translate_2", "category": "short translation (eng→hat)",
+     "prompt": "An kreyòl, «I love my country very much» vle di:"},
+    {"id": "question_1", "category": "question (factual)",
+     "prompt": "Kisa kapital peyi Ayiti a ye?"},
+    {"id": "question_2", "category": "question (causal)",
+     "prompt": "Poukisa lapli tonbe?"},
+    {"id": "continue_1", "category": "continuation (narrative)",
+     "prompt": "Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li"},
+    {"id": "continue_2", "category": "continuation (expository)",
+     "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li"},
+    {"id": "register_1", "category": "register shift (formal)",
+     "prompt": "Mesyedam, se yon gwo onè pou mwen prezante"},
+    {"id": "register_2", "category": "register shift (casual)",
+     "prompt": "Frè m, kite m di w yon bagay:"}
+  ]
+}
