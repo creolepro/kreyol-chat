@@ -310,6 +310,8 @@ Sourcing: community reviewers from the event network (compensated where possible
 
 **Protocol:** model outputs are **blinded and randomized** — raters never see which model (or what size/brand) produced a sample, or expectation bias swamps the signal. Model *selection* happens on dev splits only; `final_devtest` is touched once, for final reporting.
 
+**Rubric-design learnings from the Phase 0b probe scoring** (fold into the Phase 3 harness): (1) score **pre-loop coherence separately from degeneration** — greedy repetition loops otherwise mask real language ability; (2) the strongest negative signal is **gibberish repetition, not language drift** — a model falling back into fluent wrong-language output retains structure, one emitting `kai kai kai` has none; rank failures accordingly; (3) run an **automatic language-ID pass over outputs** to flag drift before human scoring; (4) route borderline mid-rubric scores to a **native** reviewer — non-native scoring is reliable at the extremes, noisy in the middle; (5) "clean EOS + correct-content-first" proved a real blind discriminator of model identity — useful as a scored dimension.
+
 ---
 
 ## 7. Infrastructure & budget
