@@ -15,6 +15,7 @@ dependencies = [
     "anthropic",
     "modal",
     "datasketch",
+    "pyarrow",              # corpus v0.1 -> parquet shards for nanochat (Workstream F train/prepare)
     "matplotlib",
     "pydantic",             # §5.2 document-metadata schema (corpus/schema.py)
     "pyyaml",               # read rights.yaml / splits.yaml

@@ -329,7 +329,7 @@ Alternatives if a big run needs cheaper raw hours: RunPod (~$2–2.7/h H100), Va
 | Run | Compute | Est. cost |
 |---|---|---|
 | Micro-model (10–30M) mixture ablation | <1 GPU-h | **$1–5** |
-| Model C d12 (203M), 0.6–1.2B effective tokens | ~1–3 h on 1–8 GPUs | **$5–30/run** |
+| Model C d12 (**236M**¹), 0.6–1.2B effective tokens | **~21–43 min on 1 H100** (measured) | **~$1.4–2.8/run** (measured; was est. $5–30) |
 | Model C d20 (561M), full nanochat pipeline | ~4h on 8×A100/H100 | **~$100–125** |
 | Model B CPT (1.7B, ~200M–1B tokens, full-param) | ~1.5–6 H100-h | **$6–25/run** |
 | Model B CPT (4B) | ~3–11 H100-h | **$12–45/run** |
@@ -337,6 +337,8 @@ Alternatives if a big run needs cheaper raw hours: RunPod (~$2–2.7/h H100), Va
 | Whole experimental program (incl. iteration ×3–5) | | **≈ $300–800 total** |
 
 Compute is a rounding error next to the human work (corpus curation, native-speaker review, exhibit build). Budget accordingly. Treat every figure above as a **hypothesis**: run a 1%-scale throughput benchmark before quoting costs publicly — the Model B ranges in particular may be optimistic.
+
+¹ **d12 measured (Phase-1 Workstream F, [train_smoke.md](../ml/reports/train_smoke.md), 2026-07-22):** nanochat's d12 at the pinned commit is **236M** params, not 203M — this commit carries **113M (48%) in ResFormer value embeddings**. Measured **~469k tok/s at MFU ~40% on one H100** (SDPA + full-context window; FA3 + sliding windows would be faster), i.e. **~$1.4–2.8** to 0.6–1.2B effective tokens — the d12 row above is now a measurement, well under the original $5–30 hypothesis. (The same run found the deploy-time GGUF/browser conversion **breaks** on nanochat's custom pre-tokenizer + architecture — resolve before Workstream G; see the report.)
 
 ### 7.3 Event serving (local-first — venue wifi is the #1 failure mode)
 
