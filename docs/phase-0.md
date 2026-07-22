@@ -11,7 +11,7 @@
 | 1   | **Corpus v0** — deduplicated, provenance-tagged JSONL from rights-clear sources + a stats report with a quality audit — **✅ done 2026-07-20** ([report](../ml/reports/corpus_v0.md)) | Model C pretraining (Phase 1), tokenizer training, Station 5 nutrition label |
 | 2   | **Tokenizer v0** — byte-level BPE (nanochat rustbpe, pinned commit), vocab size chosen from a sweep — **✅ done 2026-07-20** ([tokenizer_v0](../ml/reports/tokenizer_v0.md) · [B0 spike](../ml/reports/rustbpe_spike.md)) | Model C (Phase 1), Station 1                                                 |
 | 3   | **Fertility report** — parity ratios for Kreyòl vs English vs French across ~8 tokenizers, with CIs; extends Petrov et al. (cl100k era) with the first HT numbers we could find for o200k/Gemma-3/Qwen3/SmolLM3 + a Claude API estimate — **✅ done 2026-07-19**, [report](../ml/reports/fertility.md) | Publishable writeup, Station 1, Twitter series                               |
-| 4   | **Base-model probe (0b)** — BPB + few-shot scorecard for the candidate *base* checkpoints on FLORES+ dev                                        | The Model B base-model decision (Phase 2)                                    |
+| 4   | **Base-model probe (0b)** — BPB + few-shot scorecard for the candidate *base* checkpoints on FLORES+ dev — **✅ provisional 2026-07-21** (Gemma-3 leads; pending naturalness) ([probe](../ml/reports/base_model_probe.md)) | The Model B base-model decision (Phase 2)                                    |
 
 Success = we can answer three questions with our own defensible numbers: _how much usable Kreyòl text exists (really)_, _what does the token tax measure on modern tokenizers_, and _which base checkpoint starts from the strongest Kreyòl position_.
 
@@ -154,6 +154,8 @@ Shareable milestones hiding in here: first published Claude/o200k/Llama-3/Gemma 
 ---
 
 ## Workstream D — Base-model probe (Phase 0b)
+
+> **Status 2026-07-21: provisional — pending human naturalness review** ([report](../ml/reports/base_model_probe.md) · [naturalness sheet](../ml/reports/probe_naturalness_sheet.md)). Probed 5 pretrained bases in **unquantized bf16** on Modal L40S over FLORES+ **dev** (devtest reserved; weights cached in a Modal volume). **Provisional leader: `google/gemma-3-4b-pt`** — best on both automated axes: authored-Kreyòl **BPB 1.170** (primary; then Llama-3.2 1.291 · Qwen3-4B 1.534 · Qwen3-1.7B 1.731 · SmolLM3 2.485) and **eng→hat chrF2++ 43.1** (~1.7× the runner-up; full-dev on 500 sents confirms 43.2). Only Gemma recalls a probe proverb (`Dèyè mòn gen mòn.`). **Surprises:** SmolLM3-3B is *worst* on BPB despite its French-coverage reputation (didn't transfer); the Llama-3.2 control isn't the floor (#2). **License caveat:** Gemma is under the Gemma Terms, not Apache-2.0 — if that's disqualifying for the community project, the best Apache-2.0-clean base is **Qwen3-4B**. Naturalness = blinded sheet awaiting a fluent speaker; the final pick folds it in. GPU ≈ **$2.3** (Modal L40S). These are the "before" numbers banked for the Model B before/after CPT comparison.
 
 **Question:** which **base checkpoint** starts from the strongest Kreyòl position for Model B's CPT? Reputation doesn't settle this (none publish HT evals) — ~$5–10 of GPU time does.
 

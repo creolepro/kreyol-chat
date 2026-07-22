@@ -37,5 +37,7 @@ Implemented so far:
 - **`fertility/`** — Workstream C: tokenizer fertility across ~8 tokenizers (incl. ours at
   ht/en 0.67×); see [fertility/README.md](fertility/README.md) and
   [reports/fertility.md](reports/fertility.md).
-
-`probe/` (Workstream D) is still scaffold. See the runbook before adding scripts.
+- **`probe/`** — Workstream D: base-model probe (Modal, bf16). BPB + few-shot MT scorecard
+  over FLORES+ dev for 5 candidate bases; provisional leader **`google/gemma-3-4b-pt`** (pending
+  naturalness). See [probe/README.md](probe/README.md) and
+  [reports/base_model_probe.md](reports/base_model_probe.md).
