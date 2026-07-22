@@ -87,7 +87,7 @@ The same ChatGPT **matches or beats** NLLB on French (56.4 vs 56.2 spBLEU) and G
 - Models (all MIT-licensed): `jhu-clsp/kreyol-mt` and `-pubtrain` (fine-tuned mBART-50, ~611M params) plus **`-scratch` and `-scratch-pubtrain` — 77M-param Transformers trained from scratch**. The from-scratch models are a direct precedent for our Model C at almost the same scale.
 - Dataset: [`jhu-clsp/kreyol-mt`](https://huggingface.co/datasets/jhu-clsp/kreyol-mt), license tagged "other." ⚠️ The live HF snapshot is currently **partial (~1.9M sentences)** — the LDS-sourced portion (~360k sentences) is held back pending an LDC release. Full data via contacting the authors. **License check required before any commercial use.**
 
-**Correction to our framing:** Haitian's slice is **not primarily religious** — it's dominated by NLLB *web-mined* text ("Other/Mix" genre). Religious skew is the story for the *smaller* Creoles. For Haitian the sharper concern is **translation-shaped, machine-aligned web text** — which actually strengthens the "translation-shaped Kreyòl vs. authored Kreyòl" thesis.
+**Correction to our framing:** Haitian's slice is **not primarily religious** — it's dominated by NLLB *web-mined* text ("Other/Mix" genre). Religious skew is the story for the *smaller* Creoles. For Haitian the sharper concern is **translation-shaped, machine-aligned web text** — which actually strengthens the "translation-shaped Kreyòl vs. authored Kreyòl" thesis. *(Measured 2026-07-22: a human-verified audit of corpus v0 found ~70% of crawl-sourced Kreyòl reads as translation-shaped — [audit](../ml/reports/audit_model_summary.md).)*
 
 ### 1.4 Genre skew now has a number
 

@@ -68,7 +68,7 @@ Two small files in `ml/corpus/`, written first, versioned forever:
 
 ## Workstream A — Corpus v0 (Phase 0a)
 
-> **Status 2026-07-20: complete** ([report](../ml/reports/corpus_v0.md)). Corpus v0 = **143,940 docs / ~151.6M o200k tokens** (bytes/chars/words also reported) from MADLAD-400 ht clean (`9d886a76`) + ht Wikipedia (dump 20260701) + 35 teachable CreolePro proverbs. ~20% document dedup removal (exact + MinHash near-dup + paragraph-level, with a duplicate map); ~57% of surviving Wikipedia flagged bot-stub; 15 probe proverbs held out (11 with zero training-corpus overlap). Quarantined (MIT-Haiti, dictionary) and eval-only (FLORES+) sources excluded by design. Pipeline: `python -m corpus.run [--sample]`.
+> **Status 2026-07-20: complete** ([report](../ml/reports/corpus_v0.md)). Corpus v0 = **143,940 docs / ~151.6M o200k tokens** (bytes/chars/words also reported) from MADLAD-400 ht clean (`9d886a76`) + ht Wikipedia (dump 20260701) + 35 teachable CreolePro proverbs. ~20% document dedup removal (exact + MinHash near-dup + paragraph-level, with a duplicate map); ~57% of surviving Wikipedia flagged bot-stub; 15 probe proverbs held out (11 with zero training-corpus overlap). Quarantined (MIT-Haiti, dictionary) and eval-only (FLORES+) sources excluded by design. Pipeline: `python -m corpus.run [--sample]`. **Audit verified 2026-07-22** (Opus-4.8-labeled, human-verified on the contested set — [summary](../ml/reports/audit_model_summary.md)): true wrong-language **0.5%**, crawl junk ~17%, crawl translation-shaped ~**70%**.
 
 ### A1. Sources — rights-clear only (quarantined sources sit in `data/quarantine/` untouched)
 
@@ -132,7 +132,7 @@ Cheap ablation worth 30 minutes (exhibit content): train one 16k tokenizer on _E
 - **Negatives**: French/English/Spanish samples from open sources with clean licenses (e.g., Wikipedia dumps, wikitext). **Not FLORES+** — it stays eval-only, and it doubles as an untouched test set for the classifier itself.
 - **Ground truth for evaluation**: the human-reviewed audit sample — once the human pass labels those 200 docs, they become the classifier's test set for free. Report accuracy vs `lid.176` on the same docs.
 - **Payoff**: a trustworthy **corpus-wide contamination scan** (replacing the machine-estimate upper bounds in the corpus report with defensible numbers for the nutrition label), reusable at Phase 1 data scale, and a finding for the series: *standard tooling can't recognize Kreyòl, so we built our own detector.*
-- Small, self-contained, CPU-only. Blocked on: the human audit pass (its test set). Not a dependency of anything — Phase 1 can proceed without it.
+- Small, self-contained, CPU-only. **Unblocked 2026-07-22** — the audit labels ([audit_model_labels.csv](../ml/reports/audit_model_labels.csv), human-verified on the contested set) are its ground-truth test set. Not a dependency of anything — Phase 1 can proceed without it.
 
 ---
 

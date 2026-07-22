@@ -1,0 +1,201 @@
+doc_id,source,machine_langid,model_language,model_quality,model_translation_shaped,model_confidence,model_note
+madlad_400_ht_clean:0066331,madlad_400_ht_clean,ht,ht,ok,natural,high,Fluent Kreyol news writing on Fidel Castro
+madlad_400_ht_clean:0094956,madlad_400_ht_clean,ht,ht,ok,translated,high,"School program page; English ""Looking"" left in, calqued"
+madlad_400_ht_clean:0020210,madlad_400_ht_clean,ht,ht,junk,translated,high,"Chinese almond-oil product listing, mojibake headers"
+madlad_400_ht_clean:0086512,madlad_400_ht_clean,ht,ht,ok,translated,high,"SEO crypto how-to, heavy translationese"
+madlad_400_ht_clean:0001651,madlad_400_ht_clean,ht,mixed,junk,unsure,med,Scraped discography (Eng titles) + JW snippet mashup
+madlad_400_ht_clean:0070342,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT COVID news; ""Breaking"" left in, calqued idioms"
+ht_wikipedia:67841,ht_wikipedia,es,ht,ok,natural,high,Kreyol bio; Spanish is only telenovela/character proper nouns
+ht_wikipedia:22170,ht_wikipedia,ht,ht,stub,natural,high,"Bot geo stub on Spanish commune, near content-free"
+madlad_400_ht_clean:0082473,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT Miami tourism page, garbled phrasing"
+ht_wikipedia:89177,ht_wikipedia,tl,ht,ok,natural,high,Kreyol PC article; langid tl wrong
+madlad_400_ht_clean:0067492,madlad_400_ht_clean,ht,ht,junk,translated,high,"Chinese steel-coil product listing, MT artifacts"
+madlad_400_ht_clean:0078206,madlad_400_ht_clean,ht,ht,ok,natural,high,"Published Haitian Creole Bible (John 3), natural"
+madlad_400_ht_clean:0012064,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT fashion listicle; English ""gleaned"" left in"
+madlad_400_ht_clean:0100054,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-Russian Rambler Mail how-to, garbled"
+madlad_400_ht_clean:0050946,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT Michelin restaurant guide, translationese"
+madlad_400_ht_clean:0069067,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT reusable-packaging article, calqued"
+ht_wikipedia:83317,ht_wikipedia,en,ht,stub,natural,high,"Film stub; English is title+citation only, langid en wrong"
+madlad_400_ht_clean:0010945,madlad_400_ht_clean,ht,ht,junk,translated,high,Chinese packaging vendor page: product nav + MT technical
+ht_wikipedia:88074,ht_wikipedia,ht,ht,ok,natural,med,Encyclopedic rank article; some calqued literal terms
+madlad_400_ht_clean:0045855,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT university faculty page; ""Awesome"" left in"
+madlad_400_ht_clean:0106775,madlad_400_ht_clean,ht,ht,junk,translated,high,Chinese chemicals company/product catalog page
+ht_wikipedia:44788,ht_wikipedia,ht,ht,stub,natural,high,"Geo stub (Auburn WA), empty section headers"
+madlad_400_ht_clean:0063433,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT marketing author bio, garbled French/Kreyol"
+madlad_400_ht_clean:0035976,madlad_400_ht_clean,ht,ht,junk,translated,high,"Chinese gazebo product page; ""Looking for"" left in"
+madlad_400_ht_clean:0026847,madlad_400_ht_clean,wa,ht,ok,natural,high,Published Haitian Creole Bible (1 Samuel 23); langid wa wrong
+ht_wikipedia:65098,ht_wikipedia,diq,ht,stub,natural,high,"Play cast-list stub; Spanish is title+cast proper nouns, langid diq wrong"
+ht_wikipedia:74180,ht_wikipedia,ht,ht,stub,natural,high,"Haitian film stub, cast list"
+madlad_400_ht_clean:0071523,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT kitchen-cabinet vendor description, garbled"
+madlad_400_ht_clean:0064964,madlad_400_ht_clean,ht,ht,ok,translated,high,MT Air India/Kabul news article
+madlad_400_ht_clean:0058993,madlad_400_ht_clean,ht,ht,ok,translated,high,MT architecture/design article on Sydney warehouse
+madlad_400_ht_clean:0078057,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT adult games site, connected prose, English left in"
+ht_wikipedia:73561,ht_wikipedia,fr,ht,ok,natural,high,"Kreyol filmmaker bio; Spanish are film-title proper nouns, langid fr wrong"
+madlad_400_ht_clean:0017201,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT steel-channel vendor technical prose, ""Nerjaveei"" artifact"
+madlad_400_ht_clean:0011404,madlad_400_ht_clean,ht,ht,ok,translated,high,MT touchscreen-table vendor marketing
+madlad_400_ht_clean:0077602,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Russian dating site copy
+ht_wikipedia:68513,ht_wikipedia,fr,ht,ok,natural,med,"Poet bio; body dominated by French bibliography titles, borderline mixed; langid fr"
+madlad_400_ht_clean:0105615,madlad_400_ht_clean,ht,ht,ok,translated,high,MT social-media-marketing blog copy
+ht_wikipedia:75887,ht_wikipedia,ht,ht,stub,natural,high,"Korean drama stub; cast list, Korean proper nouns"
+madlad_400_ht_clean:0054752,madlad_400_ht_clean,ht,ht,junk,translated,high,MT flash-game portal boilerplate + related-games list
+madlad_400_ht_clean:0101349,madlad_400_ht_clean,jv,ht,ok,translated,high,MT PVC-flooring vendor page; langid jv wrong
+madlad_400_ht_clean:0080110,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-Russian cinema news, heavy translationese"
+madlad_400_ht_clean:0069440,madlad_400_ht_clean,jv,ht,ok,natural,high,Authentic native Kreyol opinion blog on Moise assassination; langid jv wrong
+madlad_400_ht_clean:0091607,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Italian art-exhibition article
+madlad_400_ht_clean:0099509,madlad_400_ht_clean,ht,ht,ok,unsure,med,"Haiti health-insurance news; MT artifact (""ase dokte"") vs native content"
+madlad_400_ht_clean:0044057,madlad_400_ht_clean,ht,ht,ok,translated,high,MT electronics box-build vendor page
+madlad_400_ht_clean:0092367,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English burns/therapy medical article
+madlad_400_ht_clean:0096709,madlad_400_ht_clean,ht,ht,junk,translated,high,MT flash-game portal boilerplate (Barbie game)
+madlad_400_ht_clean:0106980,madlad_400_ht_clean,es,ht,ok,natural,high,Authentic native Kreyol diaspora forum post; English is forum metadata; langid es wrong
+madlad_400_ht_clean:0002350,madlad_400_ht_clean,ht,ht,ok,natural,high,Fluent native Kreyol news on Bush inauguration; FR code-switching only
+madlad_400_ht_clean:0014888,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural Kreyol science/culture magazine piece (floating homes)
+ht_wikipedia:5776,ht_wikipedia,ht,ht,stub,natural,high,"Number stub (570), templated empty sections"
+madlad_400_ht_clean:0045621,madlad_400_ht_clean,hr,ht,junk,translated,med,"Garbled MT slit-lamp vendor page, mojibake; langid hr wrong"
+madlad_400_ht_clean:0011775,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Italian furniture/design magazine
+madlad_400_ht_clean:0075561,madlad_400_ht_clean,ht,ht,ok,natural,high,"Official IRS ITIN translation into Kreyol, reads natural"
+madlad_400_ht_clean:0068706,madlad_400_ht_clean,ht,ht,ok,translated,high,MT auto-parts (universal joint) technical + catalog
+ht_wikipedia:21701,ht_wikipedia,nds,ht,stub,natural,med,"Near-empty stub, only Kreyol section headers; langid nds wrong"
+madlad_400_ht_clean:0074277,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT women's-success article, chunks of English left untranslated"
+madlad_400_ht_clean:0028911,madlad_400_ht_clean,ht,ht,ok,translated,high,MT smart-meter/energy technical product prose
+madlad_400_ht_clean:0092458,madlad_400_ht_clean,ht,ht,ok,translated,high,MT blowout-preventer oil-equipment technical page
+madlad_400_ht_clean:0107306,madlad_400_ht_clean,ht,ht,ok,translated,high,MT ectoine-powder chemical product page
+madlad_400_ht_clean:0105399,madlad_400_ht_clean,en,other-th,junk,na,high,"Thai gambling SEO spam, genuinely not Kreyol; machine said en, wrong-lang confirmed"
+madlad_400_ht_clean:0062312,madlad_400_ht_clean,ht,ht,ok,translated,high,MT diamond-cutting-blade vendor technical page
+ht_wikipedia:13298,ht_wikipedia,fr,ht,ok,natural,high,Fluent native Kreyol bio of Odette Roy Fombrun; langid fr wrong
+madlad_400_ht_clean:0055375,madlad_400_ht_clean,tl,ht,ok,natural,high,Natural native Kreyol Haitian NGO (Limye Lavi) methodology; langid tl wrong
+ht_wikipedia:82397,ht_wikipedia,fr,ht,stub,natural,high,Film stub; titles are proper nouns; langid fr wrong
+madlad_400_ht_clean:0016083,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol news on Assange arrest
+owned_proverbs:25,owned_proverbs,vi,ht,ok,natural,high,Authentic Haitian proverb; langid vi wrong
+madlad_400_ht_clean:0003331,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol Juno7 news on Matisan violence
+madlad_400_ht_clean:0100322,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English medical (board-certified surgery)
+madlad_400_ht_clean:0025487,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English web-readability guide, English left in"
+madlad_400_ht_clean:0054934,madlad_400_ht_clean,ht,ht,ok,translated,high,MT EGCG/green-tea chemical vendor page
+madlad_400_ht_clean:0069741,madlad_400_ht_clean,tl,ht,junk,translated,med,"Steel-alloy catalog, heavy English, MT; langid tl wrong"
+madlad_400_ht_clean:0061412,madlad_400_ht_clean,ht,ht,ok,translated,high,MT glass-lined-tank vendor page
+madlad_400_ht_clean:0085326,madlad_400_ht_clean,ht,ht,ok,translated,high,MT stationery-gifts vendor marketing
+madlad_400_ht_clean:0013578,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT pipe-fitting vendor technical, repetitive"
+ht_wikipedia:44398,ht_wikipedia,ht,ht,stub,natural,high,"Geo stub (Irasburg VT), empty sections"
+ht_wikipedia:58271,ht_wikipedia,rm,ht,stub,natural,high,"Short software stub (Okawix), Kreyol clear; langid rm wrong"
+ht_wikipedia:29700,ht_wikipedia,ht,ht,stub,natural,high,"Geo stub, unfilled template (""Chef-lye li se ?"")"
+ht_wikipedia:71336,ht_wikipedia,fr,ht,stub,natural,low,Kreyol intro+headers but body all French filmography (conf 0.895); borderline mixed/fr; langid fr
+madlad_400_ht_clean:0056774,madlad_400_ht_clean,ht,ht,ok,natural,high,Authentic native Kreyol essay on Creole-language celebration (Montreal)
+madlad_400_ht_clean:0062463,madlad_400_ht_clean,ht,ht,junk,translated,high,MT LED-luminaire vendor spec sheet
+madlad_400_ht_clean:0017335,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol sports news roundup; foreign names are proper nouns
+madlad_400_ht_clean:0050842,madlad_400_ht_clean,ht,ht,junk,translated,med,"Garbled MT ebook/torrent page (turbo book), French intrusions"
+madlad_400_ht_clean:0000490,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol news on Chuck Hagel confirmation
+madlad_400_ht_clean:0005573,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English Montreal sugar-shack tourism article, garbled"
+ht_wikipedia:76445,ht_wikipedia,fr,ht,stub,natural,high,Film stub w/ keyboard-mash in Rezime; titles/cast French proper nouns; langid fr wrong
+madlad_400_ht_clean:0066446,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Russian lifehack blog archive teasers
+madlad_400_ht_clean:0072405,madlad_400_ht_clean,ht,ht,ok,natural,high,"Official Polk County school COVID guide, professional Kreyol translation, reads natural"
+madlad_400_ht_clean:0020203,madlad_400_ht_clean,ht,ht,ok,translated,high,MT fucoxanthin/kelp supplement vendor page
+ht_wikipedia:82453,ht_wikipedia,fr,ht,stub,natural,high,Melies film stub; French title proper noun; langid fr wrong
+ht_wikipedia:67976,ht_wikipedia,fr,ht,ok,natural,high,Kreyol Tina Turner bio; English album/film titles are proper nouns; langid fr wrong
+madlad_400_ht_clean:0064942,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English martech blog (Douglas Karr)
+ht_wikipedia:66301,ht_wikipedia,es,ht,ok,natural,high,Kreyol bio of Peruvian actress; Spanish titles/roles proper nouns; langid es wrong
+madlad_400_ht_clean:0073315,madlad_400_ht_clean,ht,ht,junk,translated,high,"Garbled/spun SEO MT (CISCO training), near-incoherent"
+ht_wikipedia:7319,ht_wikipedia,jv,ht,stub,natural,high,Year stub (963); langid jv wrong
+madlad_400_ht_clean:0056198,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol news on INIFA/Aristide graduation
+madlad_400_ht_clean:0091098,madlad_400_ht_clean,ht,ht,ok,translated,high,MT NATO/S-400 news; garbled entity names + number placeholders (XNMX)
+ht_wikipedia:38952,ht_wikipedia,ht,ht,stub,natural,high,"Geo stub (Lucas OH), empty sections"
+madlad_400_ht_clean:0036192,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT Spanish notebook-product SEO listing (Rubio), ISBNs"
+madlad_400_ht_clean:0097032,madlad_400_ht_clean,ht,ht,ok,translated,high,MT toothbrush-vendor about-us page
+ht_wikipedia:74579,ht_wikipedia,fr,ht,ok,natural,low,Kreyol frame but 18k-char French filmography (conf 0.922); borderline fr; langid fr
+madlad_400_ht_clean:0085277,madlad_400_ht_clean,tl,ht,ok,natural,high,Natural native Kreyol news on Biden/Afghanistan; langid tl wrong
+madlad_400_ht_clean:0069974,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT hoodia-cactus supplement product page, French intrusions"
+madlad_400_ht_clean:0038876,madlad_400_ht_clean,ht,ht,ok,translated,high,"Translated Kreyol Wikipedia meta-essay (""10 things""), template artifacts"
+madlad_400_ht_clean:0025363,madlad_400_ht_clean,ht,ht,junk,translated,high,"Teacup-puppies SEO state listing, heavy English, boilerplate"
+madlad_400_ht_clean:0073480,madlad_400_ht_clean,ht,ht,ok,translated,high,MT makeup-brush care tips/product blog aggregation
+madlad_400_ht_clean:0092800,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English religious article, English artifacts (""Apokaholics"")"
+madlad_400_ht_clean:0095274,madlad_400_ht_clean,ht,ht,ok,natural,high,Authentic native Kreyol theological writing (Port-au-Prince church)
+madlad_400_ht_clean:0001637,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT steel-roofing product listing, keyword-stuffed spam"
+madlad_400_ht_clean:0065039,madlad_400_ht_clean,fr,ht,ok,natural,high,Published Haitian Bible (Habakkuk 3); langid fr wrong
+madlad_400_ht_clean:0091845,madlad_400_ht_clean,wa,ht,ok,natural,high,"Haitian Bible verse (Genesis 3:22), duplicated; langid wa wrong"
+madlad_400_ht_clean:0009715,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English PCB technical FAQ, calqued term"
+madlad_400_ht_clean:0009933,madlad_400_ht_clean,ht,ht,ok,natural,high,JW article; language-selector boilerplate header but article body natural Kreyol
+madlad_400_ht_clean:0056022,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT auto-generated financial-data page (Indonesian firm), templated/repetitive"
+madlad_400_ht_clean:0069089,madlad_400_ht_clean,ht,ht,ok,natural,high,Authentic native Kreyol MIT-Haiti Initiative workshop announcement
+ht_wikipedia:81220,ht_wikipedia,fr,ht,stub,natural,high,Haitian film stub; cast are proper nouns; langid fr wrong
+madlad_400_ht_clean:0044349,madlad_400_ht_clean,en,ht,junk,natural,med,"Scraped Wikipedia title+footer metadata only, no article; langid en wrong"
+madlad_400_ht_clean:0078503,madlad_400_ht_clean,ht,ht,ok,natural,high,Authentic native Kreyol personal essay (BelNeges women's blog)
+madlad_400_ht_clean:0009952,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Italian design magazine (Duffy London furniture)
+madlad_400_ht_clean:0064277,madlad_400_ht_clean,ht,ht,ok,natural,high,"Head Start/preschool FAQ for Haitian parents, reads natural"
+madlad_400_ht_clean:0079808,madlad_400_ht_clean,ht,ht,ok,translated,high,MT nitinol-alloy vendor technical page
+madlad_400_ht_clean:0086524,madlad_400_ht_clean,ht,ht,ok,natural,high,"Natural native Kreyol political news (Triboland, Andre Michel/PHTK)"
+madlad_400_ht_clean:0072677,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English martech blog (Starbucks app)
+madlad_400_ht_clean:0076987,madlad_400_ht_clean,ht,ht,ok,translated,high,MT shrimp-trawl fishing-net vendor technical
+ht_wikipedia:59069,ht_wikipedia,ht,ht,stub,natural,high,"Barley stub, one sentence + French image captions"
+madlad_400_ht_clean:0109954,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT Italian ferry-booking travel page, garbled"
+ht_wikipedia:90683,ht_wikipedia,jv,ht,ok,natural,high,Kreyol encyclopedic def of sexual violence; langid jv wrong
+ht_wikipedia:84682,ht_wikipedia,vi,ht,stub,natural,high,Film stub; title/cast proper nouns; langid vi wrong
+madlad_400_ht_clean:0013477,madlad_400_ht_clean,pms,ht,ok,natural,high,"Published Haitian Bible (Ruth 4, STEP); langid pms wrong"
+madlad_400_ht_clean:0069427,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT USB-cable product page, garbled with &#39; entity artifacts"
+madlad_400_ht_clean:0024766,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English hair-curling beauty article, scrape artifact injected"
+madlad_400_ht_clean:0048885,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English martech blog (SmartFocus)
+madlad_400_ht_clean:0062566,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English martech blog (marketing formulas)
+ht_wikipedia:38427,ht_wikipedia,ht,ht,stub,natural,high,"Geo stub (Dover OH), empty sections"
+madlad_400_ht_clean:0049124,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT GDPR privacy-policy boilerplate (Polish/Italian firm), XNUMX placeholder"
+ht_wikipedia:75649,ht_wikipedia,pms,ht,stub,natural,high,K-drama stub; title/cast Korean proper nouns; langid pms wrong
+ht_wikipedia:67481,ht_wikipedia,ht,ht,stub,natural,high,"Footballer bio stub (Rakitic), empty sections"
+madlad_400_ht_clean:0071457,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-French fertility/weight health article, scrape artifact injected"
+madlad_400_ht_clean:0037421,madlad_400_ht_clean,ht,ht,ok,natural,high,"JW Bible-story retelling (Daniel/writing on wall), natural Kreyol"
+ht_wikipedia:77149,ht_wikipedia,fr,ht,ok,natural,low,Kreyol frame but body all French filmography (conf 0.751); borderline fr; langid fr
+ht_wikipedia:82726,ht_wikipedia,vi,ht,stub,natural,high,Film stub; title/cast proper nouns; langid vi wrong
+madlad_400_ht_clean:0027479,madlad_400_ht_clean,ht,ht,ok,translated,high,MT infrared-detector vendor technical + spec dump
+madlad_400_ht_clean:0006511,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol sports news roundup (Ronaldo/NBA)
+madlad_400_ht_clean:0087326,madlad_400_ht_clean,ms,ht,ok,translated,high,MT PVC-kitchen-cabinet vendor page; langid ms wrong
+madlad_400_ht_clean:0030473,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol news on Gabriel Boric/Chile election
+madlad_400_ht_clean:0017665,madlad_400_ht_clean,ht,ht,ok,translated,high,MT cartoning-machine vendor about-us page
+madlad_400_ht_clean:0001420,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol VOA news (Jamaica/Haiti refugees 2010)
+madlad_400_ht_clean:0078951,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol weather/hurricane news (Agatha/Alex)
+madlad_400_ht_clean:0011099,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT football-jersey product listing, keyword spam"
+madlad_400_ht_clean:0032217,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Spanish Apple/AIDS-day tech news
+madlad_400_ht_clean:0059805,madlad_400_ht_clean,jv,ht,ok,translated,high,MT plastics-resin technical article; langid jv wrong
+ht_wikipedia:3465,ht_wikipedia,jv,ht,stub,natural,high,Calendar-day stub (May 29); langid jv wrong
+madlad_400_ht_clean:0079953,madlad_400_ht_clean,ht,ht,ok,natural,med,"Boston/John Barros campaign page for Haitian community; mostly natural, some calques"
+ht_wikipedia:7385,ht_wikipedia,jv,ht,stub,natural,high,Year stub (1029); langid jv wrong
+madlad_400_ht_clean:0099925,madlad_400_ht_clean,tl,ht,ok,natural,high,JW NWT Bible (1 Thessalonians 4); langid tl wrong
+ht_wikipedia:81434,ht_wikipedia,diq,ht,stub,natural,high,Film stub; title/cast French proper nouns; langid diq wrong
+ht_wikipedia:79468,ht_wikipedia,ht,ht,ok,natural,high,"Encyclopedic article on Thai TV channel (GMM 25), reads natural"
+madlad_400_ht_clean:0101375,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT steroid SEO geo-spam (Mauritius locations), spun/repetitive"
+madlad_400_ht_clean:0034494,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT custom-ring vendor page, one garbled merged-text block"
+madlad_400_ht_clean:0086711,madlad_400_ht_clean,ht,ht,ok,translated,high,MT tungsten-molybdenum medical-parts vendor technical
+madlad_400_ht_clean:0012210,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English short personal blog note (Martech)
+madlad_400_ht_clean:0033201,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT steroid SEO geo-spam (Mauritius/Dianabol), spun"
+madlad_400_ht_clean:0088224,madlad_400_ht_clean,tl,ht,ok,natural,high,Natural native Kreyol Haitian radio/political report; langid tl wrong; minor spam-link artifact
+madlad_400_ht_clean:0064922,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English Wikipedia article on Orthodox Church, garbled ""Orthodox"""
+madlad_400_ht_clean:0082009,madlad_400_ht_clean,ht,ht,ok,natural,high,"Compiled Haitian Bible verses (betrayal topic), natural"
+madlad_400_ht_clean:0005260,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-Russian Rapunzel games portal, connected description"
+madlad_400_ht_clean:0076780,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol VOA/diaspora cultural news aggregation
+madlad_400_ht_clean:0063441,madlad_400_ht_clean,ht,ht,ok,natural,high,JW Awake family article; language-selector boilerplate header; body natural Kreyol
+madlad_400_ht_clean:0052240,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Italian furniture/mirror product page
+ht_wikipedia:74716,ht_wikipedia,es,ht,ok,natural,high,Kreyol bio of Mexican actress; Spanish titles proper nouns; langid es wrong
+madlad_400_ht_clean:0066650,madlad_400_ht_clean,ht,mixed,ok,translated,med,Half English / half Kreyol-MT poker-tells article; genuinely mixed
+madlad_400_ht_clean:0082374,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol AyiboPost article on children's books (Liv an Foli)
+ht_wikipedia:5790,ht_wikipedia,ht,ht,stub,natural,high,"Number stub (556), interwiki-link artifact"
+ht_wikipedia:22597,ht_wikipedia,ht,ht,stub,natural,high,Geo stub (Jaen province commune)
+madlad_400_ht_clean:0110401,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English aid/food-shelter blog (India), article teasers"
+madlad_400_ht_clean:0036366,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT citrus-extract vendor page, garbled with &#39; artifacts + merged English"
+madlad_400_ht_clean:0013212,madlad_400_ht_clean,ht,ht,ok,natural,high,Natural native Kreyol sports news roundup (UEFA/Olympics)
+ht_wikipedia:76489,ht_wikipedia,fr,ht,stub,natural,high,Film stub; French cast proper nouns + Kreyol role glosses; langid fr wrong
+madlad_400_ht_clean:0011736,madlad_400_ht_clean,ht,ht,ok,translated,high,"MT-from-English hammock/Airbnb listicle, scrape artifact injected"
+madlad_400_ht_clean:0069990,madlad_400_ht_clean,ht,ht,ok,translated,high,MT LED-panel technical comparison (edge-lit vs back-lit)
+madlad_400_ht_clean:0087314,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English baby dry-wipes product marketing
+madlad_400_ht_clean:0035843,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-French astrology/relationship clickbait article
+ht_wikipedia:13824,ht_wikipedia,ht,ht,stub,natural,high,"Bayonet dictionary stub, empty sections"
+madlad_400_ht_clean:0106895,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT testosterone/steroid SEO geo-spam (Mauritius), spun"
+madlad_400_ht_clean:0025517,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English Stony Brook local-heroes profiles
+ht_wikipedia:6780,ht_wikipedia,jv,ht,stub,natural,high,Year stub (424); langid jv wrong
+ht_wikipedia:79830,ht_wikipedia,oc,ht,stub,natural,high,Documentary film stub; French cast proper nouns + Kreyol glosses; langid oc wrong
+ht_wikipedia:7284,ht_wikipedia,jv,ht,stub,natural,high,Year stub (928); langid jv wrong
+madlad_400_ht_clean:0002260,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English power-supply technical FAQ
+madlad_400_ht_clean:0062373,madlad_400_ht_clean,ht,ht,junk,translated,high,"MT HDPE-pipe machinery vendor page, garbled + merged English"
+ht_wikipedia:68451,ht_wikipedia,ht,ht,ok,natural,high,"Substantive Kreyol linguistics article on syntax, idiosyncratic orthography"
+madlad_400_ht_clean:0023890,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English NYC/Queens swimming-pools guide
+madlad_400_ht_clean:0075494,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Chinese flood-rescue/product news (Poyang)
+madlad_400_ht_clean:0041397,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-Italian Wikipedia bio (Reggie Miller)
+madlad_400_ht_clean:0097861,madlad_400_ht_clean,ht,ht,ok,natural,high,"Kreyol dictionary definitions (2500 mo Kreyol), natural"
+madlad_400_ht_clean:0017303,madlad_400_ht_clean,jv,ht,ok,translated,high,MT-from-English martech blog (gender/social media); langid jv wrong
+madlad_400_ht_clean:0105458,madlad_400_ht_clean,ht,ht,ok,translated,high,MT-from-English martech blog (AdSense/WordPress)
+madlad_400_ht_clean:0019559,madlad_400_ht_clean,ht,ht,ok,translated,high,MT religious Valentine's article (Church of God Switzerland)
+madlad_400_ht_clean:0028743,madlad_400_ht_clean,ht,ht,ok,natural,high,"Pro Se legal handbook on appeals, professional Kreyol translation, reads natural"
+madlad_400_ht_clean:0029085,madlad_400_ht_clean,oc,ht,ok,natural,high,Authentic native Kreyol forum debate on Creole languages; some French code-switching; langid oc wrong
