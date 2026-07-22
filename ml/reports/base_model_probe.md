@@ -4,22 +4,22 @@ _Snapshot 2026-07-21. Precision: **unquantized bf16** (transformers, `torch_dtyp
 
 **Question.** Which pretrained base starts from the strongest Kreyòl position for Model B's continued-pretraining? Reputation doesn't settle it (none publish HT evals); a few dollars of GPU does.
 
-## Provisional pick — **pending human naturalness review**
+## Final pick — **`google/gemma-3-4b-pt`** *(naturalness folded in 2026-07-22)*
 
-On the two **automated** measures, **`google/gemma-3-4b-pt`** (`gemma3-4b`) leads: authored-Kreyòl BPB **1.170** (primary, lower is better) and eng→hat chrF2++ **43.1**. This ranking is **provisional**: the blinded naturalness rubric ([probe_naturalness_sheet.md](probe_naturalness_sheet.md)) is scored by a fluent speaker and folds into the final decision.
+**`google/gemma-3-4b-pt`** wins on every axis: authored-Kreyòl BPB **1.170** (primary), eng→hat chrF2++ **43.1** (~1.7× the runner-up; 43.2 on full-dev), the only probe-proverb recall, and the blinded naturalness rubric (**avg 2.7** vs 1.2–1.9 for the field — the only model scoring 3s on translation, register, and continuation). Naturalness provenance: scored blind on the 10-prompt sheet by a **working-level (non-native) reader**; only the extremes are treated as robust (Gemma clearly top, Qwen3-1.7B clearly floor — the 1.6–1.9 middle cluster is within noise); native-speaker review is deferred to Phase 3 per plan §6.2. **License caveat stands** (Gemma Terms vs the community-project Apache bar — a Phase 2 decision; best Apache-clean alternative: Qwen3-4B).
 
 
 ## Scorecard
 
-BPB = bits-per-byte (primary, ↓). chrF2++ / spBLEU on the 250-item dev subset (↑). Proverbs = exact-continuation hits / near-misses out of 15. Naturalness pending (see sheet).
+BPB = bits-per-byte (primary, ↓). chrF2++ / spBLEU on the 250-item dev subset (↑). Proverbs = exact-continuation hits / near-misses out of 15. Naturalness = 1–3 blinded rubric avg (working-level reader; extremes robust, middle cluster within noise).
 
 | Model | Params | BPB authored ↓ | BPB full ↓ | chrF2++ e→h | spBLEU e→h | chrF2++ h→e | spBLEU h→e | Proverbs hit/near | Naturalness |
 |---|---|---|---|---|---|---|---|---|---|
-| `Qwen/Qwen3-1.7B-Base` | 1.7B | **1.731** | 2.080 | 16.5 | 2.3 | 33.5 | 14.5 | 0/0 | _pending_ |
-| `Qwen/Qwen3-4B-Base` | 4B | **1.534** | 1.815 | 25.0 | 5.3 | 47.3 | 26.6 | 0/0 | _pending_ |
-| `HuggingFaceTB/SmolLM3-3B-Base` | 3B | **2.485** | 2.869 | 17.6 | 3.0 | 37.7 | 17.4 | 0/0 | _pending_ |
-| `google/gemma-3-4b-pt` ⭐ | 4B | **1.170** | 1.355 | 43.1 | 20.6 | 58.0 | 37.1 | 1/0 | _pending_ |
-| `meta-llama/Llama-3.2-3B` _(control)_ ⭐ | 3B | **1.291** | 1.714 | 25.6 | 6.2 | 45.7 | 25.1 | 0/1 | _pending_ |
+| `Qwen/Qwen3-1.7B-Base` | 1.7B | **1.731** | 2.080 | 16.5 | 2.3 | 33.5 | 14.5 | 0/0 | 1.2 |
+| `Qwen/Qwen3-4B-Base` | 4B | **1.534** | 1.815 | 25.0 | 5.3 | 47.3 | 26.6 | 0/0 | 1.9 |
+| `HuggingFaceTB/SmolLM3-3B-Base` | 3B | **2.485** | 2.869 | 17.6 | 3.0 | 37.7 | 17.4 | 0/0 | 1.6 |
+| `google/gemma-3-4b-pt` ⭐ | 4B | **1.170** | 1.355 | 43.1 | 20.6 | 58.0 | 37.1 | 1/0 | **2.7** |
+| `meta-llama/Llama-3.2-3B` _(control)_ ⭐ | 3B | **1.291** | 1.714 | 25.6 | 6.2 | 45.7 | 25.1 | 0/1 | 1.7 |
 
 ⭐ = promoted to the full-dev MT stage.
 
