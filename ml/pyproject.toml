@@ -11,6 +11,7 @@ dependencies = [
     "tiktoken",
     "transformers",
     "sacrebleu",
+    "sentencepiece",        # sacreBLEU spBLEU (flores200 tokenizer) for the base-model probe (Workstream D)
     "anthropic",
     "modal",
     "datasketch",
