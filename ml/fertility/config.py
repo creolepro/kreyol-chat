@@ -53,7 +53,7 @@ HF_TOKENIZERS = [
     ("Qwen/Qwen3-1.7B", "Qwen3 (Qwen/Qwen3-1.7B)"),
     ("facebook/nllb-200-distilled-600M", "NLLB (facebook/nllb-200-distilled-600M)"),
     ("HuggingFaceTB/SmolLM3-3B", "SmolLM3 (HuggingFaceTB/SmolLM3-3B)"),
-    ("meta-llama/Llama-3.2-3B", "Llama-3 (meta-llama/Llama-3.2-3B)"),
+    ("meta-llama/Llama-3.1-8B", "Llama-3 (meta-llama/Llama-3.1-8B)"),
 ]
 
 # Our own Kreyòl BPE tokenizer (Workstream B output). Included automatically if

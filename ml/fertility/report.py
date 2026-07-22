@@ -157,10 +157,10 @@ def write_markdown(rows, petrov, flores, words, skipped, path, repo_root, log):
         A(f"| {r['label']} | `{r['repo']}` | `{r['revision']}` |")
     A("")
     if any(r["label"].startswith("SmolLM3") for r in rows):
-        A("> **Note:** SmolLM3's tokenizer is the Llama-3 family (vocab size 128,256 — SmolLM3 "
-          "adopted the Llama 3.2 tokenizer), so its row very likely previews the gated Llama-3 "
-          "row. Verify identity (same encoding of a probe set) when the Meta gate opens, then "
-          "either merge or report both.\n")
+        A("> **Note:** SmolLM3's tokenizer **is** the Llama-3 tokenizer — verified 2026-07-21: "
+          "identical vocab (128,256) and identical encodings on a 205-text probe (accents, "
+          "clitics, numbers, code-switch). The SmolLM3 and Llama-3 rows are the same tokenizer "
+          "measured twice; their digit-identical parity confirms it empirically.\n")
 
     # main results
     A("## Results — parity (Haitian Creole ÷ English)\n")

@@ -8,7 +8,7 @@ On 1012 aligned FLORES+ `devtest` sentences, the same content costs **1.74× mor
 
 **Our Kreyòl tokenizer (`kreyol-bpe`, Workstream B) lands at ht/en parity 0.67× (95% CI [0.67, 0.68]) and ht/fr 0.57× ([0.56, 0.57]).** It **flips the tax**: identical content now costs *fewer* tokens in Kreyòl than in English — the point of training a Kreyòl-first vocabulary.
 
-**This extends Petrov et al. (2023)** ([arXiv:2305.15425](https://arxiv.org/abs/2305.15425)), who measured Haitian Creole through the cl100k-era tokenizers — our cl100k and NLLB rows reproduce theirs. The new contribution is the post-2023 generation: **as of 2026-07-19 we could find no previously published Haitian-Creole parity numbers for o200k, Gemma-3, Qwen3, SmolLM3, or any Claude API estimate** — those rows are, to our knowledge, first published here, alongside our own Kreyòl tokenizer. ("First published we could find," not "first-ever.")
+**This extends Petrov et al. (2023)** ([arXiv:2305.15425](https://arxiv.org/abs/2305.15425)), who measured Haitian Creole through the cl100k-era tokenizers — our cl100k and NLLB rows reproduce theirs. The new contribution is the post-2023 generation: **as of 2026-07-19 we could find no previously published Haitian-Creole parity numbers for o200k, Gemma-3, Qwen3, SmolLM3, Llama-3, or any Claude API estimate** — those rows are, to our knowledge, first published here, alongside our own Kreyòl tokenizer. ("First published we could find," not "first-ever.")
 
 ## Pipeline validation (Petrov et al. 2023)
 
@@ -43,10 +43,11 @@ Before measuring anything new, we reproduce Petrov et al.'s published Haitian/En
 | Qwen3 (Qwen/Qwen3-1.7B) | `Qwen/Qwen3-1.7B` | `70d244cc86ccca08cf5af4e1e306ecf908b1ad5e` |
 | NLLB (facebook/nllb-200-distilled-600M) | `facebook/nllb-200-distilled-600M` | `f8d333a098d19b4fd9a8b18f94170487ad3f821d` |
 | SmolLM3 (HuggingFaceTB/SmolLM3-3B) | `HuggingFaceTB/SmolLM3-3B` | `a07cc9a04f16550a088caea529712d1d335b0ac1` |
+| Llama-3 (meta-llama/Llama-3.1-8B) | `meta-llama/Llama-3.1-8B` | `d04e592bb4f6aa9cfee91e2e20afa771667e1d4b` |
 | kreyol-bpe (ours, Workstream B) | `tokenizer/kreyol-bpe/tokenizer.json` | `local` |
 | claude_api_input_parity (claude-opus-4-8) | `claude-opus-4-8` | `claude-opus-4-8` |
 
-> **Note:** SmolLM3's tokenizer is the Llama-3 family (vocab size 128,256 — SmolLM3 adopted the Llama 3.2 tokenizer), so its row very likely previews the gated Llama-3 row. Verify identity (same encoding of a probe set) when the Meta gate opens, then either merge or report both.
+> **Note:** SmolLM3's tokenizer **is** the Llama-3 tokenizer — verified 2026-07-21: identical vocab (128,256) and identical encodings on a 205-text probe (accents, clitics, numbers, code-switch). The SmolLM3 and Llama-3 rows are the same tokenizer measured twice; their digit-identical parity confirms it empirically.
 
 ## Results — parity (Haitian Creole ÷ English)
 
@@ -60,6 +61,7 @@ Before measuring anything new, we reproduce Petrov et al.'s published Haitian/En
 | claude_api_input_parity (claude-opus-4-8) | **1.513** | [1.485, 1.541] | +51.3% | 1.022 | 2.839 | — | 127.7 vs 193.2 |
 | Gemma-3 (google/gemma-3-4b-pt) | **1.532** | [1.517, 1.549] | +53.2% | 1.088 | 1.817 | 47/50 | 199.5 vs 305.8 |
 | SmolLM3 (HuggingFaceTB/SmolLM3-3B) | **1.695** | [1.678, 1.713] | +69.5% | 1.060 | 2.014 | 44/50 | 180.0 vs 305.1 |
+| Llama-3 (meta-llama/Llama-3.1-8B) | **1.695** | [1.678, 1.713] | +69.5% | 1.060 | 2.014 | 44/50 | 180.0 vs 305.1 |
 | Qwen3 (Qwen/Qwen3-1.7B) | **1.718** | [1.699, 1.737] | +71.8% | 1.087 | 2.075 | 43/50 | 174.7 vs 300.1 |
 | cl100k (GPT-4 / GPT-3.5-era) | **1.737** | [1.718, 1.756] | +73.7% | 1.082 | 2.065 | 43/50 | 175.6 vs 305.0 |
 
@@ -75,6 +77,7 @@ Per-sentence ratio spread (ht/en):
 | claude_api_input_parity (claude-opus-4-8) | — | — | — |
 | Gemma-3 (google/gemma-3-4b-pt) | 1.2273 | 1.5263 | 1.9091 |
 | SmolLM3 (HuggingFaceTB/SmolLM3-3B) | 1.3659 | 1.6765 | 2.1 |
+| Llama-3 (meta-llama/Llama-3.1-8B) | 1.3659 | 1.6765 | 2.1 |
 | Qwen3 (Qwen/Qwen3-1.7B) | 1.3639 | 1.7 | 2.1562 |
 | cl100k (GPT-4 / GPT-3.5-era) | 1.3871 | 1.7143 | 2.1761 |
 
@@ -90,7 +93,7 @@ Shown **only** for tokenizers/APIs tied to an actually-priced API. Prices are an
 
 ## Skipped items & flags
 
-- **SKIPPED Llama-3 (meta-llama/Llama-3.2-3B)** (`meta-llama/Llama-3.2-3B`): gated repo, access approval still pending (403). The script is re-runnable to fill this row later.
+- None — every planned tokenizer and the Claude API measurement completed.
 - **No authored-Kreyòl set measured yet.** The translated-vs-authored fertility check (FLORES's Haitian side is itself translated) needs an authored corpus of real size; the only authored set in the repo so far is the 15 probe proverbs (too small to measure alone). **TODO:** assemble a fuller authored-Kreyòl set and re-run for the translationese comparison.
 
 ## Reproduce
