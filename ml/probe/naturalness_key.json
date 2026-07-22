@@ -1,0 +1,82 @@
+{
+ "seed": 20260721,
+ "models": [
+  "qwen3-1.7b",
+  "qwen3-4b",
+  "smollm3-3b",
+  "gemma3-4b",
+  "llama3.2-3b"
+ ],
+ "key": {
+  "greet_1": {
+   "A": "qwen3-1.7b",
+   "B": "smollm3-3b",
+   "C": "gemma3-4b",
+   "D": "qwen3-4b",
+   "E": "llama3.2-3b"
+  },
+  "greet_2": {
+   "A": "llama3.2-3b",
+   "B": "qwen3-1.7b",
+   "C": "qwen3-4b",
+   "D": "smollm3-3b",
+   "E": "gemma3-4b"
+  },
+  "quest_1": {
+   "A": "llama3.2-3b",
+   "B": "qwen3-1.7b",
+   "C": "smollm3-3b",
+   "D": "gemma3-4b",
+   "E": "qwen3-4b"
+  },
+  "quest_2": {
+   "A": "smollm3-3b",
+   "B": "qwen3-1.7b",
+   "C": "gemma3-4b",
+   "D": "llama3.2-3b",
+   "E": "qwen3-4b"
+  },
+  "trans_1": {
+   "A": "qwen3-1.7b",
+   "B": "gemma3-4b",
+   "C": "qwen3-4b",
+   "D": "smollm3-3b",
+   "E": "llama3.2-3b"
+  },
+  "trans_2": {
+   "A": "llama3.2-3b",
+   "B": "gemma3-4b",
+   "C": "smollm3-3b",
+   "D": "qwen3-4b",
+   "E": "qwen3-1.7b"
+  },
+  "regis_1": {
+   "A": "smollm3-3b",
+   "B": "llama3.2-3b",
+   "C": "gemma3-4b",
+   "D": "qwen3-1.7b",
+   "E": "qwen3-4b"
+  },
+  "regis_2": {
+   "A": "qwen3-4b",
+   "B": "llama3.2-3b",
+   "C": "smollm3-3b",
+   "D": "qwen3-1.7b",
+   "E": "gemma3-4b"
+  },
+  "cont_1": {
+   "A": "qwen3-4b",
+   "B": "qwen3-1.7b",
+   "C": "gemma3-4b",
+   "D": "smollm3-3b",
+   "E": "llama3.2-3b"
+  },
+  "cont_2": {
+   "A": "gemma3-4b",
+   "B": "qwen3-4b",
+   "C": "llama3.2-3b",
+   "D": "qwen3-1.7b",
+   "E": "smollm3-3b"
+  }
+ }
+}
