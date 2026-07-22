@@ -399,8 +399,8 @@ Rights matrix + split registry *first*, then corpus v0 (rights-clear sources onl
 **Phase 0b — Base-model probe (≈$5–10)**
 Staged probe of the *base* checkpoints (Qwen3-Base / SmolLM3-Base / gemma-3-4b-pt) on FLORES+ **dev**: bits-per-byte + few-shot scorecard → pick Model B's base. Full runbook: [phase-0.md](./phase-0.md).
 
-**Phase 1 — Model C v0 (≈$30–100)**
-nanochat d12 on corpus v0, multi-epoch, Pythia-style checkpoints. Micro-model mixture ablations. GGUF + browser conversion validated *early*. *Stations 2/6/bonus become demoable.*
+**Phase 1 — Model C v0 (≈$15–40)** — detailed runbook: [phase-1.md](./phase-1.md)
+Corpus v0.1 (audit-driven filters) + labeled eval slices → nanochat d12 on Modal, multi-epoch, Pythia-style checkpoints, conversion chain proven early → micro-model fleet (tokenizer pair, mixture/epoch ablations) → midtraining + SFT. *Stations 2/6/bonus become demoable.*
 
 **Phase 2 — Model B (≈$25–75)**
 Full-param CPT (85–90/10–15 mix) via Axolotl on Modal; instruction stage from reviewed Aya-haitian + native-seeded self-instruct; LoRA acceptable here.
