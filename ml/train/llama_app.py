@@ -135,6 +135,7 @@ def _save_ckpt(model, opt, step, rng_state, tag):
 def train(cfg: dict) -> dict:
     """Train (or resume) Model C. Fresh container each call → a successful resume proves
     HF checkpoints round-trip across Modal function calls (F2 requirement inherited)."""
+    import gc
     import numpy as np
     import torch
     import torch.nn.functional as F_
@@ -142,6 +143,18 @@ def train(cfg: dict) -> dict:
     from . import llama_model as M
     from . import data_g
     from . import bpb_g
+
+    # Modal may REUSE a warm container across successive train.remote() calls (the depth
+    # sweep). Clear any residual model / optimizer / compiled-graph GPU memory from a prior
+    # invocation up front, or a later (bigger) depth OOMs on accumulated allocations.
+    try:
+        torch._dynamo.reset()
+    except Exception:
+        pass
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats()
 
     torch.manual_seed(G.TRAIN["seed"])
     torch.backends.cuda.matmul.allow_tf32 = True
@@ -222,11 +235,18 @@ def train(cfg: dict) -> dict:
                     gens.append({"id": p["id"], "category": p["category"],
                                  "prompt": p["prompt"], "completion": comp})
                 rec["generations"] = gens
+                # per-checkpoint BPB (the learning CURVE) on a fixed CAPPED subset per slice —
+                # consistent across checkpoints and fast (batch-1 BPB over ~2k docs is slow, and
+                # there are ~8 checkpoints). The FULL-slice BPB for the vs-bases table is a single
+                # bpb.remote() at the end (do_flagship), matching base_bpb exactly.
+                cap = G.BPB_CKPT_MAX_DOCS
                 rec["bpb"] = {}
+                rec["bpb_cap_docs"] = cap
                 with torch.autocast("cuda", dtype=torch.bfloat16):
                     for name, texts in eval_texts.items():
-                        if texts:
-                            rec["bpb"][name] = bpb_g.score_bpb(model, encode, texts, seq_len, bos_id)["bpb"]
+                        sub = texts[:cap]
+                        if sub:
+                            rec["bpb"][name] = bpb_g.score_bpb(model, encode, sub, seq_len, bos_id)["bpb"]
                 print(f"[ckpt {step}] tokens={rec['tokens']:,} bpb={rec['bpb']}")
             ckpt_records.append(rec)
             model.train()

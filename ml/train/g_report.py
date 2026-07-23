@@ -341,10 +341,13 @@ def modelc_md():
         A.append("")
         A.append("| model | params | authored ↓ | general ↓ | translation-shaped |")
         A.append("|---|--:|--:|--:|--:|")
-        final = ckpts[-1].get("bpb", {})
+        # full-slice final BPB (uncapped, matches base_bpb); fall back to the last curve point
+        ffb = r.get("final_full_bpb") or {}
+        def _mc(k):
+            v = ffb.get(k, {}).get("bpb") if ffb else ckpts[-1].get("bpb", {}).get(k)
+            return f"{v:.4f}" if isinstance(v, (int, float)) else "—"
         A.append(f"| **Model C v0 (d{r['depth']})** | {tr['params']/1e6:.0f}M | "
-                 f"{final.get('authored_eval', float('nan')):.4f} | {final.get('general_holdout', float('nan')):.4f} | "
-                 f"{final.get('translation_shaped_eval', float('nan')):.4f} |")
+                 f"{_mc('authored_eval')} | {_mc('general_holdout')} | {_mc('translation_shaped_eval')} |")
         labels = {"google/gemma-3-4b-pt": "gemma-3-4b-pt", "Qwen/Qwen3-4B-Base": "Qwen3-4B-Base",
                   "meta-llama/Llama-3.2-3B": "Llama-3.2-3B"}
         params = {"google/gemma-3-4b-pt": "4B", "Qwen/Qwen3-4B-Base": "4B", "meta-llama/Llama-3.2-3B": "3B"}

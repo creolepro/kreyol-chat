@@ -125,11 +125,14 @@ def _print_gate_summary(g):
 
 # --- Part 3: sweep ------------------------------------------------------------
 
-def do_sweep():
+def do_sweep(depths=None):
     S = G.SWEEP
-    results = {"part": "depth-sweep", "sweep_config": S, "runs": {}}
+    depths = depths or S["depths"]
+    # merge into any existing results (so a single-depth re-run doesn't drop the others)
+    out = _out("g_sweep_results.json")
+    results = json.load(open(out)) if os.path.exists(out) else {"part": "depth-sweep", "sweep_config": S, "runs": {}}
     with modal.enable_output(), app.run():
-        for depth in S["depths"]:
+        for depth in depths:
             tag = S["model_tag"].format(depth=depth)
             cfg = _train_cfg(depth, tag, S["num_iterations"])
             tr = train.remote(cfg)
@@ -156,6 +159,9 @@ def do_flagship(depth, num_iter=None):
         print(f"[flagship] trained {tag}: epochs={results['train']['epochs']} "
               f"ckpts={results['train']['checkpoint_steps']}")
         final = results["train"]["checkpoint_steps"][-1]
+        # FULL-slice BPB at the final checkpoint (uncapped) — the vs-bases number, matching base_bpb
+        results["final_full_bpb"] = bpb.remote(tag, final)["bpb"]
+        print(f"[flagship] final full BPB: { {k: round(v['bpb'],4) for k,v in results['final_full_bpb'].items()} }")
         results["gates"] = convert_gates.remote(tag, final)
     _save("g_flagship_results.json", results)
 
@@ -204,7 +210,7 @@ def main():
     sub.add_parser("upload")
     sub.add_parser("verify")
     g = sub.add_parser("gate"); g.add_argument("--skip-train", action="store_true")
-    sub.add_parser("sweep")
+    sw = sub.add_parser("sweep"); sw.add_argument("--depths", type=str, default="")
     fl = sub.add_parser("flagship"); fl.add_argument("--depth", type=int, required=True)
     fl.add_argument("--num-iter", type=int, default=None)
     sub.add_parser("base-bpb")
@@ -217,7 +223,8 @@ def main():
     elif args.cmd == "gate":
         do_gate(skip_train=args.skip_train)
     elif args.cmd == "sweep":
-        do_sweep()
+        depths = [int(x) for x in args.depths.split(",") if x.strip()] if args.depths else None
+        do_sweep(depths)
     elif args.cmd == "flagship":
         do_flagship(args.depth, args.num_iter)
     elif args.cmd == "base-bpb":

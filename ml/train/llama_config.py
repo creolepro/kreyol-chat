@@ -112,6 +112,10 @@ OLLAMA_INSTALL = "https://ollama.com/install.sh"
 # holdout (the SAME docs the base-model scorecard used, so the vs-bases table lines up).
 FLORES_HAT_DEVTEST = os.path.join(F.DATA, "raw", "petrov", "hat_Latn.devtest")
 BPB_GENERAL_HOLDOUT_BYTES = 700_000                # match base_model_probe.md's ~700kB budget
+# per-checkpoint BPB (the learning CURVE) runs on a capped subset per slice for speed
+# (batch-1 BPB over ~2k docs is slow, and the flagship has ~8 checkpoints); the FINAL
+# checkpoint + the vs-bases comparison use the FULL slices (bpb.remote, uncapped).
+BPB_CKPT_MAX_DOCS = 120
 
 # --- Modal Volume layout for Workstream G --------------------------------------
 G_DIR = "/cache/g"                                 # on the Modal Volume
