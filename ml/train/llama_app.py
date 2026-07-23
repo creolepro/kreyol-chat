@@ -131,7 +131,11 @@ def _save_ckpt(model, opt, step, rng_state, tag):
     return d
 
 
-@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=F.MODAL_TIMEOUT_S)
+# scaledown_window=2: the container shuts down right after each call, so a reused warm
+# container can't carry a prior invocation's live GPU tensors into the next depth (the depth
+# sweep's train.remote() calls otherwise accumulated d12+d16+d20 → OOM at d20).
+@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=3 * 60 * 60,
+              scaledown_window=2)
 def train(cfg: dict) -> dict:
     """Train (or resume) Model C. Fresh container each call → a successful resume proves
     HF checkpoints round-trip across Modal function calls (F2 requirement inherited)."""
@@ -295,10 +299,22 @@ def train(cfg: dict) -> dict:
                   + (f" val_ce {val_ce:.4f}" if val_ce else ""))
             t_win, tok_win = time.time(), 0
 
+    # optional FULL-slice BPB at the final model (uncapped) — the vs-bases number, matching
+    # base_bpb. Done here (same container) so the flagship needs no extra long client call.
+    final_full_bpb = None
+    if cfg.get("final_full_bpb") and eval_texts:
+        model.eval()
+        final_full_bpb = {}
+        with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+            for name, texts in eval_texts.items():
+                if texts:
+                    final_full_bpb[name] = bpb_g.score_bpb(model, encode, texts, seq_len, bos_id)
+        print(f"[train] final full BPB: { {k: round(v['bpb'],4) for k,v in final_full_bpb.items()} }")
+
     # throughput median excludes only the compile/warmup transient (step 0-4), not the LR
     # warmup (which is the same compute per step).
     steady = [l["tok_s"] for l in logs if l["step"] >= 5 and l["tok_s"] > 0]
-    return {
+    out = {
         "tag": tag, "depth": depth, "num_iterations": num_iter,
         "params": int(sum(p.numel() for p in model.parameters())),
         "unique_train_tokens": unique_tokens,
@@ -308,7 +324,15 @@ def train(cfg: dict) -> dict:
         "median_tok_s": int(sorted(steady)[len(steady) // 2]) if steady else None,
         "logs": logs, "checkpoints": ckpt_records,
         "checkpoint_steps": [r["step"] for r in ckpt_records],
+        "final_full_bpb": final_full_bpb,
     }
+    # self-persist to the Volume so a client disconnect (ephemeral app) never loses the run.
+    rd = os.path.join(G.G_DIR, "results")
+    os.makedirs(rd, exist_ok=True)
+    with open(os.path.join(rd, f"train_{tag}.json"), "w") as fh:
+        json.dump(out, fh)
+    VOL.commit()
+    return out
 
 
 # ============================ ad-hoc generate / bpb ===========================
@@ -439,8 +463,24 @@ def convert_gates(tag: str, step: int, do_quant: bool = True, do_ollama: bool = 
                     "bytes": os.path.getsize(gguf_q4) if gguf_q4 and os.path.exists(gguf_q4) else 0},
         "onnx_dir": os.path.join(art, "onnx"),
     }
+    # self-persist so a client disconnect never loses the gate results
+    rd = os.path.join(G.G_DIR, "results")
+    os.makedirs(rd, exist_ok=True)
+    with open(os.path.join(rd, f"gates_{tag}.json"), "w") as fh:
+        json.dump(res, fh)
     VOL.commit()
     return res
+
+
+@app.function(image=image, volumes={CACHE: VOL}, timeout=300)
+def read_result(name: str) -> dict | None:
+    """Read a self-persisted result JSON from the Volume (client-side collection after a
+    detached run whose client disconnected). Returns None if absent."""
+    p = os.path.join(G.G_DIR, "results", name)
+    if not os.path.exists(p):
+        return None
+    with open(p) as fh:
+        return json.load(fh)
 
 
 # ==================== base-model BPB on the SAME slices =======================

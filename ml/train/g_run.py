@@ -30,7 +30,7 @@ from . import config as F
 from . import llama_config as G
 from . import prepare as Fprep
 from .llama_app import (app, verify_params, train, generate, bpb,
-                        convert_gates, base_bpb)
+                        convert_gates, base_bpb, read_result)
 
 VOL = modal.Volume.from_name(F.MODAL_VOLUME, create_if_missing=True)
 
@@ -131,39 +131,55 @@ def do_sweep(depths=None):
     # merge into any existing results (so a single-depth re-run doesn't drop the others)
     out = _out("g_sweep_results.json")
     results = json.load(open(out)) if os.path.exists(out) else {"part": "depth-sweep", "sweep_config": S, "runs": {}}
-    with modal.enable_output(), app.run():
+    with modal.enable_output(), app.run(detach=True):
         for depth in depths:
             tag = S["model_tag"].format(depth=depth)
+            # inline full-slice BPB (final_full_bpb) so one self-persisting container does
+            # train + BPB — disconnect-proof, no separate bpb.remote().
             cfg = _train_cfg(depth, tag, S["num_iterations"])
+            cfg["ckpt_evals"] = True         # loads eval_texts so final_full_bpb has data
+            cfg["final_full_bpb"] = True
+            cfg["save_steps"] = []           # sweep needs only the final checkpoint's BPB
             tr = train.remote(cfg)
-            bp = bpb.remote(tag, S["num_iterations"])
-            results["runs"][f"d{depth}"] = {"train": tr, "bpb": bp["bpb"]}
-            bpb_summary = {k: v["bpb"] for k, v in bp["bpb"].items()}
+            bp = tr["final_full_bpb"]
+            results["runs"][f"d{depth}"] = {"train": tr, "bpb": bp}
             final_loss = tr["logs"][-1]["loss"] if tr["logs"] else None
-            print(f"[sweep] d{depth}: median_tok_s={tr['median_tok_s']} "
-                  f"final_loss={final_loss} bpb={bpb_summary}")
+            print(f"[sweep] d{depth}: median_tok_s={tr['median_tok_s']} final_loss={final_loss} "
+                  f"bpb={ {k: round(v['bpb'],4) for k,v in bp.items()} }")
+            _save("g_sweep_results.json", results)   # incremental save after each depth
     _save("g_sweep_results.json", results)
 
 
 # --- Part 4: flagship ---------------------------------------------------------
 
 def do_flagship(depth, num_iter=None):
+    """Detach-based + Volume-resumable: train (with inline final full BPB) then convert. Each
+    step self-persists to the Volume, so a client disconnect (ephemeral app killed when the
+    local driver dies) never loses work — re-run to resume from whatever is already on the
+    Volume. detach=True keeps the app running server-side past a client disconnect."""
     num_iter = num_iter or G.FLAGSHIP["num_iterations"]
     tag = G.FLAGSHIP["model_tag"].format(depth=depth)
     save_steps = _ckpt_steps_for(num_iter)
-    results = {"part": "flagship", "depth": depth, "tag": tag,
-               "num_iterations": num_iter, "checkpoint_steps": save_steps}
-    with modal.enable_output(), app.run():
-        cfg = _train_cfg(depth, tag, num_iter, save_steps=save_steps, ckpt_evals=True)
-        results["train"] = train.remote(cfg)
-        print(f"[flagship] trained {tag}: epochs={results['train']['epochs']} "
-              f"ckpts={results['train']['checkpoint_steps']}")
-        final = results["train"]["checkpoint_steps"][-1]
-        # FULL-slice BPB at the final checkpoint (uncapped) — the vs-bases number, matching base_bpb
-        results["final_full_bpb"] = bpb.remote(tag, final)["bpb"]
-        print(f"[flagship] final full BPB: { {k: round(v['bpb'],4) for k,v in results['final_full_bpb'].items()} }")
-        results["gates"] = convert_gates.remote(tag, final)
+    final = save_steps[-1]
+    with modal.enable_output(), app.run(detach=True):
+        tr = read_result.remote(f"train_{tag}.json")
+        if not tr:
+            cfg = _train_cfg(depth, tag, num_iter, save_steps=save_steps, ckpt_evals=True)
+            cfg["final_full_bpb"] = True
+            tr = train.remote(cfg)
+            print(f"[flagship] trained {tag}: epochs={tr['epochs']} ckpts={tr['checkpoint_steps']}")
+        else:
+            print(f"[flagship] train result already on Volume (resuming)")
+        gt = read_result.remote(f"gates_{tag}.json")
+        if not gt:
+            gt = convert_gates.remote(tag, final)
+    results = {"part": "flagship", "depth": depth, "tag": tag, "num_iterations": num_iter,
+               "checkpoint_steps": save_steps, "train": tr,
+               "final_full_bpb": (tr or {}).get("final_full_bpb"), "gates": gt}
     _save("g_flagship_results.json", results)
+    ffb = results.get("final_full_bpb") or {}
+    if ffb:
+        print(f"[flagship] final full BPB: { {k: round(v['bpb'],4) for k,v in ffb.items()} }")
 
 
 # --- base-model BPB on the same slices ---------------------------------------
