@@ -78,6 +78,8 @@ image = (
         "OLLAMA_MODELS": "/tmp/ollama_models",
         # UTF-8 locale so accented Kreyòl prompts survive argv into llama-cli / ollama
         "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8",
+        # reduce allocator fragmentation (the OOM message's own suggestion)
+        "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
     })
 )
 
@@ -170,7 +172,7 @@ def train(cfg: dict) -> dict:
     T = G.TRAIN
     seq_len = T["max_seq_len"]
     total_batch = T["total_batch_size"]
-    dev_batch = T["device_batch_size"]
+    dev_batch = cfg.get("device_batch_size") or T["device_batch_size"]   # per-run memory override
     grad_accum = total_batch // (dev_batch * seq_len)
     num_iter = cfg["num_iterations"]
     save_steps = sorted(set(cfg.get("save_steps", [])) | {num_iter})

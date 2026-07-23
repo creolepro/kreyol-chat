@@ -140,6 +140,7 @@ def do_sweep(depths=None):
             cfg["ckpt_evals"] = True         # loads eval_texts so final_full_bpb has data
             cfg["final_full_bpb"] = True
             cfg["save_steps"] = []           # sweep needs only the final checkpoint's BPB
+            cfg["device_batch_size"] = 16    # halve activation memory (d20 headroom)
             tr = train.remote(cfg)
             bp = tr["final_full_bpb"]
             results["runs"][f"d{depth}"] = {"train": tr, "bpb": bp}
