@@ -41,7 +41,15 @@ One-time friction, eaten deliberately on a throwaway run:
 3. **Conversion proof, same session:** checkpoint → HF format → `convert_hf_to_gguf.py` → **runs in llama.cpp** (greedy-generate a Kreyòl sentence) → browser-format export loads. If any link breaks with our custom vocab, we learn it on a $2 run. This de-risks §7.3's entire local-first event architecture.
 4. **Measured tok/s** on the target GPU → replace the estimated cost table below (plan §7.2's costs-as-hypothesis rule).
 
-## Workstream G — Model C flagship (d12, ≈$4–10/run)
+## Workstream G — Model C flagship (Llama-arch, depth from sweep, ≈$4–10/run)
+
+> **Architecture decision (2026-07-22, brief + external review):** Model C trains as a **standard, explicitly-specified Llama architecture**, with HF `LlamaForCausalLM` semantics as the canonical model contract: learned RMSNorm weights · standard RoPE · standard causal attention (GQA allowed) · SwiGLU MLP · ordinary residuals · **none of** the pinned nanochat's speedrun features (value embeddings, smear, backout, per-layer lambdas, QK multiplier, logit softcap, custom sliding-window). At commit `92d63d4e8bb4` these are hard-coded, so this is a **model-implementation swap** inside the nanochat pipeline (plain-Llama module or the HF class in the training loop), not a config flag.
+>
+> **Capacity is a separate decision from compatibility.** Do not reflexively restore 236M — conventional Llama shapes at width 768 run ≈123M (d12) / 151M (d16) / 179M (d20) / 236M (≈d28), and depth taxes browser/CPU latency. Data-limited + local-first ⇒ start **d16–d20**, chosen by **validation BPB from short runs** (d12/d16/d20 mini-sweep, ~$2 each), stopping before overfitting rather than maximizing epochs.
+>
+> **F2 gate — a second cheap smoke must pass ALL of these before the flagship run:** (1) native vs exported-HF logits agree; (2) GGUF converts and runs in llama.cpp; (3) the GGUF imports into **stock Ollama**, not only a patched local llama.cpp; (4) token-ID parity across rustbpe/HF/llama.cpp on the probe set incl. `m'te`, `n'ta`, straight *and* curly apostrophes, accents, punctuation; (5) loads and generates **offline** in the chosen browser runtime (WebLLM/MLC and transformers.js/ONNX are separate paths — test the chosen one explicitly); (6) greedy generations agree across runtimes pre-quantization; quantized outputs get a looser numerical check.
+>
+> The llama.cpp **pre-tokenizer registration** proceeds in parallel (upstream PR preferred, with token-ID parity fixtures; note that upstreaming ≠ immediate Ollama availability — record minimum llama.cpp/Ollama versions once shipped).
 
 May run **twice**: `v0` (natural-mix defaults — validates end-to-end and produces first slider assets) and `v1` (fleet-informed mixture/epochs/curriculum). Budget allows both; don't block v0 on the fleet.
 
