@@ -26,17 +26,20 @@ class Batches:
         return int(self.n)
 
     def step_batch(self, step: int, total_batch_size: int, device_batch_size: int):
-        """Yield (x, y) int64 microbatches for optimizer `step`. Deterministic in (seed, step)."""
+        """Yield (x, y) int64 microbatches for optimizer `step`. Deterministic in (seed, step).
+        Vectorized gather (offsets[:,None] + arange) so the tiny model isn't dataloader-bound."""
         import torch
 
         n_seq = total_batch_size // self.seq_len
         hi = self.n - (self.seq_len + 1)
         g = np.random.default_rng(self.seed * 1_000_003 + step)
         offsets = g.integers(0, hi, size=n_seq, dtype=np.int64)
+        win = np.arange(self.seq_len + 1, dtype=np.int64)   # +1 so we can slice x/y from one gather
         for i in range(0, n_seq, device_batch_size):
             chunk = offsets[i:i + device_batch_size]
-            xb = np.stack([self.data[o:o + self.seq_len] for o in chunk]).astype(np.int64)
-            yb = np.stack([self.data[o + 1:o + 1 + self.seq_len] for o in chunk]).astype(np.int64)
+            block = self.data[(chunk[:, None] + win[None, :])].astype(np.int64)  # (B, seq_len+1)
+            xb = np.ascontiguousarray(block[:, :-1])
+            yb = np.ascontiguousarray(block[:, 1:])
             yield torch.from_numpy(xb), torch.from_numpy(yb)
 
 

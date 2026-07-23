@@ -59,6 +59,7 @@ def do_upload():
         b.put_directory(G.G_BUNDLE_DATA, "/g/data")
         b.put_file(os.path.join(F.BUNDLE_TOKENIZER, "tokenizer.pkl"), "/g/tokenizer/tokenizer.pkl")
         b.put_file(F.KREYOL_BPE_HF_JSON, "/g/tokenizer/tokenizer.json")
+        b.put_file(G.CHECKPOINT_PROMPTS, "/g/checkpoint_prompts.json")   # frozen exhibit prompts
     print("[upload] done")
 
 
@@ -168,11 +169,29 @@ BASES = [
 ]
 
 
+def _hf_token():
+    """Read HF_TOKEN from the repo-root .env (same walk as the Workstream-D probe)."""
+    d = F.REPO_ROOT
+    for _ in range(5):
+        cand = os.path.join(d, ".env")
+        if os.path.exists(cand):
+            for line in open(cand, encoding="utf-8"):
+                if line.strip().startswith("HF_TOKEN="):
+                    v = line.strip().split("=", 1)[1].strip().strip('"').strip("'")
+                    if v:
+                        return v
+        d = os.path.dirname(d)
+    return None
+
+
 def do_base_bpb():
+    token = _hf_token()
+    if not token:
+        print("[base-bpb] WARNING: no HF_TOKEN in .env — gated bases (gemma/llama) will 401")
     results = {"part": "base-bpb", "bases": {}}
     with modal.enable_output(), app.run():
         for repo, rev in BASES:
-            r = base_bpb.remote(repo, rev)
+            r = base_bpb.remote(repo, rev, token=token)
             results["bases"][repo] = r["bpb"]
             summary = {k: v["bpb"] for k, v in r["bpb"].items()}
             print(f"[base-bpb] {repo}: {summary}")

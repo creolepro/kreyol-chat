@@ -181,6 +181,60 @@ def build(sample: bool) -> dict:
     return manifest
 
 
+def build_nutrition(sample: bool = False) -> dict:
+    """Composition of the ACTUAL training set (corpus v0.1 minus eval slices + tokenizer
+    holdout — the SAME docs the model trains on) by origin / genre / source, in docs AND
+    UTF-8 byte mass (a proxy for token mass), plus flagged bot-stub count. The Station-5
+    nutrition label is generated from provenance, not asserted."""
+    import collections
+    corpus = F.CORPUS_V0_1.format(tag="sample" if sample else "full")
+    exclude = _excluded_slice_ids()
+
+    by = {"origin": collections.Counter(), "genre": collections.Counter(),
+          "source": collections.Counter()}
+    bytes_by = {"origin": collections.Counter(), "genre": collections.Counter(),
+                "source": collections.Counter()}
+    n_train = n_bot_stub = 0
+    total_bytes = 0
+    for line in open(corpus, encoding="utf-8"):
+        line = line.strip()
+        if not line:
+            continue
+        d = json.loads(line)
+        did = d["acquisition"]["doc_id"]
+        if did in exclude or _in_tokenizer_holdout(did):
+            continue
+        n_train += 1
+        b = len(d["text"].encode("utf-8"))
+        total_bytes += b
+        for k in by:
+            key = d.get(k) if k != "source" else d["acquisition"]["source"]
+            by[k][key] += 1
+            bytes_by[k][key] += b
+        if d.get("wiki_bot_stub"):
+            n_bot_stub += 1
+
+    def _compose(dim):
+        return {str(k): {"docs": v, "pct": round(100 * bytes_by[dim][k] / max(1, total_bytes), 2)}
+                for k, v in by[dim].most_common()}
+
+    out = {
+        "train_docs": n_train, "train_bytes": total_bytes, "bot_stub_docs_flagged": n_bot_stub,
+        "composition_by_origin": _compose("origin"),
+        "composition_by_genre": _compose("genre"),
+        "composition_by_source": _compose("source"),
+        "pct_basis": "percentages are UTF-8 byte mass (token-mass proxy); docs are counts",
+        "known_gaps": ("no dialogue/chat, no code, thin owned/authored (35 proverb docs); crawl is "
+                       "~70% translation-shaped Kreyòl (audit) — measured, not filtered out"),
+        "audit_note": ("crawl: 0.7% wrong-lang, 17.2% junk (v0→v0.1 removed the mechanical share), "
+                       "70% translation-shaped; wikipedia: 0% junk, 71% bot-stubs (flagged, kept)"),
+    }
+    with open(os.path.join(G.G_WORK, "g_nutrition.json"), "w", encoding="utf-8") as fh:
+        json.dump(out, fh, indent=2, ensure_ascii=False)
+    print(f"[nutrition] train_docs={n_train} origin={ {k: v['pct'] for k, v in out['composition_by_origin'].items()} }")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sample", action="store_true", help="use the corpus sample (fast smoke)")
@@ -188,6 +242,7 @@ def main():
     os.makedirs(G.G_WORK, exist_ok=True)
     build(args.sample)
     build_parity_probe()
+    build_nutrition(args.sample)
 
 
 if __name__ == "__main__":

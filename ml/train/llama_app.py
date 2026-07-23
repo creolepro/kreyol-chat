@@ -59,17 +59,25 @@ image = (
     .run_commands(
         # patched llama.cpp (kreyol-bpe pre-tokenizer registered): build CLI + tokenize + quantize
         f"python /root/patch_llamacpp_cpp.py {LLAMA_CPP}",
-        f"cd {LLAMA_CPP} && cmake -S . -B build -DLLAMA_CURL=OFF -DGGML_NATIVE=OFF "
-        f"-DCMAKE_BUILD_TYPE=Release >/tmp/cmake_cfg.log 2>&1",
-        f"cd {LLAMA_CPP} && cmake --build build --target llama-cli llama-tokenize llama-quantize "
-        f"-j 4 >/tmp/cmake_build.log 2>&1",
+        f"cd {LLAMA_CPP} && (cmake -S . -B build -DLLAMA_CURL=OFF -DGGML_NATIVE=OFF "
+        f"-DCMAKE_BUILD_TYPE=Release >/tmp/cmake_cfg.log 2>&1 || (tail -40 /tmp/cmake_cfg.log; false))",
+        # llama-completion = the non-interactive one-shot generator (-st single-turn); the new
+        # llama-cli is an interactive chat client that re-uses -p every loop (infinite gen).
+        f"cd {LLAMA_CPP} && (cmake --build build --target llama-completion llama-tokenize "
+        f"llama-quantize -j 4 >/tmp/cmake_build.log 2>&1 || (tail -60 /tmp/cmake_build.log; false))",
     )
-    # STOCK Ollama (bundles STOCK llama.cpp) for gate 3 — the genuine stock-runtime test
+    # STOCK Ollama (bundles STOCK llama.cpp) for gate 3 — the genuine stock-runtime test.
+    # install.sh downloads a zstd-compressed bundle (it got past download in attempt 1, only
+    # failing to extract without zstd) and skips the absent-systemd service step. zstd + this
+    # are LATE layers so the cached llama.cpp build above is not invalidated.
+    .apt_install("zstd")
     .run_commands("curl -fsSL https://ollama.com/install.sh | sh")
     .env({
         "HF_HUB_DISABLE_PROGRESS_BARS": "1", "PYTHONUNBUFFERED": "1",
         "TOKENIZERS_PARALLELISM": "false", "OMP_NUM_THREADS": "8",
         "OLLAMA_MODELS": "/tmp/ollama_models",
+        # UTF-8 locale so accented Kreyòl prompts survive argv into llama-cli / ollama
+        "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8",
     })
 )
 
@@ -159,7 +167,7 @@ def train(cfg: dict) -> dict:
     encode, bos_id = enc.encode_ordinary, enc.encode_single_token("<|bos|>")
     eval_texts = json.load(open(os.path.join(G.G_DATA_DIR, "eval_texts.json"), encoding="utf-8")) \
         if do_ckpt_evals else {}
-    prompts = json.load(open(G.CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"] \
+    prompts = json.load(open(G.G_CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"] \
         if do_ckpt_evals else []
 
     # model + optimizer
@@ -267,7 +275,9 @@ def train(cfg: dict) -> dict:
                   + (f" val_ce {val_ce:.4f}" if val_ce else ""))
             t_win, tok_win = time.time(), 0
 
-    steady = [l["tok_s"] for l in logs if l["step"] >= max(5, T["warmup_steps"]) and l["tok_s"] > 0]
+    # throughput median excludes only the compile/warmup transient (step 0-4), not the LR
+    # warmup (which is the same compute per step).
+    steady = [l["tok_s"] for l in logs if l["step"] >= 5 and l["tok_s"] > 0]
     return {
         "tag": tag, "depth": depth, "num_iterations": num_iter,
         "params": int(sum(p.numel() for p in model.parameters())),
@@ -341,7 +351,7 @@ def convert_gates(tag: str, step: int, do_quant: bool = True, do_ollama: bool = 
     tok_json = os.path.join(G.G_TOKENIZER_DIR, "tokenizer.json")
 
     probe = json.load(open(G.PARITY_PROBE, encoding="utf-8"))
-    prompts = [p["prompt"] for p in json.load(open(G.CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"]][:5]
+    prompts = [p["prompt"] for p in json.load(open(G.G_CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"]][:5]
 
     # export the trained model as a clean HF repo (weights + our tokenizer.json)
     model = LlamaForCausalLM.from_pretrained(ck, torch_dtype=torch.float32).to("cuda").eval()
@@ -415,10 +425,11 @@ def convert_gates(tag: str, step: int, do_quant: bool = True, do_ollama: bool = 
 
 # ==================== base-model BPB on the SAME slices =======================
 
-@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=3600,
-              secrets=[modal.Secret.from_dotenv(F.REPO_ROOT)] if os.path.exists(os.path.join(F.REPO_ROOT, ".env")) else [])
-def base_bpb(repo: str, revision: str, slices: list | None = None) -> dict:
-    """BPB of a HF base model (each tokenizes the shared texts itself → byte-comparable)."""
+@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=3600)
+def base_bpb(repo: str, revision: str, token: str | None = None, slices: list | None = None) -> dict:
+    """BPB of a HF base model (each tokenizes the shared texts itself → byte-comparable).
+    `token` (threaded from the local repo-root .env, like the Workstream-D probe) unlocks the
+    gated bases (gemma / llama)."""
     import math
     import torch
     import torch.nn.functional as F_
@@ -427,8 +438,8 @@ def base_bpb(repo: str, revision: str, slices: list | None = None) -> dict:
     eval_texts = json.load(open(os.path.join(G.G_DATA_DIR, "eval_texts.json"), encoding="utf-8"))
     if slices:
         eval_texts = {k: v for k, v in eval_texts.items() if k in slices}
-    tok = AutoTokenizer.from_pretrained(repo, revision=revision)
-    model = AutoModelForCausalLM.from_pretrained(repo, revision=revision,
+    tok = AutoTokenizer.from_pretrained(repo, revision=revision, token=token)
+    model = AutoModelForCausalLM.from_pretrained(repo, revision=revision, token=token,
                                                  torch_dtype=torch.bfloat16).to("cuda").eval()
     start_id = tok.bos_token_id if tok.bos_token_id is not None else tok.eos_token_id
     max_len = G.TRAIN["max_seq_len"]

@@ -128,7 +128,11 @@ G_BUNDLE_DATA = os.path.join(G_WORK, "data")
 # --- frozen exhibit prompt list (Part 4 per-checkpoint generations) ------------
 # The FROZEN 10-prompt list (corpus/checkpoint_prompts.json) — used verbatim, never
 # edited. Loaded at generation time only; probe proverb #31 enters ONLY here.
+# CHECKPOINT_PROMPTS = local source (uploaded); G_CHECKPOINT_PROMPTS = the Volume copy the
+# Modal functions read (the train package mounts at /root/train, so REPO_ROOT-relative
+# sibling dirs like corpus/ are NOT present in the container).
 CHECKPOINT_PROMPTS = os.path.join(F.REPO_ROOT, "corpus", "checkpoint_prompts.json")
+G_CHECKPOINT_PROMPTS = G_DIR + "/checkpoint_prompts.json"
 GEN_MAX_TOKENS = 48
 
 # --- apostrophe / clitic parity fixtures (gate 4) ------------------------------

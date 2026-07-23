@@ -30,6 +30,39 @@ is local and no gated models are used.
 | `run.py` | orchestrator: prepare → upload bundle to Volume → setup → train A → train B (resume in a fresh container) → generate → convert; writes the results JSON |
 | `report.py` | `../reports/train_smoke.md` from the results JSON |
 
+## Workstream G — Model C as a standard Llama
+
+The Workstream-F finding was that nanochat's speedrun architecture (48% nanochat-only
+params) has no llama.cpp graph and its `kreyol_aware` pre-tokenizer isn't registered. The
+binding 2026-07-22 decision: **Model C is a real `transformers.LlamaForCausalLM`** (learned
+RMSNorm, standard RoPE, causal attention, SwiGLU, ordinary residuals — none of the speedrun
+features), width 768, depth from a sweep. Because we train the HF class, `save_pretrained`
+is architecturally lossless and the conversion chain becomes tractable.
+
+| file | role |
+|---|---|
+| `llama_config.py` | G arch spec (width 768, depths 12/16/20 → 123M/151M/179M), optimizer/schedule, Volume layout, llama.cpp pin (`67b9b0e7f6ce`), apostrophe/clitic parity fixtures |
+| `llama_model.py` | torch-free `param_count()` + HF `LlamaConfig`/`LlamaForCausalLM` factory |
+| `tokenize_g.py` | local: corpus v0.1 → uint16 `train.bin`/`val.bin` (excl. eval slices + tokenizer holdout), 4 BPB slice texts, ~1k parity probe, provenance nutrition label |
+| `data_g.py` | seeded depth-invariant dataloader (vectorized gather) + cosine LR |
+| `bpb_g.py` | BPB with the byte-identical policy of the Workstream-D base-model probe |
+| `patch_llamacpp_cpp.py` | register the `kreyol-bpe` pre-tokenizer in llama.cpp source (enum + name→pre_type + pre_type→regex, greedy mirror of the possessive `kreyol_aware` pattern) |
+| `gates.py` | F2 gates 1–6 (native↔HF logits / GGUF+llama.cpp / stock-Ollama / token-ID parity / ONNX browser / cross-runtime greedy + Q4) |
+| `llama_app.py` | Modal app: `verify_params`, `train` (HF ckpt resume + per-ckpt gens+BPB), `generate`, `bpb`, `convert_gates`, `base_bpb`; image = torch + transformers + patched-and-built llama.cpp + stock Ollama |
+| `g_run.py` | orchestrator subcommands: `upload`/`verify`/`gate`/`sweep`/`flagship`/`base-bpb` |
+| `g_report.py` | `../reports/{f2_gates,depth_sweep,modelc_v0}.md` + the committable per-checkpoint generations JSON |
+
+```bash
+cd ml && uv run python -m train.tokenize_g     # local: bins + parity probe + nutrition
+uv run python -m train.g_run upload            # push to the Volume
+uv run python -m train.g_run verify            # param counts == torch-free calc
+uv run python -m train.g_run gate              # Part 2: d16 throwaway → F2 gates
+uv run python -m train.g_run sweep             # Part 3: d12/d16/d20 BPB
+uv run python -m train.g_run flagship --depth <d>   # Part 4: the flagship run
+uv run python -m train.g_run base-bpb          # base-model BPB on the same slices
+uv run python -m train.g_report all
+```
+
 ## What the smoke establishes
 
 - **Vocab plumbing:** the kreyol-bpe 24,576 vocab (`kreyol_aware` pattern) loads through
