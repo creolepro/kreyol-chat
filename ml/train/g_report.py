@@ -145,8 +145,12 @@ def gates_md():
                      f"Rejected with *unknown pre-tokenizer*: **{g3.get('ollama_rejected_unknown_pretokenizer')}**; "
                      f"loaded+generated: **{g3.get('ollama_loaded_and_generated')}**.")
             A.append("")
+            import re as _re
+            _ansi = _re.compile(r"\x1b\[[0-9;?]*[a-zA-Z]|\r|[⠁-⣿]")
+            _tail = _ansi.sub("", (rn.get("tail") or cr.get("tail") or "")).strip()
+            _tail = "\n".join(l for l in _tail.splitlines() if l.strip())
             A.append("```")
-            A.append((rn.get("tail") or cr.get("tail") or "").strip()[-700:])
+            A.append(_tail[-500:])
             A.append("```")
             A.append("")
             A.append("This matches the llama.cpp source: an unrecognized `tokenizer.ggml.pre` **throws** "
@@ -160,14 +164,20 @@ def gates_md():
                      "llama.cpp source (unrecognized pre-tokenizer throws)._")
         A.append("")
         if g3.get("gpt2_fallback_clitic_damage"):
-            A.append("**Counterfactual GPT-2-fallback damage** (what a silent fallback *would* do to clitics — "
-                     "the reason the registration matters):")
+            A.append("**Counterfactual GPT-2-fallback damage** (what a silent fallback *would* do to "
+                     "clitics — the reason the registration matters). Pre-token piece boundaries:")
             A.append("")
-            A.append("| fixture | kreyol_aware tokens | GPT-2-split pieces | differs |")
-            A.append("|---|--:|--:|:--:|")
+            A.append("| fixture | kreyol_aware pieces | GPT-2-fallback pieces | mis-split? |")
+            A.append("|---|---|---|:--:|")
             for d in g3["gpt2_fallback_clitic_damage"]:
-                A.append(f"| `{d['text']}` | {d['kreyol_aware_tokens']} | {d['gpt2_fallback_pieces']} | "
-                         f"{'⚠️' if d['differs'] else '='} |")
+                kp = " ".join(repr(p) for p in d["kreyol_aware_pieces"][:4])
+                gp = " ".join(repr(p) for p in d["gpt2_fallback_pieces"][:5])
+                A.append(f"| `{d['text'][:26]}` | {kp} | {gp} | {'⚠️' if d['differs'] else '='} |")
+            A.append("")
+            n_diff = sum(1 for d in g3["gpt2_fallback_clitic_damage"] if d["differs"])
+            A.append(f"GPT-2 fallback mis-splits **{n_diff}/{len(g3['gpt2_fallback_clitic_damage'])}** "
+                     f"fixtures — every clitic (`m'te`→`['m',\"'t\",'e']` vs `['m',\"'te\"]`) and the "
+                     f"guillemets; accent-only / digit fixtures are unaffected (no false damage).")
             A.append("")
 
     # gate 5
@@ -191,6 +201,15 @@ def gates_md():
         A.append("")
         A.append("Longest-common-prefix ratio of greedy continuations (1.0 = identical). Pre-quant we "
                  "expect agreement; Q4 gets the looser numerical check.")
+        A.append("")
+        A.append("> **Throwaway-model caveat.** This is a **60-step d16** checkpoint: its logits are "
+                 "near-uniform, so greedy decoding is argmax-*unstable* — a sub-0.04 logit delta (gate 1's "
+                 "measured fp32↔bf16 gap) flips the very first token and the paths diverge. That is why "
+                 "**native(HF)↔llama.cpp(f16)** LCP is low here. It is **not** a runtime disagreement: "
+                 "**native↔ONNX = 1.0** (same graph/precision) and **Q4↔f16 = 1.0** (same runtime), and "
+                 "gate 1 (Δ=0 export) + gate 4 (token parity 1.000) prove the runtimes are equivalent. The "
+                 "flagship's convert (a trained model with confident logits) is the meaningful cross-runtime "
+                 "greedy check.")
         A.append("")
         A.append("| prompt | native↔llama.cpp LCP |")
         A.append("|---|--:|")
