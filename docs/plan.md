@@ -330,6 +330,7 @@ Alternatives if a big run needs cheaper raw hours: RunPod (~$2–2.7/h H100), Va
 |---|---|---|
 | Micro-model (10–30M) mixture ablation | <1 GPU-h | **$1–5** |
 | Model C d12 (**236M**¹), 0.6–1.2B effective tokens | **~21–43 min on 1 H100** (measured) | **~$1.4–2.8/run** (measured; was est. $5–30) |
+| **Model C v0 — standard-Llama d12 (123M)²**, 750M effective tokens | **~51 min train + evals + convert on 1 H100** (measured) | **~$5/run**; whole Workstream-G program (sweep + F2 gates + base-BPB + flagship, incl. retries) **~$18–20** |
 | Model C d20 (561M), full nanochat pipeline | ~4h on 8×A100/H100 | **~$100–125** |
 | Model B CPT (1.7B, ~200M–1B tokens, full-param) | ~1.5–6 H100-h | **$6–25/run** |
 | Model B CPT (4B) | ~3–11 H100-h | **$12–45/run** |
@@ -339,6 +340,8 @@ Alternatives if a big run needs cheaper raw hours: RunPod (~$2–2.7/h H100), Va
 Compute is a rounding error next to the human work (corpus curation, native-speaker review, exhibit build). Budget accordingly. Treat every figure above as a **hypothesis**: run a 1%-scale throughput benchmark before quoting costs publicly — the Model B ranges in particular may be optimistic.
 
 ¹ **d12 measured (Phase-1 Workstream F, [train_smoke.md](../ml/reports/train_smoke.md), 2026-07-22):** nanochat's d12 at the pinned commit is **236M** params, not 203M — this commit carries **113M (48%) in ResFormer value embeddings**. Measured **~469k tok/s at MFU ~40% on one H100** (SDPA + full-context window; FA3 + sliding windows would be faster), i.e. **~$1.4–2.8** to 0.6–1.2B effective tokens — the d12 row above is now a measurement, well under the original $5–30 hypothesis. (The same run found the deploy-time GGUF/browser conversion **breaks** on nanochat's custom pre-tokenizer + architecture — resolve before Workstream G; see the report.)
+
+² **Model C v0 measured (Phase-1 Workstream G, [modelc_v0.md](../ml/reports/modelc_v0.md), 2026-07-23):** the chosen architecture is a **standard HF `LlamaForCausalLM`** (not nanochat's arch), width 768 / depth 12 = **123M** params — resolves F's conversion blocker by construction. Measured **~245k tok/s** on one H100 (HF Llama + SDPA + bf16-autocast; lower than nanochat's hand-tuned 469k because the model is smaller/kernel-launch-bound at this size, not compute-bound — MFU ~18%). Depth sweep picked d12 over d16/d20 (validation BPB monotonic in the data-limited regime). The 123M model **beats 3–4B Gemma/Llama/Qwen bases on 3 of 4 Kreyòl BPB slices**. Conversion chain (GGUF/Ollama/ONNX) now **works** end-to-end (F2 gates), with the `kreyol-bpe` pre-tokenizer registered in a local llama.cpp patch (upstream PR prepared, not submitted).
 
 ### 7.3 Event serving (local-first — venue wifi is the #1 failure mode)
 

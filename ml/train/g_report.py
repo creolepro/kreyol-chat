@@ -278,9 +278,19 @@ def sweep_md():
                  f"{gen:.4f} | {auth:.4f} | {trs:.4f} |" if gen else
                  f"| d{d} | {tr['params']/1e6:.0f}M | {tr.get('median_tok_s')} | {loss} | — | — | — |")
     A.append("")
-    A.append("## Pick")
+    A.append("## Pick — **d12 (123M)**")
     A.append("")
-    A.append("_(rationale filled from the numbers above — see the FINAL SUMMARY / phase-1.md G block.)_")
+    A.append("Validation BPB is **monotonic in depth on every slice**: d12 < d16 < d20 (authored "
+             "1.96 / 2.02 / 2.08; general 1.68 / 1.71 / 1.77; translation 1.67 / 1.70 / 1.74; FLORES "
+             "1.98 / 2.04 / 2.07). At this fixed token budget the **smallest** model is the best-"
+             "converged — the signature of a **data-limited** regime: with only 112M unique tokens, "
+             "all three widths are over-parameterized (Chinchinlla-optimal for 112M tokens is ~5–6M "
+             "params), so extra depth adds capacity the data can't fill and trains *slower* per token. "
+             "The decision block's logic — *data-limited + local-first, don't chase capacity* — and the "
+             "numbers agree: **pick d12**. It also has the highest throughput (245k vs 190k vs 154k "
+             "tok/s) and the lowest local/browser decode latency (fewest blocks). The flagship trains "
+             "d12 to ~750M effective tokens, where the ranking is expected to hold or widen (repetition "
+             "of 112M unique tokens doesn't add information for the bigger models to exploit).")
     A.append("")
     A.append("Latency context per depth:")
     for d in S["depths"]:
