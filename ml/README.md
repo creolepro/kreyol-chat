@@ -50,3 +50,9 @@ Implemented so far:
   Vocab plumbs (no padding); loss↓ + checkpoint resume across Modal calls; **~469k tok/s** d12.
   Conversion chain **breaks** (custom pre-tokenizer + non-Llama arch) — the de-risking finding.
   See [train/README.md](train/README.md) and [reports/train_smoke.md](reports/train_smoke.md).
+- **`train/` (Workstream G)** — **Model C v0**: a standard HF `LlamaForCausalLM` (the arch swap
+  resolves F's conversion blocker). Depth sweep → **d12 (123M)**; F2 conversion gates all pass
+  (GGUF/Ollama/ONNX, token-ID parity 1.000, `kreyol-bpe` pre-tokenizer registered in llama.cpp);
+  flagship to 750M tokens **beats 3–4B Gemma/Llama/Qwen on 3 of 4 Kreyòl BPB slices**. See
+  [reports/modelc_v0.md](reports/modelc_v0.md), [reports/depth_sweep.md](reports/depth_sweep.md),
+  [reports/f2_gates.md](reports/f2_gates.md).
