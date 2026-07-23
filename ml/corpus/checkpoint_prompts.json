@@ -1,0 +1,65 @@
+{
+  "status": "FROZEN 2026-07-22 — human-signed-off (CreolePro). This list is now fixed; changing it requires regenerating assets across all kept checkpoints.",
+  "purpose": "The ~10 fixed prompts run at EVERY Model-C checkpoint forever — the 'watch it learn Kreyòl' slider asset (Station 6) and a demoable base→chat transition (Station 2). Chosen for the EXHIBIT, not for the metrics. Once the human signs off, this list is frozen; regenerating slider assets for a changed list requires re-running all kept checkpoints, so it is a once-with-care decision (docs/phase-1.md E3, Risks).",
+  "constraints": {
+    "probe_proverbs_excluded": "The proverb slot uses probe proverb #31 'Lè chat pa la, rat pran kay.' — 0 training-corpus hits (corpus_v0.md contamination check). Probe proverbs remain excluded from all TRAINING data; their presence in this eval/exhibit prompt set is their intended use (exhibit_examples split).",
+    "style": "Completion seeds — the base model is a text continuer, so each prompt is a stem the model completes greedily. After SFT the same stems become questions the model answers, which is the visible base→chat transition."
+  },
+  "snapshot_date": "2026-07-22",
+  "prompts": [
+    {
+      "id": "greet_1",
+      "category": "greeting",
+      "prompt": "Bonjou! Kijan ou ye jodi a?"
+    },
+    {
+      "id": "proverb_1",
+      "category": "proverb completion (probe split)",
+      "prompt": "Lè chat pa la,",
+      "note": "Probe proverb #31; gold continuation: 'rat pran kay.' Zero training-corpus hits."
+    },
+    {
+      "id": "translate_1",
+      "category": "short translation (eng→hat)",
+      "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+      "note": "Gold ≈ 'Ayiti te vin endepandan an 1804.' Exercises the past marker te + number tokenization (1804 → 18·04 in kreyol-bpe) — connects the slider to Station 1."
+    },
+    {
+      "id": "translate_2",
+      "category": "short translation (eng→hat)",
+      "prompt": "An kreyòl, «I love my country very much» vle di:"
+    },
+    {
+      "id": "question_1",
+      "category": "question (factual)",
+      "prompt": "Ki kapital Ayiti a?",
+      "note": "Phrasing corrected to native form by the human signer."
+    },
+    {
+      "id": "question_2",
+      "category": "question (causal)",
+      "prompt": "Poukisa lapli tonbe?"
+    },
+    {
+      "id": "continue_1",
+      "category": "continuation (narrative)",
+      "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+      "note": "Opens with the canonical Haitian storytelling call-and-response."
+    },
+    {
+      "id": "continue_2",
+      "category": "continuation (expository)",
+      "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li"
+    },
+    {
+      "id": "register_1",
+      "category": "register shift (formal)",
+      "prompt": "Mesyedam, se yon gwo onè pou mwen prezante"
+    },
+    {
+      "id": "register_2",
+      "category": "register shift (casual)",
+      "prompt": "Frè m, kite m di w yon bagay:"
+    }
+  ]
+}
