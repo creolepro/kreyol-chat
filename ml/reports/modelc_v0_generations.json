@@ -1,0 +1,535 @@
+{
+  "snapshot_date": "2026-07-22",
+  "depth": 12,
+  "tag": "modelc-v0-d12",
+  "checkpoints": [
+    {
+      "step": 0,
+      "tokens": 0,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " https https https https Cow Anpi Anpi Anpi Anpi https https kone Anpi koneillonaster koneillonaster kone Anpi kone SektèWikipédia kone Anpi kone AnpiKòmanKòmanKòmanKòmanKòmanKòmanKòmanKòmandeta plondeta plondeta plondeta plonasterFrançoisasterFrançois"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " Ide Ide sav vwal sav vwalwashilitewash Metro journal vwal Metrovidi vwal Metrovidi vwal Metronastiknastiknastiknastik WW vwal WW WW WW WW WW WW WW WW WW WW WWkie anboche anboche anboche anboche anboche anboche anboche anboche anboche anboche anboche"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " depann depann afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche afiche"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " awoz awoz awoz awoz awoz konvèsyon awoz awoz remak awoz remak awoz remak awozuesues remakuesues remakues remakuesuesuesues Roundues Roundues Roundues Roundues Roundues Roundues Roundues Roundues Roundues Roundues Roundues"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " journal zafè testaonnrèm zafèarizyen Fille Filleiliteiliteiliteiliteiliteiliteilite trajikilite trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik trajik"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": "onnonnonnonnonnonnonnonnonnonnonnonnnastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastiknastik BEARINGS lakounastikktyektyektyektyektyektyektyektyektye"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": "inaAndrébresAndréAndréAndréAndréAndréAndréAndréfuTabloTabloTabloTabloTabloTabloTablo Panyòl Panyòl Panyòl Panyòlfu Panyòlfu Panyòlfu PanyòlfuTablofu Panyòlksyònman PanyòlKONfuKONTabloksyònman:\"TabloksyònmanKONTabloumeTabloKONKON"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": "vyètvyètvyètvyètvyètvyètvyètues douzèn kadyovaskilè kadyovaskilè kadyovaskilè Holderuesomicsuauauauauauauauauauauauauauauauauauauauaèrkuluaèrkuluaèrkuluaèrkuluaèrkuluauauaua"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " pwòch pwòch awoz-gratispwodwi pwòch awoz-gratispwodwiROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUMROMIUM dragon enfra enfra enfra enfra enfra enfra enfra enfra enfra enfra enfra enfra enfra enfra"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " Tache Tache Tache Tache Cara Cara Cara Cara Cara Cararilite Cararilite Carararyraryraryraryraryraryraryraryraryraryraryrary u u u u u u u u u u u urilite u u u u u u u u u"
+        }
+      ]
+    },
+    {
+      "step": 19,
+      "tokens": 9961472,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        }
+      ]
+    },
+    {
+      "step": 48,
+      "tokens": 25165824,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        }
+      ]
+    },
+    {
+      "step": 95,
+      "tokens": 49807360,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " Se ke ou, ou ka fè ou ka fè ou fè ou fè ou fè ou yo, nou ka fè ou' fè ou ka fè ou ka fè ou ka fè ou ka fè ou ka fè ou ka fè ou ka fè ou pa"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " li ka di ou fè ou fè ou fè ou yo, li ka fè ou ka fè ou ka fè ou ka fè ou ka fè ou ka fè ou fè ou ka fè ou fè ou fè ou fè ou fè ou ka fè ou fè"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " 202020202020202020 2020 2020 2020 20 20 20 20 20 20 20 20 20 20 20 20 20 20 "
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " Se sa a, li te fè ou pa fè ou pa fè ou pa fè ou pa fè ou yo, ou ka fè ou' fè ou ka fè ou ka fè ou ka fè ou ap fè ou pa fè ou pa fè ou pa"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": " Se sa a, li ka fè ou ka fè ou fè ou fè ou fè ou fè ou fè ou yo, nou ka fè ou' fè ou ka fè ou ka fè ou ka fè ou ap fè ou pa fè ou ka fè ou"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": " ka fè yon moun ou, li ka fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": ", li ka fè ke ou pa fè ke ou pa fè ke ou pa fè ke ou pa fè ou. Se ke ou pa fè ke ou pa fè ou pa fè ou pa fè ou. Se ke ou pa fè ou pa fè ou"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " pou yo, li ka fè ou ka fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou ka fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè ou pa fè"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " 2, 202020 202020 2000 2000 2020 2000 2020 2000 2020 2000 2000 2020 20 20 20 "
+        }
+      ]
+    },
+    {
+      "step": 191,
+      "tokens": 100139008,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " | Martech Zone\nMwen te renmen konnen ki jan yo te fè m'?\nMwen te di ke mwen te fè m' nan yon sèl, mwen te di m 'yo. Mwen te di m 'te mwen te di m 'te"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " se yon nonm, yon moun ki te fè nan yon moun ki te fè nan yon moun. Li te di yo ke yo te fè yon moun ki te fè yo te fè yo. Li te fè yon moun ki te fè yo te fè"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " | Sosyal Design Magazine\nIstwa mo sa a se yon gwo kantite lajan nan yon sèl la. Li te fè yon ti kras nan yon sèl la nan yon sèl la. Li te gen yon gwo kantite lajan nan yon sèl la. Li te"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " - Haitian | Martech Zone\nSe yon nonm ki te fè yon moun ki te fè yon bagay ki te fè yo fè yo. Yo te fè yo konnen ki jan yo te fè yo fè yo. Yo te fè yo konnen ki te gen"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " | Martech Zone\nSe nonm ki fè yo fè yon moun ki te fè yo fè yon bagay pou yo fè yon bagay. Li te di yo te fè yon bagay pou yo te fè yon bagay pou yo te fè yon bagay pou yo te"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": " | Martech Zone\nSe nonm ki fè yo fè yon moun ki te fè yon bagay pou yo te fè yon bagay. Li te fè yon ti kras. Li te di yo te yon moun te fè yon bagay pou yo te fè yon bagay"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": " te di ke li te ye. Li te di li, li te fè li te fè li. Li te di li, li te fè li te fè li. Li te di li, li te di li te yon nonm. Li te"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": " se yon vil ki te fèt nan lane 1915.\n\nBiyografi\nZèv yo\nZèv yo\nSinema\n1999 : La Cœur de la vie de Jean-Pierre Mocky\n1999 : La Vie de la vie de Jean-Pierre Mocky"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " yon moun ki te fè li te fè li te fè li. Li te fè li te fè li te fè li te fè li te fè li te fè li. Li te di li, li te fè li te yon ti kras. Li"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " yon moun ki te di? - Haitian Creole Bible\nMwen te di: Mwen te di yo: - - Mwen te fè m' te fè m' te fè m' te fè m' te fè m' te fè m' te"
+        }
+      ]
+    },
+    {
+      "step": 477,
+      "tokens": 250085376,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " - Ki jan yo fè li?\nBonjou! Mwen te gen yon anpil nan travay ak zanmi m 'yo, men mwen pa t' konnen ki jan yo fè li. Mwen pa t 'kapab jwenn yon bagay, men mwen pa t'"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " ou ka chat ak ti fi yo nan chat la - VIDEYO CHAT atravè lemond! Nan tout peyi, peyi etranje yo, lemonn antye.\nNan chat videyo chat, ou ka chat ak ti fi yo nan chat la\nNan chat videyo chat,"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " - Haitian Creole\nTradui an kreyòl: \"Haiti recame in the request in 1804\" - Haitian Creole\nTradui an kreyòl: \"Haiti recame in the request in 1804\""
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " «I love for the love for the love for the love for the love for the love for the love for the love for the love for the love for the love for the love"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " - 2019\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": " - Nouvèl - Hangzhou Rosen Endistri & Komès co, Ltd\nPoukisa lapli tonbe?\nNan yon anviwònman imid, lapli tonbe se yon sous enèji ki ka lakòz lapli tonbe. Li ka lakòz lapli tonbe, lapli tonbe, lapli tonbe, lapli tonbe,"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": " te gen yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti tan, yon ti"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": " se yon peyi ki gen yon istwa rich. Li se yon peyi ki gen yon istwa rich. Li se yon peyi ki gen yon istwa rich. Li se yon peyi ki gen yon istwa rich. Li se yon peyi ki gen yon istwa rich"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " yon nouvo atik sou sijè sa a. Li se yon gwo onè pou mwen pou mwen ekri yon nouvo atik sou sijè sa a. Mwen te ekri yon atik sou sijè sa a. Mwen te ekri yon atik sou sijè sa a. Mwen te"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " Èske m ap fè m konnen sa m vle di pou m fè m konnen sa m vle di pou m fè m konnen sa m vle di pou m fè m konnen sa m vle di pou m fè m konnen sa m vle di pou m"
+        }
+      ]
+    },
+    {
+      "step": 954,
+      "tokens": 500170752,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " | Martech Zone\nMwen te li yon atik sou blog mwen an ki te sou yon koup la semèn de sa e li te yon ti jan nan yon ti jan nan yon ti jan nan yon ti jan nan yon ti jan nan yon ti jan"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " pa gen okenn règ - Règ Nouvèl\nLè chat pa la, pa gen okenn règ\nLè chat pa la, pa gen okenn règ\nLè chat pa la, pa gen okenn règ\nLè chat pa la, pa gen okenn règ\n"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " - windowsonhaiti.com\nTradui an kreyòl: \"Haiti became independent in 1804.\" - windowsonhaiti.com\nTradui an kreyòl: \"Haiti became independent in"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " «I love you love you love you love you love you love you love you love you love you love you love you love you love you love you love you lo"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " | Ayiti Pou Ayisyen goud\nKi kapital Ayiti a?\nAyiti pou Ayisyen goud\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": " -Nouvèl - Jiangsu Prettech machin & Teknoloji co, Ltd\nPoukisa lapli tonbe?\n1. Ki jan lapli tonbe?\n2. Ki jan lapli tonbe?\n3. Ki jan lapli tonbe?\n4. Ki jan lapli tonbe?\n5."
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": " te yon ti gason. Ti Jan te yon ti gason. Ti Jan te yon ti gason. Ti Jan te yon ti gason. Ti Jan te yon ti gason. Ti Jan te yon ti gason. Ti Jan te yon ti gason. Ti"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": " se yon istwa ki gen anpil valè. Li te gen yon istwa rich nan kilti ayisyen. Li te gen yon istwa rich nan kilti ayisyen. Istwa li se istwa ki pi rich nan kilti ayisyen.\n\nIstwa\nAyiti se yon peyi ki gen yon"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " m' nan yon evènman ki te fèt nan yon peyi ki te gen yon gwo enfliyans sou lavi m. Mwen te toujou ap eseye fè yon bagay pou mwen, men mwen pa t 'kapab fè li. Mwen te toujou ap eseye fè yon"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " Frè m, kite m di w yon bagay. Frè m, kite m di w yon bagay. Frè m, kite m di w yon bagay. Frè m, kite m di w yon bagay. Frè m, kite m di w yon"
+        }
+      ]
+    },
+    {
+      "step": 1431,
+      "tokens": 750256128,
+      "generations": [
+        {
+          "id": "greet_1",
+          "category": "greeting",
+          "prompt": "Bonjou! Kijan ou ye jodi a?",
+          "completion": " | Martech Zone\nLendi, Out 30, 2006 Dimanch, Oktòb 4, 2015 Douglas Karr\nMwen te gen yon konvèsasyon ak yon kliyan ki te pale ak yon kliyan ki te di m 'sou li. Li"
+        },
+        {
+          "id": "proverb_1",
+          "category": "proverb completion (probe split)",
+          "prompt": "Lè chat pa la,",
+          "completion": " pa gen okenn règ - Chat Noti\nLè chat pa la, pa gen okenn règ\nChat la se yon chat, pa gen okenn règ - chat la pa la, pa gen okenn règ - chat la pa la, pa gen okenn"
+        },
+        {
+          "id": "translate_1",
+          "category": "short translation (eng→hat)",
+          "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+          "completion": " - windowsonhaiti.com\nTradui an kreyòl: \"Haiti became independent in 1804.\" - windowsonhaiti.com\nTradui an kreyòl: \"Haiti became independent in"
+        },
+        {
+          "id": "translate_2",
+          "category": "short translation (eng→hat)",
+          "prompt": "An kreyòl, «I love my country very much» vle di:",
+          "completion": " se yon seri de liv ki gen pou tit «Etudes Créoles » (an fransè : Le Créole et la République) ki te pibliye an 1979. Se yon liv ki gen pou tit «Etudes"
+        },
+        {
+          "id": "question_1",
+          "category": "question (factual)",
+          "prompt": "Ki kapital Ayiti a?",
+          "completion": " | Haiti Liberte\nHome Actualités Ki kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a?\nKi kapital Ayiti a"
+        },
+        {
+          "id": "question_2",
+          "category": "question (causal)",
+          "prompt": "Poukisa lapli tonbe?",
+          "completion": " - Nouvèl - Hangzhou DC Tekstil Kay co, Ltd\nPoukisa lapli tonbe?\nPoukisa lapli tonbe?\nKi jan yo kenbe lapli a?\nKi jan yo kenbe lapli a?\nKi jan yo kenbe lapli a?\nKi jan yo kenbe lapli a?\n"
+        },
+        {
+          "id": "continue_1",
+          "category": "continuation (narrative)",
+          "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+          "completion": " te gen de ti gason. Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak! Krak!"
+        },
+        {
+          "id": "continue_2",
+          "category": "continuation (expository)",
+          "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+          "completion": " se yon istwa ki gen pou objektif pou li bay yon nouvo pèspektiv sou istwa peyi a. Li te fonde nan lane 1915, li te genyen 3,000 moun ki te vizite l, avèk yon popilasyon 1,10"
+        },
+        {
+          "id": "register_1",
+          "category": "register shift (formal)",
+          "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+          "completion": " tèt mwen nan yon evènman charite. Mwen te toujou yon moun pasyone, men mwen te toujou yon moun pasyone. Mwen te toujou yon moun pasyone. Mwen te toujou yon moun pasyone. Mwen te toujou yon moun pasyone. Mwen te toujou yon moun"
+        },
+        {
+          "id": "register_2",
+          "category": "register shift (casual)",
+          "prompt": "Frè m, kite m di w yon bagay:",
+          "completion": " Frè m, kite m di w yon bagay, frè m, kite m di w yon bagay, frè m, kite m di w yon bagay, frè m, kite m di w yon bagay, frè m, kite m di w yon"
+        }
+      ]
+    }
+  ]
+}
