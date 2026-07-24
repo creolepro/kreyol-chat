@@ -3,6 +3,10 @@
   "cfpb_glossary_family": {
    "license": "US-GOV-PD (17 U.S.C. §105)",
    "count": 1581
+  },
+  "irs_pub850": {
+   "license": "US-GOV-PD (17 U.S.C. §105)",
+   "count": 374
   }
  },
  "pairs": [
@@ -7910,8 +7914,1878 @@
    "source": "cfpb_glossary_family",
    "en": "80 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
    "ht": "TERMS"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "basis",
+   "ht": "baz"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "beneficiary",
+   "ht": "benefisyè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "benefits",
+   "ht": "benefis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bill",
+   "ht": "bòdwo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "boilerplate",
+   "ht": "chodyè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bond",
+   "ht": "bon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bond for payment of tax",
+   "ht": "kosyon pou peman enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bond income",
+   "ht": "revni kosyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bonus",
+   "ht": "bonis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bookkeeper",
+   "ht": "kontab"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "pretè",
+   "ht": "box"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "browser",
+   "ht": "navigatè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Bureau of the Fiscal Service",
+   "ht": "Biwo Sèvis Fiskal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "bus",
+   "ht": "bis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "business",
+   "ht": "biznis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "business property",
+   "ht": "pwopriyete biznis la"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "by-product",
+   "ht": "sou-pwodwi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "candidate for a college degree",
+   "ht": "kandida yon degre nan kolèj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "capital gains tax",
+   "ht": "enpo sou pwofi kapital"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "carryback",
+   "ht": "ramne"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "carry on a trade or business",
+   "ht": "fè yon komès oswa bizniz"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "cash",
+   "ht": "kach"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "certificate of accuracy",
+   "ht": "sètifika presizyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "certificate of compliance",
+   "ht": "sètifika konfòmite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "certificate of deposit (CD)",
+   "ht": "sètifika depo (CD)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "certificate of discharge",
+   "ht": "sètifika satisfaksyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "child tax credit (CTC)",
+   "ht": "kredit enpo pou timoun"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "child with special needs",
+   "ht": "timoun ki gen bezwen espesyal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "claim",
+   "ht": "reklame"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "claim of right",
+   "ht": "dwa reklamasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "clean vehicle tax credit",
+   "ht": "kredi enpo pou machin pwòp"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "clergy",
+   "ht": "klèje"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "closer connection to a foreign",
+   "ht": "klike (vèb) (teknoloji enfòmasyon)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "etranje",
+   "ht": "co-worker"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "coding",
+   "ht": "kodaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "collect (bring in revenue)",
+   "ht": "kolekte (pote revni)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "collect (demand payment)",
+   "ht": "kolekte (demann peman)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "koleksyon",
+   "ht": "college"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Combat-Injured Veterans Tax",
+   "ht": "kolèj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Service",
+   "ht": "commodities"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "vwayajè",
+   "ht": "commuting"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "vwayaje",
+   "ht": "compensation"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "plent",
+   "ht": "compliance"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Ozetazini",
+   "ht": "confidential"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit bureau",
+   "ht": "sekirite ki kouvri"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit for child care (childcare)",
+   "ht": "biwo kredi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit for the elderly or the",
+   "ht": "kredi pou lòt depandan"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit life insurance",
+   "ht": "kredi asisrans vi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit one’s account",
+   "ht": "mete kredi nan kont yon moun"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "credit union",
+   "ht": "kredi koperativ"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "decedent",
+   "ht": "defen"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "deduction",
+   "ht": "dediksyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "default",
+   "ht": "mankman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "deferred income",
+   "ht": "revni ranvwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "deferred payment",
+   "ht": "peman ranvwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "dependent",
+   "ht": "depandan"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "depletion",
+   "ht": "rediksyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "ane)",
+   "ht": "depositor"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "disabled",
+   "ht": "enfim"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "disaster",
+   "ht": "katastwòf"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "discharge",
+   "ht": "revoke"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "disclosure",
+   "ht": "divilgasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "disposition (of property)",
+   "ht": "elimine (yon pwopriyete)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "distribution",
+   "ht": "distribisyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "dividend income",
+   "ht": "peman ekivalan dividann"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "dual-status return",
+   "ht": "deklarasyon estati-doub"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "dwelling",
+   "ht": "lojman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "earned income",
+   "ht": "revni travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "earned income credit (EIC)",
+   "ht": "kredi revni travay (EIC)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "earned income tax credit",
+   "ht": "kredi enpo pou revni travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "earned income test",
+   "ht": "tès revni travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "effectively connected income",
+   "ht": "revni ki efektivman konekte"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "electronic filing (e-file or efile)",
+   "ht": "deklarasyon elektwonik (e-file"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "electronic report of tips",
+   "ht": "rapòte tep elektwonikman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "electronic return originator (ERO)",
+   "ht": "orijinè deklarasyon elektwonik"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "email",
+   "ht": "imel"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employee",
+   "ht": "anplwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employee benefits",
+   "ht": "benefis anplwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employee retention credit",
+   "ht": "kredi pou retni anplwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employee tax",
+   "ht": "enpo anplwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employee’s daily record of tips",
+   "ht": "dosye tep anplwaye pou chak jou"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "employer tax",
+   "ht": "enpo anplwayè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "enact",
+   "ht": "adopte"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "endowment",
+   "ht": "fon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "enter (data in a computer)",
+   "ht": "antre (done nan òdinatè)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "entry (on a return)",
+   "ht": "antre (sou yon deklarsyon)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "equity (in property)",
+   "ht": "valè san dèt (nan pwopriyete)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "estate",
+   "ht": "byen"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "estate tax",
+   "ht": "enpo sou eritaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "estimated tax",
+   "ht": "enpo estime"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "estimated tax payments",
+   "ht": "peman enpo estime"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "exchange of like-kind property",
+   "ht": "echanj pwopriyete menm kalite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "executor",
+   "ht": "egzekitè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "exemption",
+   "ht": "egzanpsyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "exemption from withholding",
+   "ht": "egzanpsyon prelèvman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "expatriation tax",
+   "ht": "enpo ekspatriyasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "expire",
+   "ht": "ekspire"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "failure to deposit",
+   "ht": "fay nan depo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "failure to file penalty",
+   "ht": "fay nan deklare"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "failure to pay penalty",
+   "ht": "fay nan peman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "fair rental value",
+   "ht": "valè lokasyon ki jis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "farm",
+   "ht": "fèm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "farm income",
+   "ht": "revni fèm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "farmer",
+   "ht": "kiltivatè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "fax",
+   "ht": "faks"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "federal income tax return",
+   "ht": "Deklarasyon enpo federal sou"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "federal tax lien",
+   "ht": "privilèj fiskal federal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "federal tax on special fuels",
+   "ht": "enpo federal sou kabiran espesyal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Federal Unemployment Tax Act",
+   "ht": "Lwa Federal Enpo Chomaj (FUTA)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "sivil",
+   "ht": "feedback"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "reyaksyon",
+   "ht": "fees"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "frè",
+   "ht": "fellowship"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "file a tax return",
+   "ht": "egzamen sou plas (odit)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "filing of return",
+   "ht": "ranpli deklarasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "for your records",
+   "ht": "pou dosye w"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "foreign earned income",
+   "ht": "revni travay aletranje"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "foreign earned income exclusion",
+   "ht": "eksklizyon revni pou travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "foreign tax",
+   "ht": "rediksyon pou lojman aletranje"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "foreign tax credit",
+   "ht": "enpo aletranje"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Unemployment Tax Return",
+   "ht": "fòm:"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Individuals",
+   "ht": "Moun"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Return",
+   "ht": "Ozetazini"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Income Tax Return",
+   "ht": "revni Moun ki pa rezidan Ozetazini"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "or Business",
+   "ht": "yon Komès oswa Biznis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "W-4P Withholding Certificate for",
+   "ht": "W-4 Sètifika Prelèvman Anplwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "W-7 Application for IRS Individual",
+   "ht": "oswa Anwite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "founder (of a trust)",
+   "ht": "fondatè (nan yon fidisi)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "franchise",
+   "ht": "franchiz"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "franchise tax",
+   "ht": "enpo franchiz"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "frivolous tax return",
+   "ht": "deklarasyon enpo frivòl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "gainful employee",
+   "ht": "anplwaye pou pwofi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "garnishments",
+   "ht": "sezi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "gift",
+   "ht": "kado"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "gift tax",
+   "ht": "enpo sou kado"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "revokasyon",
+   "ht": "goodwill"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "gross income",
+   "ht": "revni brit"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "gross receipts",
+   "ht": "revni brit"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "guarantee of indebtedness",
+   "ht": "garanti dèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "guardian",
+   "ht": "gadyen"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "handicapped",
+   "ht": "andikape"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "handout",
+   "ht": "feyè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "head of household",
+   "ht": "chèf fanmi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "health coverage tax credit (HCTC)",
+   "ht": "kredi enpo pou pwoteksyon sante"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "holder",
+   "ht": "detantè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "home",
+   "ht": "lakay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "hospital insurance benefits tax",
+   "ht": "travayè lakay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "household employer’s tax guide",
+   "ht": "aparèy pou kay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "household income",
+   "ht": "enpo travay kay moun"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "in-law",
+   "ht": "enpoze yon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "income averaging",
+   "ht": "revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "income from sources outside the",
+   "ht": "mwayèn revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "income-splitting",
+   "ht": "pwopriyete ki bay revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "income statement",
+   "ht": "divize revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "incur (a penalty)",
+   "ht": "enpo sou revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "individual estimated tax",
+   "ht": "kontraktè endepandan"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "individual income",
+   "ht": "enpo endividyèl estime"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "information return",
+   "ht": "deklarasyon enfòmasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "inheritance",
+   "ht": "eritaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "inheritance tax",
+   "ht": "enpo sou eritaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "injury",
+   "ht": "domaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "input",
+   "ht": "opinyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "installment",
+   "ht": "vèsman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "insulation",
+   "ht": "izolasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Interactive Tax Assistant (ITA)",
+   "ht": "Asistan enpo entèaktif"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "interest",
+   "ht": "enterè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "interest holder (in property)",
+   "ht": "detantè enterè (nan pwopriyete)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "interest (in a partnership)",
+   "ht": "enterè (nan patenarya)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "inventory",
+   "ht": "envantè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "investment income",
+   "ht": "revni envestisman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "investment tax credit",
+   "ht": "kredi enpo pou envestisman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "investors",
+   "ht": "envestisè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "invoice",
+   "ht": "fakti"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "IRS Independent Office of Appeals",
+   "ht": "Biwo Dapèl Endepandan IRS"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "issue (a check)",
+   "ht": "fè (yon chèk)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "issuer",
+   "ht": "emetè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "item",
+   "ht": "atik"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "itemize",
+   "ht": "detaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "itinerant",
+   "ht": "itineran"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "joint account",
+   "ht": "kont ansanm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "joint and survivor annuity",
+   "ht": "anwite ansanm ak benefis pou"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "joint return test",
+   "ht": "deklarasyon ansanm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "joint tenancy",
+   "ht": "tès pou deklarasyon ansanm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "joint venture",
+   "ht": "lokatè ansanm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "jire",
+   "ht": "jury"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "late filing penalty",
+   "ht": "pwopriyetè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "late payment penalty",
+   "ht": "penalite pou reta nan ranpli"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "revokasyon",
+   "ht": "lease"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lease-sale",
+   "ht": "lokasyon-vant"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "legal person",
+   "ht": "pèsòn legal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lender",
+   "ht": "pretè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lessor",
+   "ht": "pwopriyetè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "levy on wages",
+   "ht": "rekouvreman sou salè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "liabilities",
+   "ht": "obligasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lien",
+   "ht": "privilèj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lifetime learning credit",
+   "ht": "kredi edikasyon avi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "listed property",
+   "ht": "pwopriyete sou lis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "lockout",
+   "ht": "klete"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "long-term",
+   "ht": "alontèm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "loss of income",
+   "ht": "pèt revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "low income",
+   "ht": "ti revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "low-income taxpayer",
+   "ht": "kontribyab ti revni"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Low Income Taxpayer Clinics",
+   "ht": "Sèvis pou kontribyab ti revni (LITC)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "maintenance (of a household)",
+   "ht": "mentnans (yon kay)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "married",
+   "ht": "marye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "master’s degree in",
+   "ht": "degre metriz nan"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "fizyon",
+   "ht": "meter"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "minimum payment",
+   "ht": "pwoteksyon minimòm esansyèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "ipotekè",
+   "ht": "mortgagor"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "natural person",
+   "ht": "katastwòf natirèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "net earnings from self-employment",
+   "ht": "salè nèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "net income",
+   "ht": "revni nèt nan antrepriz endividyèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "net investment income tax (NIIT)",
+   "ht": "revni nèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "net tax liability",
+   "ht": "lavant nèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "toupiti",
+   "ht": "nominee"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "kandida",
+   "ht": "nondeductible"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "non-employee; nonemployee",
+   "ht": "pa dediktib"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "remak",
+   "ht": "notice"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Office of Chief Counsel",
+   "ht": "odit nan biwo (verifikasyon)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "on-the-job training course",
+   "ht": "pansyon vyeyès"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "online payment",
+   "ht": "kou fòmasyon nan travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Online Payment Agreement (OPA)",
+   "ht": "peman sou entènèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "optional tax",
+   "ht": "alokasyon mileyaj opsyonèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "ordinary and necessary",
+   "ht": "enpo ki pa obligatwa"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "partner",
+   "ht": "patnè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "partnership",
+   "ht": "patenarya"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "payment plan",
+   "ht": "plan peman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "payment voucher",
+   "ht": "bon peman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "payroll",
+   "ht": "pewòl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "penalty",
+   "ht": "penalite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "penalty for premature withdrawal",
+   "ht": "penalite pou retrè twò bonè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "penalty for underpayment",
+   "ht": "penalite pou mankman nan peman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "pension",
+   "ht": "pansyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "permanently and totally disabled",
+   "ht": "rezidan pèmanan"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "personal property tax",
+   "ht": "konpayi paran pèsonèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "personal property (vs. business)",
+   "ht": "enpo sou pwopriyete pèsonèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "personal property (vs. real estate)",
+   "ht": "pwopriyete pèsonèl (vs. viznis)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "personal use property",
+   "ht": "pwopriyete pou itilizasyon pèsonèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "pèsonèlman",
+   "ht": "petitioner"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "phaseout (of exemption)",
+   "ht": "petisyonè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "eskrokri",
+   "ht": "piecework"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "plug-in electric vehicle credit",
+   "ht": "kredi machin elektrik ploge"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "power of attorney",
+   "ht": "moun ki ka kalifye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "prepaid income",
+   "ht": "kredi enpo prim (PTC)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "prevailing wage and",
+   "ht": "anvan enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "proof of credit (for credit rating",
+   "ht": "biyè pwomès"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "property tax",
+   "ht": "enpo lokatif"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "provider of medical care",
+   "ht": "founisè swen medikal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "qualified",
+   "ht": "kalifye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Railroad Retirement Tax Act",
+   "ht": "retrèt chemennfè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "rate",
+   "ht": "to"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "rekonsilye",
+   "ht": "record"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "redeem a bond",
+   "ht": "dosye yo (bay prèv)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "refundable tax credit",
+   "ht": "ranbousman enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "register (an automobile)",
+   "ht": "kredi enpo ranbousab"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "remittance (of funds)",
+   "ht": "remèt (lajan)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "remuneration",
+   "ht": "peman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "rent",
+   "ht": "lwaye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "repayment",
+   "ht": "ranbousman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "repeal",
+   "ht": "anile"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "reportable income",
+   "ht": "revni rapòtab"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "residential clean energy credit",
+   "ht": "kredi enèji pwòp rezidansyèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "residential property",
+   "ht": "pwopriyete rezidansyèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "residential property (home)",
+   "ht": "pwopriyete rezidansyèl (kay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "residential rental property",
+   "ht": "pwopriyete lokasyon rezidansyèl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "retained tax",
+   "ht": "kenbe enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "retirement",
+   "ht": "retrèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "retirement income",
+   "ht": "revni retrè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "retirement income ceiling",
+   "ht": "plafon revni retrèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "return",
+   "ht": "deklarasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "return preparers",
+   "ht": "preparatè deklarasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "returns and allowances",
+   "ht": "machandiz yo retounen ak rabè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "revoke",
+   "ht": "revoke"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "rollover",
+   "ht": "transfere"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "royalty",
+   "ht": "redevans"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "sale or exchange",
+   "ht": "vant oswa echanj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "sales tax",
+   "ht": "enpo sou lavant"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "salvage value",
+   "ht": "valè rekipere"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "savings and loan association",
+   "ht": "asosyasyon epay ak prè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "schedule (tax)",
+   "ht": "barèm (enpo)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "securities",
+   "ht": "sekirite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "seize",
+   "ht": "sezi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "seizure",
+   "ht": "sezi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "separate income (in a community",
+   "ht": "depozan chak de semèn"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "property state)",
+   "ht": "revni separe (nan yon eta"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "serve a summons",
+   "ht": "sèvi yon konvokasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "share account (as in credit unions)",
+   "ht": "kont koperativ (tankou nan sendika"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "kredi)",
+   "ht": "share-farming"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "shares of stock",
+   "ht": "aksyonè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "short-term",
+   "ht": "akoutèm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "short-term payment plan",
+   "ht": "plan peman akoutèm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "single",
+   "ht": "selibatè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "statute",
+   "ht": "lwa"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "stock in trade (inventory)",
+   "ht": "aksyon nan biznis (envantè)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "subsidy",
+   "ht": "sibvansyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Supplemental Security Income",
+   "ht": "Siplemantè (SNAP)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "insurance for the aged",
+   "ht": "asirans siplemantè Medicare pou"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "talking tax forms",
+   "ht": "fòm enpo vokal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tangible personal property",
+   "ht": "byen pèsonèl tanjib"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax (adjective)",
+   "ht": "enpo (adjektif)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax auditor",
+   "ht": "oditè enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax avoidance",
+   "ht": "evite enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax base",
+   "ht": "baz enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax bill",
+   "ht": "bòdwo enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax bracket",
+   "ht": "tranch enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax computation",
+   "ht": "kalkil enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax computation worksheet",
+   "ht": "dokiman kalkil enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Tax Counseling for the Elderly",
+   "ht": "Konseye Fiskal pou Moun Aje"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax court",
+   "ht": "tribinal pou ka enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax credit",
+   "ht": "kredi enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Tax Cuts and Jobs Act",
+   "ht": "Lwa sou travay ak rediksyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax deductible",
+   "ht": "dediktib pou enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax-deferred income",
+   "ht": "revni enpozab difere"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax dispute",
+   "ht": "diskisyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax evasion",
+   "ht": "evazyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax-exempt income",
+   "ht": "revni fiskal egzanpte"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax-exempt stated interest",
+   "ht": "enterè fiskal ki egzante"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax exemption",
+   "ht": "egzanpsyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax forms",
+   "ht": "fòm enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax-free zone",
+   "ht": "zòn san enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax liability",
+   "ht": "obligasyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax loophole",
+   "ht": "feblès fiskal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax on gambling winnings",
+   "ht": "enpo sou gen nan jwèt aza"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax period",
+   "ht": "peryòd enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax policy",
+   "ht": "metòd fiskal"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax preparer",
+   "ht": "minimòm"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax professional",
+   "ht": "preparatè enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax provision",
+   "ht": "pwofesyonèl enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax rate",
+   "ht": "kondisyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax relief",
+   "ht": "rabè enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax shelter",
+   "ht": "deklarasyon enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax status",
+   "ht": "relve fiskal (bòdwo)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax table",
+   "ht": "tablo enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Tax Topics",
+   "ht": "Sijè Enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax treaty",
+   "ht": "tretman enpo (revni kominote)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tax year",
+   "ht": "enpo prelve nan sous la"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tenant",
+   "ht": "lokatè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tentative credit",
+   "ht": "kredi tantatif"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "testament",
+   "ht": "testaman"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "theft",
+   "ht": "vòl"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tips deemed to be wages",
+   "ht": "poubwa yo konsidere kòm salè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "toll",
+   "ht": "peyaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "total tax due",
+   "ht": "total enpo ki dwe"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trade or business",
+   "ht": "komès oswa biznis"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trader",
+   "ht": "machann"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trailer",
+   "ht": "trelè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trainee",
+   "ht": "estajè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "training",
+   "ht": "fòmasyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "transcript",
+   "ht": "relvednòt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "transfer",
+   "ht": "transfè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "truck",
+   "ht": "kamyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trust",
+   "ht": "fidisi"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "trustee",
+   "ht": "administratè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "tuition",
+   "ht": "ekolaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "uncollected FICA tax",
+   "ht": "enpo FICA ki pa kolekte"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "unearned income",
+   "ht": "revni ki pa merite"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "unemployment",
+   "ht": "chomaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "unemployment tax",
+   "ht": "enpo chomaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "union",
+   "ht": "sendika"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "untaxed (tax free)",
+   "ht": "egzan enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "valyasyon",
+   "ht": "van"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "Volunteer Income Tax Assistance",
+   "ht": "konfòmite volontè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "wager",
+   "ht": "paryaj"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "wages",
+   "ht": "salè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "waiver (done by the taxpayer)",
+   "ht": "dispans (fè pa kontribyab la)"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "welfare",
+   "ht": "byennèt"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "whistleblower",
+   "ht": "denonsyatè"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "withheld tax",
+   "ht": "enpo ki te prelve"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "withholding of tax",
+   "ht": "prelèvman enpo"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "work for oneself",
+   "ht": "travay pou tèt li"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "work opportunity credit",
+   "ht": "kredi opòtinite travay"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "worksheet",
+   "ht": "fichye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "worldwide income",
+   "ht": "revni nan lemonnantye"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "write-in adjustment",
+   "ht": "ajisteman pou rediksyon"
+  },
+  {
+   "source": "irs_pub850",
+   "en": "yield",
+   "ht": "sede"
   }
  ],
- "total_pairs": 1581,
+ "total_pairs": 1955,
  "note": "EN<->HT term pairs mined from FEDERAL public-domain glossaries (17 U.S.C. §105). Committable. Feeds Workstream I SFT translation turns. Rebuilt by corpus/family.py + J2 IRS."
 }

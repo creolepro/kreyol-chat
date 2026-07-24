@@ -113,6 +113,79 @@ def two_col_pairs(path: str, skip_pages: int = 0, band_pt: int = 3,
     return pairs
 
 
+_URLISH = re.compile(r"IRS\.gov|https?:|www\.|@|\d{3,}")
+_GLOS_BOIL = re.compile(r"Page \d+ of|Fileid|type and rule|prints|Publication 850|"
+                        r"Cat\. No|Glossary|Glosè|Department|Internal Revenue|Rev\.|©")
+_EN_MARK = set("the of for and to a an or in on with tax income credit return filing "
+               "payment property person employee rights amount value from your under "
+               "other joint gross".split())
+_HT_MARK = set("yon nan pou ki ak oswa sou se pa revni enpo deklarasyon peman "
+               "pwopriyete moun dwa kredi benefis lan yo li nou kont valè montan".split())
+
+
+def _lang_scores(s: str) -> tuple[int, int]:
+    w = re.findall(r"[a-zàèòáéíóúï']+", s.lower())
+    en = sum(x in _EN_MARK for x in w)
+    ht = sum(x in _HT_MARK for x in w) + len(re.findall(r"[òè]", s))
+    return en, ht
+
+
+def _cl_en(s):
+    e, t = _lang_scores(s)
+    return e > 0 and t == 0
+
+
+def _cl_ht(s):
+    e, t = _lang_scores(s)
+    return t > 0 and e == 0
+
+
+def _glos_termlike(s: str) -> bool:
+    return (not (_URLISH.search(s) or _GLOS_BOIL.search(s))
+            and 2 <= len(s) <= 55 and len(s.split()) <= 6 and s[0] not in "•(-")
+
+
+def three_col_glossary_pairs(path: str, skip_pages: int = 4,
+                             x_bands=((35, 215), (215, 398), (398, 590)),
+                             band_pt: int = 4) -> list[dict]:
+    """EN<->HT pairs from a 3-column, English-over-Haitian glossary (IRS Pub 850).
+    Each column is EN-line then HT-line; a language-direction check fixes reversed
+    rows and, for PRECISION on a committable artifact, keeps only high-confidence
+    pairs (both sides clearly one language, or both single-word) — wrap-ambiguous
+    multi-word rows are dropped."""
+    import pdfplumber
+    pairs, seen = [], set()
+    with pdfplumber.open(path) as pdf:
+        for pg in pdf.pages[skip_pages:]:
+            H = pg.height
+            words = [w for w in pg.extract_words() if 55 < w["top"] < H - 35]
+            for x0, x1 in x_bands:
+                band = [w for w in words if x0 <= (w["x0"] + w["x1"]) / 2 < x1]
+                lines: dict = {}
+                for w in band:
+                    lines.setdefault(round(w["top"] / band_pt), []).append(w)
+                seq = [" ".join(t for _, t in sorted((w["x0"], w["text"]) for w in lines[k])).strip()
+                       for k in sorted(lines)]
+                seq = [s for s in seq if s and _glos_termlike(s)]
+                for i in range(0, len(seq) - 1, 2):
+                    en, ht = seq[i], seq[i + 1]
+                    if _cl_ht(en) and _cl_en(ht):
+                        en, ht = ht, en
+                    elif (_cl_en(en) and _cl_en(ht)) or (_cl_ht(en) and _cl_ht(ht)):
+                        continue
+                    # precision gate: both clearly-classified, or both single-word
+                    both_clear = _cl_en(en) and _cl_ht(ht)
+                    both_single = len(en.split()) == 1 and len(ht.split()) == 1
+                    if not (both_clear or both_single):
+                        continue
+                    k = (en.lower(), ht.lower())
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    pairs.append({"en": en, "ht": ht})
+    return pairs
+
+
 # French-style (nonstandard) orthography markers for the BMC audit. Standard
 # Haitian Creole uses è/e/ò; these are French-accent spellings.
 _FR_ACCENT = re.compile(r"[éàâêîôûëïüÉÀ]")

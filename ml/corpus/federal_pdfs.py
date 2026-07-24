@@ -151,7 +151,8 @@ def harvest(url_list_path: str = URL_LIST) -> dict:
     irs_pairs = []
     if irs_pub850_path:
         try:
-            irs_pairs = family.two_col_pairs(irs_pub850_path, skip_pages=1)
+            # Pub 850 is a 3-column English-over-Haitian glossary (not 2-column)
+            irs_pairs = family.three_col_glossary_pairs(irs_pub850_path, skip_pages=4)
             family._write_glossary_pairs_federal({"irs_pub850": irs_pairs})
         except Exception as e:
             common.log(f"  [federal] IRS pair mine failed: {type(e).__name__}: {e}")
