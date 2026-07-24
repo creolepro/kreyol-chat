@@ -32,6 +32,10 @@ Survey outcome in one line: there is a clean-rights path to **~150–180M unique
 | fineweb-2 `hat_Latn` (ODC-BY) | web crawl | translation-shaped | ~300MB parquet raw; expect heavy MADLAD overlap — treat as a dedup-merge experiment, not new volume | Card license odc-by | HF; dedup vs MADLAD before counting anything as new |
 | Tatoeba hat | everyday sentences | authored | negligible (162 sentences) | CC-BY 2.0 FR, attribution | Seed/eval phrases only |
 | rmunro/disaster_response_messages | disaster SMS (sanitized) | authored | small, mixed-language | CC-BY-4.0; PII "stripped… reviewed by at least 3 people" | Marginal value; classification-shaped |
+| **CMU Haitian Corpus** *(sweep 4)* | translated newswire/medical + dictionary | translated | ~443k tokens | CMU license: "use and distribute this data and its documentation without restriction" | Direct download; strict dedup vs crawl/WMT-era material |
+| **Cric? Crac! (Georges Sylvain, 1901)** *(sweep 4)* | literary verse, fables, humor | **authored** (transcreation, not translationese) | ~25–50k | Pre-1931 US public domain — **1901 scan only**; the 1999 modern-orthography edition is later creative work, off-limits | OCR the 1901 scan; `historical_literary` genre tag, original orthography preserved |
+| **Lessons in Haitian Creole (1921)** *(sweep 4)* | dialogues, proverbs, pedagogy | constructed/pedagogical | ~10–20k | Internet Archive `NOT_IN_COPYRIGHT` ("no visible notice of copyright; stated date is 1921") | IA download; `historical_pedagogy` tag — occupation-era spelling, never mixed invisibly into modern prose |
+| Anthologie d'un siècle de poésie haïtienne (1925) *(sweep 4)* | poetry (mostly French, some Kreyòl) | authored literary | <10k Kreyòl | Manioc record: CC0 | Manual segmentation — langid will fail on historical orthography |
 
 Already in v0.1 and unchanged: MADLAD-400 hat (CC-BY-4.0), ht.wikipedia (CC-BY-SA; 72,039 articles, stub/bot-heavy).
 
@@ -48,16 +52,39 @@ Already in v0.1 and unchanged: MADLAD-400 hat (CC-BY-4.0), ht.wikipedia (CC-BY-S
 | Kreyòl-MT monolingual (unreleased) | aggregated monolingual HT | Maintainer invites contact |
 | NJ Judiciary legal glossary + MA DESE IEP forms (family-contributed copies) | legal/education terminology | State works ≠ PD (the stricter read is quarantine); quick terms-check/permission email; **interim: EVAL-ONLY, local probes only** |
 | **Florida state HT materials** (DOH, WIC) | public health/benefits translation corpus | **CONTESTED — held out of training.** FL public-records law + *Microdecisions v. Skinner* suggest state materials are PD, but myflorida.com terms assert "personal, non-commercial use only." Statute-vs-site-terms conflict → resolve (or ask) before ingesting |
+| **Woy Magazine** *(sweep 4)* | contemporary authored essays/memory/diaspora writing — 224 Kreyòl articles, ~200–300k words | Small editorial org (Info@woymagazine.com); ask for an export with original-language + author metadata so translated pieces don't contaminate the authored slice |
+| **EspasKreyòl** *(sweep 4)* | literature, history, archived Kreyòl newspapers (Sèl, Libète, Bon Nouvèl) — 247 posts / ~198k raw words already exposed via WordPress API | Site *aims* for free-license material but footer reserves rights; ask for a per-item rights manifest — their original posts could move straight to TRAIN-OK |
+| **OtakuTòk podcast + Learn Haitian Creole (Mimi)** *(sweep 4)* | the ONLY informal youth dialogue + clean pedagogical dialogue found anywhere | Creator-first deals: fund transcription, creator review, explicit license, opt-out — the model for individual-creator partnerships |
+| Reading Room Haiti / CNHC (Indiana) / Atlas Linguistique / RTI-ToTAL / CreoleCentric *(sweep 4)* | children's aggregator · natural Capois conversation · nationwide dialect fieldwork · scripted literacy dialogue · 28k-entry lexicon | Longer institutional asks; consent questions beyond copyright for the fieldwork corpora — see [data-sources-sweep-4.md](data-sources-sweep-4.md) partnership table |
 
 ### QUARANTINE (no training, no redistribution)
 
 - **JW.org** — largest single Kreyòl corpus in existence, and explicitly anti-scraping ("…may not create… tools… specifically made to collect, copy… or scrape data"). Avoid.
 - **Mission 4636 / WMT11 raw earthquake SMS** — excluded on **ethics**, independent of license: real disaster-victim messages, organizers state "the anonymization may be incorrect or incomplete." Not for a generative model.
-- **MedlinePlus third-party producers** (American Cancer Society, Immunization Action Coalition, Mass DPH, Mass General), **NY State agencies** (non-commercial/credit terms), **Potomitan** (per-author rights, clearance impractical), **TaCo/saillab alpaca-haitian** (CC BY-NC), **Freeman Medical Dictionary** (published copyrighted work; human reference only), **Kreyòl-MT bundle** (license "other"; use its per-component index, never the blob), **MIT-Haiti** (standing quarantine — see §5 open item).
+- **MedlinePlus third-party producers** (American Cancer Society, Immunization Action Coalition, Mass DPH, Mass General), **NY State agencies** (non-commercial/credit terms), **Potomitan** (per-author rights, clearance impractical), **TaCo/saillab alpaca-haitian** (CC BY-NC), **Freeman Medical Dictionary** (published copyrighted work; human reference only), **Kreyòl-MT bundle** (license "other"; use its per-component index, never the blob), **MIT-Haiti** (standing quarantine — see §4 open item).
+- *Sweep-4 additions:* **Radio Haiti-Inter archive** (5,300+ recordings, CC BY-NC-SA — partnership with the estate is the only path), **IARPA Babel HT** (LDC paid license), **Kreyòl Pale** textbook (CC BY-NC), **Ti Koze Kreyòl** (CC BY-NC-ND), **DLI Basic Course** (NOT federal PD — ERIC copy requires copyright-owner permission), **UD-Adolphe** (71k tokens but JW-derived → inherits the JW quarantine), **UD-Autogramm** (3.3k tokens, mixed uneven rights), **Zilora speech dataset** (MIT tag but no speaker consent/provenance documentation), **Partners in Literacy Haiti** (no-reprint terms), lyrics sites, Reddit/Facebook/YouTube captions (platform visibility ≠ redistribution rights — viable only via opt-in contribution).
 
 ### EVAL-ONLY (standing)
 
 FLORES+ (unchanged), CreoleVal religious-MT component ("Copyrighted"), and the family-contributed NJ/MA/BMC documents pending rights checks.
+
+### §1 — estimate vs MEASURED (Workstream J, executed 2026-07-24)
+
+Every estimate above was checked against measurement. Full detail: [../ml/reports/corpus_v0_2_scoping.md](../ml/reports/corpus_v0_2_scoping.md) (J0) and [../ml/reports/corpus_v0_2.md](../ml/reports/corpus_v0_2.md) (build). Token unit **kreyol-bpe** (matches the "112M unique tokens" v0.1 figure).
+
+| source | estimate | measured | status |
+|---|---|---|---|
+| **VOA Nouvèl** | ~20–60M | **~2.25M net-new** (54% of URLs are text; 34% of those wire; 45% MADLAD-dup) | 🚩 ~10–25× below est — **red-flag gate tripped**; proceeded under "Full v0.2 + mix control" decision. Crawl partial/resumable (2024→2025 slice) |
+| **fineweb-2 hat** | ~300MB raw, *heavy overlap expected* | raw **159M**, **net-new ~108M** (only 17% doc-overlap w/ v0.1) | 🚩 overlap claim **refuted** — large NEW web-crawl volume (same register; mix weight 1×) |
+| **Federal PDFs** | ~1–5M | **33 docs / 7 producers** (IRS 12, OSHA 6, DHS-OIDO 7, USCIS I-589, CFPB 2, EPA 2, CMS 2) | measured; **CDC/SSA/FEMA Akamai-blocked** (403 to browser headers) → reported, not worked around |
+| **IRS Pub 850 + CFPB glossary** | ~80–160k / ~1,500 pairs | **1,955 EN↔HT pairs** (CFPB 1,581 + IRS 374) → committable `glossary_pairs_federal.json` | measured (IRS is a 3-col glossary; precision-first mining) |
+| **Bib La 1985** | ~1M | **~1.14M** (66 books) | measured; religious register capped ≤2% at build |
+| **Konstitisyon 1987** | ~20–60k | **~30k** (Paul Déjean translation) | measured |
+| **Bloom hat (BY/BY-SA)** | ~50–100k | **pending** — gated (auto-grant), one HF-account click | deferred |
+| **Storybooks Haiti** | ~10–15k | **~13k** (40 HT stories) | measured (`.l1` HT-only extraction) |
+| **Family set** | — | CFPB→train+pairs; NJ/MA/BMC→eval probes; **FILE_7167 = Beverly Hospital** (private→eval-only); Freeman quarantined | measured (contributor record filed) |
+
+**Headline finding:** the *authored-unlock* thesis (VOA → triple the authored share to ~30%) did **not** survive measurement; VOA is register-unique but small. A *volume* surprise (fineweb-2 ~108M) cut the other way. Net v0.2 is a register-tagged corpus whose authored/register emphasis is driven by **train-mix weights**, not raw composition — see the v0.2 report for the achieved numbers.
 
 ---
 
@@ -120,9 +147,12 @@ Rights notes: kakugo/muri-it/aya are Apache-2.0 (TRAIN-OK); TaCo's 52k translate
 
 - **MIT-Haiti license conflict:** CreoleVal's repo lists the MIT-Haiti corpus as CC-BY-4.0; our registry quarantines it from an earlier review. A third-party README doesn't override the source's own terms — verify at the platform itself before any status change. If CC-BY holds, it's the best authored STEM Kreyòl available.
 - **Florida statute-vs-terms conflict:** FL public-records law (+ *Microdecisions v. Skinner*) points to PD, but myflorida.com's terms restrict to personal non-commercial use. Held out of training until resolved — a per-agency permission note is the pragmatic path.
-- **Wire-filter recall (VOA):** measure on a labeled sample of ~100 articles; err toward dropping.
-- **fineweb-2 hat size** unmeasured — measure at ingestion before planning around it.
+- **Wire-filter recall (VOA):** ✅ RESOLVED (J0/J1). Measured wire rate **~34%** of text articles on a 200-article stratified sample; byline-level drop (AFP / AP=Associated Press / Reuters) + wire-credited-paragraph strip in `corpus/voa.py`. Bare "AP" was a false-negative gap in the first pass — fixed.
+- **fineweb-2 hat size** ✅ RESOLVED (J0). Measured: **224,472 docs / 159M kreyol-bpe raw → ~108M net-new** after junk+langid+MinHash-dedup vs v0.1 (only 17% doc-overlap). The "heavy MADLAD overlap" assumption was **wrong** — MADLAD-400 and fineweb-2 extract Common Crawl differently, so text near-dup is low.
 - **New lead: readingroomhaiti.org** — claims ~1,000 CC-licensed books translated into Kreyòl (an aggregator; per-source license verification needed). Potentially the biggest children's/educational source if it checks out.
 - **Confirmed dead ends (do not re-search):** Global Voices (CC-BY but zero Kreyòl articles — no HT Lingua edition), Global Digital Library (no HT titles), StoryWeaver (3 rough titles), Le Nouvelliste (French outlet), ht.wikisource/wiktionary/wikibooks (empty/Incubator), OPUS-100 (no HT pair), Tatoeba beyond seeds (162 sentences), radio-station sites (audio-first), MedlinePlus-as-a-source (it's a router), NLM-authored Kreyòl (doesn't exist).
-- **PDF extraction quality** varies by producer (multi-column flyers) — spot-check each.
+- **PDF extraction quality** varies by producer (multi-column flyers) — spot-check each. ✅ column-aware extraction (`corpus/federal_pdfs.extract_pdf_text`) + per-producer spot-check samples in `federal_stats.json`. Note: **IRS Pub 850 is a 3-column English-over-Haitian glossary** (special-cased miner); the **CDC/SSA/FEMA** sites are **Akamai-blocked** (403 to browser headers) — reported, not bypassed, candidate URLs recorded for a real-browser retry.
 - **Orthography variance** (French-style accents in some medical materials) — tag by file, never silently normalize; the audit norm is measure-don't-filter.
+- **Historical orthography** (sweep-4 PD texts, 1901/1921/1925): genre-tagged (`historical_literary`, `historical_pedagogy`), original spelling preserved; any normalized rendition is a separately-reviewed derivative, never a replacement. Standard langid will fail on these — manual/assisted segmentation.
+- **"Konbit Korpus" (from sweep 4's partnership table):** an opt-in community contribution drive — essays, stories, sermons, transcripts, chat-style dialogue — is the only rights-clean path to authored *social* Kreyòl, and it slots directly into the plan-§10 governance framework (consent, attribution choice, revocability) and the event's consent-flow station. Promote to a first-class workstream when outreach starts.
+- **Research phase closed:** four sweeps have mapped the space; the dead-end table in [data-sources-sweep-4.md](data-sources-sweep-4.md) is final. The frontier is now partnerships, the contribution drive, and synthetic — not more searching. ✅ BMC clinical glossary audited: **4.0% French-accent words** (*santé/rivé/réchèch*) → tagged `nonstandard_orthography`, eval-only.
