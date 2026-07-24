@@ -1,0 +1,7917 @@
+{
+ "sources": {
+  "cfpb_glossary_family": {
+   "license": "US-GOV-PD (17 U.S.C. §105)",
+   "count": 1581
+  }
+ },
+ "pairs": [
+  {
+   "source": "cfpb_glossary_family",
+   "en": "1-4 family rider",
+   "ht": "Klòz adisyonèl pou pwopriyete ki gen 1-4 inite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "401(k)",
+   "ht": "401(k)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "403(b)",
+   "ht": "403(b)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "529 plan",
+   "ht": "Plan 529"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abandonment",
+   "ht": "Abandon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abandoned",
+   "ht": "Abandone"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abatement",
+   "ht": "Rediksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ability to pay",
+   "ht": "Kapasite pou peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ability to repay",
+   "ht": "Kapasite pou repeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abrogate",
+   "ht": "Revoke, anile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Absolute title",
+   "ht": "Tit absoli"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abstract update",
+   "ht": "Mizajou rezime tit pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Abusive practice",
+   "ht": "Pratik abizif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Academic program",
+   "ht": "Pwogram akademik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acceleration",
+   "ht": "Akselerasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acceleration clause",
+   "ht": "Klòz akselerasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acceleration letter",
+   "ht": "Lèt akselerasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Access",
+   "ht": "Aksè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Account",
+   "ht": "Kont"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Accountant",
+   "ht": "Kontab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Account Review Inquiry",
+   "ht": "Evalyasyon kont"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "2 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Accrued",
+   "ht": "Akimile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acknowledgement",
+   "ht": "Rekonesans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acknowledgement of receipt",
+   "ht": "Resepise"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acknowledgement, certificate of",
+   "ht": "Rekonesans, sètifika"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Acquittal",
+   "ht": "Akitman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Act (as in: Dodd-Frank Act)",
+   "ht": "Lwa (tankou nan: Lwa Dodd-Frank)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Act of God",
+   "ht": "Aksyon Bondye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Action plan",
+   "ht": "Plan aksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Active military duty",
+   "ht": "Sèvis militè aktif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Actual cash value",
+   "ht": "Valè reyèl an lajan kach"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Addendum",
+   "ht": "Apendis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Additional principal payment",
+   "ht": "Ranbousman kapital siplemantè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Add-on",
+   "ht": "Diplis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Addressee",
+   "ht": "Destinatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable interest rate (AIR) table",
+   "ht": "Tablo to enterè varyab (AIR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable payment (AP) table",
+   "ht": "Tablo peman varyab (AP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable rate",
+   "ht": "To varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable-rate mortgage (ARM)",
+   "ht": "Ipotèk ak to varyab (ARM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable-rate note",
+   "ht": "Obligasyon ak to varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustable-rate rider",
+   "ht": "Klòz adisyonèl sou to varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjuster",
+   "ht": "Ekspè asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustment date",
+   "ht": "Dat kalkil enterè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adjustment interval, adjustment period",
+   "ht": "Entèval ant chanjman to enterè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Administration for Community Living (ACL)",
+   "ht": "Administrasyon pou Vi Kominotè (ACL)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Administration on Aging (AOA)",
+   "ht": "Administrasyon sou Vyeyisman (AOA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Administrative law judge",
+   "ht": "Jij administrative"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "3 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Administrative order",
+   "ht": "Lòd administrative"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Administrative rule",
+   "ht": "Règ administrative"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adult Protective Services (APS)",
+   "ht": "Sèvis Pwoteksyon Adilt (APS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Advance directive",
+   "ht": "Direktiv davans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Adverse action",
+   "ht": "Desizyon defavorab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Advocacy group",
+   "ht": "Gwoup defansè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affidavit",
+   "ht": "Afidavi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affinity fraud",
+   "ht": "Fwod afinite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affirmative step",
+   "ht": "Mezi pozitif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Afford",
+   "ht": "Gen mwayen achte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affordability analysis",
+   "ht": "Analiz kapasite peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affordability analyzer",
+   "ht": "Analizè kapasite peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affordable",
+   "ht": "Abòdab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Affordable housing",
+   "ht": "Lojman abòdab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Age Discrimination Act of 1975",
+   "ht": "Lwa 1975 sou Diskriminasyon Poutèt Laj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Age-friendly banking",
+   "ht": "Jesyon bankè adapte pou granmoun aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Agency",
+   "ht": "Ajans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Agent",
+   "ht": "Ajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Agreement",
+   "ht": "Akò"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Agreement of sale",
+   "ht": "Akò vant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "AI (artificial intelligence)",
+   "ht": "AI (entelijans atifisyèl)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Aid and Attendance (A&A)",
+   "ht": "Èd ak Prezans (A&A)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Algorithmic bias",
+   "ht": "Patipri algoritmik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Alien authorized to work",
+   "ht": "Etranje otorize pou travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Alimony",
+   "ht": "Pansyon alimantè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Allegation",
+   "ht": "Akizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "4 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Allege",
+   "ht": "Akize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Allocate",
+   "ht": "Atribye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Allowable debt payment",
+   "ht": "Peman dèt akseptab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Altcoin, alternative coin",
+   "ht": "Altcoin, lajan altènatif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Alternate phone number",
+   "ht": "Lòt nimewo telefòn"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Alternative financial service",
+   "ht": "Sèvis finansye ki pa tradisyonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Amendment",
+   "ht": "Amannman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "America",
+   "ht": "Amerik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "American",
+   "ht": "Ameriken"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "American Bar Association Commission on Law",
+   "ht": "Komisyon Asosyasyon Bawo Ameriken an sou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "5 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Application",
+   "ht": "Aplikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Application fee",
+   "ht": "Frè aplikasyon an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Apply",
+   "ht": "Aplike"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Apply (as in: to apply for a job or for a license,",
+   "ht": "Aplike (tankou nan: pou aplike pou yon travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Apply (as in: this benefit applies to full-time",
+   "ht": "Aplike (tankou nan: benefis sa a aplike pou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appraisal",
+   "ht": "Evalyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appraisal bias",
+   "ht": "Evalyasyon avèk patipri"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appraisal contingency",
+   "ht": "Kondisyon ki depann de evalyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appraisal report",
+   "ht": "Rapò evalyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appraiser",
+   "ht": "Evalyatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appreciate",
+   "ht": "Apresye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appreciation",
+   "ht": "Apresyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Approved",
+   "ht": "Apwouve"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Appurtenances",
+   "ht": "Depandans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "APR (Annual Percentage Rate)",
+   "ht": "APR (To Enterè Ànyèl)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Arbitration",
+   "ht": "Abitraj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Area",
+   "ht": "Zòn"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Area Median Income (AMI)",
+   "ht": "Revni Medyan Zòn (AMI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Area Agency on Aging (AAA)",
+   "ht": "Ajans pou Moun Aje Zòn nan (AAA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Arm’s length transaction",
+   "ht": "Tranzaksyon san lyen depandans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Arrears, arrearage",
+   "ht": "Aryere, aryere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Arrest warrant",
+   "ht": "Manda arestasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Asbestos",
+   "ht": "Amyant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Asking price",
+   "ht": "Pri yo mande"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assert (a right)",
+   "ht": "Afime (yon dwa)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "6 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assessed value",
+   "ht": "Valè evalye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assessing the value of the property",
+   "ht": "Evalye valè pwopriyete a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assessment",
+   "ht": "Evalyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assessor",
+   "ht": "Evalyatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Asset",
+   "ht": "Byen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Asset allocation",
+   "ht": "Repatisyon byen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assignee",
+   "ht": "Benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assignment",
+   "ht": "Transfè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assignment of mortgage",
+   "ht": "Tranfè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assignor",
+   "ht": "Moun k ap transfere pwopriyete a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assisted living",
+   "ht": "Lojman avèk asistans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assisted living facility",
+   "ht": "Etablisman ki ofri lojman avèk asistans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Association for Conflict Resolution",
+   "ht": "Asosyasyon pou Rezolisyon Konfli"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assumability",
+   "ht": "Posibilite prizanchaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assumable mortgage",
+   "ht": "Ipotèk yo ka pran an chaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assumption",
+   "ht": "Prizanchaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assumption agreement",
+   "ht": "Akò prizanchaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Assumption fee",
+   "ht": "Frè prizanchaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Attachment, attachment of assets",
+   "ht": "Sezi, sezi byen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Attain priority",
+   "ht": "Atenn priyorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Attest",
+   "ht": "Ateste"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Attorney",
+   "ht": "Avoka"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Attorney-in-fact",
+   "ht": "Mandatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Authoritative",
+   "ht": "Ki gen otorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Authorized third party",
+   "ht": "Tyès pati ki gen otorizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Auto (or vehicle) loan",
+   "ht": "Prè pou oto (oswa machin)."
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "7 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Auto insurance",
+   "ht": "Asirans oto"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated agent",
+   "ht": "Ajan otomatik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated agent (customer service)",
+   "ht": "Ajan otomatik (sèvis kliyantèl)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated Clearing House (ACH) transfers",
+   "ht": "Transfè Chanm Konpansasyon Otomatik (ACH)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated Teller Machine (ATM)",
+   "ht": "Distribitè Lajan Otomatik (ATM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated Teller Machine (ATM) transaction",
+   "ht": "Tranzaksyon nan Distribitè Lajan Otomatik (ATM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automated underwriting",
+   "ht": "Seleksyon risk otomatik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automatic bill pay system",
+   "ht": "Sistèm otomatik pou peye bòdwo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automatic debit payment",
+   "ht": "Peman debi otomatik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Automatic mortgage payment",
+   "ht": "Peman ipotèk otomatik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Auto-pay",
+   "ht": "Peman otomatik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "8 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balance sheet",
+   "ht": "Bilan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balance transfer fee",
+   "ht": "Frè transfè balans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balloon loan",
+   "ht": "Prè balon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balloon mortgage",
+   "ht": "Ipotèk balon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balloon payment",
+   "ht": "Dènye peman pi wo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Balloon rider",
+   "ht": "Klòz adisyonèl sou dènye peman pi wo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank",
+   "ht": "Bank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank account",
+   "ht": "Kont labank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank accounts and services",
+   "ht": "Kont labank ak sèvis yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank failure",
+   "ht": "Fayit bankè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank fees",
+   "ht": "Frè labank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank run, deposit run, run on the bank",
+   "ht": "Panik bankè, vag retrè, pran gichè bank daso"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank Secrecy Act (BSA)",
+   "ht": "Lwa sou Sekrè Bankè (BSA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bank statement",
+   "ht": "Relve kont labank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Banking desert",
+   "ht": "Zòn ki pa gen bank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bankruptcy",
+   "ht": "Fayit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bankruptcy discharge",
+   "ht": "Liberasyon anba fayit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Barred",
+   "ht": "Entèdi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Base income",
+   "ht": "Revni debaz"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Basis point",
+   "ht": "Pwen debaz"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Be discriminated against",
+   "ht": "Fè diskriminasyon kont"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Before-tax income",
+   "ht": "Revni anvan taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Beneficial interest",
+   "ht": "Enterè benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Beneficial owner",
+   "ht": "Pwopriyetè benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Beneficiary",
+   "ht": "Benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Benefits card",
+   "ht": "Kat benefis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "9 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Benefits office",
+   "ht": "Biwo benefis yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Big tech",
+   "ht": "Gwo konpayi ki sou entènèt yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bilingual program coordinator",
+   "ht": "Kowòdonatè pwogram bileng"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bill",
+   "ht": "Bòdwo, fakti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bill of sale",
+   "ht": "Papye lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bill payment fee",
+   "ht": "frè peman bòdwo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Billing cycle",
+   "ht": "Peryòd faktirasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bitcoin",
+   "ht": "Bitcoin"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Biweekly mortgage",
+   "ht": "Peman ipotèk chak de (2) semèn"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Biweekly payment",
+   "ht": "Peman chak de (2) semèn"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Biweekly payment rider",
+   "ht": "Klòz adisyonèl sou peman chak de (2) semen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Blanket mortgage",
+   "ht": "Ipotèk global"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Blended rate",
+   "ht": "To konbine"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Blockchain",
+   "ht": "Blockchain"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Board rent",
+   "ht": "Pansyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Boarder",
+   "ht": "Pansyonè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Boarder income",
+   "ht": "Revni ou resevwa nan men pansyonè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bona fide",
+   "ht": "Debònfwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bond",
+   "ht": "Obligasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bonus",
+   "ht": "Bonis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borehole",
+   "ht": "Twou foraj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrow",
+   "ht": "Prete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower",
+   "ht": "Anprentè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower evaluation notice",
+   "ht": "Avi evalyasyon anprentè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower relocation assistance",
+   "ht": "Asistans pou demenajman anprentè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower response package",
+   "ht": "Dokiman repons anprentè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "10 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower solicitation letter",
+   "ht": "Lèt demann pou prete lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower solicitation package",
+   "ht": "Dokiman demann pou prete lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrower's promise to pay",
+   "ht": "Pwomès anprentè a pou li peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Borrowing power",
+   "ht": "Kantite lajan yon mou gen kapasite mande prete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bounced check",
+   "ht": "Chèk san pwovizyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Breach letter",
+   "ht": "Lèt pou enfòme anprentè a li an defo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Bridge loan",
+   "ht": "Kredi relè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Broker",
+   "ht": "Koutye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Broker account",
+   "ht": "Kont koutye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Broker’s price opinion (BPO)",
+   "ht": "Pri dapre estimayon koutye a (BPO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Brokerage account",
+   "ht": "Kont koutaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Budget",
+   "ht": "Bidjè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Building code",
+   "ht": "Kòd konstriksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Building code regulation",
+   "ht": "Règleman kòd konstriksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Building inspection service",
+   "ht": "Sèvis enspeksyon bilding"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Business day",
+   "ht": "Jou ouvrab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Business deal",
+   "ht": "Afè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Business failure",
+   "ht": "Echèk biznis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buy here, pay here auto loan",
+   "ht": "Prè oto Achte isit la, peye isit la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buy Now, Pay Later",
+   "ht": "Achte kounye a, peye pita"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buydown",
+   "ht": "Sibvansyon enterè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buyer",
+   "ht": "Achtè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buyer's agent",
+   "ht": "Ajan achtè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buyer's market",
+   "ht": "Mache achtè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Buying power",
+   "ht": "Pouvwa dacha"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "By certified mail",
+   "ht": "Pa kourye sètifye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "11 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "By-laws",
+   "ht": "Règleman (yo)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Campaign sign",
+   "ht": "Afich elektoral"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cancellation fee",
+   "ht": "Frè anilasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cancellation right",
+   "ht": "Dwa anilasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cap",
+   "ht": "Plafon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capacity to pay your mortgage",
+   "ht": "Kapasite pou peye ipotèk ou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capital",
+   "ht": "Kapital"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capital gains",
+   "ht": "Gen an kapital"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capital or liquidity stress test",
+   "ht": "Tès rezistans kapital oswa likidite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capitalization",
+   "ht": "Kapitalizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capitalization of arrearages",
+   "ht": "Kapitalizasyon aryere yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Capitalize",
+   "ht": "Kapitalize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cap (interest)",
+   "ht": "Plafon (enterè)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cap (payment)",
+   "ht": "Plafon (peman)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Card holder agreement",
+   "ht": "Akò detantè kat la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Card provider",
+   "ht": "Founisè kat"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Case",
+   "ht": "Ka"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Case number",
+   "ht": "Nimewo ka a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash",
+   "ht": "Lajan Kach"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash advance",
+   "ht": "Avans lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash advance fee",
+   "ht": "Frè avans lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash contribution",
+   "ht": "Kontribisyon an lajan kach"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash reload",
+   "ht": "Rechajman ak lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash reload fee",
+   "ht": "Frè pou rechaje ak lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash reserve",
+   "ht": "Rezèv lajan kach"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "12 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash, cash on hand",
+   "ht": "Lajan kach, lajan kach nan men"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash deposit",
+   "ht": "Depo lajan kach"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash flow",
+   "ht": "Flo monetè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash-out refinance",
+   "ht": "Refinansman avèk retrè vale nèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cash to close",
+   "ht": "Lajan pou pote nan jou siyati an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ceiling",
+   "ht": "Plafon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cell",
+   "ht": "Selil"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Census tract",
+   "ht": "Sektè resansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of completion",
+   "ht": "Sètifika fen travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of Deposit (CD)",
+   "ht": "Sètifika Depo (CD)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of eligibility",
+   "ht": "Sètifika kalifikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of occupancy",
+   "ht": "Sètifika itilizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of reasonable value (CRV)",
+   "ht": "Sètifika valè rezonab (CRV)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certificate of veteran status",
+   "ht": "Sètifika estati veteran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Certified credit counselor",
+   "ht": "Konseye sètifye nan zafè kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "CFPB Divisions and Offices",
+   "ht": "Divizyon ak Biwo CFPB yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Chain of title",
+   "ht": "Chèn tit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Change date",
+   "ht": "Dat chanjman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Change frequency",
+   "ht": "Frekans chanjman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Change of circumstance",
+   "ht": "Chanjman nan sikonstans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Change order",
+   "ht": "Lòd chanjman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charge",
+   "ht": "Mande peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charge card",
+   "ht": "Kat peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charge form",
+   "ht": "Fòmilè akizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charge off",
+   "ht": "Amòtisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charging party",
+   "ht": "Pati ki fè akizasyon an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "13 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Charity appeal",
+   "ht": "Apèl charite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Chattel",
+   "ht": "Byen pèson"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Check",
+   "ht": "Tcheke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Check register",
+   "ht": "Liv chèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Checkbook",
+   "ht": "Kanè chèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Checking account",
+   "ht": "Kont kouran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Checking account advance",
+   "ht": "Avans sou kont kouran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Child support",
+   "ht": "Lajan pou okipe timoun"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "CHIML (Community Home Improvement",
+   "ht": "CHIML (Prè Ipotèk Sibvansyone pou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage Loan)",
+   "ht": "Amelyorasyon Kay Kominotè)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Closed primary",
+   "ht": "Primè fèmen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "14 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Closing",
+   "ht": "Siyati"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Closing agent",
+   "ht": "Koutye ki reyisi vant la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Closing company",
+   "ht": "Konpayi vant imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "15 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Commitment letter",
+   "ht": "Lèt angajman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Common area",
+   "ht": "Espas pataje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Common law",
+   "ht": "Dwa komen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community association",
+   "ht": "Asosyasyon kominotè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community association dues",
+   "ht": "Kotizasyon asosyasyon kominotè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community group",
+   "ht": "Gwoup kominotè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community Land Trust Mortgage Loan (CLTML)",
+   "ht": "Prè Ipotekè pou Fidisi Imobilye Kolektif (CLTML)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community outreach",
+   "ht": "Sansibilizasyon kominotè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community property",
+   "ht": "Pwopriyete kominotè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Community Reinvestment Act of 1977 (CRA)",
+   "ht": "Lwa 1977 sou Reyenvestisman Kominotè (CRA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Company",
+   "ht": "Konpayi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Company response (to a complaint)",
+   "ht": "Repons konpayi (a yon plent)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Comparative Market Analysis (CMA)",
+   "ht": "Analiz konparatif mache a (CMA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Compensation",
+   "ht": "Peman, dedomajman (depending on context)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Complainant",
+   "ht": "Plenyan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Complaint",
+   "ht": "Plent"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Complete borrower response package",
+   "ht": "Ranpli dokiman repons anprentè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Complete loss mitigation application",
+   "ht": "Ranpli aplikasyon pou limitasyon pèt la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Compliance",
+   "ht": "Konfòmite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Compliance date",
+   "ht": "Dat konfòmite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Compound interest",
+   "ht": "Enterè konpoze"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Comprehensive",
+   "ht": "Konplè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Computer and internet scams",
+   "ht": "Eskwokri sou òdinatè ak entènèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Concession",
+   "ht": "Konsesyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conciliation",
+   "ht": "Konsilyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condemnation",
+   "ht": "Kondanasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "16 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condition",
+   "ht": "Kondisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condominium",
+   "ht": "Kondominyòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condominium owners’ association",
+   "ht": "Asosyasyon pwopriyetè kondominyòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condominium fee",
+   "ht": "Frè kondominyòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condominium project",
+   "ht": "Pwojè kondominyòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Condominium rider",
+   "ht": "Klòz adisyonèl sou kondominyòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Confirmation code",
+   "ht": "Kòd konfimasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Confirmed successor in interest",
+   "ht": "Eyandwa konfime"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conformed copy",
+   "ht": "Kopi konfòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conforming loan",
+   "ht": "Prè konfòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consent decree",
+   "ht": "Jijman konvni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conservation",
+   "ht": "Konsèvasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conservator",
+   "ht": "Konsèvatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consortium of districts",
+   "ht": "Konsòsyòm distri"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Construction loan",
+   "ht": "Prè pou konstriksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Constructive discharge",
+   "ht": "Revokasyon degize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer",
+   "ht": "Konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer behavior",
+   "ht": "Konpòtman konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer Credit Protection Act",
+   "ht": "Lwa sou Pwoteksyon Kredi Konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer complaint database",
+   "ht": "Baz done plent konsomatè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer credit bureau",
+   "ht": "Biwo kredi konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer credit reporting company",
+   "ht": "Konpayi rapò kredi konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer debt",
+   "ht": "Dèt konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer financial products and services",
+   "ht": "Pwodui ak sèvis finansye pou konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer Financial Protection Bureau (CFPB)",
+   "ht": "Biwo Pwoteksyon Finansye Konsomatè (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer financial service",
+   "ht": "Sèvis finansye pou konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "17 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer Leasing Act of 1976",
+   "ht": "Lwa 1976 la sou Kontra Lokasyon ak Konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer lender",
+   "ht": "Pretè a konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer loan",
+   "ht": "Prè a konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer products",
+   "ht": "Pwodui pou konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer rights",
+   "ht": "Dwa konsomatè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Consumer “Tell Your Story” submission",
+   "ht": "“Rakonte Istwa ou” konsomatè a soumèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Contest",
+   "ht": "Konkou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Contingency",
+   "ht": "Enprevi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Contingency clause of sale",
+   "ht": "Klòz pou enprevi nan vant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Continuation sheet",
+   "ht": "Fèy kontinyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Continued presence",
+   "ht": "Prezans kontini"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Contract",
+   "ht": "Kontra"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Contractor",
+   "ht": "Kontraktè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conventional mortgage loan",
+   "ht": "Prè ipotekè konvansyonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conversion",
+   "ht": "Konvèsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conversion option",
+   "ht": "Opsyon konvèsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Convertible adjustable-rate mortgage",
+   "ht": "Ipotèk ak to enterè varyab konvètib"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Convertible",
+   "ht": "Konvètib"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Convey",
+   "ht": "Transmèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Conveyance",
+   "ht": "Transfè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooling-off period",
+   "ht": "Peryòd refleksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooling system",
+   "ht": "Sistèm refwadisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Co-op apartment",
+   "ht": "Apatman nan koperaiv abitasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooperative (co-op)",
+   "ht": "Koperativ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooperative (co-op) maintenance fee",
+   "ht": "Frè antretyen koperativ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooperative (co-op) project",
+   "ht": "Pwojè koperativ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "18 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooperative share",
+   "ht": "Pòsyon nan koperativ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cooperative share loan",
+   "ht": "Prè pou pòsyon nan koperativ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Co-purchaser",
+   "ht": "Ko-achtè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Copy of signed offer letter",
+   "ht": "Kopi lèt òf ki siyen an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Co-signer",
+   "ht": "Ko-siyatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Costs",
+   "ht": "Depans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Counseling, guidance",
+   "ht": "Konsèy"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Counteroffer",
+   "ht": "Kont-pwopozisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "County taxes",
+   "ht": "Taks Konte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Court",
+   "ht": "Tribinal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Court case",
+   "ht": "Dosye tribinal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Court proceeding",
+   "ht": "Pwosedi tribinal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Covenant",
+   "ht": "Alyans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Covenants and agreements",
+   "ht": "Alyans ak akò"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Coverage",
+   "ht": "Kouvèti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Coverdell education savings account",
+   "ht": "Kont depay edikasyon Coverdell"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit",
+   "ht": "Kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit analysis",
+   "ht": "Analiz kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit building",
+   "ht": "Etablisman antesedan kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit card",
+   "ht": "Kat kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit check",
+   "ht": "Verifikasyon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit counseling",
+   "ht": "Konsèy nan zafè kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit file",
+   "ht": "Dosye kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit history",
+   "ht": "Antesedan nan zafè kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit inquiry",
+   "ht": "Ankèt sou kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit insurance",
+   "ht": "Asirans kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "19 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit life insurance",
+   "ht": "Asirans vi kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit mix",
+   "ht": "Konbinezon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit rating",
+   "ht": "Evalyasyon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit rating system or model",
+   "ht": "Sistèm oswa modèl evalyasyon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit record",
+   "ht": "Dosye kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit repair",
+   "ht": "Reparasyon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit report",
+   "ht": "Rapò sou kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit report authorization",
+   "ht": "Otorizasyon rapò sou kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit report dispute",
+   "ht": "Kontestasyon rapò sou kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit reporting company",
+   "ht": "Konpayi rapò sou kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit score",
+   "ht": "Nòt kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit tenant lease",
+   "ht": "Kontra lokasyon avèk lokatè ki gen trè bon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit union",
+   "ht": "Koperativ epay ak kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Credit utilization",
+   "ht": "Itilizasyon kredi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Creditor",
+   "ht": "Kreyansye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Creditworthy",
+   "ht": "Sòlvab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Criminal justice",
+   "ht": "Jistis penal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Criminal section",
+   "ht": "Seksyon penal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Crypto coins",
+   "ht": "Lajan kriptografik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Crypto tokens",
+   "ht": "Tokenn kriptografik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Crypto-assets",
+   "ht": "Aktif kriptografik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cryptocurrency",
+   "ht": "Lajan kriptografik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cushion",
+   "ht": "Kousen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Current",
+   "ht": "Kouran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Current index",
+   "ht": "Endis aktyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Current monthly expense",
+   "ht": "Depans mansyèl aktyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "20 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Curtailment",
+   "ht": "Rediksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Customer education group",
+   "ht": "Gwoup edikasyon kliyantèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Customer service",
+   "ht": "Sèvis kliyantèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Customer service fee",
+   "ht": "Frè sèvis kliyantèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Cut work hours",
+   "ht": "Rediksyon nan lè travay yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Data broker",
+   "ht": "Koute done"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Data privacy",
+   "ht": "Konfidansyalite done"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Data sharing",
+   "ht": "Pataj done"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Date available (Remittance Rule)",
+   "ht": "Dat disponib (Règ pou peman)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Date of disbursement",
+   "ht": "Dat debousman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Date issued",
+   "ht": "Dat emisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Date of the first default",
+   "ht": "Dat premye defo a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Death",
+   "ht": "Lanmò"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Death certificate",
+   "ht": "Sètifika lanmò"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debit card",
+   "ht": "Kat debi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt",
+   "ht": "Dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt balance",
+   "ht": "Balans dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt collection",
+   "ht": "Rekouvreman dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt collector",
+   "ht": "Pèseptè dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt default",
+   "ht": "Defo peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt management",
+   "ht": "Jesyon dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt management plan",
+   "ht": "Plan jesyon dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt relief",
+   "ht": "Alèjman dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt settlement",
+   "ht": "Règleman dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt settlement company",
+   "ht": "Konpayi règleman dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "21 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debtor",
+   "ht": "Debitè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Debt-to-Income Ratio (DTI)",
+   "ht": "Rapò dèt-revni (DTI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Decree",
+   "ht": "Jijman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deductible",
+   "ht": "Dediktib"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deductible level",
+   "ht": "Nivo dediktib"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deduction",
+   "ht": "Dediksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deed",
+   "ht": "Papye kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deed of trust",
+   "ht": "Kontra fidisi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deed-in-lieu of foreclosure",
+   "ht": "Aranjman bay papye kay pou evite sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Default",
+   "ht": "Defo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Default judgment",
+   "ht": "Jifman pa defo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Defendant",
+   "ht": "Akize (criminal), defandè (civil)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferment",
+   "ht": "Ajounman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferral",
+   "ht": "Ranvwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferred balance",
+   "ht": "Balans difere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferred interest",
+   "ht": "Enterè difere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferred payment",
+   "ht": "Peman difere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferred principal",
+   "ht": "Peman difere prensipal la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deferred principal balance",
+   "ht": "Balans prensipal difere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "DeFi, decentralized finance",
+   "ht": "DeFi, finans desantralize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deficiency judgment",
+   "ht": "Jijman ki bay lòd fè peman diferansyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Defined-contribution plans",
+   "ht": "Plan ak kontribisyon defini"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Delayed start date",
+   "ht": "Dat kòmansman retade"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Delinquency",
+   "ht": "Delikans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Delinquency status",
+   "ht": "Estati delenkans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Delinquent",
+   "ht": "Defo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "22 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Delinquent payment",
+   "ht": "Peman an reta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Demand draft",
+   "ht": "Trèt a vi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Demand feature",
+   "ht": "Opsyon peyab imedyatman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Demand letter",
+   "ht": "Lèt demann ranbousman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Demographic information",
+   "ht": "Enfòmasyon demografik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Denied",
+   "ht": "Refize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department",
+   "ht": "Depatman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of Health and Human Services (HHS)",
+   "ht": "Depatman Sante ak Sèvis Sosyal (HHS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of Homeland Security (DHS)",
+   "ht": "Depatman Sekirite Enteryè (DHS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of Justice",
+   "ht": "Depatman Jistis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of Labor",
+   "ht": "Depatman Travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of Social Services",
+   "ht": "Depatman Sèvis Sosyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dependent",
+   "ht": "Depandan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit",
+   "ht": "Depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit account",
+   "ht": "Kont depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit advance",
+   "ht": "Avans sou depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit Insurance from the Federal Deposit",
+   "ht": "Asirans Depo ki soti nan Kòporasyon Asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance Corporation (FDIC)",
+   "ht": "Depo Federal (FDIC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit Insurance Regulations of the Federal",
+   "ht": "Règleman Asirans Depo Kòporasyon Asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposit slip",
+   "ht": "Fich depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Deposited rent check",
+   "ht": "Chèk lwaye ki depoze"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Depositor",
+   "ht": "Depozan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Depreciation",
+   "ht": "Depresyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "23 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Digital divide",
+   "ht": "Fose nimerik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Digital wallet",
+   "ht": "Pòtfèy nimerik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Direct deposit",
+   "ht": "Depo dirèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Direct deposit advance",
+   "ht": "Avans sou depo dirèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disability",
+   "ht": "Andikap"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disability payments",
+   "ht": "Peman poutèt andikap"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disability rights section",
+   "ht": "Seksyon dwa moun andikape"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disabled",
+   "ht": "Andikape"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disaster",
+   "ht": "Dezas"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disaster area",
+   "ht": "Zòn dezas"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discharge",
+   "ht": "Liberasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discharge in bankruptcy",
+   "ht": "Liberasyon anba fayit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disclaimer",
+   "ht": "Limit responsabilite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Disclosure",
+   "ht": "Divilgasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discount points",
+   "ht": "Enterè sou ipotèk ki peye nan moman siyati an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discretionary expenses",
+   "ht": "Depans diskresyonè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discriminate (against)",
+   "ht": "Fè diskriinasyon (kont)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discrimination",
+   "ht": "Diskriminasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Discrimination charge",
+   "ht": "Akizasyon diskriminasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dispute [n.]",
+   "ht": "Litij [n.]"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dispute [v.]",
+   "ht": "Konteste [v.]"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dispute the response (for complaints)",
+   "ht": "Konteste repons lan (pou plent)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Distant employment transfer",
+   "ht": "Transfè nan travay byen lwen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Distress sale",
+   "ht": "Vant sou sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Distressed Asset Stabilization Program (DASP)",
+   "ht": "Pwogram Estabilizasyon Aktif Devalorize (DASP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "District",
+   "ht": "Distri"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "24 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Diversify, diversification",
+   "ht": "Divèsifye, divèsifikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dividend(s)",
+   "ht": "Dividann (yo)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Divorce",
+   "ht": "Divòs"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Divorce decree",
+   "ht": "Jijman divòs"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Document abuse",
+   "ht": "Itilizasyon dokiman yon fason abizif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Documentation",
+   "ht": "Dokimantasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Documented resident",
+   "ht": "Rezidan dokimante"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dodd-Frank Act",
+   "ht": "Lwa Dodd-Frank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Dodd-Frank Wall Street Reform and Consumer",
+   "ht": "Lwa 2010 Dodd-Frank la sou Refòm Wall Street"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Protection Act of 2010",
+   "ht": "ak Pwoteksyon Konsomatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "25 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Durable power of attorney",
+   "ht": "Pwokirasyon dirab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Duration",
+   "ht": "Dire"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Earned income",
+   "ht": "Revni travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Earnest money deposit",
+   "ht": "Depo garanti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Earnings",
+   "ht": "Salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Earthquake",
+   "ht": "Tranblemanntè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Easement",
+   "ht": "Dwa daksè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Economic insecurity",
+   "ht": "Ensekirite ekonomik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Economic life, useful life",
+   "ht": "Dire ekonomik, dire itilizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Education savings account",
+   "ht": "Kont epay edikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Educational Opportunities Section (EOS)",
+   "ht": "Seksyon Opòtinite Edikatif (EOS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Effect of law",
+   "ht": "Efè lalwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Effective assistance",
+   "ht": "Asistans voka"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Effective date",
+   "ht": "Dat efektif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Effective date of changes",
+   "ht": "Dat efektif chanjman yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Effective rate",
+   "ht": "To reyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Elder financial abuse",
+   "ht": "Abi finansye granmoun aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Eldercare locator",
+   "ht": "Pwogram pou jwenn swen pou granmoun aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Elderly",
+   "ht": "Granmoun aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic banking",
+   "ht": "Bank elektwonik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic Benefit Transfer (EBT)",
+   "ht": "Transfè Elektwonik Prestasyon (EBT)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic Funds Transfer (EFT)",
+   "ht": "Transfè Elektwonik Fon (EFT)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic Fund Transfer Act",
+   "ht": "Lwa sou Transfè Elektwonik Fon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic funds transfer service",
+   "ht": "Sèvis transfè elektwonik fon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Electronic payment of invoice",
+   "ht": "Peman elektwonik bòdwo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "26 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Eligible",
+   "ht": "Elijib"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Email",
+   "ht": "Imèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Email address",
+   "ht": "Adrès imèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Eminent domain",
+   "ht": "Dwa sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Employer-Assisted Housing (EAH)",
+   "ht": "Lojman avèk Asistans Anplwayè (EAH)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Employment eligibility verification",
+   "ht": "Verifikasyon kalifikasyon pou travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Employment litigation",
+   "ht": "Litij nan zafè travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Employment status",
+   "ht": "Estati travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Empower",
+   "ht": "Otorize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Empowerment",
+   "ht": "Otorizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Encroachment",
+   "ht": "Anpyètman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Encumbrance",
+   "ht": "Dwa reyèl sou yon byen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Encumbrances of record",
+   "ht": "Dwa reyèl ki dokimante yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Endorsement",
+   "ht": "Andòsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Energy conservation",
+   "ht": "Konsèvasyon enèji"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Enforce",
+   "ht": "Fè aplike"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Enforcement",
+   "ht": "Aplikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "English-language learner",
+   "ht": "Elèv k ap aprann lang anglè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "English speaker",
+   "ht": "Moun ki pale anglè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Enrollment",
+   "ht": "Enskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Entitlement",
+   "ht": "Dwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Environmental cleanup",
+   "ht": "Depolisyon anviwònman an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Environmental condition",
+   "ht": "Kondisyon anviwònman an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Environmental impact study",
+   "ht": "Etid enpak sou anviwònman an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Environmental law",
+   "ht": "Dwa anviwònman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Equal Credit Opportunity Act (ECOA)",
+   "ht": "Lwa sou Chans Egalego nan Zafè Kredi (ECOA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "27 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "28 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Exchange rate",
+   "ht": "To echanj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Exclusionary discipline",
+   "ht": "Disiplin eksklizyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Exclusive listing",
+   "ht": "Lis eksklizif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Exculpatory clause",
+   "ht": "Klòz egzonerasyon responsabilite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Executed contract",
+   "ht": "Kontra ki siyen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Executive order",
+   "ht": "Dekrè egzekitif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Executive summary",
+   "ht": "Rezime"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Executor",
+   "ht": "Egzekitè testaman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Expedited delivery (fee for bill payment)",
+   "ht": "Livrezon rapid (frè pou peman bòdwo)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Expedited Funds Availability Act (EFAA)",
+   "ht": "Lwa sou Disponibilite Rapid Fon yo (EFAA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Expense",
+   "ht": "Depans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Explanation of Benefits (EOB)",
+   "ht": "Eksplikasyon Avantaj (EOB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Extended alert",
+   "ht": "Alèt pwolonje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Extended coverage",
+   "ht": "Kouvèti siplemantè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fact sheet",
+   "ht": "Fèy enfòmasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fail (if a bank fails)",
+   "ht": "Fayit (si yon bank fè fayit)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Failure to comply",
+   "ht": "Si w pa respekte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fair and Accurate Credit Transaction Act of 2003",
+   "ht": "Lwa 2003 sou Tranzaksyon Kredi ki Jis ak Egzat"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "(FACTA)",
+   "ht": "(FACTA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fair Employment Practices Agency",
+   "ht": "Ajans Pratik Anplwa San Patipri"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fair Housing Act (FHA)",
+   "ht": "Lwa sou Lojman Ekitab (FHA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fair market value",
+   "ht": "Valè jis sou mache a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "29 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Faith-based organization",
+   "ht": "Òganizasyon relijye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Familial status",
+   "ht": "Estati familyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fannie Mae",
+   "ht": "Fannie Mae"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Coordination and Compliance Section",
+   "ht": "Seksyon Federal Kowòdinasyon ak Konfòmite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal credit union",
+   "ht": "Koperativ epay ak kredi federal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Deposit Insurance Corporation (FDIC)",
+   "ht": "Kòporasyon Asirans Depo Federal (FDIC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Emergency Management Agency (FEMA)",
+   "ht": "Ajans Federal Jesyon Ijans (FEMA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal financial assistance",
+   "ht": "Asistans finansye federal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal funds rate, fed funds rate",
+   "ht": "To fon federal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal, state or local government",
+   "ht": "Gouvènman federal, eta oswa lokal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Home Loan Bank (FHLB)",
+   "ht": "Bank Federal Prè pou Achte Kay (FHLB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Housing Administration (FHA)",
+   "ht": "Administrasyon Federal Lojman (FHA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Housing Administration loan (FHA loan)",
+   "ht": "Prè Administrasyon Federal Lojman an (prè FHA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Housing Finance Agency (FHFA)",
+   "ht": "Ajans Federal Finans Lojman (FHFA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal income tax",
+   "ht": "Taks sou revni federal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "30 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal income tax return",
+   "ht": "Deklarasyon taks sou revni federal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federal Interagency Working Group on Limited",
+   "ht": "Gwoup Travay Entè-ajans Federal sou Konpetans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "English Proficiency (IWG LEP)",
+   "ht": "Limite nan Anglè (IWG LEP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Federally regulated mortgage loan",
+   "ht": "Prè ipotekè ki reglemante federalman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fee schedule",
+   "ht": "Tarif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fee",
+   "ht": "Frè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Felony",
+   "ht": "Krim"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "FHA insurance",
+   "ht": "Asirans FHA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "FHA mortgage insurance",
+   "ht": "Asirans ipotèk FHA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "FHA Title 1 loan",
+   "ht": "Prè Tit 1 FHA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "FHA-insured loan",
+   "ht": "Prè ki gen asirans FHA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fiat currency, fiat money",
+   "ht": "Lajan fidisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "FICO score",
+   "ht": "Nòt FICO"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fiduciary",
+   "ht": "Fidisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fiduciary duty",
+   "ht": "Obligasyon fidisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Final Nonconfirmation (FNC)",
+   "ht": "Non-konfimasyon Final (FNC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Final payment",
+   "ht": "Peman final"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Final payment (in projected payments)",
+   "ht": "Peman final (nan peman yo prevwa yo)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Finance charge",
+   "ht": "Chaj finansye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "31 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financial Industry Regulatory Authority, Inc.",
+   "ht": "Financial Industry Regulatory Authority, Inc."
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financial institution",
+   "ht": "Enstitisyon finansye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financing",
+   "ht": "Finansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financing fee",
+   "ht": "Frè finansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financing option",
+   "ht": "Opsyon finansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Financing term",
+   "ht": "Modalite finansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fine",
+   "ht": "Amann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Finfluencer, financial influencer",
+   "ht": "Enfliyansè finansye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fire",
+   "ht": "Ensandi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fired",
+   "ht": "Revoke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fire insurance",
+   "ht": "Asirans ensandi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Firewall",
+   "ht": "Baryè sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Firm commitment",
+   "ht": "Angajman fèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First lien",
+   "ht": "Privilèj premye ran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First mortgage",
+   "ht": "Premye ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First mortgage loan",
+   "ht": "Prè pou premye ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First payment due date",
+   "ht": "Dat echeyans pou premye peman an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "32 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First position",
+   "ht": "Premye pozisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "First-time home buyer",
+   "ht": "Moun k ap achte kay pou premye fwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Flood insurance",
+   "ht": "Asirans inondasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Food stamp",
+   "ht": "Koupon pou manje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "For a fee",
+   "ht": "Pou yon frè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "For sale by owner (FSBO)",
+   "ht": "Pou vann pa mèt kay (FSBO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forbearance",
+   "ht": "Delè gras"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forbearance plan",
+   "ht": "Plan delè gras"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure",
+   "ht": "Sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure judgment",
+   "ht": "Jijman sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure prevention",
+   "ht": "Prevansyon sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure prevention option",
+   "ht": "Opsyon prevansyon sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure process",
+   "ht": "Pwosesis sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure sale",
+   "ht": "Lavant kay ipoteke yo sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "33 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreclosure suspension",
+   "ht": "Sispansyon sezi kay ki ipoteke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreign affairs",
+   "ht": "Afè etranjè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreign citizen",
+   "ht": "Sitwayen etranje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foreign tax",
+   "ht": "Taks etranje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forfeiture",
+   "ht": "Konfiskasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forfeiture of interest",
+   "ht": "Konfiskasyon enterè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forgiven",
+   "ht": "Anile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Forgiveness of debt",
+   "ht": "Anilasyon dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Form (as in: complete this form)",
+   "ht": "Fòm (tankou nan: ranpli fòm sa a)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foster care income",
+   "ht": "Revni akèy familyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Foundation",
+   "ht": "Fondasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fraud",
+   "ht": "Fwòd"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Fraud alert",
+   "ht": "Alèt fwod"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Freddie Mac",
+   "ht": "Freddie Mac"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Freddie Mac loan limit",
+   "ht": "Limit prè Freddie Mac"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "34 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Funds",
+   "ht": "Fon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Furniture",
+   "ht": "Mèb"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Further action notice",
+   "ht": "Avi lòt aksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Future advance",
+   "ht": "Avans fiti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gamification",
+   "ht": "Transfòmasyon an jwèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Garnishment, wage garnishment",
+   "ht": "Sezi, sezi salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "General contractor",
+   "ht": "Bòs mason"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ghost mortgage, silent second mortgage",
+   "ht": "Ipotèk zonbi, dezyèm ipotèk ki pa pale"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gift",
+   "ht": "Kado"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gift deed",
+   "ht": "Ak donasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gift letter",
+   "ht": "Lèt don"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ginnie Mae",
+   "ht": "Ginnie Mae"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Good faith",
+   "ht": "Bònfwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Good Faith Estimate (GFE)",
+   "ht": "Estimasyon an Bònfwa (GFE)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Governing law",
+   "ht": "Lwa aplikab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Government-insured loans",
+   "ht": "Prè gouvènman an asire"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Government-Sponsored Enterprise (GSE)",
+   "ht": "Antrepriz Gouvènman Patwone (GSE)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Graduated-Payment Mortgage (GPM)",
+   "ht": "Prè Ipotekè ak Ranbousman Pwogresif (GPM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gramm-Leach-Bliley Act (GLBA)",
+   "ht": "Lwa Gramm-Leach-Bliley (GLBA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grandparents scam",
+   "ht": "Eskwokri ki vize granparan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grant",
+   "ht": "Sibvansyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grantee",
+   "ht": "Benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grantor",
+   "ht": "Sibvansyonè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grievance",
+   "ht": "Griyèf"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Grievance procedures",
+   "ht": "Pwosedi règleman griyèf"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "35 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gross annual revenue, gross revenue",
+   "ht": "Revni ànyèl anvan taks, revni anvan taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gross income",
+   "ht": "Revni anvan taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Gross wages",
+   "ht": "Salè anvan taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ground rent",
+   "ht": "Fèmaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Growing Equity Mortgage (GEM)",
+   "ht": "Kredi Ipotekè ak Amòstiman Pwogresif (GEM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "36 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home",
+   "ht": "Kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Affordable Modification Program (HAMP)",
+   "ht": "Pwogram Modifikasyon Kay Abòdab (HAMP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home buyer",
+   "ht": "Achtè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home buyer education",
+   "ht": "Edikasyon achtè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home buyer workshop",
+   "ht": "Atelye pou achtè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home co-investment, home co-investing",
+   "ht": "Ko-envestisman nan kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home equity",
+   "ht": "Valè san dèt kay la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Equity Conversion Mortgage (HECM)",
+   "ht": "Prè Ipotekè Konvèsyon (HECM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Equity Line of Credit (HELOC)",
+   "ht": "Liy Kredi sou Valè San Dèt yon Kay (HELOC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home equity loan",
+   "ht": "Prè sou vale san dèt yon kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Equity Loan Consumer Protection Act of",
+   "ht": "Lwa 1988 sou Pwoteksyon Konsomatè Prè sou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "1988",
+   "ht": "Valè San Dèt Kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Ownership and Equity Protection Act of",
+   "ht": "Lwa 1994 la sou Pwoteksyon Pwopriyete ak Valè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home Possible mortgage",
+   "ht": "Ipotèk Home Possible"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home warranty (HW)",
+   "ht": "Garanti sou kay (HW)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home, house",
+   "ht": "Kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home-buying (purchasing) power",
+   "ht": "Pouvwa achte (acha) kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home-buying fair",
+   "ht": "Fwa pou achte kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowner",
+   "ht": "Pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowner’s association",
+   "ht": "Asosyasyon pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowner's association dues",
+   "ht": "Kotizasyon asosyasyon pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowner's association fees",
+   "ht": "Frè asosyasyon pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowners' insurance",
+   "ht": "Asirans pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowners' insurance premium",
+   "ht": "Prim asirans pwopriyetè kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Homeowners Protection Act of 1998",
+   "ht": "Lwa 1998 la sou Pwoteksyon Pwopriyetè Kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "37 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home ownership",
+   "ht": "Acha kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Home ownership counselor, home ownership",
+   "ht": "Konseye nan zafè achte kay, òganizasyon ki ede"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "38 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Imminent default",
+   "ht": "Defo pandye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Impersonation",
+   "ht": "Vòl idantite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Implementing regulation",
+   "ht": "Aplike règleman yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Impound",
+   "ht": "Konfiske"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Impound account",
+   "ht": "Kont garanti bloke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Improvement",
+   "ht": "Amelyorasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inactivity fee",
+   "ht": "Frè inaktivite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inadequate",
+   "ht": "Inadekwat"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Incidental credit",
+   "ht": "Kredi okazyonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Income",
+   "ht": "Revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Income documentation",
+   "ht": "Dokimantasyon sou revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Income property",
+   "ht": "Pwopriyete ki pote revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Income tax",
+   "ht": "Taks sou revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Incoming mail",
+   "ht": "Kourye ki rive"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Incomplete information notice",
+   "ht": "Avi enfòmasyon enkonplè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Increase in housing expense",
+   "ht": "Ogmantasyon nan depans pou lojman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Indebtedness",
+   "ht": "Dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Index",
+   "ht": "Endis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Index rate",
+   "ht": "To endis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Individual account",
+   "ht": "Kont endividyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Individual Retirement Account (IRA)",
+   "ht": "Kont retrèt endividyèl (IRA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inflation",
+   "ht": "Enflasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Infraction",
+   "ht": "Enfraksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Initial escrow payment",
+   "ht": "Premye peman nan kont depo garanti an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "39 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Initial interest rate",
+   "ht": "To enterè inisyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Initial monthly payment",
+   "ht": "Premye peman mansyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Injunction",
+   "ht": "Lòd"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Injunctive relief",
+   "ht": "Mezi entèdiksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Injured party",
+   "ht": "Pleyan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inmate",
+   "ht": "Prizònye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "In-network",
+   "ht": "Nan rezo a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Innocent lienholder",
+   "ht": "Kreyansye inosan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Innocent owner",
+   "ht": "Pwopriyetè inosan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inquiry",
+   "ht": "Ankèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Inside the package (prepaid card)",
+   "ht": "Anndan pake a (kat prepeye)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insolvent",
+   "ht": "Ki pa ka peye dèt li"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Installment",
+   "ht": "Vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Installment credit",
+   "ht": "Kredi pou peye pa vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Installment debt",
+   "ht": "Dèt pou peye pa vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Installment loan",
+   "ht": "Prè pou remèt pa vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Installment payment",
+   "ht": "Peman pa vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Instant payment",
+   "ht": "Peman enstantane"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Instrumentality",
+   "ht": "Entèmedyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insufficient Funds or Non-Sufficient Funds (NSF)",
+   "ht": "Fon Ensifizan oswa Fon ki Pa Ase (NSF)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insulation",
+   "ht": "Izolan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance",
+   "ht": "Asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance claim",
+   "ht": "Reklamasyon asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance coverage",
+   "ht": "Kouvèti asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance declaration page",
+   "ht": "Paj deklarasyon asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance fund",
+   "ht": "Fon asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "40 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance income",
+   "ht": "Revni asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance payout",
+   "ht": "Peman asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance policy",
+   "ht": "Polis asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insurance premium",
+   "ht": "Prim asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Insured mortgage",
+   "ht": "Ipotèk asire"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Intake procedure",
+   "ht": "Pwosedi admisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Intangible asset",
+   "ht": "Aktif enkòporèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Interagency",
+   "ht": "Entè-ajans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Interagency Working Group on Limited English",
+   "ht": "Gwoup Travay Entè-ajans sou Konpetans Limite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Proficiency (IWG LEP)",
+   "ht": "nan Anglè (IWG LEP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "41 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Investment income",
+   "ht": "Revni envestisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Investment property",
+   "ht": "Pwopriyete envestisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Investor",
+   "ht": "Envestisè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Investor restriction",
+   "ht": "Restriksyon sou envestisè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "IRS form 4506-T",
+   "ht": "Fòm IRS 4506-T"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "IRS form 4506T-EZ",
+   "ht": "Fòm IRS 4506T-EZ"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Itemized expenses",
+   "ht": "Detay depans yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "ITIN number",
+   "ht": "Nimewo ITIN"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Job posting",
+   "ht": "Òf travay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Joint account",
+   "ht": "Kont ansanm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Joint and several liability",
+   "ht": "Responsablite ansanm ak an solidarite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Joint tenancy",
+   "ht": "Pwopriyete konjwen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Joint tenancy with right of survivorship",
+   "ht": "Pwopriyete konjwen avèk dwa sivivan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Judgment",
+   "ht": "Jijman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Judgment lien",
+   "ht": "Privilèj dapre jijman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Judicial foreclosure",
+   "ht": "Sezi jidisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Judicial opinion",
+   "ht": "Opinyon jidisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Jumbo loan",
+   "ht": "Prè jeyan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Junior mortgage",
+   "ht": "Ipotèk ran enferyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Junk bond",
+   "ht": "Obligasyon ki gen gwo risk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Junk fee",
+   "ht": "Frè kache"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Jurisdiction",
+   "ht": "Jiridiksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Keogh fund",
+   "ht": "Fon Keogh"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "\"Know Before You Owe\"",
+   "ht": "“Konnen anvan ou dwe”"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "42 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Know Your Customer policy",
+   "ht": "Politik Konnen Kliyan Ou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Land",
+   "ht": "Tè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Land contract",
+   "ht": "Kontra tè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Landlord",
+   "ht": "Mèt kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Language",
+   "ht": "Lang"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Language assistance",
+   "ht": "Asistans nan lang"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Largest debt balance",
+   "ht": "Pi gwo balans dèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Late charge",
+   "ht": "Chaj poutèt reta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Late fee",
+   "ht": "Frè poutèt reta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Late payment",
+   "ht": "Peman an reta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Late payment fee",
+   "ht": "Frè poutèt peman an reta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Launch (as in: launch a program, initiative, web",
+   "ht": "Lanse (tankou nan: lanse yon pwogram, inisyativ,"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lease",
+   "ht": "Kontra lwaye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lease back",
+   "ht": "Lwe tounen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lease to own, rent to own [v.]",
+   "ht": "Lwe pou posede [v.]"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lease to own, rent to own [n.]",
+   "ht": "Lwe pou posede [n.]"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Leasehold",
+   "ht": "Lokasyon ak bay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lease-purchase option",
+   "ht": "Opsyon kontra-lwaye-achte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Legal interest",
+   "ht": "Enterè legal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Legal resident",
+   "ht": "Rezidan legal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "43 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Legal resident card",
+   "ht": "Kat rezidan legal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Legal separation",
+   "ht": "Separasyon legal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lemon law",
+   "ht": "Lwa kont machandiz ki pa fyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lender",
+   "ht": "Pretè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lender credits",
+   "ht": "Kredi pretè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lender partner",
+   "ht": "Patnè kreditè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lender placed insurance (LPI)",
+   "ht": "Asirans pretè a plase (LPI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lender, mortgage lender",
+   "ht": "Pretè, pretè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lending institution",
+   "ht": "Enstitisyon ki prete lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lessee",
+   "ht": "Lokatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lessor",
+   "ht": "Bayè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Leverage",
+   "ht": "Eksplwate"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liability",
+   "ht": "Responsablite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liability after foreclosure",
+   "ht": "Responsablite apre sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liability insurance",
+   "ht": "Asirans responsablite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "LIBOR index",
+   "ht": "Endèks LIBOR"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lien",
+   "ht": "Privilèj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lien priority",
+   "ht": "Privilèj priyorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Life estate",
+   "ht": "Pwopriyete avi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Life of loan",
+   "ht": "Dire prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lifetime cap",
+   "ht": "Plafon pou tout dire"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Limited English proficient (LEP)",
+   "ht": "Konpetans angle limite (LEP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Limited equity cooperative",
+   "ht": "Koperativ ekite limite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Limited risk management",
+   "ht": "Jesyon risk limite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Limits on interest rate changes",
+   "ht": "Limit sou chanjman to enterè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liquid asset",
+   "ht": "Byen likid"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "44 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liquidate",
+   "ht": "Likide"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Liquidity",
+   "ht": "Lajan likid sikile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Listed for sale",
+   "ht": "Ki nan lis pou vann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Listing agent",
+   "ht": "Ajan ki mete pou vann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Listing price, list price",
+   "ht": "Pri yo mande a (v.), pri yo mande a (n.)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Litigation",
+   "ht": "Litij"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Live agent (customer service)",
+   "ht": "Ajan toutbon (sèvis kliyan)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Live discussion",
+   "ht": "Diskisyon ak moun toutbon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Living trust",
+   "ht": "Fidisi pandan ou vivan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Living will, resolution plan (banking)",
+   "ht": "Testaman de vi, plan rezolisyon (bankè)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan",
+   "ht": "Prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan acceptance",
+   "ht": "Akseptasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan balance",
+   "ht": "Balans prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan disclosure",
+   "ht": "Divilgasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan Estimate",
+   "ht": "Estimasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan Estimate explainer",
+   "ht": "Eksplikatè estimasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan file",
+   "ht": "Dosye prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan forgiveness",
+   "ht": "Anilasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan ID",
+   "ht": "ID prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan modification",
+   "ht": "Modifikasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan modification agreement",
+   "ht": "Akò modifikasyon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan officer",
+   "ht": "Responsab prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan origination",
+   "ht": "Konstitisyon dosye prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan origination fee",
+   "ht": "Frè pou konstitisyon dosye prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan originator",
+   "ht": "Loan orijinè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan payoff",
+   "ht": "Peman tout prè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "45 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan processing",
+   "ht": "Pwosesis aksepte bay prè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan product",
+   "ht": "Pwodwi prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan servicing",
+   "ht": "Sèvis prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan term",
+   "ht": "Tèm prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan-to-Value Ratio (LTV)",
+   "ht": "Rapò prè-a-valè (LTV)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loan type",
+   "ht": "Kalite prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Local government",
+   "ht": "Gouvènman lokal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Location",
+   "ht": "Kote"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lock-in rate, rate lock-in, rate lock",
+   "ht": "To bloke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term",
+   "ht": "Alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term assistance",
+   "ht": "Asistans alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term care",
+   "ht": "Swen alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term care ombudsman program",
+   "ht": "Pwogram pwotektè pou swen alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term disability",
+   "ht": "Andikap alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Long-term permanent hardship",
+   "ht": "Difikilte pèmanan alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Loss mitigation",
+   "ht": "Diminisyon pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lost wages",
+   "ht": "Pèdi salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lot",
+   "ht": "Teren"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Low down payment feature",
+   "ht": "Karakteristik peman ki ba"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Low- and moderate-income (LMI)",
+   "ht": "Revni ki ba ak modere (LMI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Low- and moderate-income home buyers",
+   "ht": "Achtè kay ki gen revni ba ak modere"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Lump sum",
+   "ht": "Sòm total"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mailing address",
+   "ht": "Adrès lakay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Maintenance cost",
+   "ht": "Pri antretyen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Maintenance fee",
+   "ht": "Frè antretyen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "46 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "\"Managing Someone Else’s Money\"",
+   "ht": "Jere lajan yon lòt moun"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Manufactured housing, manufactured homes",
+   "ht": "Lojman fabrike, kay fabrike"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Margin",
+   "ht": "Maj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Marital status",
+   "ht": "Eta sivil"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Market condition",
+   "ht": "Kondisyon mache"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Market price",
+   "ht": "Pri sou mache"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Market rent",
+   "ht": "Lwaye mache"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Market value",
+   "ht": "Valè sou mache"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Married",
+   "ht": "Marye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Maturity date",
+   "ht": "Dat matirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Maximum mortgage amount",
+   "ht": "Maksimòm kantite lajan ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Maximum payment",
+   "ht": "Peman maksimòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Medical debt",
+   "ht": "Dèt medikal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Medicare summary notices (MSN)",
+   "ht": "Avi rezime Medicare (MSN)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Meme stock",
+   "ht": "Stock meme"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Memorandum of Understanding (MOU)",
+   "ht": "Memorandòm Antant (MOU)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Merchant cash advance",
+   "ht": "Machann lajan an avans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Merged credit report",
+   "ht": "Rapò kredi konbine"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Metropolitan statistical area (MSA)",
+   "ht": "Zòn estatistik metwopoliten (MSA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Military Lending Act (MLA)",
+   "ht": "Lwa sou prete militè (MLA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minimum, maximum interest rate",
+   "ht": "To enterè minimòm, maksimòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minimum payment",
+   "ht": "Peman minimòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority",
+   "ht": "Minorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority homeownership",
+   "ht": "Pwopriyetè kay ki fè pati minorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority homeownership rate",
+   "ht": "Pousantaj pwopriyetè kay minorite yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority language coverage",
+   "ht": "Kouvèti lang minorite yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "47 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority language group",
+   "ht": "Gwoup lang minorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority neighborhood",
+   "ht": "Katye minorite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Minority-owned business, minority-owned",
+   "ht": "Biznis ki gen minotite kòm mèt, estati biznis ki gen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "48 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Monthly usage",
+   "ht": "Itilizasyon chak mwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage",
+   "ht": "Ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage assistance",
+   "ht": "Asistans ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage assistance application",
+   "ht": "Aplikasyon pou asistans ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage-backed security",
+   "ht": "Sekirite ipotèk apiye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage bank",
+   "ht": "Bank ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage banker",
+   "ht": "Bankye ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage banking institution",
+   "ht": "Enstitisyon bankè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage broker",
+   "ht": "Koutye ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage company",
+   "ht": "Konpayi ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage credit",
+   "ht": "Kredi ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage debt",
+   "ht": "Dèt ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage differential income",
+   "ht": "Ipotèk diferans revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgagee",
+   "ht": "Debitè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage financing",
+   "ht": "Finansman ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage holder, loan holder",
+   "ht": "Detantè ipotèk, detantè prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage inquiries",
+   "ht": "Demand ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage Insurance (MI)",
+   "ht": "Asirans ipotèk (MI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage insurance company",
+   "ht": "Konpayi asirans ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage insurance premium (MIP)",
+   "ht": "Prim asirans ipotèk (MIP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage insurance termination",
+   "ht": "Revokasyon asirans ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage lender",
+   "ht": "Pretè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage life insurance",
+   "ht": "Asirans vi ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage loan",
+   "ht": "Prè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage loan application",
+   "ht": "Aplikasyon pou prè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage loan assumption",
+   "ht": "Sipozisyon prè ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "49 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage modification",
+   "ht": "Modifikasyon ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage note",
+   "ht": "Nòt ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgagor",
+   "ht": "Kreditè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage originator",
+   "ht": "Ipotèk orijinè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage payment",
+   "ht": "Peman ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage payment assistance",
+   "ht": "Asistans peman ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage payoff",
+   "ht": "Peman ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage pool",
+   "ht": "Blòk kreyans ipotekè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage process",
+   "ht": "Pwosesis ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage product",
+   "ht": "Pwodwi ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage rate",
+   "ht": "Pousantaj ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage release",
+   "ht": "Lage ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage representative",
+   "ht": "Reprezantan ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage servicer, loan servicer",
+   "ht": "Sèvis ipotèk, sèvis prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage servicing rights (MSR)",
+   "ht": "Dwa sèvis ipotèk (MSR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage term",
+   "ht": "Tèm ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage underwriting",
+   "ht": "Souscription ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mortgage workout",
+   "ht": "Antrennman ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Multifamily mortgage",
+   "ht": "Ipotèk pou plizyè fanmi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Multifamily property",
+   "ht": "Pwopriyete pou plizyè fanmi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Mutual fund",
+   "ht": "Fon mityèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "\"My Social Security”",
+   "ht": "“Sekirite Sosyal Mwen”"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "National Association of Attorneys General (NAAG)",
+   "ht": "Asosyasyon Nasyonal Pwokirè Jeneral (NAAG)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "National Association of Hispanic Real Estate",
+   "ht": "Asosyasyon Nasyonal Pwofesyonèl Imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Professionals (NAHREP)",
+   "ht": "Panyòl (NAHREP)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "National Association of Medicaid Fraud Control",
+   "ht": "Asosyasyon Nasyonal Inite Kontwòl Fwòd"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "50 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "National Association of REALTORS® (NAR)",
+   "ht": "Asosyasyon Nasyonal REALTORS® (NAR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "51 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Nondeposit investment products",
+   "ht": "Pwodwi envestisman ki pa depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Nondiscrimination",
+   "ht": "Nondiskriminasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Non-fungible token (NFT)",
+   "ht": "Siy ki pa fonjib (NFT)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Nonliquid asset",
+   "ht": "Byen ki pa likid"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Nonpayment",
+   "ht": "Lè peman pa fèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "52 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Oath",
+   "ht": "Sèman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Obituary",
+   "ht": "Anons lanmò"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Occupancy",
+   "ht": "Okipasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Occupant",
+   "ht": "Okipan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Occupied",
+   "ht": "Okipe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Off the books",
+   "ht": "Pa ekri nan liv yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Offense",
+   "ht": "Ofans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Offer",
+   "ht": "Ofri"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office for Civil Rights (OCR)",
+   "ht": "Biwo pou dwa sivil (OCR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office for Older Americans (CFPB)",
+   "ht": "Biwo pou granmoun Ameriken yo (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Communications (CFPB)",
+   "ht": "Biwo Kominikasyon (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Consumer Response (CFPB)",
+   "ht": "Biwo Repons Konsomatè (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Enforcement (CFPB)",
+   "ht": "Biwo Ranfòsman (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Financial Education (CFPB)",
+   "ht": "Biwo Edikasyon Finansye (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Community Affairs (CFPB)",
+   "ht": "Biwo Afè Kominotè (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Foreign Assets Control (OFAC), U.S.",
+   "ht": "Biwo Kontwòl Byen Etranje (OFAC), Depatman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Department of the Treasury",
+   "ht": "Trezò Etazini an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Special Counsel for Immigration-related",
+   "ht": "Biwo Avoka Espesyal pou Pratik Travay enjis ki"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of Supervision Examinations",
+   "ht": "Biwo Egzamen Sipèvizyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "53 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Office of the Chief Administrative Hearing Officer",
+   "ht": "Biwo Ofisye Anchèf Odyans Administratif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "(OCAHO)",
+   "ht": "(OCAHO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "54 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overdraft",
+   "ht": "Dekouvè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overdraft (credit/debit) feature",
+   "ht": "Karakteristik dekouvè (kredi/debi)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overdrawn",
+   "ht": "Debòde"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overdue payment",
+   "ht": "Peman anreta"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overlimit fee",
+   "ht": "Frè depase limit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Overtime pay",
+   "ht": "Peman siplemantè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Owner",
+   "ht": "Pwopriyetè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Owner financing",
+   "ht": "Finansman pwopriyetè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Owner-occupied",
+   "ht": "Pwopriyetè-okipe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Owners' association",
+   "ht": "Asosyasyon pwopriyetè yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ownership interest",
+   "ht": "Enterè an komen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Paid collection",
+   "ht": "Koleksyon peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Partial payment",
+   "ht": "Peman pasyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Partner",
+   "ht": "Patnè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Part-time job",
+   "ht": "Travay a tan pasyèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Password",
+   "ht": "Modpas"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Past due amount",
+   "ht": "Kantite lajan ki sot pase yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pattern, practice",
+   "ht": "Modèl, pratik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pay",
+   "ht": "Peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pay as you go (earn)",
+   "ht": "Peye jan ou ale (touche)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pay-as-you-go plan (pre-paid)",
+   "ht": "Plan pou peye lè w ale (peye davans)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payday loan",
+   "ht": "Prè sou salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pay for performance (P4P) incentive",
+   "ht": "Peye pou ankourajman pèfòmans (P4P)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment",
+   "ht": "Peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment based on income",
+   "ht": "Peman ki baze sou revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "55 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment calculation",
+   "ht": "Kalkil peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment change date",
+   "ht": "Dat chanjman peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment change due",
+   "ht": "Chanjman peman an dwe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment plan",
+   "ht": "Plan peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payment schedule",
+   "ht": "Orè peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payoff",
+   "ht": "Peman total"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payoff amount",
+   "ht": "Montan peman total"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payoff, loan payoff",
+   "ht": "Peman total yon prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Payroll card",
+   "ht": "Kat pewòl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pay stub",
+   "ht": "Souch peye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "\"Pay to play\"",
+   "ht": "\"Peye pou jwe\""
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Peer-to-peer (P2P) payment",
+   "ht": "Peman kanmarad-a-kanmarad (P2P)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Peg, pegging",
+   "ht": "fikse (v.)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Penalty",
+   "ht": "Sanksyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pension",
+   "ht": "Pansyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Per (per purchase)",
+   "ht": "Pou chak (pa achte)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Per (purchase fee)",
+   "ht": "Pou chak (frè acha)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Percent",
+   "ht": "Pousan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Percentage",
+   "ht": "Pousantaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Percentage point",
+   "ht": "Pwen pousantaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Per-diem penalty",
+   "ht": "Penalite chak jou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Perfect a lien",
+   "ht": "Pafè yon privilèj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Periodic payment",
+   "ht": "Peman peryodik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Periodic rate",
+   "ht": "Peryodik pousantaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Periodic rate cap",
+   "ht": "Plafon to peryodik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "56 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Permanent Change of Station (PCS)",
+   "ht": "Chanjman Pèmanan Estasyon (PCS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Permanent modification",
+   "ht": "Modifikasyon pèmanan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Permanent resident",
+   "ht": "Rezidan pèmanan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Permanent resident card",
+   "ht": "Kat rezidan pèmanan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personal debt",
+   "ht": "Dèt pèsonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personal finance",
+   "ht": "Finans pèsonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personal Identification Number (PIN)",
+   "ht": "Nimewo Idantifikasyon Pèsonèl (PIN)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personal judgment",
+   "ht": "Jijman pèsonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personally identifiable information (PII)",
+   "ht": "Enfòmasyon ki idantifye pèsonèlman (PII)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Personal property",
+   "ht": "Pwopriyete pèsonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Petitioner",
+   "ht": "Petisyonè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pharming",
+   "ht": "Detounman domèn"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Phishing",
+   "ht": "Pyèj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Picked up (Remittance Rule)",
+   "ht": "Ranmase (Règ pou Remèt)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pick-up location",
+   "ht": "Kote pou ranmase"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Piggyback loan (first and second combined",
+   "ht": "Prè piggyback (premye ak dezyèm ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "57 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Point of sale",
+   "ht": "Pwen de vant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ponzi scheme",
+   "ht": "Piramid Ponzi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pooling and servicing agreement (PSA)",
+   "ht": "Akò pisin ak sèvis (PSA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Portfolio",
+   "ht": "Pòtfèy"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Possession",
+   "ht": "Posesyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Postal Inspection Service",
+   "ht": "Sèvis Enspeksyon Postal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Power of attorney",
+   "ht": "Pwokirasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Preapproval, preapproved",
+   "ht": "Pre-apwobasyon (n.), apwouve davans (v.)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Preapproval letter, prequalified letter",
+   "ht": "Lèt pre-apwobasyon, lèt pre-kalifikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Precinct",
+   "ht": "Biwo vòt, tribinal lalwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Predatory lender",
+   "ht": "Predatè pretè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Predatory lending",
+   "ht": "Predatè prete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Premium (insurance premium)",
+   "ht": "Prim (prim asirans)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Premium pricing",
+   "ht": "Prim pi wo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepaid",
+   "ht": "Prepeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepaid account",
+   "ht": "Kont prepeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepaid card",
+   "ht": "Kat prepeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepaid expense",
+   "ht": "Depans prepeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepaid interest",
+   "ht": "Enterè prepeye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepayment",
+   "ht": "Peman davans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepayment charge",
+   "ht": "Avans chaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepayment clause",
+   "ht": "Klòz peman davans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prepayment penalty",
+   "ht": "Penalite pou peman davans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prequalification",
+   "ht": "Prekalifikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prequalified",
+   "ht": "Prekalifye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prescreen",
+   "ht": "Fè seleksyon preliminè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "58 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Preselected offer",
+   "ht": "Òf preseleksyone"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Preservation",
+   "ht": "Konsèvasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prevent unfair, deceptive and abusive practices",
+   "ht": "Anpeche pratik enjis, twonpè ak abizif ki vize"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Principal, interest, taxes, insurance, and",
+   "ht": "Prensipal, enterè, taks, asirans, ak kotizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Principal owner",
+   "ht": "Pwopriyetè prensipal la"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Private mortgage insurance (PMI)",
+   "ht": "Asirans ipotèk prive (PMI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pro rata",
+   "ht": "Pro rata"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Proceeds",
+   "ht": "Montan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Processing fee",
+   "ht": "Frè pwosesis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Processing time",
+   "ht": "Tan pwosesis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Product",
+   "ht": "Pwodui"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "59 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Profit and loss",
+   "ht": "Pwofi ak pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Prohibited by applicable law",
+   "ht": "Lalwa aplikab entèdi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Projected payment",
+   "ht": "Peman ki prevwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Promise",
+   "ht": "Pwomèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Promissory note",
+   "ht": "Biyè pwomès"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Proof of funds",
+   "ht": "Prèv lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Proof of income",
+   "ht": "Prèv revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Proof of loss",
+   "ht": "Prèv pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Property",
+   "ht": "Pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Property appreciation",
+   "ht": "Apresyasyon pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Property Assessed Clean Energy (PACE)",
+   "ht": "Pwogram Enèji Pwòp Evalyasyon Pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Program",
+   "ht": "(PACE)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "60 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Public utilities credit",
+   "ht": "Kredi sèvis piblik yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purchase",
+   "ht": "Achte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purchase and sale agreement",
+   "ht": "Akò acha ak vant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purchase money mortgage",
+   "ht": "Achte lajan ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purchase price",
+   "ht": "Pri acha"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purchasing power",
+   "ht": "Pouvwa achte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purpose",
+   "ht": "Objektif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Purpose of loan",
+   "ht": "Objektif prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pyramid scheme",
+   "ht": "Konplo piramid"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Pyramiding (of late fees)",
+   "ht": "Mete an piramid (frè poutèt reta)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Qualification",
+   "ht": "Kalifikasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Qualify",
+   "ht": "Kalifye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Qualify (as in: people who qualify for a program, a",
+   "ht": "Kalifye (tankou nan: moun ki kalifye pou yon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "61 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rate lock",
+   "ht": "Blokaj to"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rate of interest",
+   "ht": "To enterè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rate period",
+   "ht": "Peryòd to"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Ratified sales contract",
+   "ht": "Ratifye kontra lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "\"Ready, set, save!”",
+   "ht": "Anplas, pare, ekonomize!"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate",
+   "ht": "Byen imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate agent",
+   "ht": "Ajan byen imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate attorney",
+   "ht": "Avoka byen imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate broker",
+   "ht": "Koutye byen imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate owned (REO)",
+   "ht": "Byen imobilye posede (REO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real estate professional",
+   "ht": "Pwofesyonèl byen imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Real Estate Settlement Procedures Act of 1974",
+   "ht": "Lwa 1974 sou Pwosedi Règleman Imobilye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "(RESPA)",
+   "ht": "(RESPA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "62 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Recordation cost",
+   "ht": "Pri anrejistreman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Recorder",
+   "ht": "Anrejistrè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Recording fee",
+   "ht": "Frè anrejistreman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Recruitment",
+   "ht": "Rekritman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Redemption period",
+   "ht": "Peryòd reklamasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Redlining",
+   "ht": "Diskriminasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reduction in income",
+   "ht": "Rediksyon nan revni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Refer (to an underwriter)",
+   "ht": "Refere (a yon souskriptè)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Referee",
+   "ht": "Abit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Referral",
+   "ht": "Referans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Referral date confirmation",
+   "ht": "Konfimasyon dat referans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Refinance",
+   "ht": "Refinanse"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Refinance mortgage, refi",
+   "ht": "Refinanse ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Refinancing",
+   "ht": "Refinansman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Refund",
+   "ht": "Ranbousman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Register (prepaid card)",
+   "ht": "Enskri (kat prepeye)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Registered reciprocal beneficiary relationship",
+   "ht": "Relasyon benefisyè resipwòk anrejistre"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Registration",
+   "ht": "Enskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Regulation",
+   "ht": "Règleman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Regulation H—Consumer Protection in Sales of",
+   "ht": "Règleman H—Proteksyon Konsomatè nan Vant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Regulation P—Privacy of Consumer Financial",
+   "ht": "Règleman P—Konfidansyalite Enfòmasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Regulation X",
+   "ht": "Règleman X"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Regulation Z",
+   "ht": "Règleman Z"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rehabilitation Act of 1973",
+   "ht": "Lwa 1973 sou Reyabilitasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rehabilitation cost",
+   "ht": "Pri reyabilitasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rehabilitation mortgage",
+   "ht": "Ipotèk reyabilitasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "63 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reinstatement",
+   "ht": "Retablisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Relative",
+   "ht": "Relatif"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Release",
+   "ht": "Lage"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Release (from a contract)",
+   "ht": "Liberasyon (soti nan yon kontra)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Release of liability",
+   "ht": "Liberasyon responsablite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Religious Land Use and Institutionalized Persons",
+   "ht": "Lwa sou itilizasyon tè relijye ak moun ki nan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Act (RLUIPA)",
+   "ht": "enstitisyon (RLUIPA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "64 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Repayment plan",
+   "ht": "Plan ranbousman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Replacement check",
+   "ht": "Chèk ranplasman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Replacement cost",
+   "ht": "Pri ranplasman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Replacement value",
+   "ht": "Valè ranplasman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Repo, repossession",
+   "ht": "Reprann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Report (of)",
+   "ht": "Rapò (sou)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Representative payee",
+   "ht": "Reprezantan benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Request for investigation",
+   "ht": "Demann pou envestigasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Request to cancel",
+   "ht": "Mande pou anile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Require",
+   "ht": "Mande"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Requirement",
+   "ht": "Egzijans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Resale deed restriction",
+   "ht": "Restriksyon sou papye revann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rescind",
+   "ht": "Anile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rescission, rescission period",
+   "ht": "Rezilyasyon, peryòd rezilyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Research, Markets, and Regulations (CFPB)",
+   "ht": "Rechèch, Mache, ak Règleman (CFPB)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reserves",
+   "ht": "Rezèv"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Residence",
+   "ht": "Rezidans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Residential mortgage-backed security (RMBS)",
+   "ht": "Sekirite ipotèk rezidansyèl ki apiye (RMBS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Resident of long-term care facility",
+   "ht": "Rezidan nan etablisman swen alontèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Resolved hardship",
+   "ht": "Rezoud difikilte"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Respondent",
+   "ht": "Repondan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retail installment sales contract",
+   "ht": "Yo Vann an Detay kontra lavant vèsman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retaliate",
+   "ht": "Vanje (v.)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retaliation",
+   "ht": "Vanjans (n.)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retired",
+   "ht": "Retrete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retiree",
+   "ht": "Retrete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "65 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retirement",
+   "ht": "Retrèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retirement account",
+   "ht": "Kont retrèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retirement income",
+   "ht": "Revni retrèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retirement plan",
+   "ht": "Plan retrèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Retrofitting (local ordinance)",
+   "ht": "Renovasyon (òdonans lokal)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reverse mortgage",
+   "ht": "Prè ipotekè envèse"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reverse redlining",
+   "ht": "Diskriminasyon envèse"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Revitalization",
+   "ht": "Revitalizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Revocable fiduciary account",
+   "ht": "Kont fidisyè ki revokab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Revocable trust account",
+   "ht": "Kont fideyikomi ki ka revoke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Revoke",
+   "ht": "Revoke"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Revolving debt",
+   "ht": "Dèt renouvlab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Reward point (related to credit products)",
+   "ht": "Pwen rekonpans (ki gen rapò ak pwodwi kredi)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rider",
+   "ht": "Klòz adisyonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right of first refusal",
+   "ht": "Dwa pou premye refi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right of rescission",
+   "ht": "Dwa pou rezilyasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rights in the property",
+   "ht": "Dwa nan pwopriyete a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right to appeal",
+   "ht": "Dwa pou fè apèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right to dispute errors (Remittance Rule)",
+   "ht": "Dwa pou diskite sou erè (Règ pou remèt)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right to Financial Privacy Act of 1978",
+   "ht": "Lwa 1978 sou dwa a konfidansyalite finansye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Right-to-sue letter",
+   "ht": "Lèt dwa pou mennen devan lajistis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Robo advisor",
+   "ht": "Konseye wobo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Routing number",
+   "ht": "Kòd bank"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Rural Housing Service (RHS)",
+   "ht": "Sèvis Lojman nan Zòn Riral (RHS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Safe harbor",
+   "ht": "Rè egzonerasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "66 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Salary",
+   "ht": "Salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sale",
+   "ht": "Lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sale-leaseback",
+   "ht": "Vann-kontra-lwaye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sales-based financing",
+   "ht": "Finansman ki baze sou lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sales contract",
+   "ht": "Kontra lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sales price",
+   "ht": "Pri lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Satisfaction of mortgage",
+   "ht": "Satisfaksyon ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Satisfy",
+   "ht": "Satisfè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Savings",
+   "ht": "Ekonomi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Savings account",
+   "ht": "Kont epay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Savings and loan association",
+   "ht": "Asosyasyon depay ak prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Scam",
+   "ht": "Magouy"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Scammer, scam artist",
+   "ht": "Magouyè, atis tronpe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Schedule",
+   "ht": "Orè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Schedule of amortization",
+   "ht": "Orè amòtisman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Score range and grade",
+   "ht": "Entèval nòt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Search",
+   "ht": "Rechèch"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seasonal income",
+   "ht": "Revni sezonye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seasonal payment",
+   "ht": "Peman sezon an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Second home",
+   "ht": "Dezyèm kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Second home rider",
+   "ht": "Klòz adisyonèl sou dezyèm kay"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Second mortgage",
+   "ht": "Dezyèm ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Second mortgage loan",
+   "ht": "Prè pou dezyèm ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Secondary mortgage market",
+   "ht": "Mache ipotèk segondè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Secured credit card",
+   "ht": "Kat kredi garanti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Secured loan",
+   "ht": "Prè garanti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "67 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Secure the property, repair the property",
+   "ht": "Sekirize pwopriyete a, repare pwopriyete a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Securities",
+   "ht": "Sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Securitization",
+   "ht": "Titrizasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Security",
+   "ht": "Sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Security deed",
+   "ht": "Ak sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Security freezes",
+   "ht": "Sekirite jele"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Security instrument",
+   "ht": "Enstriman sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Security interest",
+   "ht": "Enterè sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seize",
+   "ht": "Sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seizure",
+   "ht": "Sezi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Select",
+   "ht": "Chwazi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Selected list",
+   "ht": "Lis chwazi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Selection guideline",
+   "ht": "Gid pou seleksyon an"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Self check",
+   "ht": "Tcheke pwòp tèt ou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Self-employed",
+   "ht": "Travayè endepandan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Self-employment income",
+   "ht": "Revni travay endepandan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seller",
+   "ht": "Vandè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seller carryback",
+   "ht": "Rapò vandè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seller credit",
+   "ht": "Kredi vandè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Seller's market",
+   "ht": "Mache vandè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Selling agent",
+   "ht": "Ajan lavant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Send money abroad",
+   "ht": "Voye lajan aletranje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sender",
+   "ht": "Moun k ap voye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Senior designation",
+   "ht": "Deziyasyon granmoun aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "68 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Senior, older American",
+   "ht": "Granmoun, Ameriken aje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sentence",
+   "ht": "Fraz"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Separate maintenance",
+   "ht": "Antretyen separe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Separation agreement",
+   "ht": "Akò separasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Serious illness",
+   "ht": "Maladi grav"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Service credit",
+   "ht": "Kredi sèvis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicemember Civil Relief Act (SCRA)",
+   "ht": "Lwa sou Sekou Sivil pou manm sèvis yo (SCRA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicemembers",
+   "ht": "Manm sèvis yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicer",
+   "ht": "Konpayi k ap jere peman prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicer advances",
+   "ht": "Avans konpayi k’ap jere peman prè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicing",
+   "ht": "Sèvis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Servicing transfer",
+   "ht": "Transfè sèvis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Settlement",
+   "ht": "Règleman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Settlement agent",
+   "ht": "Ajan règleman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Settlement agreement",
+   "ht": "Akò règleman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Settlement hearing",
+   "ht": "Odyans sou règleman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Settlement statement (HUD-1)",
+   "ht": "Deklarasyon règleman (HUD-1)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sewage system",
+   "ht": "Sistèm dlo egou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Shared appreciation mortgage",
+   "ht": "Ipotèk apresyasyon pataje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short payoff",
+   "ht": "Kout peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short sale",
+   "ht": "Lavant ak pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short sale affidavit",
+   "ht": "Afidavi sou lavant ak pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short sale negotiation fee",
+   "ht": "Frè negosyasyon lavant ak pèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short-term",
+   "ht": "Akoutèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Short-term hardship",
+   "ht": "Difikilte akoutèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Signature",
+   "ht": "Siyati"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "69 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Simple interest",
+   "ht": "Enterè senp"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Single-family",
+   "ht": "Yon sèl fanmi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Single-family home (1 - 4 units)",
+   "ht": "Kay pou yon sèl fanmi (1 - 4 inite)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Single-family property",
+   "ht": "Pwopriyete pou yon sèl fanmi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Skimming",
+   "ht": "Ekreme"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Small business",
+   "ht": "Ti biznis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Social Security Administration (SSA)",
+   "ht": "Administrasyon Sekirite Sosyal (SSA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Social Security benefits",
+   "ht": "Benefis Sekirite Sosyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Social Security Number (SSN)",
+   "ht": "Nimewo Sekirite Sosyal (SSN)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Social Security Number Verification Service",
+   "ht": "Sèvis Verifikasyon Nimewo Sekirite Sosyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "(SSNVS)",
+   "ht": "(SSNVS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Standard Maximum Deposit Insurance Amount",
+   "ht": "Montan Maksimòm Depo Asirans Estanda"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Standard payment calculation",
+   "ht": "Kalkil peman estanda"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "State law",
+   "ht": "Lwa eta a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "State of the Future Index (SOFI)",
+   "ht": "Endèks Eta Lavni an (SOFI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Statute",
+   "ht": "Lwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "70 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Statute of limitations",
+   "ht": "Lwa sou limit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Statutory power of sale",
+   "ht": "Pouvwa lwa pou vann"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Step payment",
+   "ht": "Etap peman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Step rate mortgage",
+   "ht": "Etap to ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Stipulation",
+   "ht": "Klòz antant"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Stock",
+   "ht": "Estòk, rezèv, pwovizyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Stocks and bonds",
+   "ht": "Aksyon ak obligasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Stress (capital or liquidity)",
+   "ht": "Estrès (kapital oswa lajan likid sikile)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Structured settlement",
+   "ht": "Règleman estriktire"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Student loan",
+   "ht": "Prè etidyan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sublease",
+   "ht": "Soulwe"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "71 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Supplemental Security Income (SSI)",
+   "ht": "Revni Sekirite Siplemantè (SSI)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Surety",
+   "ht": "Sekirite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Surplus",
+   "ht": "Sipli"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Surrender",
+   "ht": "Rann tèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Survey",
+   "ht": "Sondaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Survey of property",
+   "ht": "Sondaj sou pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Suspension",
+   "ht": "Sispansyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Suspicious Activity Report (SAR)",
+   "ht": "Rapò Aktivite Sispèk (SAR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sweat equity",
+   "ht": "Swe ekite"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sweepstakes",
+   "ht": "Konkou"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Sworn statement",
+   "ht": "Deklarasyon sou sèman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taking",
+   "ht": "Pran"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax advisor",
+   "ht": "Konseye taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax",
+   "ht": "Taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax assessment",
+   "ht": "Evalyasyon taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax benefit",
+   "ht": "Benefis taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax code",
+   "ht": "Kòd taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax consultant",
+   "ht": "Konsiltan taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax lien",
+   "ht": "Privilèj fiskal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax rate",
+   "ht": "To taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax rate schedule",
+   "ht": "Orè to taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax rate table",
+   "ht": "Tablo to taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax return",
+   "ht": "Deklarasyon taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax schedule",
+   "ht": "Orè taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tax transcript",
+   "ht": "Transkripsyon taks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "72 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable adoption assistance fund",
+   "ht": "Fon asistans adopsyon taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable disability income",
+   "ht": "Revni enfimite taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable housing allowance",
+   "ht": "Alokasyon pou lojman taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable income",
+   "ht": "Revni taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable investment account",
+   "ht": "Kont envestisman taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable pension",
+   "ht": "Pansyon taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable public assistance",
+   "ht": "Asistans piblik taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxable Social Security",
+   "ht": "Sekirite Sosyal taksab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxes and insurance",
+   "ht": "Taks ak asirans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Taxpayer Identification Number (TIN)",
+   "ht": "Nimewo Idantifikasyon Kontribyab (TIN)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Teaser rate",
+   "ht": "To dapèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Technology tool",
+   "ht": "Zouti teknoloji"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tenancy",
+   "ht": "Lokatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tenancy in common",
+   "ht": "Lokatè an komen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tenancy in severalty",
+   "ht": "Lokatè nan plizyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tenant",
+   "ht": "Lokatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tenant screening",
+   "ht": "Depistaj lokatè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Tentative Nonconfirmation (TNC)",
+   "ht": "Non-konfimasyon Pwovizwa (TNC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Term",
+   "ht": "Tèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Terminate",
+   "ht": "Mete fen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Termite inspection",
+   "ht": "Enspeksyon tèmit"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Term life insurance",
+   "ht": "Asirans vi tèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Terms",
+   "ht": "Kondisyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Testament",
+   "ht": "Testaman"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Testimony",
+   "ht": "Temwayaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Text message",
+   "ht": "Mesaj tèks"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "73 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Third party",
+   "ht": "Tyès pati"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Third-party origination (TPO)",
+   "ht": "Prè nan men tyès pati (TPO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "74 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer",
+   "ht": "Transfè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer amount",
+   "ht": "Transfè kantite lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer fee",
+   "ht": "Frè transfè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer of interest",
+   "ht": "Transfè enterè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer of ownership",
+   "ht": "Transfè pwopriyete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer of servicing (TOS)",
+   "ht": "Transfè sèvis (TOS)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer of the property",
+   "ht": "Transfè pwopriyete a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Transfer of the property or a beneficial interest in",
+   "ht": "Transfè pwopriyete a oswa yon enterè benefisyè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "75 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Trustee under a revocable living trust",
+   "ht": "Administratè anba yon responsablite ki revokab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Trust fund",
+   "ht": "Fon fideyikomi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Truth in Lending Act (TILA)",
+   "ht": "Lwa sou Verite nan Prete (TILA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Truth-in-lending statement",
+   "ht": "Deklarasyon verite nan prete"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Truth in Savings Act (TISA)",
+   "ht": "Lwa sou Verite nan Ekonomi (TISA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Two-step mortgage",
+   "ht": "Ipotèk de etap"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Two- to four- family property",
+   "ht": "Pwopriyete de a kat fanmi"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Typhoon",
+   "ht": "Siklòn twopikal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unapplied funds",
+   "ht": "Lajan ki pa aplike"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unconstitutional",
+   "ht": "Enkonstitisyonèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Under the law",
+   "ht": "Dapre lalwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underserved",
+   "ht": "Mande sèvis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Undersigned",
+   "ht": "Ki siyen pi ba a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwater (property value)",
+   "ht": "Anba dlo (valè pwopriyete)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwriter",
+   "ht": "Asirè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwriting",
+   "ht": "Souskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwriting guideline",
+   "ht": "Gid souskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwriting note",
+   "ht": "Nòt souskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Underwriting ratio",
+   "ht": "Rapò souskripsyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Undivided interest",
+   "ht": "Enterè antye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Undocumented",
+   "ht": "San papye"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unearned premium",
+   "ht": "Prim ki pa touche"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unemployment",
+   "ht": "Chomaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unemployment benefit income",
+   "ht": "Revni benefis chomaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unemployment forbearance",
+   "ht": "Sispansyon chomaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "76 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unemployment insurance",
+   "ht": "Asirans chomaj"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unencumbered",
+   "ht": "San pwoblèm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unfair employment practice",
+   "ht": "Pratik travay malonèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Unfair practice",
+   "ht": "Pratik enjis"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Uniform covenant",
+   "ht": "Alyans inifòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Uniform Residential Appraisal Report (URAR)",
+   "ht": "Rapò Inifòm pou Evalyasyon Rezidansyèl (URAR)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Uniform Residential Loan Application (URLA)",
+   "ht": "Aplikasyon Inifòm pou Prè Rezidansyèl (URLA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Uniform settlement statement",
+   "ht": "Deklarasyon règleman inifòm"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Uniformed and Overseas Citizens Absentee",
+   "ht": "Lwa sou Vòt Sitwayen Militè ki Absan ak Aletranje"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Voting Act (UOCAVA)",
+   "ht": "(UOCAVA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "77 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Upfront cost",
+   "ht": "Pri davans"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Upkeep expense",
+   "ht": "Depans antretyen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Upside down (mortgage)",
+   "ht": "Tèt anba (ipotèk)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Usage (monthly usage)",
+   "ht": "Itilizasyon (itilizasyon chak mwa)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "U.S. currency",
+   "ht": "Lajan ameriken"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "U.S. Department of Veterans Affairs (VA)",
+   "ht": "Depatman Afè Veteran Etazini (VA)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "User's guide",
+   "ht": "Gid itilizatè a"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Usury",
+   "ht": "Kout ponya"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Utilities",
+   "ht": "Sèvis piblik"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "VA benefit",
+   "ht": "Benefis VA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Vacant",
+   "ht": "Vid"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "VA fiduciary",
+   "ht": "Fidisyè VA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "VA funding fee",
+   "ht": "Frè finansman VA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "VA guaranteed loan",
+   "ht": "Garanti prè VA"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Valuation",
+   "ht": "Estimasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Value",
+   "ht": "Valè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Variable life annuity",
+   "ht": "Rant pou lavi varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Variable rate",
+   "ht": "To varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Variable rate mortgage",
+   "ht": "Ipotèk to varyab"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Vehicle loan, auto loan",
+   "ht": "Prè pou machin, prè pou oto"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Venture capital (VC)",
+   "ht": "Kapital risk (VC)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Verification of deposit (VOD)",
+   "ht": "Verifikasyon depo (VOD)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Verification of employment (VOE)",
+   "ht": "Verifikasyon travay (VOE)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Verification of mortgage",
+   "ht": "Verifikasyon ipotèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Vesting title",
+   "ht": "Tit ki genyen dwa"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "78 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Veterans Administration loan",
+   "ht": "Prè Administrasyon Veteran yo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Veterans Service Organization (VSO)",
+   "ht": "Òganizasyon Sèvis Veteran (VSO)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Vicarious liability",
+   "ht": "Responsabilite endirèk"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Violation",
+   "ht": "Vyolasyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Virtual currency",
+   "ht": "Lajan vityèl"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Visa",
+   "ht": "Viza"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Void",
+   "ht": "Anile"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "W-2 form",
+   "ht": "Fòm W-2"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Wage reporting",
+   "ht": "Rapò sou salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Wages",
+   "ht": "Salè"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Waiver",
+   "ht": "Egzansyon"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Warehouse fee",
+   "ht": "Frè depo"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Warranty",
+   "ht": "Garanti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Warranty deed",
+   "ht": "Papye garanti"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Wealth",
+   "ht": "Richès"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Web page",
+   "ht": "Paj Web"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Website",
+   "ht": "Sit entènèt"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Welcome letter",
+   "ht": "Lèt byenveni"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Welfare",
+   "ht": "Byennèt sosyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Welfare benefits",
+   "ht": "Asistans sosyal, prestasyon byennèt sosyal"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Whole loan (mortgage loan)",
+   "ht": "Tout prè (prè ipotèk)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Winnings",
+   "ht": "Genyen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Wire transfer",
+   "ht": "Transfè lajan"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Withdrawal (ATM withdrawal)",
+   "ht": "Retrè (retrè ATM)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Withholding (taxes)",
+   "ht": "Retni (taks)"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "79 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "Women-owned business, women-owned business",
+   "ht": "Biznis ki gen fanm kòm mèt, festati bisnis ki gen"
+  },
+  {
+   "source": "cfpb_glossary_family",
+   "en": "80 HAITIAN CREOLE-ENGLISH GLOSSARY OF FINANCIAL",
+   "ht": "TERMS"
+  }
+ ],
+ "total_pairs": 1581,
+ "note": "EN<->HT term pairs mined from FEDERAL public-domain glossaries (17 U.S.C. §105). Committable. Feeds Workstream I SFT translation turns. Rebuilt by corpus/family.py + J2 IRS."
+}
