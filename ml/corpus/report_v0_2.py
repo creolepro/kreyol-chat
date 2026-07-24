@@ -108,12 +108,19 @@ def build():
         # per-source filter + dedup removals
         A("## Per-source filter + dedup removals")
         A("")
-        A("| source | ingested | junk | langid | dup-vs-v0.1 | kept |")
-        A("|---|--:|--:|--:|--:|--:|")
+        A("| source | ingested | junk | langid | probe-leak | dup-vs-v0.1 | kept |")
+        A("|---|--:|--:|--:|--:|--:|--:|")
         for src, s in bs["sources"].items():
             A(f"| {src} | {s['in']:,} | {s['junk']:,} | {s['langid']:,} | "
-              f"{s['dup_v01']:,} | **{s['kept']:,}** |")
-        A(f"| *cross-new dedup removed* | | | | | −{bs.get('cross_new_dedup_removed',0):,} |")
+              f"{s.get('probe_leak', 0):,} | {s['dup_v01']:,} | **{s['kept']:,}** |")
+        A(f"| *cross-new dedup removed* | | | | | | −{bs.get('cross_new_dedup_removed',0):,} |")
+        A("")
+        A(f"**Probe-proverb guard (standing rule):** the 15 held-out probe proverbs "
+          f"must appear in NO training doc (Station 2 honesty). Web crawl quotes "
+          f"famous proverbs, so every doc is screened — **{bs.get('probe_leak_removed', 0)} "
+          f"leaks removed** ({bs.get('v01_probe_leaks_removed', 0)} of them "
+          f"**pre-existing in v0.1's MADLAD**, which Workstream E's absence claim "
+          f"missed — v0.2 is cleaner here).")
         A("")
         rc = bs.get("religious_cap", {})
         if rc.get("capped"):

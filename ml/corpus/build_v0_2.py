@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import unicodedata
 
 from datasketch import MinHashLSH
 
@@ -47,6 +48,35 @@ AUTHORED_EVAL_V2 = os.path.join(common.config.DATA, "eval", "authored_eval_v2.js
 
 def _norm(text: str) -> str:
     return re.sub(r"[ \t]+", " ", common.nfc(text)).strip()
+
+
+# --- probe-proverb leakage guard (standing rule) ---------------------------
+# The 15 held-out probe proverbs must appear in NO training doc so Station 2's
+# "who knows the real proverb?" stays honest. Web crawl (fineweb/MADLAD) quotes
+# famous proverbs, so every new source is screened here.
+_PROBES = None
+
+
+def _pnorm(s: str) -> str:
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", s).lower()).strip()
+
+
+def _probes():
+    global _PROBES
+    if _PROBES is None:
+        p = os.path.join(common.config.DATA, "eval", "proverbs_probe.jsonl")
+        _PROBES = []
+        if os.path.exists(p):
+            for line in open(p, encoding="utf-8"):
+                d = json.loads(line)
+                t = (d.get("kreyol") or d.get("text") or d.get("proverb") or "").strip()
+                if len(t) > 15:
+                    _PROBES.append(_pnorm(t))
+    return _PROBES
+
+
+def _has_probe(norm_text: str) -> bool:
+    return any(pr in norm_text for pr in _probes())
 
 
 def _kb():
@@ -131,14 +161,17 @@ def _filter_source(src: str, lsh_v01, kb, stats: dict, replace_v01: set):
         return []
     prio = common.priority_class(src)
     new_prio = C2.survivor_priority(prio)
-    s = {"in": 0, "junk": 0, "langid": 0, "dup_v01": 0, "replaced_v01": 0,
-         "kept": 0, "junk_reasons": {}}
+    s = {"in": 0, "junk": 0, "langid": 0, "probe_leak": 0, "dup_v01": 0,
+         "replaced_v01": 0, "kept": 0, "junk_reasons": {}}
     survivors = []
     for d in common.read_jsonl(path):
         s["in"] += 1
         text = _norm(d["text"])
         if len(text) < 40:
             s["junk"] += 1
+            continue
+        if _has_probe(_pnorm(text)):        # standing rule: no probe proverb in train
+            s["probe_leak"] += 1
             continue
         if src in JUNK_APPLIES:
             jr = junk.junk_reason(text, "crawl")
@@ -254,23 +287,31 @@ def build() -> dict:
     stats["cross_new_dedup_removed"] = n_before - len(survivors)
     common.log(f"[build] cross-new dedup: {n_before} -> {len(survivors)}")
 
-    # v0.1 base token count (streamed; skip docs replaced by authored sources)
+    # v0.1 base token count (streamed; skip replaced docs AND probe-proverb leaks —
+    # web crawl quotes famous proverbs, so v0.1's MADLAD carries a few; the standing
+    # rule requires them out of training, so v0.2 scrubs them even from the base).
     v01_shard = CV.CORPUS_V0_1.format(tag="full")
-    v01_docs = v01_tokens = 0
+    v01_docs = v01_tokens = v01_probe = 0
     for d in common.read_jsonl(v01_shard):
         if d["acquisition"]["doc_id"] in replace_v01:
             continue
+        if _has_probe(_pnorm(d["text"])):
+            v01_probe += 1
+            continue
         v01_docs += 1
         v01_tokens += kb.count(d["text"])
+    stats["v01_probe_leaks_removed"] = v01_probe
     survivors = _religious_cap(survivors, v01_tokens, kb, stats)
 
-    # assemble shard: v0.1 (minus replaced) + new survivors (register-tagged)
+    # assemble shard: v0.1 (minus replaced + probe leaks) + new survivors
     out = C2.CORPUS_V0_2.format(tag="full")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     comp = {}   # register -> {docs, tokens}
     with open(out, "w", encoding="utf-8") as f:
         for d in common.read_jsonl(v01_shard):
             if d["acquisition"]["doc_id"] in replace_v01:
+                continue
+            if _has_probe(_pnorm(d["text"])):
                 continue
             reg = _v01_register(d)
             d.setdefault("register", reg)

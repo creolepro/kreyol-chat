@@ -4,7 +4,7 @@
 
 ## Headline
 
-- **219.2M** unique kreyol-bpe tokens (315,804 docs) — from v0.1's 114.3M (**+104.9M net-new**).
+- **219.2M** unique kreyol-bpe tokens (315,785 docs) — from v0.1's 114.3M (**+104.9M net-new**).
 - **5.9% non-web-crawl by raw token share** — *lower* than v0.1's ~10% because fineweb-2's ~105M web-crawl tokens (the volume choice) dilute the ratio. This is expected: v0.2 trades raw authored share for a data-limited model's token budget + a register tail.
 - Applying the register **mix weights** lifts the authored/register emphasis to **~11% effective share** of the training mixture — real, but **not 30%**. A true 30%-authored mix from this pool would need heavy repetition of the ~13M authored tokens (overfit risk); reaching it cleanly needs permission-route sources (see scoping report §5).
 - Registers now present: children, encyclopedic, financial, government, health, immigration, journalism, legal, proverb, religious, tax, web_crawl — v0.1 had only web_crawl + encyclopedic + proverb.
@@ -13,7 +13,7 @@
 
 | register | docs | kreyol-bpe tokens | share | mix weight |
 |---|--:|--:|--:|--:|
-| web_crawl | 279,616 | 206,349,478 | 94.1% | 1.0× |
+| web_crawl | 279,597 | 206,290,834 | 94.1% | 1.0× |
 | encyclopedic | 35,639 | 11,455,326 | 5.2% | 2.0× |
 | religious | 66 | 1,142,480 | 0.5% | 1.0× |
 | journalism | 377 | 103,424 | 0.0% | 4.0× |
@@ -25,22 +25,24 @@
 | children | 40 | 12,791 | 0.0% | 3.0× |
 | government | 1 | 654 | 0.0% | 3.0× |
 | proverb | 35 | 323 | 0.0% | 1.0× |
-| **total** | **315,804** | **219,227,663** | 100% | |
+| **total** | **315,785** | **219,169,019** | 100% | |
 
 The **mix weight** column is the training-time sampling multiplier (config_v0_2.MIX_WEIGHTS): web-crawl bulk stays at 1×, authored/register registers are upweighted. Effective authored/register share of the mixture = Σ(weightᵣ·tokensᵣ for authored) / Σ(weightᵣ·tokensᵣ) = **~11%** at these weights. Pushing higher means repeating the small authored pool more per epoch (diminishing returns / overfit) — the honest ceiling of a clean-rights corpus without a larger authored source.
 
 ## Per-source filter + dedup removals
 
-| source | ingested | junk | langid | dup-vs-v0.1 | kept |
-|---|--:|--:|--:|--:|--:|
-| voa_nouvel | 378 | 0 | 1 | 0 | **377** |
-| fineweb2_hat | 178,792 | 0 | 3,567 | 0 | **175,225** |
-| us_federal_pdfs | 33 | 0 | 0 | 0 | **33** |
-| cfpb_glossary_family | 1 | 0 | 0 | 0 | **1** |
-| bib_la_1985 | 66 | 0 | 0 | 0 | **66** |
-| konstitisyon_1987 | 1 | 0 | 0 | 0 | **1** |
-| storybooks_haiti | 40 | 0 | 0 | 0 | **40** |
-| *cross-new dedup removed* | | | | | −354 |
+| source | ingested | junk | langid | probe-leak | dup-vs-v0.1 | kept |
+|---|--:|--:|--:|--:|--:|--:|
+| voa_nouvel | 378 | 0 | 1 | 0 | 0 | **377** |
+| fineweb2_hat | 178,792 | 0 | 3,567 | 11 | 0 | **175,214** |
+| us_federal_pdfs | 33 | 0 | 0 | 0 | 0 | **33** |
+| cfpb_glossary_family | 1 | 0 | 0 | 0 | 0 | **1** |
+| bib_la_1985 | 66 | 0 | 0 | 0 | 0 | **66** |
+| konstitisyon_1987 | 1 | 0 | 0 | 0 | 0 | **1** |
+| storybooks_haiti | 40 | 0 | 0 | 0 | 0 | **40** |
+| *cross-new dedup removed* | | | | | | −354 |
+
+**Probe-proverb guard (standing rule):** the 15 held-out probe proverbs must appear in NO training doc (Station 2 honesty). Web crawl quotes famous proverbs, so every doc is screened — **19 leaks removed** (8 of them **pre-existing in v0.1's MADLAD**, which Workstream E's absence claim missed — v0.2 is cleaner here).
 
 **Religious cap**: not triggered (Bib La 1,142,480 ≤ cap 4,384,553 tokens).
 
@@ -97,9 +99,9 @@ Contributor chain-of-custody: `corpus/contributors/family-contributor-1.md`.
 
 | axis | value |
 |---|---|
-| Total unique tokens (kreyol-bpe) | 219,227,663 |
-| Documents | 315,804 |
-| Net-new vs v0.1 | 104,929,373 |
+| Total unique tokens (kreyol-bpe) | 219,169,019 |
+| Documents | 315,785 |
+| Net-new vs v0.1 | 104,899,214 |
 | Registers | 12 (children, encyclopedic, financial, government, health, immigration, journalism, legal, proverb, religious, tax, web_crawl) |
 | Web-crawl share (raw) | 94.1% |
 | Authored/register share (raw) | 5.9% |
