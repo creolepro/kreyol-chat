@@ -61,7 +61,15 @@ def prep_voa(kb) -> dict:
     if not os.path.exists(art_path):
         common.log("[build] no VOA articles.jsonl (crawl not run); skipping VOA")
         return {"train": 0, "eval": 0}
-    arts = [json.loads(l) for l in open(art_path, encoding="utf-8") if l.strip()]
+    arts = []
+    for l in open(art_path, encoding="utf-8"):
+        l = l.strip()
+        if not l:
+            continue
+        try:                       # skip a partial last line if the crawl is still appending
+            arts.append(json.loads(l))
+        except json.JSONDecodeError:
+            continue
     # dedup by id (crawl may append across resumes)
     by_id = {a["id"]: a for a in arts}
     arts = list(by_id.values())
@@ -142,7 +150,8 @@ def _filter_source(src: str, lsh_v01, kb, stats: dict, replace_v01: set):
         if lang in _FOREIGN and conf >= LANGID_DROP_CONF:
             s["langid"] += 1
             continue
-        hits = corpus_index.query(lsh_v01, text)
+        mh = dedup._minhash(text)          # minhash ONCE (reused for query + _mh)
+        hits = lsh_v01.query(mh)
         if hits:
             # authored-beats-crawl: an authored new doc REPLACES the lower-priority
             # v0.1 dup (so the well-provenanced version + register tag survives);
@@ -154,7 +163,7 @@ def _filter_source(src: str, lsh_v01, kb, stats: dict, replace_v01: set):
                 s["dup_v01"] += 1
                 continue
         d["text"] = text
-        d["_mh"] = dedup._minhash(text)
+        d["_mh"] = mh
         d["_prio"] = new_prio
         survivors.append(d)
     s["kept"] = len(survivors)
