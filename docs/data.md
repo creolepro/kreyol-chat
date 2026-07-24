@@ -25,12 +25,11 @@ Survey outcome in one line: there is a clean-rights path to **~150–180M unique
 | **IRS Pub 850 (en-ht)** | tax terminology | translation | ~50–100k (~1,500 term pairs) | Federal PD | Single PDF; also feeds SFT translation turns |
 | **CFPB HT financial glossary** (81 pp, 2024 — copy in the family-contributed set) | financial terminology + style guide | translation | ~30–60k | Federal PD | Already in hand |
 | **Bib La 1985** (eBible.org) | religious (archaic-leaning) | human translation | ~1M | "In the Public Domain due to publication without copyright notice in 1985, and without subsequent registration within 5 years" (ebible.org/hat/copyright.htm) | Direct download (USFM/ePub); strip verse markup; heavy dedup vs crawl (Bible text recurs in many corpora) |
-| **Konstitisyon 1987** (Kreyòl) | legal, canonical | official legal text | ~20–35k | Government legal edict (standardly uncopyrightable); Wikisource copy under CC BY-SA | Single document |
-| **Florida state HT materials** (DOH, WIC) | public health, benefits | human translation | ~0.5–2M | FL public records are PD by statute + *Microdecisions, Inc. v. Skinner* (Fla. 2d DCA 2004) — the one state exception found; exclude licensed images | Crawl FL agency PDFs |
+| **Konstitisyon 1987** (Kreyòl) | legal, canonical | 1987 constitutional text in Kreyòl (whether the Kreyòl version is the official enactment or a later translation is disputed — survey sources attribute different translators) | ~20–60k | The Wikisource copy is CC BY-SA regardless of the official-status question | Single document |
 | **MedlinePlus HT — federal-producer subset only** (FDA, CDC, CMS, FEMA docs) | patient health | translation | small | MedlinePlus is a **router, not a source**: its own Kreyòl text doesn't exist; ~120 aggregated PDFs follow each producer's rights. "Works produced by the federal government are not copyrighted" | Follow each PDF to the producing agency; prefer stacks.cdc.gov originals |
 | **Bloom Library (sil-ai/bloom-lm) hat, CC-BY/CC-BY-SA entries only** | children's storybooks | **substantially authored** (SIL Haiti literacy initiative, local authors) | ~50–100k (281 live books; 260 in the HF dataset pre-filter) | Per-entry license field ("cc-by-4.0, cc-by-nc-4.0, cc-by-nd-4.0, cc-by-sa"); **keep BY/BY-SA, drop NC/ND** | HF `sil-ai/bloom-lm` (gated) or OPDS API (key required); bilingual books need language-tagged extraction |
 | **Storybooks Haiti** (global-asp.github.io/storybooks-haiti) | children's stories | human translation | ~10–15k (~44 stories) | Footer: "Some rights reserved" → **CC BY 4.0** | Static GitHub Pages — clone the repo; separate Kreyòl from parallel French |
-| fineweb-2 `hat_Latn` (ODC-BY) | web crawl | translation-shaped | **size unmeasured — check at ingestion** | Card license odc-by | HF; dedup vs MADLAD before counting it as new |
+| fineweb-2 `hat_Latn` (ODC-BY) | web crawl | translation-shaped | ~300MB parquet raw; expect heavy MADLAD overlap — treat as a dedup-merge experiment, not new volume | Card license odc-by | HF; dedup vs MADLAD before counting anything as new |
 | Tatoeba hat | everyday sentences | authored | negligible (162 sentences) | CC-BY 2.0 FR, attribution | Seed/eval phrases only |
 | rmunro/disaster_response_messages | disaster SMS (sanitized) | authored | small, mixed-language | CC-BY-4.0; PII "stripped… reviewed by at least 3 people" | Marginal value; classification-shaped |
 
@@ -47,7 +46,8 @@ Already in v0.1 and unchanged: MADLAD-400 hat (CC-BY-4.0), ht.wikipedia (CC-BY-S
 | Lakou Kajou | children's educational media (video-first; "© TSNE. All rights reserved") | Mission-aligned nonprofit; a partnership could unlock scripts/transcripts — no harvestable text today |
 | Educa Vision | 2,000+ professionally edited Kreyòl titles | Commercial licensing conversation only |
 | Kreyòl-MT monolingual (unreleased) | aggregated monolingual HT | Maintainer invites contact |
-| NJ Judiciary legal glossary + MA DESE IEP forms (family-contributed copies) | legal/education terminology | State works ≠ PD; quick terms-check/permission email; **interim: EVAL-ONLY** |
+| NJ Judiciary legal glossary + MA DESE IEP forms (family-contributed copies) | legal/education terminology | State works ≠ PD (the stricter read is quarantine); quick terms-check/permission email; **interim: EVAL-ONLY, local probes only** |
+| **Florida state HT materials** (DOH, WIC) | public health/benefits translation corpus | **CONTESTED — held out of training.** FL public-records law + *Microdecisions v. Skinner* suggest state materials are PD, but myflorida.com terms assert "personal, non-commercial use only." Statute-vs-site-terms conflict → resolve (or ask) before ingesting |
 
 ### QUARANTINE (no training, no redistribution)
 
@@ -85,7 +85,7 @@ Six documents contributed from a family member's professional interpreter/transl
 
 Contributor record per plan §10 governance: this contribution is **chain-of-custody of third-party works**, not a rights grant — document the contributor, date, and provenance; the copyrighted items stay quarantined regardless of possession. (First contributor record in the project — the governance template gets exercised for real.)
 
-**J4 — Small clean wins.** Bib La (strip USFM; dedup; **cap religious register ≤~2% of corpus** so 1M tokens don't distort the mix), Konstitisyon 1987, Florida agency crawl, Bloom CC-BY/BY-SA subset, fineweb-2 hat (measure size first, dedup vs MADLAD, run standing junk/langid filters).
+**J4 — Small clean wins.** Bib La (strip USFM; dedup; **cap religious register ≤~2% of corpus** so 1M tokens don't distort the mix), Konstitisyon 1987, Bloom CC-BY/BY-SA subset, Storybooks Haiti, fineweb-2 hat (dedup vs MADLAD first; ingest only what survives). Florida moved to contested-hold pending the statute-vs-terms resolution.
 
 **J5 — Permission letters (human action, parallel).** Healthy Roads waiver → AKA → Ayibopost → NYC/Boston, in that order of expected yield. Draft letters on request.
 
@@ -119,6 +119,7 @@ Rights notes: kakugo/muri-it/aya are Apache-2.0 (TRAIN-OK); TaCo's 52k translate
 ## §4 Open items
 
 - **MIT-Haiti license conflict:** CreoleVal's repo lists the MIT-Haiti corpus as CC-BY-4.0; our registry quarantines it from an earlier review. A third-party README doesn't override the source's own terms — verify at the platform itself before any status change. If CC-BY holds, it's the best authored STEM Kreyòl available.
+- **Florida statute-vs-terms conflict:** FL public-records law (+ *Microdecisions v. Skinner*) points to PD, but myflorida.com's terms restrict to personal non-commercial use. Held out of training until resolved — a per-agency permission note is the pragmatic path.
 - **Wire-filter recall (VOA):** measure on a labeled sample of ~100 articles; err toward dropping.
 - **fineweb-2 hat size** unmeasured — measure at ingestion before planning around it.
 - **New lead: readingroomhaiti.org** — claims ~1,000 CC-licensed books translated into Kreyòl (an aggregator; per-source license verification needed). Potentially the biggest children's/educational source if it checks out.
