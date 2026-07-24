@@ -84,6 +84,8 @@ Identical-twin experiments at ~20–30M params (smallest viable nanochat depth),
 
 Turns the text-continuer into something a visitor can talk to.
 
+> **Data plan (2026-07-24):** [data.md](data.md) records the verified source survey — corpus v0.2 acquisition (Workstream J: VOA Nouvèl PD crawl, federal PDF harvest, family-contributed set, small CC wins) and the three-layer SFT data stack (kakugo-hat audit → corpus-grounded generation → muri-it + gold cap). It supersedes the sketches in I.1/I.2 below where they differ.
+
 1. **Midtraining** (format mechanics, bulk-but-structured data): nanochat chat template/special tokens; translation-task turns. ⚠️ **Rights constraint:** Kreyòl-MT parallel data is license-"other" (quarantined for model training per `rights.yaml`); FLORES is eval-only. Translation turns must come from rights-clear pairs — the practical path is **synthetic pairs via the CreoleMT API over openly-licensed English source text**, provenance-tagged `synthetic_unreviewed`/`_reviewed` per §5.3 (real-data-majority anchor still holds: midtraining is small next to pretraining). Resolve-or-route-around before building.
 2. **SFT** (~1–10k excellent examples, loss masked to responses): reviewed Aya-haitian sample + self-instruct seeded on native corpus text (MURI-style) + proverb/dictionary QA. **Native-speaker review is mandatory** (plan §6.2) — this is a human-time dependency, not a compute one.
 3. **Eval:** the frozen prompt list (now answering, not continuing — the demoable transition), BPB regression check on the slices (chat tuning shouldn't damage the language model), blinded naturalness sheet for the human.
