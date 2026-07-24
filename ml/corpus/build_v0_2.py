@@ -103,15 +103,28 @@ def prep_voa(kb) -> dict:
     return {"train": len(train_arts), "eval": len(eval_arts)}
 
 
+# The crawl junk filter (price_listing/spam/mt_placeholder/…) was CALIBRATED on
+# web crawl. It false-fires on curated PD material (a financial glossary is all
+# "$" terms; a legal doc is structured), so it is applied ONLY to web-crawl
+# sources. Curated sources are trusted (rights-registered, human/PD).
+JUNK_APPLIES = {"fineweb2_hat"}
+
+
+def _v01_prio(doc_id: str) -> int:
+    """Survivor priority of a v0.1 doc from its doc_id source prefix."""
+    return C2.survivor_priority(common.priority_class(doc_id.split(":")[0]))
+
+
 # --- per-source filter (normalize + junk + langid + dedup vs v0.1) -----------
-def _filter_source(src: str, lsh_v01, kb, stats: dict):
+def _filter_source(src: str, lsh_v01, kb, stats: dict, replace_v01: set):
     path = os.path.join(C2.V0_2_INGEST, f"{src}.jsonl")
     if not os.path.exists(path):
         common.log(f"[build] {src}: ingest file missing, skip")
         return []
     prio = common.priority_class(src)
-    s = {"in": 0, "junk": 0, "langid": 0, "dup_v01": 0, "kept": 0,
-         "junk_reasons": {}}
+    new_prio = C2.survivor_priority(prio)
+    s = {"in": 0, "junk": 0, "langid": 0, "dup_v01": 0, "replaced_v01": 0,
+         "kept": 0, "junk_reasons": {}}
     survivors = []
     for d in common.read_jsonl(path):
         s["in"] += 1
@@ -119,26 +132,35 @@ def _filter_source(src: str, lsh_v01, kb, stats: dict):
         if len(text) < 40:
             s["junk"] += 1
             continue
-        jr = junk.junk_reason(text, prio if prio in ("crawl", "wikipedia", "owned") else "crawl")
-        if jr:
-            s["junk"] += 1
-            s["junk_reasons"][jr] = s["junk_reasons"].get(jr, 0) + 1
-            continue
+        if src in JUNK_APPLIES:
+            jr = junk.junk_reason(text, "crawl")
+            if jr:
+                s["junk"] += 1
+                s["junk_reasons"][jr] = s["junk_reasons"].get(jr, 0) + 1
+                continue
         lang, conf = audit._lid_predict(text)
         if lang in _FOREIGN and conf >= LANGID_DROP_CONF:
             s["langid"] += 1
             continue
-        if corpus_index.query(lsh_v01, text):
-            s["dup_v01"] += 1
-            continue
+        hits = corpus_index.query(lsh_v01, text)
+        if hits:
+            # authored-beats-crawl: an authored new doc REPLACES the lower-priority
+            # v0.1 dup (so the well-provenanced version + register tag survives);
+            # otherwise the v0.1 copy stands and the new doc is dropped.
+            if new_prio < min(_v01_prio(h) for h in hits):
+                replace_v01.update(hits)
+                s["replaced_v01"] += 1
+            else:
+                s["dup_v01"] += 1
+                continue
         d["text"] = text
         d["_mh"] = dedup._minhash(text)
-        d["_prio"] = C2.survivor_priority(prio)
+        d["_prio"] = new_prio
         survivors.append(d)
     s["kept"] = len(survivors)
     stats[src] = s
     common.log(f"[build] {src}: in={s['in']} junk={s['junk']} langid={s['langid']} "
-               f"dup_v01={s['dup_v01']} -> kept {s['kept']}")
+               f"dup_v01={s['dup_v01']} replaced_v01={s['replaced_v01']} -> kept {s['kept']}")
     return survivors
 
 
@@ -209,10 +231,13 @@ def build() -> dict:
     # VOA prep (articles -> Documents + eval carve-out)
     stats["voa_prep"] = prep_voa(kb)
 
-    # per-source filter + dedup vs v0.1
+    # per-source filter + dedup vs v0.1 (authored may REPLACE v0.1 crawl dups)
     survivors = []
+    replace_v01: set = set()
     for src in NEW_SOURCES:
-        survivors += _filter_source(src, lsh_v01, kb, stats["sources"])
+        survivors += _filter_source(src, lsh_v01, kb, stats["sources"], replace_v01)
+    stats["v01_replaced_by_authored"] = len(replace_v01)
+    common.log(f"[build] {len(replace_v01)} v0.1 crawl docs replaced by authored sources")
 
     # cross-new dedup
     n_before = len(survivors)
@@ -220,20 +245,24 @@ def build() -> dict:
     stats["cross_new_dedup_removed"] = n_before - len(survivors)
     common.log(f"[build] cross-new dedup: {n_before} -> {len(survivors)}")
 
-    # v0.1 base token count (streamed, not held in memory alongside survivors)
+    # v0.1 base token count (streamed; skip docs replaced by authored sources)
     v01_shard = CV.CORPUS_V0_1.format(tag="full")
     v01_docs = v01_tokens = 0
     for d in common.read_jsonl(v01_shard):
+        if d["acquisition"]["doc_id"] in replace_v01:
+            continue
         v01_docs += 1
         v01_tokens += kb.count(d["text"])
     survivors = _religious_cap(survivors, v01_tokens, kb, stats)
 
-    # assemble shard: v0.1 (unchanged, streamed) + new survivors (register-tagged)
+    # assemble shard: v0.1 (minus replaced) + new survivors (register-tagged)
     out = C2.CORPUS_V0_2.format(tag="full")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     comp = {}   # register -> {docs, tokens}
     with open(out, "w", encoding="utf-8") as f:
         for d in common.read_jsonl(v01_shard):
+            if d["acquisition"]["doc_id"] in replace_v01:
+                continue
             reg = _v01_register(d)
             d.setdefault("register", reg)
             _tally(comp, reg, kb.count(d["text"]))

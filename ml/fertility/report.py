@@ -51,6 +51,48 @@ def _fmt(v):
     return "—" if v == "" or v is None else v
 
 
+def _authored_vs_translated_section(A, repo_root):
+    """Renders the authored-vs-translated Kreyòl fertility result (closes the
+    standing Workstream C TODO). Data from fertility.authored's sidecar, produced
+    once Workstream J's authored_eval_v2 (VOA journalism) exists."""
+    import json
+    sidecar = os.path.join(repo_root, "ml", "data", "interim",
+                           "fertility_authored.json")
+    if not os.path.exists(sidecar):
+        A("- **Authored-vs-translated fertility (Workstream J):** pending — run "
+          "`corpus.build_v0_2` (writes `authored_eval_v2` from VOA journalism) then "
+          "`python -m fertility.authored`. The template renders the result here once "
+          "the sidecar exists.")
+        return
+    with open(sidecar, encoding="utf-8") as f:
+        d = json.load(f)
+    A("### Authored vs translated Kreyòl (Workstream J — TODO resolved)\n")
+    A("FLORES's Haitian side is itself translated, so Workstream C could not compare "
+      "authored vs translated fertility. Workstream J's held-out **VOA journalism** "
+      "(`authored_eval_v2`) supplies a native-authored set. Tokens-per-byte "
+      "(byte-normalized, cross-tokenizer comparable):\n")
+    cs = d["counters"]
+    A("| slice | kind | docs | " + " | ".join(f"{c} tok/byte" for c in cs) + " |")
+    A("|---|---|--:|" + "|".join("--:" for _ in cs) + "|")
+    for name, row in d["slices"].items():
+        if not row.get("present"):
+            continue
+        cells = " | ".join(f"{row['tok_per_byte'][c]:.4f}" for c in cs)
+        A(f"| {name} | {row['kind']} | {row['docs']} | {cells} |")
+    A("")
+    gaps = d.get("authored_minus_translated_tok_per_byte", {})
+    if "authored_eval_v2" in gaps:
+        g = gaps["authored_eval_v2"]["kreyol-bpe"]
+        direction = ("LOWER — the tokenizer fits native journalism at least as well "
+                     "as translationese (not overfit to translationese)") if g < 0 else \
+                    ("higher — native journalism is denser for the tokenizer than "
+                     "translationese web text")
+        A(f"**Finding:** on `kreyol-bpe`, authored VOA journalism is "
+          f"{abs(g):.4f} tok/byte {'below' if g < 0 else 'above'} translationese "
+          f"({direction}).")
+    A("")
+
+
 def write_markdown(rows, petrov, flores, words, skipped, path, repo_root, log):
     d = config.SNAPSHOT_DATE
     L = []
@@ -214,11 +256,7 @@ def write_markdown(rows, petrov, flores, words, skipped, path, repo_root, log):
               "re-runnable to fill this row later.")
     else:
         A("- None — every planned tokenizer and the Claude API measurement completed.")
-    A("- **No authored-Kreyòl set measured yet.** The translated-vs-authored fertility check "
-      "(FLORES's Haitian side is itself translated) needs an authored corpus of real size; the "
-      "only authored set in the repo so far is the 15 probe proverbs (too small to measure "
-      "alone). **TODO:** assemble a fuller authored-Kreyòl set and re-run for the "
-      "translationese comparison.")
+    _authored_vs_translated_section(A, repo_root)
     if not any(r["label"] == config.OUR_TOKENIZER_LABEL for r in rows):
         A(f"- **Our Kreyòl BPE not included** (`{config.OUR_TOKENIZER_PATH}` absent — Workstream B "
           "not yet run). It is expected to land near/below 1.0× by construction; re-run once "
