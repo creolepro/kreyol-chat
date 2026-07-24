@@ -287,7 +287,7 @@ def build() -> dict:
     stats["v01_tokens_kb"] = v01_tokens
     stats["new_survivor_docs"] = len(survivors)
     stats["new_survivor_tokens_kb"] = sum(kb.count(d["text"]) for d in survivors)
-    stats["total_docs"] = len(v01_docs) + len(survivors)
+    stats["total_docs"] = v01_docs + len(survivors)
     stats["total_tokens_kb"] = v01_tokens + stats["new_survivor_tokens_kb"]
     stats["mix_weights"] = C2.MIX_WEIGHTS
     stats["output_shard"] = os.path.basename(out)

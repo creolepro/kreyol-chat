@@ -27,6 +27,16 @@ def _m(x):
     return f"{x/1e6:.2f}M"
 
 
+def _eff_authored_share(comp, weights):
+    """Effective authored/register share of the TRAIN mixture under the sampling
+    weights: Σ(wᵣ·tokensᵣ, authored) / Σ(wᵣ·tokensᵣ). web_crawl is the only
+    non-authored register."""
+    num = sum(g["tokens"] * weights.get(r, 1.0)
+              for r, g in comp.items() if r != "web_crawl")
+    den = sum(g["tokens"] * weights.get(r, 1.0) for r, g in comp.items())
+    return num / den if den else 0.0
+
+
 def build():
     bs = _try(C2.V0_2_STATS.format(tag="full"))
     fam = _try(os.path.join(config.DATA, "interim", "family_stats.json"))
@@ -59,9 +69,17 @@ def build():
         authored = sum(g["tokens"] for r, g in comp.items()
                        if r not in ("web_crawl",))
         auth_frac = authored / bs["total_tokens_kb"] if bs["total_tokens_kb"] else 0
-        A(f"- **{auth_frac:.1%} non-web-crawl** by raw token share "
-          f"(v0.1 was ~8%); the 30% authored *target* is met at TRAIN time via mix "
-          f"weights, not by composition.")
+        eff = _eff_authored_share(comp, C2.MIX_WEIGHTS)
+        A(f"- **{auth_frac:.1%} non-web-crawl by raw token share** — *lower* than "
+          f"v0.1's ~10% because fineweb-2's ~105M web-crawl tokens (the volume "
+          f"choice) dilute the ratio. This is expected: v0.2 trades raw authored "
+          f"share for a data-limited model's token budget + a register tail.")
+        A(f"- Applying the register **mix weights** lifts the authored/register "
+          f"emphasis to **~{eff:.0%} effective share** of the training mixture — "
+          f"real, but **not 30%**. A true 30%-authored mix from this pool would need "
+          f"heavy repetition of the ~{authored/1e6:.0f}M authored tokens (overfit "
+          f"risk); reaching it cleanly needs permission-route sources (see scoping "
+          f"report §5).")
         A(f"- Registers now present: {', '.join(sorted(comp))} — v0.1 had only "
           f"web_crawl + encyclopedic + proverb.")
         A("")
@@ -79,9 +97,12 @@ def build():
         A("")
         A("The **mix weight** column is the training-time sampling multiplier "
           "(config_v0_2.MIX_WEIGHTS): web-crawl bulk stays at 1×, authored/register "
-          "registers are upweighted. This is how ~30% authored is reached in the "
-          "*training mixture* despite a low raw share. Effective authored share in "
-          "the mix ≈ Σ(weightᵣ·tokensᵣ for authored) / Σ(weightᵣ·tokensᵣ).")
+          "registers are upweighted. Effective authored/register share of the mixture "
+          "= Σ(weightᵣ·tokensᵣ for authored) / Σ(weightᵣ·tokensᵣ) = "
+          f"**~{_eff_authored_share(comp, C2.MIX_WEIGHTS):.0%}** at these weights. "
+          "Pushing higher means repeating the small authored pool more per epoch "
+          "(diminishing returns / overfit) — the honest ceiling of a clean-rights "
+          "corpus without a larger authored source.")
         A("")
 
         # per-source filter + dedup removals
@@ -123,9 +144,9 @@ def build():
               f"{', '.join(f'{y}:{n}' for y, n in sorted(py.items()) if y != 'unknown')}.")
         A("- Newest articles are held out as **authored_eval_v2** (temporal, never trained).")
         if voa['cursor'] < 39286:
-            A(f"- **Partial slice** (crawl is resumable and continuing in the "
-              f"background at ~1 req/s — a full pass is ~12 h). Recorded exactly "
-              f"what is in.")
+            A(f"- **Partial slice** — the crawl is checkpointed/**resumable** "
+              f"(`data/voa/crawl_state.json`); a full pass is ~12 h at ~1 req/s. "
+              f"Recorded exactly what is in; a fuller VOA slice = resume + rebuild.")
     else:
         A("*(crawl state not found)*")
     A("")

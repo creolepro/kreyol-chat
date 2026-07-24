@@ -4,8 +4,9 @@ Python workspace for all model, corpus, and tokenizer work. Managed with
 [uv](https://docs.astral.sh/uv/); Python ≥ 3.12.
 
 **Phase 0** is complete (corpus v0, Kreyòl tokenizer, fertility, base-model probe). **Phase 1**
-is under way: **Workstream E** (corpus v0.1 + standing eval slices) and **Workstream F**
-(nanochat-on-Modal training infra + conversion proof) are done. Runbooks:
+is under way: **Workstreams E** (corpus v0.1 + eval slices), **F** (nanochat-on-Modal infra +
+conversion proof), **G** (Model C v0, standard-Llama d12), and **J** (corpus v0.2 acquisition)
+are done. Runbooks:
 [../docs/phase-0.md](../docs/phase-0.md), [../docs/phase-1.md](../docs/phase-1.md); overall plan
 [../docs/plan.md](../docs/plan.md).
 
@@ -56,3 +57,12 @@ Implemented so far:
   flagship to 750M tokens **beats 3–4B Gemma/Llama/Qwen on 3 of 4 Kreyòl BPB slices**. See
   [reports/modelc_v0.md](reports/modelc_v0.md), [reports/depth_sweep.md](reports/depth_sweep.md),
   [reports/f2_gates.md](reports/f2_gates.md).
+- **`corpus/` (Workstream J)** — corpus **v0.2** (measure-first). J0 scoping tripped the red-flag
+  gate — **VOA net-new ≈2.25M, not 20–60M** (54% of URLs are audio/video, 34% wire, 45% MADLAD-dup);
+  fineweb-2 was the opposite surprise (**~108M net-new**, not "heavy overlap"). Built under the
+  "full v0.2 + mix control" decision: v0.1 frozen base + register-tagged net-new (VOA journalism,
+  33 federal PD PDFs, Bib La/Konstitisyon/Storybooks, fineweb-2), authored-beats-crawl dedup,
+  authored emphasis via **train-mix weights**. Committable: **1,955 federal EN↔HT glossary pairs**
+  (`corpus/glossary_pairs_federal.json`) + a contributor record. New eval axes: `authored_eval_v2`
+  (VOA temporal) + terminology probes. See [reports/corpus_v0_2_scoping.md](reports/corpus_v0_2_scoping.md),
+  [reports/corpus_v0_2.md](reports/corpus_v0_2.md).
