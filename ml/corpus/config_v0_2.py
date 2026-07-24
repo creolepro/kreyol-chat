@@ -68,7 +68,7 @@ BLOOM_REPO = "sil-ai/bloom-lm"
 BLOOM_CONFIG = "hat"
 
 BIB_LA_USFM_URL = "https://ebible.org/Scriptures/hat_usfm.zip"
-KONSTITISYON_WIKISOURCE = "https://ht.wikisource.org/wiki/Konstitisyon_Repiblik_Ayiti_1987"
+KONSTITISYON_WIKISOURCE = "https://ht.wikisource.org/wiki/Konstitisyon_1987"
 STORYBOOKS_REPO = "https://github.com/global-asp/storybooks-haiti"
 
 # Federal PDF producers (J2). Each is 17 U.S.C. §105 PD; per-doc provenance
