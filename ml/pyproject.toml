@@ -24,6 +24,10 @@ dependencies = [
     "huggingface-hub",      # pinned-revision source downloads
     "beautifulsoup4",       # parse the CreolePro proverbs blog (corpus/proverbs_fetch.py)
     "rustbpe>=0.1.0",       # nanochat's byte-level BPE trainer (Workstream B tokenizer)
+    "lxml",                 # fast HTML/XML parser for the VOA crawler (Workstream J1)
+    "requests",             # polite HTTP for VOA + federal-PDF harvest (Workstream J1/J2)
+    "pymupdf",              # multi-column PDF text extraction (Workstream J2 federal PDFs)
+    "pdfplumber",           # word-position/table extraction for glossary term-pair mining (J2/J3)
 ]
 
 # This workspace is a collection of scripts, not an installable package.

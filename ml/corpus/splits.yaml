@@ -155,3 +155,61 @@ eval_slices:
     crawl-only. Some members may also fall in the tokenizer_eval holdout — that is
     harmless (both are excluded from training). Probe proverbs are absent from the
     corpus entirely, so they cannot enter either slice.
+
+# ---------------------------------------------------------------------------
+# Standing eval slices — Phase 1 Workstream J (corpus v0.2). The frozen v0.1
+# slices above are UNTOUCHED; these are NEW held-out axes added alongside them.
+# Same discipline: materialized as doc_id / item manifests (git-ignored, contain
+# source text) and excluded by consumers at train time, never trained on, forever.
+# ---------------------------------------------------------------------------
+eval_slices_v0_2:
+  builder: "corpus/build_v0_2.py (VOA temporal split) + corpus/family.py (probe pools)"
+  may_enter_training: false          # forever
+  carved_by: consumption_doc_id
+  slices:
+    authored_eval_v2:
+      purpose: >-
+        A REAL authored-journalism BPB/fertility axis — the first authored-Kreyòl
+        eval set of meaningful size. Simultaneously closes the standing
+        fertility-report translated-vs-authored TODO (FLORES's Haitian side is
+        itself translated; there was no authored set large enough to compare).
+      source: voa_nouvel
+      rule: >-
+        A held-out TEMPORAL slice of VOA — all PD-clean articles whose
+        datePublished year is 2026 — carved out BEFORE training and never in the
+        train split. Temporal (not random) so it cannot leak near-duplicates of
+        trained articles, and so it measures generalization to unseen dates.
+      manifest: "ml/data/eval/authored_eval_v2.jsonl"    # git-ignored
+      may_enter_training: false
+    terminology_probes:
+      purpose: >-
+        Held-out terminology probe pools from the eval-allocated glossaries — a
+        legal / education / clinical terminology axis for exhibit + eval. EVAL-ONLY
+        by rights (state / courtesy sources, not cleared for training).
+      pools:
+        legal_nj_court: {source: nj_court_glossary, manifest: "ml/data/eval/probe_nj_court_terms.jsonl"}
+        education_ma_iep: {source: ma_dese_iep, manifest: "ml/data/eval/probe_ma_iep_terms.jsonl"}
+        clinical_bmc: {source: bmc_clinical_glossary, manifest: "ml/data/eval/probe_bmc_clinical_terms.jsonl", tag: nonstandard_orthography}
+      may_enter_training: false
+  note: >-
+    authored_eval_v2 members are removed from the trainable VOA set by doc_id
+    before the corpus v0.2 shard's train partition is written, so a 2026 article
+    is either eval or (if excluded) nowhere in train — never both. Probe proverbs
+    remain absent from the corpus entirely and from every slice.
+
+# Per-source split assignment for the Workstream J sources (extends `assignment`).
+assignment_v0_2:
+  voa_nouvel: train                  # except 2026 articles -> authored_eval_v2
+  fineweb2_hat: train
+  us_federal_pdfs: train
+  cfpb_glossary_family: train
+  bib_la_1985: train                 # religious register cap <=2% enforced at build
+  konstitisyon_1987: train
+  bloom_lm_hat: train                # BY/BY-SA keepers only; pending HF gate
+  storybooks_haiti: train
+  # eval-only / quarantined J3 sources get no train split:
+  nj_court_glossary: exhibit_examples
+  ma_dese_iep: exhibit_examples
+  bmc_clinical_glossary: exhibit_examples
+  family_file_7167: null             # pending producer identification
+  freeman_medical_dictionary: null   # quarantined

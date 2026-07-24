@@ -166,6 +166,322 @@ sources:
       (fertility) without re-hosting any sentence text. NOT ingested into the
       training corpus.
 
+  # =========================================================================
+  # Workstream J — corpus v0.2 sources. Verdicts from docs/data.md §1 (every
+  # license backed by a quoted terms page/dataset card at survey time). Written
+  # BEFORE ingestion per standing policy. Priority classes for dedup survivor
+  # selection are extended in config_v0_2.SURVIVOR_PRIORITY_V0_2
+  # (owned > authored > wikipedia > crawl): authored/PD material wins over the
+  # crawl copy of the same text so the well-provenanced version survives.
+  # =========================================================================
+
+  - key: voa_nouvel
+    name: "VOA Nouvèl (voanouvel.com) — Haitian Creole service"
+    priority_class: authored
+    source_url: "https://www.voanouvel.com/"
+    license:
+      id: "US-GOV-PD"
+      url: "https://www.insidevoa.com/p/5820.html"
+      status: clear
+      # Quoted at survey time (VOA terms of use / public-domain statement):
+      evidence: >-
+        "All text, audio and video material produced exclusively by the Voice of
+        America is public domain" — U.S. federal work, 17 U.S.C. §105. CARVE-OUT:
+        licensed AFP/AP/Reuters material embedded in articles is NOT PD.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # US-gov PD (VOA-produced text only)
+    quarantined: false
+    notes: >-
+      Native-Kreyòl journalism. WIRE CARVE-OUT enforced in corpus/voa.py: drop
+      articles bylined to AFP / AP (Associated Press) / Reuters entirely; strip
+      wire-credited paragraphs elsewhere; when in doubt, drop. Only VOA-produced
+      text is PD. robots.txt (2026-07-23) allows /a/ article paths; ~1 req/s,
+      browser headers, backoff. J0 measured ~2.25M net-new kreyol-bpe tokens
+      after wire-drop + MADLAD dedup (see reports/corpus_v0_2_scoping.md). Genre
+      news / register journalism_authored. A held-out 2026 temporal slice becomes
+      authored_eval_v2 (splits.yaml) — NEVER trained on.
+
+  - key: fineweb2_hat
+    name: "fineweb-2 hat_Latn (HuggingFaceFW/fineweb-2)"
+    priority_class: crawl
+    hf_repo: "HuggingFaceFW/fineweb-2"
+    hf_config: "hat_Latn"
+    license:
+      id: "ODC-BY-1.0"
+      url: "https://opendatacommons.org/licenses/by/1-0/"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: odc-by. Common-Crawl-derived Haitian
+        web text with fineweb-2's filtering + own fastText langid/dedup.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # ODC-BY with attribution
+    quarantined: false
+    notes: >-
+      Web crawl (translation-shaped register, same character as MADLAD). J0
+      measured raw 159M kreyol-bpe / 224,472 docs; only 16.9% doc-overlap with
+      v0.1 -> ~108M net-new kreyol-bpe (the survey's "heavy overlap" guess was
+      wrong; MADLAD-400 and fineweb-2 extract CC differently, so text near-dup is
+      low). VOLUME, not new register: ingested register-tagged and controlled via
+      train-mix weights, NOT dumped raw into the authored share.
+
+  - key: us_federal_pdfs
+    name: "US federal agency PDFs (HT) — CDC/USCIS/IRS/SSA/FEMA/EPA/HHS/OSHA/CFPB/MedlinePlus-federal"
+    priority_class: authored
+    license:
+      id: "US-GOV-PD"
+      url: "https://www.copyright.gov/title17/92chap1.html#105"
+      status: clear
+      evidence: >-
+        17 U.S.C. §105 — works of the U.S. federal government are public domain
+        ("The U.S. government work designation does not apply to works of state
+        and local governments"). Per-doc provenance carries the producing agency
+        + URL. MedlinePlus is a ROUTER: follow each PDF to the producing federal
+        agency's own copy (prefer stacks.cdc.gov originals); skip third-party
+        producers (ACS / IAC / Mass DPH / Mass General — quarantined separately).
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed
+    quarantined: false
+    notes: >-
+      Registers: health, immigration (incl. I-589), tax, disaster, financial,
+      legal. Professional translation origin. Per-doc acquisition.url + agency +
+      register tag. IRS Pub 850 (en-ht) and the CFPB HT financial glossary are
+      PD federal works whose EN<->HT term pairs are mined into the COMMITTABLE
+      corpus/glossary_pairs_federal.json (federal PD -> safe to commit).
+
+  - key: bib_la_1985
+    name: "Bib La 1985 (eBible.org, Haitian Creole)"
+    priority_class: authored
+    source_url: "https://ebible.org/hat/"
+    license:
+      id: "PUBLIC-DOMAIN"
+      url: "https://ebible.org/hat/copyright.htm"
+      status: clear
+      evidence: >-
+        "In the Public Domain due to publication without copyright notice in 1985,
+        and without subsequent registration within 5 years" (ebible.org/hat/
+        copyright.htm).
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed
+    quarantined: false
+    notes: >-
+      Religious (archaic-leaning) human translation, ~1M tokens. USFM download;
+      strip verse/markup. HEAVY dedup vs crawl (Bible text recurs in many
+      corpora). RELIGIOUS REGISTER CAP <=2% of the corpus (config_v0_2) so 1M
+      tokens do not distort the mix. Genre religious.
+
+  - key: konstitisyon_1987
+    name: "Konstitisyon Ayiti 1987 (Kreyòl, Wikisource copy)"
+    priority_class: authored
+    source_url: "https://ht.wikisource.org/wiki/Konstitisyon_Repiblik_Ayiti_1987"
+    license:
+      id: "CC-BY-SA-4.0"
+      url: "https://creativecommons.org/licenses/by-sa/4.0/"
+      status: clear
+      evidence: >-
+        The Wikisource copy is CC BY-SA regardless of the disputed official-status
+        question (whether the Kreyòl version is the enactment or a later
+        translation). Redistribution carries share-alike + attribution.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # CC-BY-SA (share-alike + attribution)
+    quarantined: false
+    notes: >-
+      Legal / canonical, ~20-60k tokens. Single document. Genre legal/historical.
+
+  - key: bloom_lm_hat
+    name: "Bloom Library (sil-ai/bloom-lm) hat — CC-BY / CC-BY-SA entries only"
+    priority_class: authored
+    hf_repo: "sil-ai/bloom-lm"
+    hf_config: "hat"
+    license:
+      id: "PER-ENTRY-CC"
+      url: "https://huggingface.co/datasets/sil-ai/bloom-lm"
+      status: clear_per_entry
+      evidence: >-
+        Per-entry `license` field (cc-by-4.0 / cc-by-nc-4.0 / cc-by-nd-4.0 /
+        cc-by-sa). KEEP BY and BY-SA; DROP NC and ND. Gated dataset (auto-grant:
+        "agree to share your contact information"); the HF account must accept the
+        gate once before ingestion.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed       # BY/BY-SA keepers only
+      model_training: allowed           # BY/BY-SA keepers only
+      redistribution: allowed           # BY (attribution) / BY-SA (share-alike)
+    quarantined: false
+    notes: >-
+      Children's storybooks, substantially authored (SIL Haiti literacy
+      initiative, local authors). 260 hat stories pre-filter; keep only BY/BY-SA
+      (corpus/j0_bloom.is_keeper). Bilingual books interleave French -> language-
+      tagged extraction. Genre educational/children. STATUS: pending HF gate
+      acceptance on the user's account (auto-grant); until then not ingested.
+
+  - key: storybooks_haiti
+    name: "Storybooks Haiti (global-asp.github.io/storybooks-haiti)"
+    priority_class: authored
+    source_url: "https://global-asp.github.io/storybooks-haiti/"
+    repo_url: "https://github.com/global-asp/storybooks-haiti"
+    license:
+      id: "CC-BY-4.0"
+      url: "https://creativecommons.org/licenses/by/4.0/"
+      status: clear
+      evidence: >-
+        Site footer "Some rights reserved" -> CC BY 4.0 (Global African Storybook
+        Project). ~44 stories, ~10-15k tokens.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed           # CC-BY (attribution)
+    quarantined: false
+    notes: >-
+      Children's stories, human translation. Clone the repo; separate Kreyòl from
+      parallel French (language-tagged extraction). Genre educational/children.
+
+  # ---- Family-contributed set (docs/data.md §2 J3). Local only; NEVER committed.
+  # Chain-of-custody of third-party works, NOT a rights grant. See
+  # corpus/contributors/ for the contributor record. ----
+
+  - key: cfpb_glossary_family
+    name: "CFPB HT financial glossary + style guide (family-contributed copy)"
+    priority_class: authored
+    license:
+      id: "US-GOV-PD"
+      url: "https://www.copyright.gov/title17/92chap1.html#105"
+      status: clear
+      evidence: >-
+        Consumer Financial Protection Bureau publication (81 pp, 2024) — U.S.
+        federal work, 17 U.S.C. §105 PD. Same rights as us_federal_pdfs; the
+        family-contributed copy is just the acquisition channel.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed
+    quarantined: false
+    notes: >-
+      TRAIN-OK (federal PD). Extract for pretrain + mine EN<->HT pairs into the
+      committable corpus/glossary_pairs_federal.json. Register financial.
+
+  - key: nj_court_glossary
+    name: "NJ Judiciary Haitian Creole court-terms glossary (family-contributed)"
+    priority_class: eval
+    license:
+      id: "STATE-WORK-UNRESOLVED"
+      url: "https://www.njcourts.gov/"
+      status: unresolved
+      evidence: >-
+        State work — NOT automatically PD (§105 covers only FEDERAL works). The
+        stricter read is quarantine; interim EVAL-ONLY pending a terms-check /
+        permission email. See docs/data.md §1 PERMISSION-ROUTE.
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: denied
+      redistribution: denied
+    quarantined: false
+    notes: >-
+      EVAL-ONLY (legal-terminology probe pool, splits.yaml). Extract for the probe
+      set; never trained on. Terms-check email is a J5 human action.
+
+  - key: ma_dese_iep
+    name: "MA DESE IEP form (HT) (family-contributed)"
+    priority_class: eval
+    license:
+      id: "STATE-WORK-UNRESOLVED"
+      url: "https://www.doe.mass.edu/"
+      status: unresolved
+      evidence: >-
+        Massachusetts state work — not §105 PD. Mostly form labels/blanks.
+        EVAL-ONLY pending terms-check (docs/data.md §1 PERMISSION-ROUTE).
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: denied
+      redistribution: denied
+    quarantined: false
+    notes: >-
+      EVAL-ONLY (education-terminology probe pool, splits.yaml). Tiny; labels.
+
+  - key: bmc_clinical_glossary
+    name: "BMC clinical-trial glossary (English–Haitian Creole) (family-contributed)"
+    priority_class: eval
+    license:
+      id: "COURTESY-NOT-LICENSE"
+      url: null
+      status: unresolved
+      evidence: >-
+        "Courtesy" attribution is NOT a license. Boston Medical Center clinical
+        glossary. EVAL-ONLY pending permission (docs/data.md §1 PERMISSION-ROUTE).
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: denied
+      redistribution: denied
+    quarantined: false
+    notes: >-
+      EVAL-ONLY. ORTHOGRAPHY AUDIT required: uses nonstandard French-style accents
+      (santé / rivé / réchèch) — TAG nonstandard_orthography, do NOT silently
+      normalize. Terminology probe pool pending permission.
+
+  - key: family_file_7167
+    name: "Labor-&-birth patient handout FILE_7167.pdf — Beverly Hospital (family-contributed, bilingual)"
+    priority_class: eval
+    license:
+      id: "PRIVATE-HOSPITAL-COPYRIGHT"
+      url: "https://www.beverlyhospital.org/"
+      status: unresolved
+      evidence: >-
+        Producer IDENTIFIED (J3, from the page-1 logo): "Beth Israel Lahey Health /
+        Beverly Hospital" — a private Massachusetts non-profit hospital, NOT a
+        federal work, so NOT §105 PD. "About Your Care During Labor and Birth",
+        bilingual EN/HT patient handout. Same class as bmc_clinical_glossary:
+        identifiable private-institution material, not licensed to us ->
+        PERMISSION-ROUTE, held EVAL-ONLY.
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: denied
+      redistribution: denied
+    quarantined: false
+    notes: >-
+      EVAL-ONLY pending permission (health register). Producer = Beverly Hospital
+      (Beth Israel Lahey Health). NOT federal PD -> never trained on. Not extracted
+      into any training artifact; recorded in the contributor record.
+
+  - key: freeman_medical_dictionary
+    name: "Haitian-English Dictionary, Bryant C. Freeman (family-contributed)"
+    priority_class: owned
+    license:
+      id: "COPYRIGHTED-PUBLISHED"
+      url: null
+      status: denied
+      evidence: >-
+        Published, copyrighted reference work (Bryant C. Freeman). Not PD, not
+        licensed to us. QUARANTINE — human reference only (docs/data.md §1).
+    uses:
+      analysis: denied
+      tokenizer_training: denied
+      model_training: denied
+      redistribution: denied
+    quarantined: true
+    notes: >-
+      QUARANTINE. Do NOT extract. Recorded as a quarantined reference only; stays
+      out of every artifact regardless of possession.
+
 # ---------------------------------------------------------------------------
 # Explicitly unresolved items — each blocks a specific use until closed.
 # ---------------------------------------------------------------------------
