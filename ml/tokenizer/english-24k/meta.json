@@ -1,0 +1,32 @@
+{
+  "name": "kreyol-bpe",
+  "nanochat_commit": "92d63d4e8bb4df75c3b71618f31ddde2378b2bcd",
+  "pattern": "[^\\r\\n\\p{L}\\p{N}]?+\\p{L}+|\\p{N}{1,2}| ?[^\\s\\p{L}\\p{N}]++[\\r\\n]*|\\s*[\\r\\n]|\\s+(?!\\S)|\\s+",
+  "pattern_name": "kreyol_aware",
+  "vocab_size": 24576,
+  "n_content_tokens": 24567,
+  "special_tokens": [
+    "<|bos|>",
+    "<|user_start|>",
+    "<|user_end|>",
+    "<|assistant_start|>",
+    "<|assistant_end|>",
+    "<|python_start|>",
+    "<|python_end|>",
+    "<|output_start|>",
+    "<|output_end|>"
+  ],
+  "snapshot_date": "2026-07-20",
+  "role": "Q1 English-control ablation tokenizer",
+  "trained_on": "english",
+  "english_source": "fineweb",
+  "sample_chars": 120000000,
+  "same_as_kreyol_bpe": [
+    "vocab_size",
+    "pattern",
+    "algorithm(rustbpe)",
+    "special_tokens"
+  ],
+  "only_difference": "learned vocabulary (English merges, not Kreyòl)",
+  "train_seconds": 7.0
+}
