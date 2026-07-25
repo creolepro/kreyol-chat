@@ -5,8 +5,8 @@ Python workspace for all model, corpus, and tokenizer work. Managed with
 
 **Phase 0** is complete (corpus v0, Kreyòl tokenizer, fertility, base-model probe). **Phase 1**
 is under way: **Workstreams E** (corpus v0.1 + eval slices), **F** (nanochat-on-Modal infra +
-conversion proof), **G** (Model C v0, standard-Llama d12), and **J** (corpus v0.2 acquisition)
-are done. Runbooks:
+conversion proof), **G** (Model C v0, standard-Llama d12), **J** (corpus v0.2/v0.2.1 acquisition),
+and **H** (micro-model fleet → the fleet-informed G-v1 config) are done. Runbooks:
 [../docs/phase-0.md](../docs/phase-0.md), [../docs/phase-1.md](../docs/phase-1.md); overall plan
 [../docs/plan.md](../docs/plan.md).
 
@@ -76,3 +76,12 @@ Implemented so far:
   Cric? Crac! fable held out entirely as the heritage exhibit. See
   [reports/sweep4_ingest.md](reports/sweep4_ingest.md),
   [reports/heritage_cric_crac_fable.md](reports/heritage_cric_crac_fable.md).
+- **`train/` (Workstream H)** — **micro-model fleet**: G's standard-Llama arch scaled to **d6/w384
+  (29.5M)**, ~200M tok/run, to answer the controlled experiments (`train/fleet_*.py`). **13 micro
+  runs + a full-size d12/d16 depth pre-check, ~1.63 GPU-hr ≈ $6**. Findings → the fleet-informed
+  **G-v1 config** (docs/phase-1.md): **Q1** kreyol-bpe improves *learning* not just cost (−0.10 bpb
+  vs an English-24k ablation, every slice); **Q7** train on **v0.2.1** (wins FLORES/authored_v2);
+  **Q2** natural sampling (mix weights within noise); **Q5** repetition safe to 12×; **depth d12**.
+  Committed: the **english-24k ablation tokenizer** (`tokenizer/english-24k/`). Plus Part-0 CPU
+  side-quests: probe-leak audit (probe #31 clean in v0.1) + the blinded [kakugo-hat audit
+  sheet](reports/kakugo_audit_sheet.md). See [reports/fleet.md](reports/fleet.md).

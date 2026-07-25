@@ -67,9 +67,27 @@ May run **twice**: `v0` (natural-mix defaults — validates end-to-end and produ
 - **At the end:** BPB compared against the Workstream D base-model scorecard **on the same slices** — the 203M Kreyòl-first model vs the 3–4B multilingual bases is the David-vs-Goliath chart, whichever way it comes out.
 - **Model card + nutrition label v1** generated from provenance: exact composition by origin/genre/source, epochs, tokenizer, known gaps (the Station 5 artifact, produced by the training run itself).
 
+> ### RECOMMENDED G-v1 CONFIG (fleet-informed, 2026-07-25 — runnable from this block alone)
+>
+> Every field below is decided by a Workstream-H experiment ([fleet.md](../ml/reports/fleet.md)); the flagship is otherwise the *proven* Model C v0 recipe (`train/llama_config.FLAGSHIP`, standard Llama width 768, the F2-clean arch).
+>
+> | field | value | decided by |
+> |---|---|---|
+> | **Corpus** | **v0.2.1** (`corpus_v0_2_1-full.jsonl`) | **Q7** — v0.2.1 wins on FLORES (−0.093) + authored_v2 (−0.085), never loses |
+> | **Tokenizer** | **kreyol-bpe** (24,576, `kreyol_aware`) | **Q1** — beats the English-24k ablation by ~0.10 bpb on *every* slice (causal, not just fertility) |
+> | **Depth / width** | **d12 / 768** (123M, standard Llama) | **Part 3** — d12 < d16 on every slice even at v0.2.1's 219.6M unique tokens |
+> | **Sampling** | **natural** (register weights OFF for the main run) | **Q2** — `config_v0_2.MIX_WEIGHTS` shift authored voice only within the seed spread and cost a little general BPB; keep weights for an *optional* late-curriculum tail |
+> | **Token budget** | **~1.0B effective tokens ≈ 4.6 epochs** of v0.2.1's ~216M unique train tokens (band ~0.9–1.3B / 4–6 ep) | **Q5** — BPB still falls at 12× repetition (no overfit ceiling); this band is a safe floor, extensible if compute allows |
+> | **Optimizer / schedule** | AdamW, peak_lr 1.5e-3, cosine→10%, warmup 100, 2^19 tok/step, bf16 (unchanged from Model C v0) | G v0 (proven) |
+> | **Eval** | BPB learning curves on general / authored / **authored_v2** / translation-shaped / FLORES hat + the frozen 10-prompt slider | E/J slices |
+>
+> Excluded on evidence: heavier junk-filtering (**Q3** — de-junk is BPB-neutral at fixed compute) and dropping bot-stubs (**Q4** — they are food; keep flagged). Concretely: re-tokenize v0.2.1 through `train.tokenize_g` (point `CORPUS` at the v0.2.1 shard, natural order), then `train.g_run flagship --depth 12 --num-iter 1907` (1907×2^19 ≈ 1.0B tokens).
+
 ## Workstream H — Micro-model fleet (≈$10–30 total)
 
 Identical-twin experiments at ~20–30M params (smallest viable nanochat depth), ~100–300M tokens each (near-Chinchilla at this size — results not confounded by undertraining). All measured on the same E-slices; key comparisons run **2 seeds**. Each question has a decision attached:
+
+> **Status 2026-07-25: done** (Q1–Q5 + Q7; Q6 still deferred to the synthetic phase). Report: [fleet.md](../ml/reports/fleet.md). Fleet arch = G's standard-Llama `LlamaForCausalLM` scaled to **width 384 / depth 6 = 29.5M params** (verified), ~200M tokens/run, eager, 2^19 tok/step; the **English-24k ablation tokenizer** (`tokenizer/english-24k/`, same 24,576 vocab + `kreyol_aware` pattern, trained on fineweb English — only the merges differ) is committed. **13 micro runs + a full-size d12/d16 depth pre-check, ~1.63 GPU-hr ≈ $6** (well under the $25 cap). Answers → decisions: **Q1** the Kreyòl vocabulary improves *learning* (kreyol-bpe −0.10 bpb general vs english-24k, wins every slice > seed spread → **causal tokenizer claim**); **Q2** authored-upweighting shifts voice only *within* the seed spread and costs a little general BPB → **G-v1 natural sampling**, mix weights only as an optional late tail; **Q7** v0.2.1 wins (FLORES −0.093, authored_v2 −0.085, above spread) → **G-v1 trains on v0.2.1**; **Q3** de-junk is BPB-neutral at fixed compute → keep precise filters, don't chase recall; **Q4** bot-stubs are *food* → keep (flagged); **Q5** repetition still pays at 12× (no overfit) → **G-v1 multi-epoch is safe**; **Part 3** d12 < d16 on every slice even at 219.6M unique → **G-v1 depth = d12**. Coherent theme: at 30M/200M the fleet is **data-limited**, so volume/coverage beats pruning or extra capacity. Recommended G-v1 config block above. **Part 0 side-quests:** probe-leak provenance (the 19 J-removed leaks were probes #1/#10/#12/#19/#36; **#31 clean in v0.1** → Model C v0 exhibit claim stands), Bloom still gated (skipped), and a 150-item blinded [kakugo-hat audit sheet](../ml/reports/kakugo_audit_sheet.md) for the native reviewer (SFT Layer 1).
 
 | Q | Question | Setup | Decides |
 |---|---|---|---|

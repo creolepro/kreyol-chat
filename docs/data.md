@@ -134,7 +134,7 @@ Estimated v0.2: **~150–180M unique tokens, authored ~30–40%.** Micro-fleet Q
 The literature is consistent (LIMA; MURI, TACL 2025; Aya, ACL 2024; SEA-LION): for a small base model, **bulk data teaches format; a small native-quality set teaches voice**; machine-translated instruction data carries translationese that measurably hurts. Three layers:
 
 **Layer 1 — Midtraining (format, bulk-but-structured).**
-- **`Kreyol/kakugo-hat`** — 41,264 synthetic HT multi-turn conversations, Apache-2.0, built specifically for Kreyòl SLMs. **Gate: native-speaker audit of a 150–200 stratified sample first** (the card itself warns "NOT PERFECT!"). Grades well → biggest schedule win of the phase; grades badly → mine it for structure only.
+- **`Kreyol/kakugo-hat`** — 41,264 synthetic HT multi-turn conversations, Apache-2.0, built specifically for Kreyòl SLMs. **Gate: native-speaker audit of a 150–200 stratified sample first** (the card itself warns "NOT PERFECT!"). Grades well → biggest schedule win of the phase; grades badly → mine it for structure only. *(2026-07-25, Workstream H Part 0c: the blinded 150-item audit sheet is built — [ml/reports/kakugo_audit_sheet.md](../ml/reports/kakugo_audit_sheet.md), stratified by turn-count × topic × translated-vs-synthetic origin, two 1:1 origin-tells neutralized — and awaits the reviewer.)*
 - Filtered/deduped `aya_collection` haitian + `xP3x` hat_Latn (Apache-2.0) — templated/translated bulk; cap volume, drop degenerate templates.
 - Translation-task turns from **PD glossaries** (IRS Pub 850, CFPB) + synthetic pairs per the existing phase-1 §I.1 rights-clear route.
 
