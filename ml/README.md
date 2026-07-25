@@ -66,3 +66,13 @@ Implemented so far:
   (`corpus/glossary_pairs_federal.json`) + a contributor record. New eval axes: `authored_eval_v2`
   (VOA temporal) + terminology probes. See [reports/corpus_v0_2_scoping.md](reports/corpus_v0_2_scoping.md),
   [reports/corpus_v0_2.md](reports/corpus_v0_2.md).
+- **`corpus/` (Workstream J-ADDENDUM)** — corpus **v0.2.1**: the four verified TRAIN-OK sweep-4
+  sources folded in incrementally on the frozen v0.2 (dedup exact+MinHash vs the full v0.2 corpus,
+  streamed). **CMU Haitian Corpus** (~433k translated newswire/medical; dictionary → a 32,231-pair
+  EN↔HT lexicon resource, not LM text), **Cric? Crac! 1901** (Sylvain, PD; dLOC page-OCR; ~4.1k tokens
+  pre-reform literary Kreyòl), **Anthologie 1925** (Manioc CC0; clean text layer; ~1.0k). **Lessons
+  1921 abandoned** (OCR: Kreyòl only as garbled drill cells). Net **+438k tokens / +3 registers**
+  (news/health_translated, historical_literary, mix weight 1×) → **219.6M / 316,185 docs**. One
+  Cric? Crac! fable held out entirely as the heritage exhibit. See
+  [reports/sweep4_ingest.md](reports/sweep4_ingest.md),
+  [reports/heritage_cric_crac_fable.md](reports/heritage_cric_crac_fable.md).
