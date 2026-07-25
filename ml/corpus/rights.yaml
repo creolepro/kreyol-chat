@@ -482,6 +482,139 @@ sources:
       QUARANTINE. Do NOT extract. Recorded as a quarantined reference only; stays
       out of every artifact regardless of possession.
 
+  # =========================================================================
+  # Sweep-4 addendum (docs/data.md §1 sweep-4 rows; docs/data-sources-sweep-4.md).
+  # Four verified TRAIN-OK sources folded into the corpus AFTER the v0.2 build,
+  # as an incremental v0.2.1 (corpus/build_v0_2_1.py). Registered BEFORE ingestion
+  # per standing policy. These change register COVERAGE (translated newswire,
+  # historical literary/pedagogy), not scale — tiny next to fineweb-2. Historical
+  # texts keep pre-reform orthography EXACTLY (register/orthography tags carry the
+  # distinction); any normalized rendition would be a separately-reviewed
+  # derivative, never a replacement (docs/data.md §4). Priority classes extend
+  # config_v0_2.SURVIVOR_PRIORITY_V0_2.
+  # =========================================================================
+
+  - key: cmu_haitian
+    name: "CMU Haitian Corpus (speech.cs.cmu.edu/haitian) — newswire + medical + glossary"
+    priority_class: crawl            # translated newswire/medical — web-register tier
+    source_url: "https://www.speech.cs.cmu.edu/haitian/text/"
+    license:
+      id: "CMU-PERMISSIVE-ATTRIB"
+      url: "https://www.speech.cs.cmu.edu/haitian/text/COPYING"
+      status: clear
+      # Quoted verbatim from the COPYING file fetched 2026-07-24:
+      evidence: >-
+        "Permission is hereby granted, free of charge, to use and distribute this
+        data and its documentation without restriction, including without
+        limitation the rights to use, copy, modify, merge, publish, distribute,
+        sublicense, and/or sell copies of this work" — subject to retaining the
+        CMU copyright notice, marking modifications, and a visible provenance
+        acknowledgment (LTI, Carnegie Mellon University, (c) 2010).
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # attribution + provenance-acknowledgment condition
+    quarantined: false
+    notes: >-
+      TRANSLATED newswire (~13,517 sentences) + medical domain sentences (~1,600)
+      → train, registers news_translated / health_translated (origin
+      human_translation; NOT authored Kreyòl voice). STRICT exact+MinHash dedup vs
+      the FULL v0.2 corpus (overlaps WMT11-era releases + possibly the crawl). The
+      glossary-all-fix.{ht,en} DICTIONARY (~parallel term pairs) is NOT LM text —
+      it is stored as a lexicon resource (data/interim/v0_2_1_ingest/
+      cmu_lexicon.json, git-ignored) and noted in the report; it may feed SFT/eval
+      later. Provenance-acknowledgment carried in the report + this entry.
+
+  - key: cric_crac_1901
+    name: "Cric? Crac! — Georges Sylvain, 1901 first edition (fables in Kreyòl verse)"
+    priority_class: authored
+    source_url: "https://dloc.com/UF00076576/00001"
+    license:
+      id: "PUBLIC-DOMAIN-PRE-1929"
+      url: "https://www.copyright.gov/what-is-copyright/"
+      status: clear
+      evidence: >-
+        Published 1901 (dLOC UF00076576 conv_date 1901-01-01, "Ateliers haïtiens";
+        OCLC 06991790; held by University of Florida). Works published before 1929
+        are in the US public domain. FIRST EDITION ONLY — the 1999/2011 modern-
+        orthography editions (L'Harmattan; Creighton item f2d74034 is the 2011
+        reprint) are later creative work and are NOT touched.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # US PD (1901 edition)
+    quarantined: false
+    notes: >-
+      Authored literary Kreyòl — La Fontaine fables transcreated as verse by a
+      Haitian montagnard narrator. genre historical, register historical_literary,
+      orthography PRE_REFORM (French-based 1901 spelling) preserved EXACTLY, page-
+      level provenance. Source text = dLOC's own page-level OCR (patron API
+      `pagetext`, 241 pages) — no re-OCR; the Creighton 1901 item has no scan
+      bitstreams (curator note: physical copy "in wretched condition"). The book
+      prints facing French (La Fontaine original) + Kreyòl; only HT-dominant pages
+      are kept (page-level language separation; rough 1901 OCR). PROBE-PROVERB
+      CHECK IS LOAD-BEARING (these are fables) — any page containing a held-out
+      probe proverb / near-variant is excluded from training and logged. One
+      complete fable is held out ENTIRELY from training as the heritage exhibit
+      asset (reports/heritage_cric_crac_fable.md) — "the oldest text connected to
+      the model" can only be an exhibit fact if the model never trained on it.
+
+  - key: lessons_haitian_1921
+    name: "Lessons in Haitian Creole (1921, US Gendarmerie d'Haïti)"
+    priority_class: authored
+    source_url: "https://archive.org/details/lessonsinhaitian00haitrich"
+    license:
+      id: "NOT-IN-COPYRIGHT"
+      url: "https://archive.org/details/lessonsinhaitian00haitrich"
+      status: clear
+      evidence: >-
+        Internet Archive rights status NOT_IN_COPYRIGHT ("no visible notice of
+        copyright; stated date is 1921"). Occupation-era imprint (printed by
+        Edmond Chenet, Port-au-Prince, 1921; compiled by the US Medical corps /
+        Gendarmerie d'Haïti). Pre-1929 US public domain.
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed
+    quarantined: false
+    notes: >-
+      TRAIN-OK by rights, but INGESTION ABANDONED on OCR-quality grounds (recorded,
+      not ingested — sweep4_ingest.md). The book is an English pedagogical manual
+      in which Kreyòl appears only as isolated vocabulary entries and verb-
+      conjugation paradigm cells (1:1 with English prompts), heavily OCR-corrupted
+      (IA djvu.txt); there is no extractable Kreyòl prose (densest contiguous
+      Kreyòl ≈ a conjugation drill of "vini", <1k clean chars). Ingesting it would
+      inject English + OCR noise. genre historical / register historical_pedagogy
+      reserved for a future clean transcription.
+
+  - key: anthologie_1925
+    name: "Anthologie d'un siècle de poésie haïtienne (1925, Manioc)"
+    priority_class: authored
+    source_url: "https://www.manioc.org/patrimon/PAP11095"
+    license:
+      id: "CC0-1.0"
+      url: "https://creativecommons.org/publicdomain/zero/1.0/"
+      status: clear
+      evidence: >-
+        Manioc record PAP11095 states "Licence Creative Commons CC0". PDF:
+        manioc.martinique.univ-antilles.fr/omeka-s/files/original/3530/PAP11095.pdf
+    uses:
+      analysis: allowed
+      tokenizer_training: allowed
+      model_training: allowed
+      redistribution: allowed          # CC0 (public-domain dedication)
+    quarantined: false
+    notes: >-
+      Predominantly FRENCH anthology; only the clearly-Kreyòl poem passages are
+      ingested (~10 Kreyòl-dense pages of 408). genre historical, register
+      historical_literary, pre-reform orthography preserved. The PDF has a clean
+      embedded TEXT LAYER (PyMuPDF extraction — no OCR needed); langid fails on the
+      historical orthography, so Kreyòl passages are isolated by a marker-based
+      page/line pass then reviewed. Probe-proverb check applied.
+
 # ---------------------------------------------------------------------------
 # Explicitly unresolved items — each blocks a specific use until closed.
 # ---------------------------------------------------------------------------

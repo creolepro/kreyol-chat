@@ -213,3 +213,30 @@ assignment_v0_2:
   bmc_clinical_glossary: exhibit_examples
   family_file_7167: null             # pending producer identification
   freeman_medical_dictionary: null   # quarantined
+
+# ---------------------------------------------------------------------------
+# Sweep-4 addendum (corpus v0.2.1). Registered BEFORE ingestion. Historical
+# texts are register/orthography-tagged so a curriculum experiment can up/down-
+# weight or exclude them. The v0.2 eval slices (authored_eval_v2, terminology
+# probes) are UNTOUCHED — no sweep-4 material enters any frozen eval slice.
+# ---------------------------------------------------------------------------
+assignment_v0_2_1:
+  cmu_haitian: train                 # newswire+medical → train; glossary → lexicon (not a split)
+  cric_crac_1901: train              # EXCEPT the one held-out heritage fable (below)
+  anthologie_1925: train             # clearly-Kreyòl passages only
+  lessons_haitian_1921: null         # TRAIN-OK by rights, ingestion abandoned on OCR-quality grounds
+
+# One complete Cric? Crac! (1901) fable is held out of training ENTIRELY and saved
+# as the heritage exhibit asset. It is NOT written to the corpus shard (not even as
+# exhibit_examples inside the corpus) so the exhibit claim — "the oldest text
+# connected to the model" — stays honest: the model never trained on it. The chosen
+# fable + its 1901 page span are recorded in reports/heritage_cric_crac_fable.md and
+# the build stats (heritage_fable_holdout).
+heritage_exhibits:
+  cric_crac_1901_fable:
+    source: cric_crac_1901
+    may_enter_training: false
+    asset: "ml/reports/heritage_cric_crac_fable.md"
+    rule: >-
+      One self-contained fable, excluded from the v0.2.1 shard by page span before
+      the Cric? Crac! ingest is written. Preserves 1901 pre-reform orthography.

@@ -24,6 +24,14 @@ V0_2_INGEST = os.path.join(config.DATA, "interim", "v0_2_ingest")   # per-source
 CORPUS_V0_2 = os.path.join(config.CLEAN, "corpus_v0_2-{tag}.jsonl")
 V0_2_STATS = os.path.join(config.CLEAN, "corpus_v0_2-{tag}.build_stats.json")
 
+# --- sweep-4 addendum → corpus v0.2.1 (incremental on top of the frozen v0.2) ---
+SWEEP4_DIR = os.path.join(config.DATA, "smallwins", "sweep4")       # raw downloads
+V0_2_1_INGEST = os.path.join(config.DATA, "interim", "v0_2_1_ingest")   # per-source jsonl
+CORPUS_V0_2_1 = os.path.join(config.CLEAN, "corpus_v0_2_1-{tag}.jsonl")
+V0_2_1_STATS = os.path.join(config.CLEAN, "corpus_v0_2_1-{tag}.build_stats.json")
+CMU_LEXICON = os.path.join(V0_2_1_INGEST, "cmu_lexicon.json")       # dictionary → lexicon (not LM text)
+HERITAGE_FABLE_MD = os.path.join(config.REPORTS, "heritage_cric_crac_fable.md")
+
 # --- dedup survivor priority (extends config.SURVIVOR_PRIORITY) -------------
 # Lower wins. authored/PD material beats the crawl copy of the same text so the
 # well-provenanced version survives (e.g. VOA article vs its MADLAD scrape).
@@ -42,6 +50,13 @@ SOURCE_TAGS = {
     "konstitisyon_1987": {"origin": "human_translation",    "genre": "historical",   "register": "legal"},
     "bloom_lm_hat":      {"origin": "authored_kreyol",      "genre": "educational",  "register": "children"},
     "storybooks_haiti":  {"origin": "human_translation",    "genre": "educational",  "register": "children"},
+    # --- sweep-4 (v0.2.1). CMU emits TWO registers per-doc (news/health); the
+    # ingest module tags each doc — this is the dominant one. genre uses the strict
+    # schema enum (`news`/`historical`); the finer distinction is the register tag.
+    "cmu_haitian":       {"origin": "human_translation",    "genre": "news",         "register": "news_translated"},
+    "cric_crac_1901":    {"origin": "authored_kreyol",      "genre": "historical",   "register": "historical_literary"},
+    "anthologie_1925":   {"origin": "authored_kreyol",      "genre": "historical",   "register": "historical_literary"},
+    "lessons_haitian_1921": {"origin": "authored_kreyol",   "genre": "historical",   "register": "historical_pedagogy"},
 }
 
 # --- register mix weights (TRAIN-time sampling guidance, reported not baked) ---
@@ -58,6 +73,16 @@ MIX_WEIGHTS = {
     "encyclopedic": 2.0,     # htwiki authored
     "religious": 1.0,        # capped by RELIGIOUS_CAP_FRAC regardless
     "web_crawl": 1.0,        # MADLAD + fineweb-2 bulk
+    # sweep-4 (v0.2.1): translated + historical registers held at 1.0 ON PURPOSE.
+    # They add register COVERAGE, not authored-voice scale — translationese
+    # (news/health_translated) and pre-reform-orthography literary Kreyòl
+    # (historical_literary) are register-tagged and identifiable so a curriculum
+    # experiment can up/down-weight or exclude them, but are NOT amplified into the
+    # modern-voice mix (up-weighting pre-1929 spelling would distort it).
+    "news_translated": 1.0,
+    "health_translated": 1.0,
+    "historical_literary": 1.0,
+    "historical_pedagogy": 1.0,
 }
 RELIGIOUS_CAP_FRAC = 0.02    # hard cap: religious <= 2% of corpus tokens (Bib La)
 
