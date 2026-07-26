@@ -376,6 +376,30 @@ def bpb(tag: str, step: int, slices: list | None = None) -> dict:
     return {"tag": tag, "step": step, "bpb": res}
 
 
+@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=1200)
+def exhibit_gen(tag: str, step: int, prompt: str, max_tokens: int = 64,
+                temperature: float = 0.8, top_p: float = 0.95, seed: int = 20260726) -> dict:
+    """One cold-prompt exhibit: greedy + ONE sampled completion from an HF checkpoint. Used for
+    the 1901 heritage-fable cold prompt (a text the model never trained on)."""
+    import torch
+    from transformers import LlamaForCausalLM
+    enc = _load_enc()
+    bos_id = enc.encode_single_token("<|bos|>")
+    d = os.path.join(_CKPT(tag), f"step_{step}")
+    model = LlamaForCausalLM.from_pretrained(d, torch_dtype=torch.bfloat16).to("cuda").eval()
+    ids = [bos_id] + enc.encode_ordinary(prompt)
+    x = torch.tensor([ids], device="cuda")
+    with torch.inference_mode():
+        yg = model.generate(x, max_new_tokens=max_tokens, do_sample=False, num_beams=1)
+        torch.manual_seed(seed)
+        ys = model.generate(x, max_new_tokens=max_tokens, do_sample=True,
+                            temperature=temperature, top_p=top_p, num_beams=1)
+    return {"tag": tag, "step": step, "prompt": prompt, "max_tokens": max_tokens,
+            "temperature": temperature, "top_p": top_p, "seed": seed,
+            "greedy": enc.decode(yg[0, len(ids):].tolist()),
+            "sampled": enc.decode(ys[0, len(ids):].tolist())}
+
+
 # ============================ F2 conversion gates =============================
 
 @app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=3600)
@@ -397,7 +421,8 @@ def convert_gates(tag: str, step: int, do_quant: bool = True, do_ollama: bool = 
     tok_json = os.path.join(G.G_TOKENIZER_DIR, "tokenizer.json")
 
     probe = json.load(open(G.PARITY_PROBE, encoding="utf-8"))
-    prompts = [p["prompt"] for p in json.load(open(G.G_CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"]][:5]
+    all_prompts = [p["prompt"] for p in json.load(open(G.G_CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"]]
+    prompts = all_prompts[:5]                                   # gates 1/2/4/5/6 use the first 5
 
     # export the trained model as a clean HF repo (weights + our tokenizer.json)
     model = LlamaForCausalLM.from_pretrained(ck, torch_dtype=torch.float32).to("cuda").eval()
@@ -446,6 +471,12 @@ def convert_gates(tag: str, step: int, do_quant: bool = True, do_ollama: bool = 
             gguf, native, res.get("gate5_onnx", {}).get("onnx_completion"),
             prompts, enc, bos_id, gguf_q4)
 
+    # gate 6b — first-position logit margin vs fp32↔f16 delta on ALL 10 frozen prompts
+    # (closes the v0 flat-distribution story: demonstrated, not asserted)
+    res["gate6_first_pos_margin"] = gates.gate6_first_pos_margin(
+        hf_dir, gguf if res["gate2_gguf"]["gguf_exists"] else None, all_prompts, enc, bos_id)
+    print(f"[gate6b] {res['gate6_first_pos_margin']['verdict']}")
+
     # persist artifacts (GGUF/ONNX) to the Volume; hashes recorded for the report
     import hashlib
     def _sha(path):
@@ -483,6 +514,50 @@ def read_result(name: str) -> dict | None:
         return None
     with open(p) as fh:
         return json.load(fh)
+
+
+@app.function(image=image, volumes={CACHE: VOL}, timeout=600)
+def gguf_meta(tag: str, step: int) -> dict:
+    """Diagnose the native↔llama.cpp first-token divergence (gate 6): does llama.cpp's default
+    generation path prepend our bos_id 24567 the way the native HF path always does? CPU-only:
+    read the GGUF BOS metadata (best-effort) + probe llama-tokenize default vs --no-bos."""
+    import re
+    import subprocess
+    from . import gates
+    gguf = os.path.join(G.G_ARTIFACT_DIR, tag, f"modelc-{tag}-step{step}-f16.gguf")
+    out = {"tag": tag, "step": step, "gguf_exists": os.path.exists(gguf), "native_bos_id": 24567}
+    if not out["gguf_exists"]:
+        return out
+    try:                                            # best-effort GGUF KV read
+        from gguf import GGUFReader
+        rd = GGUFReader(gguf)
+        kv = {}
+        for name, field in rd.fields.items():
+            if name.startswith("tokenizer.ggml.") and any(t in name for t in ("bos", "eos", "add_", "pre")):
+                try:
+                    kv[name] = field.contents()
+                except Exception:
+                    kv[name] = None
+        out["tokenizer_kv"] = kv
+    except Exception as e:
+        out["tokenizer_kv_error"] = f"{type(e).__name__}: {e}"[:200]
+
+    def _ids(text, no_bos):                          # llama-tokenize (CPU, -ngl 0)
+        cmd = [gates.LTOK, "-m", gguf, "-p", text, "--ids", "-ngl", "0"] + (["--no-bos"] if no_bos else [])
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        except Exception:
+            return None
+        m = re.search(r"\[([\d,\s]*)\]", r.stdout)
+        return [int(x) for x in m.group(1).split(",") if x.strip()] if m else None
+    txt = "Bonjou! Kijan ou ye jodi a?"
+    out["ids_default"] = _ids(txt, no_bos=False)
+    out["ids_no_bos"] = _ids(txt, no_bos=True)
+    dflt = out["ids_default"] or []
+    nob = out["ids_no_bos"] or []
+    out["llamacpp_prepends_a_bos"] = bool(dflt) and bool(nob) and len(dflt) == len(nob) + 1
+    out["llamacpp_prepends_bos_24567"] = bool(dflt) and dflt[0] == 24567
+    return out
 
 
 # ==================== base-model BPB on the SAME slices =======================

@@ -27,8 +27,14 @@ KREYOL_BPE_META = os.path.join(KREYOL_BPE_DIR, "meta.json")
 KREYOL_BPE_HF_JSON = os.path.join(KREYOL_BPE_DIR, "tokenizer.json")  # HF bridge (for the convert probe)
 # corpus v0.1 (Workstream E) + the held-out sets to exclude from training.
 CORPUS_V0_1 = os.path.join(DATA, "clean", "corpus_v0_1-{tag}.jsonl")
+# corpus v0.2.1 (Workstream J-ADDENDUM) — the Model C v1 flagship trains on this (Q7).
+# Only a "full" shard exists (no sample); v1 prep always uses tag="full".
+CORPUS_V0_2_1 = os.path.join(DATA, "clean", "corpus_v0_2_1-{tag}.jsonl")
 EVAL_DIR = os.path.join(DATA, "eval")
 AUTHORED_EVAL = os.path.join(EVAL_DIR, "authored_eval.jsonl")
+# authored_eval_v2 = the held-out VOA temporal slice (Workstream J) — the v1 authored-
+# journalism BPB axis; excluded from training, added to the eval slices.
+AUTHORED_EVAL_V2 = os.path.join(EVAL_DIR, "authored_eval_v2.jsonl")
 TRANSLATION_SHAPED_EVAL = os.path.join(EVAL_DIR, "translation_shaped_eval.jsonl")
 PROVERBS_PROBE = os.path.join(EVAL_DIR, "proverbs_probe.jsonl")
 

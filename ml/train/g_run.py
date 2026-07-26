@@ -7,15 +7,19 @@ Subcommands (each writes a results JSON under data/train_work/g/ that the report
   verify    assert param counts (d12/d16/d20) == the torch-free calc
   gate      Part 2: train d16 throwaway → run F2 gates 1-6 → g_gates_results.json
   sweep     Part 3: train d12/d16/d20 (identical order+budget) → BPB → g_sweep_results.json
-  flagship  Part 4: train chosen depth w/ per-ckpt gens+BPB → convert → g_flagship_results.json
+  flagship  Part 4: train chosen depth w/ per-ckpt gens+BPB → convert → g_flagship[_v1]_results.json
+            (--version v1 = fleet-informed FLAGSHIP_V1: corpus v0.2.1, ~1.0B tokens, distinct tag)
   base-bpb  base-model BPB on the SAME eval slices → g_base_bpb.json (vs-scorecard table)
+  scorecard Model C v1's 5-row table: re-score v0 + the 3 bases on the CURRENT (v1) eval set
 
 Run:
-  cd ml && uv run python -m train.tokenize_g [--sample]     # (prepare, local)
+  cd ml && uv run python -m train.tokenize_g [--sample] [--v1]     # (prepare, local)
   cd ml && uv run python -m train.g_run gate
   cd ml && uv run python -m train.g_run sweep
   cd ml && uv run python -m train.g_run flagship --depth 16
+  cd ml && uv run python -m train.g_run flagship --depth 12 --num-iter 1907 --version v1
   cd ml && uv run python -m train.g_run base-bpb
+  cd ml && uv run python -m train.g_run scorecard
 """
 
 from __future__ import annotations
@@ -30,7 +34,7 @@ from . import config as F
 from . import llama_config as G
 from . import prepare as Fprep
 from .llama_app import (app, verify_params, train, generate, bpb,
-                        convert_gates, base_bpb, read_result)
+                        convert_gates, base_bpb, read_result, exhibit_gen, gguf_meta)
 
 VOL = modal.Volume.from_name(F.MODAL_VOLUME, create_if_missing=True)
 
@@ -65,8 +69,8 @@ def do_upload():
 
 # --- helpers to assemble a train cfg -----------------------------------------
 
-def _ckpt_steps_for(num_iter):
-    steps = G.tokens_to_steps(G.FLAGSHIP["checkpoint_tokens"])
+def _ckpt_steps_for(num_iter, ckpt_tokens=None):
+    steps = G.tokens_to_steps(ckpt_tokens or G.FLAGSHIP["checkpoint_tokens"])
     return sorted(s for s in set(steps) if 0 <= s <= num_iter)
 
 
@@ -153,14 +157,18 @@ def do_sweep(depths=None):
 
 # --- Part 4: flagship ---------------------------------------------------------
 
-def do_flagship(depth, num_iter=None):
+def do_flagship(depth, num_iter=None, version="v0"):
     """Detach-based + Volume-resumable: train (with inline final full BPB) then convert. Each
     step self-persists to the Volume, so a client disconnect (ephemeral app killed when the
     local driver dies) never loses work — re-run to resume from whatever is already on the
-    Volume. detach=True keeps the app running server-side past a client disconnect."""
-    num_iter = num_iter or G.FLAGSHIP["num_iterations"]
-    tag = G.FLAGSHIP["model_tag"].format(depth=depth)
-    save_steps = _ckpt_steps_for(num_iter)
+    Volume. detach=True keeps the app running server-side past a client disconnect.
+
+    version="v1" uses G.FLAGSHIP_V1 (corpus v0.2.1, ~1.0B tokens, 1B checkpoint, distinct tag
+    `modelc-v1-d{depth}`) and writes g_flagship_v1_results.json so v0's results are untouched."""
+    cfg_fl = G.FLAGSHIP_V1 if version == "v1" else G.FLAGSHIP
+    num_iter = num_iter or cfg_fl["num_iterations"]
+    tag = cfg_fl["model_tag"].format(depth=depth)
+    save_steps = _ckpt_steps_for(num_iter, cfg_fl["checkpoint_tokens"])
     final = save_steps[-1]
     with modal.enable_output(), app.run(detach=True):
         tr = read_result.remote(f"train_{tag}.json")
@@ -174,13 +182,40 @@ def do_flagship(depth, num_iter=None):
         gt = read_result.remote(f"gates_{tag}.json")
         if not gt:
             gt = convert_gates.remote(tag, final)
-    results = {"part": "flagship", "depth": depth, "tag": tag, "num_iterations": num_iter,
+    results = {"part": "flagship", "version": version, "corpus": cfg_fl.get("corpus"),
+               "depth": depth, "tag": tag, "num_iterations": num_iter,
                "checkpoint_steps": save_steps, "train": tr,
                "final_full_bpb": (tr or {}).get("final_full_bpb"), "gates": gt}
-    _save("g_flagship_results.json", results)
+    _save("g_flagship_results.json" if version == "v0" else "g_flagship_v1_results.json", results)
     ffb = results.get("final_full_bpb") or {}
     if ffb:
         print(f"[flagship] final full BPB: { {k: round(v['bpb'],4) for k,v in ffb.items()} }")
+
+
+# --- v1 five-row scorecard: re-score v0 + bases on the CURRENT eval set --------
+
+def do_scorecard(v0_depth=12):
+    """Re-score Model C v0 + the three 3-4B bases on the CURRENT eval_texts.json (v1's: the
+    v0.2.1 general_holdout + authored_eval_v2). Model C v1's own row comes from its training
+    final_full_bpb (g_flagship_v1_results.json), so the 5 rows are all on IDENTICAL slices."""
+    token = _hf_token()
+    if not token:
+        print("[scorecard] WARNING: no HF_TOKEN in .env — gated bases (gemma/llama) will 401")
+    v0_tag = G.FLAGSHIP["model_tag"].format(depth=v0_depth)
+    v0_step = G.FLAGSHIP["num_iterations"]          # final v0 checkpoint (step == num_iter)
+    results = {"part": "v1-scorecard", "v0_tag": v0_tag, "v0_step": v0_step,
+               "eval_note": "all rows re-scored on the v1 eval_texts.json "
+                            "(v0.2.1 general_holdout + authored_eval_v2); frozen slices are corpus-invariant",
+               "modelc_v0": None, "bases": {}}
+    with modal.enable_output(), app.run():
+        r0 = bpb.remote(v0_tag, v0_step)
+        results["modelc_v0"] = r0["bpb"]
+        print(f"[scorecard] modelc-v0: { {k: round(v['bpb'],4) for k,v in r0['bpb'].items()} }")
+        for repo, rev in BASES:
+            rb = base_bpb.remote(repo, rev, token=token)
+            results["bases"][repo] = rb["bpb"]
+            print(f"[scorecard] {repo}: { {k: round(v['bpb'],4) for k,v in rb['bpb'].items() if v.get('bpb')} }")
+    _save("g_v1_scorecard.json", results)
 
 
 # --- base-model BPB on the same slices ---------------------------------------
@@ -221,6 +256,44 @@ def do_base_bpb():
     _save("g_base_bpb.json", results)
 
 
+# --- v1 exhibit: the 1901 heritage-fable cold prompt --------------------------
+
+# Opening lines of «Le Loup, la Chèvre et le Chevreau», Georges Sylvain, Cric? Crac!
+# (1901) — held out of training ENTIRELY (reports/heritage_cric_crac_fable.md), so this is
+# a genuine cold prompt. Pre-reform Kreyòl orthography, 1901-print OCR, verbatim.
+HERITAGE_FABLE_PROMPT = ("Loup, ti Cabritt avec manman Cabritt\n"
+                         "Nan toutt temps, cabritt ac loup,\n")
+
+
+def do_exhibits(depth=12, version="v1"):
+    """Generate the heritage-fable cold prompt (greedy + one sampled) from the final flagship
+    checkpoint → g_v1_exhibits.json (rendered by the report, alongside the slider asset)."""
+    cfg_fl = G.FLAGSHIP_V1 if version == "v1" else G.FLAGSHIP
+    tag = cfg_fl["model_tag"].format(depth=depth)
+    step = cfg_fl["num_iterations"]
+    with modal.enable_output(), app.run():
+        hf = exhibit_gen.remote(tag, step, HERITAGE_FABLE_PROMPT,
+                                max_tokens=64, temperature=0.8, seed=20260726)
+    results = {"part": "v1-exhibits", "tag": tag, "step": step, "heritage_fable": hf}
+    _save("g_v1_exhibits.json", results)
+    print(f"[exhibits] heritage fable greedy → {hf['greedy'][:90]!r}")
+    print(f"[exhibits] heritage fable sampled → {hf['sampled'][:90]!r}")
+
+
+def do_diagnose_bos(depth=12, version="v1"):
+    """Gate-6 root-cause probe: does llama.cpp prepend our BOS the way native does?"""
+    cfg_fl = G.FLAGSHIP_V1 if version == "v1" else G.FLAGSHIP
+    tag = cfg_fl["model_tag"].format(depth=depth)
+    step = cfg_fl["num_iterations"]
+    with modal.enable_output(), app.run():
+        res = gguf_meta.remote(tag, step)
+    _save("g_v1_bos_diagnosis.json", res)
+    print(f"[diagnose-bos] ids_default[:3]={ (res.get('ids_default') or [])[:3] } "
+          f"prepends_bos_24567={res.get('llamacpp_prepends_bos_24567')} "
+          f"prepends_a_bos={res.get('llamacpp_prepends_a_bos')}")
+    print(f"[diagnose-bos] tokenizer_kv={res.get('tokenizer_kv')}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -230,7 +303,14 @@ def main():
     sw = sub.add_parser("sweep"); sw.add_argument("--depths", type=str, default="")
     fl = sub.add_parser("flagship"); fl.add_argument("--depth", type=int, required=True)
     fl.add_argument("--num-iter", type=int, default=None)
+    fl.add_argument("--version", choices=["v0", "v1"], default="v0",
+                    help="v1 = fleet-informed FLAGSHIP_V1 (corpus v0.2.1, ~1.0B tokens, distinct tag)")
     sub.add_parser("base-bpb")
+    sc = sub.add_parser("scorecard"); sc.add_argument("--v0-depth", type=int, default=12)
+    ex = sub.add_parser("exhibits"); ex.add_argument("--depth", type=int, default=12)
+    ex.add_argument("--version", choices=["v0", "v1"], default="v1")
+    db = sub.add_parser("diagnose-bos"); db.add_argument("--depth", type=int, default=12)
+    db.add_argument("--version", choices=["v0", "v1"], default="v1")
     args = ap.parse_args()
 
     if args.cmd == "upload":
@@ -243,9 +323,15 @@ def main():
         depths = [int(x) for x in args.depths.split(",") if x.strip()] if args.depths else None
         do_sweep(depths)
     elif args.cmd == "flagship":
-        do_flagship(args.depth, args.num_iter)
+        do_flagship(args.depth, args.num_iter, version=args.version)
     elif args.cmd == "base-bpb":
         do_base_bpb()
+    elif args.cmd == "scorecard":
+        do_scorecard(args.v0_depth)
+    elif args.cmd == "exhibits":
+        do_exhibits(args.depth, version=args.version)
+    elif args.cmd == "diagnose-bos":
+        do_diagnose_bos(args.depth, version=args.version)
 
 
 if __name__ == "__main__":

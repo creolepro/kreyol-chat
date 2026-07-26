@@ -13,7 +13,9 @@ Outputs under `data/train_work/g/data/` (git-ignored), uploaded to the Modal Vol
                          SAME texts drive Model C and the base-model comparison.
   manifest.json        — token/doc/byte counts, seeds, exclusions.
 
-Run:  python -m train.tokenize_g [--sample]
+v1 (--v1): corpus v0.2.1 + the authored_eval_v2 slice (5 slices total) + nutrition v2.
+
+Run:  python -m train.tokenize_g [--sample] [--v1]
 """
 
 from __future__ import annotations
@@ -55,14 +57,25 @@ def _in_tokenizer_holdout(doc_id: str) -> bool:
     return _u01(f"holdout:{F.HOLDOUT_SPLIT_SEED}:{doc_id}") < F.HOLDOUT_FRAC
 
 
-def _excluded_slice_ids() -> set:
+def _doc_id(d: dict) -> str | None:
+    """Slices carry doc_id either top-level (authored/translation_shaped) or nested under
+    `acquisition` (authored_eval_v2 = corpus-native VOA schema)."""
+    return d.get("doc_id") or d.get("acquisition", {}).get("doc_id")
+
+
+def _excluded_slice_ids(include_v2: bool = False) -> set:
     ids = set()
-    for path in (F.AUTHORED_EVAL, F.TRANSLATION_SHAPED_EVAL):
+    paths = [F.AUTHORED_EVAL, F.TRANSLATION_SHAPED_EVAL]
+    if include_v2:
+        paths.append(F.AUTHORED_EVAL_V2)          # keep the VOA temporal slice out of training
+    for path in paths:
         if os.path.exists(path):
             for line in open(path, encoding="utf-8"):
                 line = line.strip()
                 if line:
-                    ids.add(json.loads(line)["doc_id"])
+                    did = _doc_id(json.loads(line))
+                    if did:
+                        ids.add(did)
     return ids
 
 
@@ -95,10 +108,12 @@ def build_parity_probe() -> dict:
     return {"n_probe": payload["n_probe"], "n_fixtures": payload["n_fixtures"]}
 
 
-def build(sample: bool) -> dict:
+def build(sample: bool, v1: bool = False) -> dict:
     enc, bos = _encoding()
-    corpus = F.CORPUS_V0_1.format(tag="sample" if sample else "full")
-    exclude = _excluded_slice_ids()
+    # v1 (Model C v1 flagship): corpus v0.2.1 + the authored_eval_v2 slice. natural order
+    # (the seeded doc shuffle below; NO mix weights) is exactly fleet Q2's "natural sampling".
+    corpus = (F.CORPUS_V0_2_1 if v1 else F.CORPUS_V0_1).format(tag="sample" if sample else "full")
+    exclude = _excluded_slice_ids(include_v2=v1)
 
     os.makedirs(G.G_BUNDLE_DATA, exist_ok=True)
     train_ids: list[np.ndarray] = []
@@ -160,6 +175,10 @@ def build(sample: bool) -> dict:
         "flores_hat": _flores_texts(),
         "general_holdout": gen_hold,
     }
+    if v1:
+        # authored_eval_v2 = held-out VOA temporal slice (the v1 authored-journalism BPB axis)
+        eval_texts["authored_eval_v2"] = (
+            _slice_texts(F.AUTHORED_EVAL_V2) if os.path.exists(F.AUTHORED_EVAL_V2) else [])
     with open(os.path.join(G.G_BUNDLE_DATA, "eval_texts.json"), "w", encoding="utf-8") as fh:
         json.dump(eval_texts, fh, ensure_ascii=False)
 
@@ -168,6 +187,7 @@ def build(sample: bool) -> dict:
 
     manifest = {
         "snapshot_date": G.SNAPSHOT_DATE, "sample": sample, "seed": G.TRAIN["seed"],
+        "corpus_version": "v0.2.1" if v1 else "v0.1",
         "bos_id": int(bos), "vocab_size": F.VOCAB_SIZE,
         "train_docs": n_train, "train_tokens": int(train_stream.size), "train_mb": _mb(train_stream),
         "val_tokens": int(val_stream.size), "val_mb": _mb(val_stream),
@@ -181,19 +201,19 @@ def build(sample: bool) -> dict:
     return manifest
 
 
-def build_nutrition(sample: bool = False) -> dict:
-    """Composition of the ACTUAL training set (corpus v0.1 minus eval slices + tokenizer
-    holdout — the SAME docs the model trains on) by origin / genre / source, in docs AND
-    UTF-8 byte mass (a proxy for token mass), plus flagged bot-stub count. The Station-5
-    nutrition label is generated from provenance, not asserted."""
+def build_nutrition(sample: bool = False, v1: bool = False) -> dict:
+    """Composition of the ACTUAL training set (corpus minus eval slices + tokenizer holdout —
+    the SAME docs the model trains on) by origin / genre / source (+ REGISTER for v1's 15
+    registers), in docs AND UTF-8 byte mass (a token-mass proxy), plus flagged bot-stub count.
+    The Station-5 nutrition label is generated from provenance, not asserted. v1 reads corpus
+    v0.2.1 and adds the tokenizer + probe-guard fields the nutrition label v2 quotes."""
     import collections
-    corpus = F.CORPUS_V0_1.format(tag="sample" if sample else "full")
-    exclude = _excluded_slice_ids()
+    corpus = (F.CORPUS_V0_2_1 if v1 else F.CORPUS_V0_1).format(tag="sample" if sample else "full")
+    exclude = _excluded_slice_ids(include_v2=v1)
 
-    by = {"origin": collections.Counter(), "genre": collections.Counter(),
-          "source": collections.Counter()}
-    bytes_by = {"origin": collections.Counter(), "genre": collections.Counter(),
-                "source": collections.Counter()}
+    dims = ["origin", "genre", "source"] + (["register"] if v1 else [])
+    by = {k: collections.Counter() for k in dims}
+    bytes_by = {k: collections.Counter() for k in dims}
     n_train = n_bot_stub = 0
     total_bytes = 0
     for line in open(corpus, encoding="utf-8"):
@@ -207,8 +227,8 @@ def build_nutrition(sample: bool = False) -> dict:
         n_train += 1
         b = len(d["text"].encode("utf-8"))
         total_bytes += b
-        for k in by:
-            key = d.get(k) if k != "source" else d["acquisition"]["source"]
+        for k in dims:
+            key = d.get(k, "unknown") if k != "source" else d["acquisition"]["source"]
             by[k][key] += 1
             bytes_by[k][key] += b
         if d.get("wiki_bot_stub"):
@@ -219,30 +239,51 @@ def build_nutrition(sample: bool = False) -> dict:
                 for k, v in by[dim].most_common()}
 
     out = {
+        "corpus_version": "v0.2.1" if v1 else "v0.1",
+        "tokenizer": "kreyol-bpe, 24,576 vocab (kreyol_aware pre-tokenization)",
         "train_docs": n_train, "train_bytes": total_bytes, "bot_stub_docs_flagged": n_bot_stub,
         "composition_by_origin": _compose("origin"),
         "composition_by_genre": _compose("genre"),
         "composition_by_source": _compose("source"),
         "pct_basis": "percentages are UTF-8 byte mass (token-mass proxy); docs are counts",
-        "known_gaps": ("no dialogue/chat, no code, thin owned/authored (35 proverb docs); crawl is "
-                       "~70% translation-shaped Kreyòl (audit) — measured, not filtered out"),
-        "audit_note": ("crawl: 0.7% wrong-lang, 17.2% junk (v0→v0.1 removed the mechanical share), "
-                       "70% translation-shaped; wikipedia: 0% junk, 71% bot-stubs (flagged, kept)"),
     }
-    with open(os.path.join(G.G_WORK, "g_nutrition.json"), "w", encoding="utf-8") as fh:
+    if v1:
+        out["composition_by_register"] = _compose("register")
+        out["known_gaps"] = ("no dialogue/chat, no code, thin authored-voice (35 proverb docs + "
+                             "small heritage/journalism registers); web crawl still dominant and "
+                             "~translation-shaped — measured, kept (fleet Q3/Q4), not filtered out")
+        out["audit_note"] = ("v0.2.1 = v0.1 base + register-tagged net-new (VOA journalism, 33 "
+                             "federal PD PDFs, Bib La/Konstitisyon/Storybooks, fineweb-2) + sweep-4 "
+                             "(CMU translated, Cric?Crac! 1901, Anthologie 1925); bot-stubs flagged "
+                             "and kept (Q4 = food); natural sampling (Q2), mix weights recorded not applied")
+        out["probe_guard"] = ("the 15 frozen probe proverbs are absent from training (J leak-guard + "
+                             "Workstream-H audit; probe #31 'Lè chat pa la' verified 0 train hits in "
+                             "v0.1 and v0.2.1); the held-out 1901 Cric?Crac! heritage fable is excluded entirely")
+    else:
+        out["known_gaps"] = ("no dialogue/chat, no code, thin owned/authored (35 proverb docs); crawl is "
+                             "~70% translation-shaped Kreyòl (audit) — measured, not filtered out")
+        out["audit_note"] = ("crawl: 0.7% wrong-lang, 17.2% junk (v0→v0.1 removed the mechanical share), "
+                             "70% translation-shaped; wikipedia: 0% junk, 71% bot-stubs (flagged, kept)")
+
+    fname = "g_nutrition_v1.json" if v1 else "g_nutrition.json"
+    with open(os.path.join(G.G_WORK, fname), "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=2, ensure_ascii=False)
     print(f"[nutrition] train_docs={n_train} origin={ {k: v['pct'] for k, v in out['composition_by_origin'].items()} }")
+    if v1:
+        print(f"[nutrition] registers={ {k: v['pct'] for k, v in out['composition_by_register'].items()} }")
     return out
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sample", action="store_true", help="use the corpus sample (fast smoke)")
+    ap.add_argument("--v1", action="store_true",
+                    help="Model C v1: corpus v0.2.1 + authored_eval_v2 slice + nutrition v2")
     args = ap.parse_args()
     os.makedirs(G.G_WORK, exist_ok=True)
-    build(args.sample)
+    build(args.sample, v1=args.v1)
     build_parity_probe()
-    build_nutrition(args.sample)
+    build_nutrition(args.sample, v1=args.v1)
 
 
 if __name__ == "__main__":

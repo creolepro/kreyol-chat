@@ -24,6 +24,7 @@ import os
 from . import config as F  # Workstream-F config: paths, tokenizer bundle, Modal knobs
 
 SNAPSHOT_DATE = "2026-07-22"
+SNAPSHOT_DATE_V1 = "2026-07-26"        # Model C v1 flagship run (fleet-informed)
 
 # --- standard Llama architecture (width 768; HF LlamaForCausalLM contract) -----
 # Param counts (verified on Modal in Part 1): untied embeddings 2 * 24576*768 = 37.75M
@@ -94,6 +95,22 @@ FLAGSHIP = {
     # log-then-linear (Pythia-style) checkpoint token points; -> steps via tokens_to_steps
     "checkpoint_tokens": [0, 10_000_000, 25_000_000, 50_000_000,
                           100_000_000, 250_000_000, 500_000_000, 750_000_000],
+    "corpus": "v0.1",
+}
+
+# --- Model C v1 (fleet-informed; docs/phase-1.md "RECOMMENDED G-v1 CONFIG") ------
+# Same PROVEN recipe as FLAGSHIP (ARCH + TRAIN optimizer/schedule unchanged), but the
+# fleet (Workstream H) decides: corpus v0.2.1 (Q7), ~1.0B effective tokens / ~4.6 epochs
+# of v0.2.1's ~216M unique train tokens (Q5), depth d12 (Part 3), natural sampling (Q2 —
+# already tokenize_g's default: no mix weights). Adds the authored_eval_v2 BPB slice, a
+# 1B-token final checkpoint, and a DISTINCT tag so v1 never collides with v0's persisted
+# checkpoints/results on the Volume.
+FLAGSHIP_V1 = {
+    "num_iterations": 1907,             # 1907 * 524,288 = 999,817,216 ≈ 1.0B effective tokens (~4.6 epochs)
+    "model_tag": "modelc-v1-d{depth}",
+    "checkpoint_tokens": [0, 10_000_000, 25_000_000, 50_000_000, 100_000_000,
+                          250_000_000, 500_000_000, 750_000_000, 1_000_000_000],
+    "corpus": "v0.2.1",
 }
 
 # --- pinned llama.cpp (same commit the Workstream-F convert probe used) ---------

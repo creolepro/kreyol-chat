@@ -401,3 +401,127 @@ def quantize_q4(gguf: str, out_q4: str) -> dict:
     r = _run([LQUANT, gguf, out_q4, "Q4_K_M"], timeout=600)
     return {"rc": r["rc"], "exists": os.path.exists(out_q4),
             "bytes": os.path.getsize(out_q4) if os.path.exists(out_q4) else 0, "tail": r["tail"]}
+
+
+# --- gate 6b: first-position logit margin vs fp32↔f16 delta (the v0 flat-dist proof) --
+
+def gate6_first_pos_margin(hf_dir: str, gguf: str | None, prompts: list, enc, bos_id: int) -> dict:
+    """DEMONSTRATE (not assert) the v0 explanation for native↔llama.cpp greedy divergence on
+    open-ended base-LM prompts. For the FIRST generated position of each frozen prompt:
+      • native fp32 top-1 logit margin (top1 - top2) + prob margin — how flat/tied the
+        next-token distribution is;
+      • the fp32↔f16 max-logit delta — the exact numeric perturbation llama.cpp's f16 weights
+        introduce — and whether HF's OWN f16 argmax flips vs fp32 (the exact in-framework
+        smoking gun, since llama.cpp runs the same f16 weights);
+      • llama.cpp's actual first greedy token (cross-runtime corroboration).
+    Verdict (the task's criterion): margins AT/BELOW the delta ⇒ the argmax is numerically
+    unstable, so f16 execution flips it on a near-tie — a base-LM property, NOT a conversion
+    bug. Margins that EXCEED the delta while greedy still diverges ⇒ a real bug to investigate.
+    """
+    import torch
+    from transformers import LlamaForCausalLM
+
+    m32 = LlamaForCausalLM.from_pretrained(hf_dir, torch_dtype=torch.float32).eval()
+    m16 = LlamaForCausalLM.from_pretrained(hf_dir, torch_dtype=torch.float16).eval()
+    rows = []
+    for p in prompts:
+        ids = [bos_id] + enc.encode_ordinary(p)
+        x = torch.tensor([ids])
+        with torch.inference_mode():
+            lg32 = m32(x).logits[0, -1].float()       # next-token logits at the first gen position
+            lg16 = m16(x).logits[0, -1].float()
+        t32 = torch.topk(lg32, 2)
+        top1_id, top2_id = int(t32.indices[0]), int(t32.indices[1])
+        logit_margin = float(t32.values[0] - t32.values[1])
+        pt = torch.topk(torch.softmax(lg32, -1), 2).values
+        prob_margin = float(pt[0] - pt[1])
+        f16_delta = float((lg32 - lg16).abs().max())
+        f16_flips = int(lg16.argmax()) != top1_id
+        lc_first = None
+        if gguf and os.path.exists(gguf):
+            lc = llama_generate(gguf, p, n=1)
+            cont = lc["text"].split(p, 1)[-1] if p in lc["text"] else lc["text"]
+            lc_first = _norm_txt(cont)[:24]
+        rows.append({
+            "prompt": p,
+            "native_top1_tok": enc.decode([top1_id]), "native_top2_tok": enc.decode([top2_id]),
+            "logit_margin_top1_top2": round(logit_margin, 4),
+            "prob_margin_top1_top2": round(prob_margin, 4),
+            "fp32_f16_max_logit_delta": round(f16_delta, 4),
+            "margin_exceeds_delta": logit_margin > f16_delta,
+            "f16_argmax_flips_vs_fp32": f16_flips,
+            "llamacpp_first_token": lc_first,
+        })
+    return {**summarize_first_pos_margin(rows), "rows": rows}
+
+
+def summarize_first_pos_margin(rows: list, cross_runtime_lcp: list | None = None) -> dict:
+    """Classify the first-position diagnostic into one of three cases (pure function of the
+    per-prompt rows, so the report can recompute it too):
+      • numeric-noise      — margins AT/BELOW the fp32↔f16 delta on a majority + f16 flips:
+                             the v0 flat-distribution explanation is DEMONSTRATED;
+      • generation-path    — margins ≫ delta + 0 f16 flips (argmax numerically STABLE) yet the
+                             runtimes still diverge: NOT dtype noise (refutes v0's flat-dist
+                             hand-wave), and not the weights (gate1/4/5 pass) → a generation-path
+                             cause (BOS/prompt boundary);
+      • clean-agreement    — margins ≫ delta + 0 flips + runtimes AGREE.
+    cross_runtime_lcp (optional, from gate6_cross_runtime) is the more reliable divergence
+    signal than the per-row llama.cpp first-token text; used when provided."""
+    n = len(rows)
+
+    def _strip(s):
+        return (s or "").strip()
+    n_below = sum(1 for r in rows if not r["margin_exceeds_delta"])
+    n_flip = sum(1 for r in rows if r["f16_argmax_flips_vs_fp32"])
+    n_lcpp_differ = sum(1 for r in rows
+                        if r.get("llamacpp_first_token") is not None
+                        and _strip(r["llamacpp_first_token"]) != _strip(r["native_top1_tok"]))
+    mean_margin = round(sum(r["logit_margin_top1_top2"] for r in rows) / max(1, n), 4)
+    mean_delta = round(sum(r["fp32_f16_max_logit_delta"] for r in rows) / max(1, n), 4)
+    ratio = round(mean_margin / mean_delta) if mean_delta else None
+    # cross-runtime divergence: prefer the LCP signal if provided, else the first-token text diff
+    if cross_runtime_lcp:
+        mean_lcp = sum(cross_runtime_lcp) / len(cross_runtime_lcp)
+        diverges = mean_lcp < 0.5
+    else:
+        mean_lcp = None
+        diverges = n_lcpp_differ > 0
+
+    flat = n_below >= max(1, (n + 1) // 2)
+    stable = (n_flip == 0) and not flat
+    if flat:
+        cls = "numeric-noise"
+        verdict = (f"flat-distribution DEMONSTRATED: first-position top-1 margins are at/below the fp32↔f16 "
+                   f"delta on {n_below}/{n} prompts and HF's own f16 argmax flips on {n_flip}/{n} — f16 "
+                   f"execution flips the winner on near-ties, so the greedy divergence is base-LM numeric "
+                   f"instability, not a conversion defect.")
+    elif stable and diverges:
+        cls = "generation-path"
+        verdict = (f"the v0 flat-distribution explanation is REFUTED. First-position top-1 margins average "
+                   f"{mean_margin} vs a fp32↔f16 delta of {mean_delta} (~{ratio}×) and HF f16 NEVER flips "
+                   f"({n_flip}/{n}) — the argmax is numerically STABLE. Yet native↔llama.cpp greedy still "
+                   f"diverges, so the cause is NOT dtype noise and NOT the weights (gate1 export Δ=0, gate4 "
+                   f"token-ID parity 1.0, gate5 ONNX greedy matches native): it is a generation-path "
+                   f"difference (BOS / prompt-boundary handling in llama-completion).")
+    elif stable:
+        cls = "clean-agreement"
+        verdict = (f"first-position argmax is numerically stable (margins ~{ratio}× the fp32↔f16 delta, "
+                   f"{n_flip}/{n} flips) AND the runtimes agree — clean.")
+    else:
+        cls = "mixed"
+        verdict = (f"mixed: {n_below}/{n} sub-delta margins, {n_flip}/{n} f16 flips, {n_lcpp_differ}/{n} "
+                   f"llama.cpp first-token differences — inspect rows.")
+    return {
+        "n_prompts": n,
+        "n_margin_at_or_below_delta": n_below,
+        "n_f16_argmax_flips": n_flip,
+        "n_llamacpp_first_token_differs": n_lcpp_differ,
+        "mean_logit_margin": mean_margin,
+        "mean_fp32_f16_delta": mean_delta,
+        "margin_to_delta_ratio": ratio,
+        "mean_cross_runtime_lcp": round(mean_lcp, 3) if mean_lcp is not None else None,
+        "flat_distribution_demonstrated": flat,
+        "argmax_numerically_stable": stable,
+        "classification": cls,
+        "verdict": verdict,
+    }
