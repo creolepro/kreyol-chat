@@ -5,8 +5,8 @@ Python workspace for all model, corpus, and tokenizer work. Managed with
 
 **Phase 0** is complete (corpus v0, Kreyòl tokenizer, fertility, base-model probe). **Phase 1**
 is under way: **Workstreams E** (corpus v0.1 + eval slices), **F** (nanochat-on-Modal infra +
-conversion proof), **G** (Model C v0, standard-Llama d12), **J** (corpus v0.2/v0.2.1 acquisition),
-and **H** (micro-model fleet → the fleet-informed G-v1 config) are done. Runbooks:
+conversion proof), **G** (Model C v0 **+ v1**, standard-Llama d12), **J** (corpus v0.2/v0.2.1
+acquisition), and **H** (micro-model fleet → the fleet-informed G-v1 config) are done. Runbooks:
 [../docs/phase-0.md](../docs/phase-0.md), [../docs/phase-1.md](../docs/phase-1.md); overall plan
 [../docs/plan.md](../docs/plan.md).
 
@@ -57,6 +57,14 @@ Implemented so far:
   flagship to 750M tokens **beats 3–4B Gemma/Llama/Qwen on 3 of 4 Kreyòl BPB slices**. See
   [reports/modelc_v0.md](reports/modelc_v0.md), [reports/depth_sweep.md](reports/depth_sweep.md),
   [reports/f2_gates.md](reports/f2_gates.md).
+- **`train/` (Workstream G — v1)** — **Model C v1** (fleet-informed, `train.g_run flagship
+  --version v1`): corpus **v0.2.1**, kreyol-bpe, natural sampling, **1.0B tokens / 4.63 epochs**.
+  **Beats the 3–4B bases on 4 of 5 BPB slices** and improves on v0 across the board (biggest on
+  authored_v2/general/FLORES, per fleet Q7; ~flat on authored, per Q2); BPB still falling at 1.0B
+  (Q5). New **gate-6** diagnostic shows the v0 native↔llama.cpp greedy divergence is a
+  **BOS/prompt-boundary mismatch** (not numeric noise, not a conversion defect). Nutrition label
+  v2 + a held-out 1901 heritage-fable cold-prompt exhibit. See
+  [reports/modelc_v1.md](reports/modelc_v1.md).
 - **`corpus/` (Workstream J)** — corpus **v0.2** (measure-first). J0 scoping tripped the red-flag
   gate — **VOA net-new ≈2.25M, not 20–60M** (54% of URLs are audio/video, 34% wire, 45% MADLAD-dup);
   fineweb-2 was the opposite surprise (**~108M net-new**, not "heavy overlap"). Built under the
