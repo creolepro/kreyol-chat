@@ -116,6 +116,18 @@ native↔ONNX LCP (first prompt) = **1.0**.
 | `Lè chat pa la,` | 1.0 |
 | `Tradui an kreyòl: "Haiti became independ` | 1.0 |
 
+> **Update 2026-07-26 (Workstream I Part 0) — BOS fix.** On the trained **v1 flagship**, the
+> cross-runtime greedy check was re-run and diagnosed to root cause: the low native↔llama.cpp
+> LCP was **not** the throwaway-model instability hypothesized above, but a **BOS / prompt-boundary
+> mismatch** — the native HF path always prepends `<|bos|>` (24567) while the GGUF recorded a
+> `bos_token_id` but no add-BOS default, so llama.cpp prepended nothing (see
+> [modelc_v1.md](modelc_v1.md) gate 6). Fix: the converter now emits
+> `tokenizer.ggml.add_bos_token=true` (`add_bos_token: true` in the exported `tokenizer_config.json`,
+> read by `convert_hf_to_gguf.py`'s SpecialVocab — `train/gates.export_hf`). After reconvert
+> (CPU-only), llama.cpp prepends `<|bos|>` and **native↔llama.cpp greedy LCP = 1.000 on 10/10
+> frozen prompts** (was ~0.002). This fixes every downstream llama.cpp/Ollama user and carries
+> into the Model C chat conversion.
+
 ## Artifacts
 
 - GGUF f16: 302.9 MB, sha256 `978d66dd3b72f21b`

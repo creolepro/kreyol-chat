@@ -97,9 +97,17 @@ So the first-token argmax is **numerically robust** — f16 rounding is ~two ord
 | `Mesyedam, se yon gwo onè p` | ` w` | ` nou` | 0.4594 | 0.0119 | no |
 | `Frè m, kite m di w yon bag` | ` ou` | ` Ou` | 0.3391 | 0.0141 | no |
 
+### Gate 6 — RESOLVED (2026-07-26, Workstream I Part 0)
+
+The diagnosis above named the cause but not the fix; Workstream I applied it. The GGUF converter now emits `tokenizer.ggml.add_bos_token=true` (driven from `add_bos_token: true` in the exported `tokenizer_config.json`, read by `convert_hf_to_gguf.py`'s SpecialVocab — `train/gates.export_hf`). v1 was reconverted (f16 + Q4, CPU-only, no GPU) and the cross-runtime greedy check re-run:
+
+> **CLEAN.** llama.cpp now prepends our `<|bos|>` (24567) — `llama-tokenize` ids are `[24567, 7739, 33, …]` by default vs `[7739, 33, 7492, …]` with `--no-bos` (a BOS of length 1 now added, where before the two were identical). First greedy token agrees with native on **10/10** frozen prompts and the native↔llama.cpp greedy **LCP is 1.000** across all 10 (was 0.002). The generation-path / prompt-boundary mismatch is eliminated, not worked around.
+
+This also fixes every downstream llama.cpp / Ollama user of the model (the metadata now instructs the runtime to prepend BOS), and the same `export_hf` path carries the fix into the Model C **chat** conversion. Reconverted artifacts: GGUF f16 **246 MB** (sha256 `ced42b0f25566bae…`) / Q4_K_M **78 MB** (sha256 `5e05791af9209d08…`), Modal Volume.
+
 ## Deployment artifacts + conversion
 
-Final checkpoint through the proven chain: GGUF **f16 246 MB** / **Q4_K_M 78 MB** + an ONNX/transformers.js bundle (Modal Volume, sha256 recorded). Token-ID parity (tiktoken=HF=llama.cpp) = 1.000 and ONNX greedy matches native, carried from the F2 gates ([f2_gates.md](f2_gates.md)); the greedy-path caveat is now explained, not asserted (gate 6 above).
+Final checkpoint through the proven chain: GGUF **f16 246 MB** / **Q4_K_M 78 MB** + an ONNX/transformers.js bundle (Modal Volume, sha256 recorded). Token-ID parity (tiktoken=HF=llama.cpp) = 1.000 and ONNX greedy matches native, carried from the F2 gates ([f2_gates.md](f2_gates.md)); the greedy-path caveat is now **resolved** — with the BOS fix (gate 6 above) native and llama.cpp greedy agree exactly (LCP 1.000, 10/10 first-token).
 
 ## Exhibit — the 1901 heritage fable as a cold prompt (never trained on)
 

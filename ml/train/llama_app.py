@@ -516,6 +516,138 @@ def read_result(name: str) -> dict | None:
         return json.load(fh)
 
 
+@app.function(image=image, volumes={CACHE: VOL}, timeout=90 * 60)
+def reconvert_bos_and_check(tag: str, step: int, do_quant: bool = True) -> dict:
+    """PART 0 — the BOS fix, CPU-only. Re-export the (tag, step) checkpoint with
+    `add_bos_token=true` baked into tokenizer_config.json (so the converter writes
+    `tokenizer.ggml.add_bos_token` into the GGUF), reconvert f16 (+ Q4), and re-run the
+    cross-runtime greedy agreement check (gate 6). Expected: llama.cpp now prepends our
+    <|bos|> (24567) the way native does, first greedy tokens agree, and the LCP jumps from
+    ~0 to clean. Everything CPU (fp32 native + `-ngl 0` llama.cpp) — no GPU spend."""
+    import re as _re
+    import torch
+    from transformers import LlamaForCausalLM
+    from . import gates
+
+    enc = _load_enc()
+    bos_id = enc.encode_single_token("<|bos|>")
+    ck = os.path.join(G.G_CKPT_DIR, tag, f"step_{step}")
+    hf_dir = "/tmp/hf_export_bosfix"
+    art = os.path.join(G.G_ARTIFACT_DIR, tag)
+    os.makedirs(art, exist_ok=True)
+    tok_json = os.path.join(G.G_TOKENIZER_DIR, "tokenizer.json")
+    all_prompts = [p["prompt"] for p in json.load(open(G.G_CHECKPOINT_PROMPTS, encoding="utf-8"))["prompts"]]
+
+    # export (CPU, fp32) WITH the add_bos_token fix
+    model = LlamaForCausalLM.from_pretrained(ck, torch_dtype=torch.float32).eval()
+    gates.export_hf(model, tok_json, hf_dir)
+
+    # native greedy (fp32, CPU) — the reference the runtimes must match
+    native = {}
+    for p in all_prompts:
+        ids = [bos_id] + enc.encode_ordinary(p)
+        x = torch.tensor([ids])
+        with torch.inference_mode():
+            y = model.generate(x, max_new_tokens=32, do_sample=False, num_beams=1)
+        native[p] = enc.decode(y[0, len(ids):].tolist())
+
+    # reconvert f16 (overwrites the v1 artifact so downstream picks up the fix) + Q4
+    gguf = os.path.join(art, f"modelc-{tag}-step{step}-f16.gguf")
+    conv = gates.convert_gguf(hf_dir, gguf)
+    gguf_q4 = os.path.join(art, f"modelc-{tag}-step{step}-Q4_K_M.gguf")
+    q4 = gates.quantize_q4(gguf, gguf_q4) if (do_quant and conv["gguf_exists"]) else None
+
+    # confirm the metadata now carries add_bos_token=true + which BOS
+    kv = {}
+    try:
+        from gguf import GGUFReader
+        rd = GGUFReader(gguf)
+        for name, field in rd.fields.items():
+            if name.startswith("tokenizer.ggml.") and any(t in name for t in ("bos", "eos", "add_", "pre")):
+                try:
+                    kv[name] = field.contents()
+                except Exception:
+                    kv[name] = None
+    except Exception as e:
+        kv["_error"] = f"{type(e).__name__}: {e}"[:200]
+
+    # does llama.cpp now prepend our BOS? (default vs --no-bos tokenize)
+    def _ids(text, no_bos):
+        cmd = [gates.LTOK, "-m", gguf, "-p", text, "--ids", "-ngl", "0"] + (["--no-bos"] if no_bos else [])
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        except Exception:
+            return None
+        m = _re.search(r"\[([\d,\s]*)\]", r.stdout)
+        return [int(x) for x in m.group(1).split(",") if x.strip()] if m else None
+    probe_txt = "Bonjou! Kijan ou ye jodi a?"
+    ids_default = _ids(probe_txt, no_bos=False)
+    ids_no_bos = _ids(probe_txt, no_bos=True)
+
+    # cross-runtime greedy (llama.cpp f16, CPU) vs native — LCP + first-token agreement
+    rows = []
+    for p in all_prompts:
+        lc = gates.llama_generate(gguf, p, n=32)
+        cont = lc["text"].split(p, 1)[-1] if p in lc["text"] else lc["text"]
+        nat = native.get(p, "")
+        nat_first = enc.decode(enc.encode_ordinary(gates._norm_txt(nat))[:1]) if nat.strip() else ""
+        lc_first = enc.decode(enc.encode_ordinary(gates._norm_txt(cont))[:1]) if cont.strip() else ""
+        rows.append({"prompt": p,
+                     "native_vs_llamacpp_lcp": gates._lcp_ratio(nat, cont),
+                     "first_token_agree": gates._norm_txt(nat)[:1] == gates._norm_txt(cont)[:1]
+                                          and bool(gates._norm_txt(nat)),
+                     "native_preview": gates._norm_txt(nat)[:120],
+                     "llamacpp_preview": gates._norm_txt(cont)[:120]})
+    mean_lcp = round(sum(r["native_vs_llamacpp_lcp"] for r in rows) / max(1, len(rows)), 3)
+    n_first_agree = sum(1 for r in rows if r["first_token_agree"])
+    prepends_bos = bool(ids_default) and bool(ids_no_bos) and len(ids_default) == len(ids_no_bos) + 1 \
+        and ids_default[0] == 24567
+    clean = prepends_bos and n_first_agree >= max(1, (len(rows) * 8) // 10)
+
+    import hashlib
+    def _sha(path):
+        if not path or not os.path.exists(path):
+            return None
+        h = hashlib.sha256()
+        with open(path, "rb") as fh:
+            for chunk in iter(lambda: fh.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()[:16]
+
+    res = {
+        "tag": tag, "step": step, "part": "part0-bos-fix",
+        "convert_rc": conv["final_rc"], "gguf_exists": conv["gguf_exists"],
+        "tokenizer_kv": kv,
+        "add_bos_token_in_gguf": kv.get("tokenizer.ggml.add_bos_token"),
+        "ids_default_first3": (ids_default or [])[:3], "ids_no_bos_first3": (ids_no_bos or [])[:3],
+        "llamacpp_now_prepends_bos_24567": prepends_bos,
+        "n_first_token_agree": n_first_agree, "n_prompts": len(rows),
+        "mean_native_vs_llamacpp_lcp": mean_lcp,
+        "gate6_pass_clean": clean,
+        "verdict": (f"gate 6 CLEAN — add_bos_token now in GGUF; llama.cpp prepends <|bos|> 24567, "
+                    f"first greedy token agrees with native on {n_first_agree}/{len(rows)} prompts, "
+                    f"LCP {mean_lcp} (was 0.002). BOS/prompt-boundary mismatch RESOLVED."
+                    if clean else
+                    f"gate 6 NOT clean: prepends_bos={prepends_bos}, first-token agree "
+                    f"{n_first_agree}/{len(rows)}, LCP {mean_lcp} — inspect rows."),
+        "rows": rows,
+        "artifacts": {
+            "gguf_f16": {"path": gguf, "sha256_16": _sha(gguf),
+                         "bytes": os.path.getsize(gguf) if os.path.exists(gguf) else 0},
+            "gguf_q4": {"path": gguf_q4, "sha256_16": _sha(gguf_q4),
+                        "bytes": os.path.getsize(gguf_q4) if os.path.exists(gguf_q4) else 0,
+                        "rc": (q4 or {}).get("rc")},
+        },
+    }
+    rd_dir = os.path.join(G.G_DIR, "results")
+    os.makedirs(rd_dir, exist_ok=True)
+    with open(os.path.join(rd_dir, f"bosfix_{tag}.json"), "w") as fh:
+        json.dump(res, fh)
+    VOL.commit()
+    print(f"[reconvert_bos] {res['verdict']}")
+    return res
+
+
 @app.function(image=image, volumes={CACHE: VOL}, timeout=600)
 def gguf_meta(tag: str, step: int) -> dict:
     """Diagnose the native↔llama.cpp first-token divergence (gate 6): does llama.cpp's default

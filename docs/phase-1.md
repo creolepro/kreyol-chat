@@ -104,6 +104,14 @@ Identical-twin experiments at ~20–30M params (smallest viable nanochat depth),
 
 Turns the text-continuer into something a visitor can talk to.
 
+> **Human verdict on record — 2026-07-26.** The native-speaker review of the 150-item
+> blinded [kakugo-hat audit sheet](../ml/reports/kakugo_audit_sheet.md) returned _"overall
+> good to go; some items could be better"_ → **Layer 1 APPROVED WITH FILTERING**. The review
+> was **holistic** (no per-item scores/flags returned), so Layer-1 ingestion applies
+> conservative automatic filters (strip English `<think>`/system, per-turn langid drop,
+> dedup, probe-proverb screen) rather than reviewer-derived per-item patterns. This unblocks
+> Workstream I (the long-pole human dependency).
+
 > **Data plan (2026-07-24):** [data.md](data.md) records the verified source survey — corpus v0.2 acquisition (Workstream J: VOA Nouvèl PD crawl, federal PDF harvest, family-contributed set, small CC wins) and the three-layer SFT data stack (kakugo-hat audit → corpus-grounded generation → muri-it + gold cap). It supersedes the sketches in I.1/I.2 below where they differ.
 
 > **Workstream J — corpus v0.2 status 2026-07-24: done (measure-first; register-focused).** Reports: [corpus_v0_2_scoping.md](../ml/reports/corpus_v0_2_scoping.md) (J0 gate) · [corpus_v0_2.md](../ml/reports/corpus_v0_2.md) (build). **J0 red-flag gate TRIPPED:** VOA — the survey's "one big unlock" for authored journalism — measured **~2.25M net-new kreyol-bpe tokens, not 20–60M** (only 54% of `/a/` URLs are text — the rest are audio/video radio programs; 34% of articles are AFP/AP/Reuters wire, dropped; 45% of the rest already in MADLAD). Surfaced to the human; per the **"Full v0.2 + mix control"** decision, proceeded with the goal restated as *register diversity + an authored-journalism eval axis*, driving authored emphasis via **train-mix weights**, not corpus composition. **Surprise:** fineweb-2 hat is **~108M net-new** (not the "heavy overlap" the survey assumed — 17% doc-dup), a large web-crawl volume held at mix weight 1×. **Built:** v0.1 frozen base + net-new J survivors, register-tagged, with authored-beats-crawl dedup replacement — VOA journalism, **33 federal PD PDFs** (IRS/OSHA/DHS-OIDO/USCIS I-589/CFPB/EPA/CMS; CDC/SSA/FEMA Akamai-blocked → reported, not bypassed), Bib La (1.14M, religious ≤2% cap), Konstitisyon, Storybooks, fineweb-2. **Committable artifacts:** `corpus/glossary_pairs_federal.json` (1,955 federal-PD EN↔HT pairs) + the contributor record. **New eval axes:** `authored_eval_v2` (held-out VOA temporal slice — closes the standing fertility translated-vs-authored TODO) + NJ/MA/BMC terminology probe pools. VOA crawl is **partial/resumable** (2024→2025 slice); Bloom pending an HF-gate click. Nothing under `ml/data/` committed.

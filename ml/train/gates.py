@@ -57,8 +57,16 @@ def _run(cmd, timeout=900, env=None):
 
 # --- export a clean HF repo (weights + our tokenizer.json) --------------------
 
-def export_hf(model, tok_json_src: str, out_dir: str):
-    """Write the model + our HF tokenizer.json into a clean dir the converter can read."""
+def export_hf(model, tok_json_src: str, out_dir: str, chat_template: str | None = None):
+    """Write the model + our HF tokenizer.json into a clean dir the converter can read.
+
+    `add_bos_token=true` is the Part-0 BOS fix: the native HF path always prepends `<|bos|>`
+    (24567), so the GGUF must record an add-BOS default or llama.cpp/Ollama start from a
+    different first-position context (the gate-6 divergence root-caused in modelc_v1.md).
+    `convert_hf_to_gguf.py`'s SpecialVocab reads add_bos_token/add_eos_token from
+    tokenizer_config.json and writes `tokenizer.ggml.add_bos_token` into the GGUF, so setting
+    it here fixes every downstream llama.cpp/Ollama user. `chat_template` (Part 5) travels into
+    the GGUF too (`tokenizer.chat_template`) so runtimes apply the nanochat template natively."""
     os.makedirs(out_dir, exist_ok=True)
     model.save_pretrained(out_dir, safe_serialization=True)
     shutil.copy(tok_json_src, os.path.join(out_dir, "tokenizer.json"))
@@ -67,7 +75,10 @@ def export_hf(model, tok_json_src: str, out_dir: str):
         "tokenizer_class": "PreTrainedTokenizerFast",
         "bos_token": "<|bos|>", "eos_token": "<|assistant_end|>",
         "clean_up_tokenization_spaces": False, "model_max_length": 2048,
+        "add_bos_token": True, "add_eos_token": False,   # Part-0 BOS fix (see docstring)
     }
+    if chat_template is not None:
+        cfg["chat_template"] = chat_template
     with open(os.path.join(out_dir, "tokenizer_config.json"), "w") as f:
         json.dump(cfg, f)
     return out_dir

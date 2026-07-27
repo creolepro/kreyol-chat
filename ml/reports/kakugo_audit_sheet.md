@@ -1,5 +1,15 @@
 # Blinded naturalness review — kakugo-hat conversations
 
+> **Review verdict — 2026-07-26 (native speaker).** _"Overall good to go; some
+> items could be better."_ → **Layer 1 APPROVED WITH FILTERING.** The review was
+> **holistic** (no per-item 1–5 scores or wrong/awkward ticks were returned; the
+> worksheet below is unmarked). Because there is no per-item flag set to derive
+> patterns from, Layer-1 ingestion applies **conservative automatic filters**
+> instead — strip the English `<think>` reasoning and system fields, drop any
+> conversation with a non-Kreyòl turn (per-turn langid), drop degenerate/template
+> repeats and near-duplicates, and screen out the 15 probe proverbs. See
+> `docs/data.md §3` and `ml/reports/modelc_chat.md` for the kept/dropped counts.
+
 _150 Haitian-Creole conversations drawn from a candidate SFT dataset, shown
 de-identified. Each item is a full conversation (all turns, role-labelled).
 No source information is shown — dataset origin, topic, generation method, and

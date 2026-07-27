@@ -34,7 +34,8 @@ from . import config as F
 from . import llama_config as G
 from . import prepare as Fprep
 from .llama_app import (app, verify_params, train, generate, bpb,
-                        convert_gates, base_bpb, read_result, exhibit_gen, gguf_meta)
+                        convert_gates, base_bpb, read_result, exhibit_gen, gguf_meta,
+                        reconvert_bos_and_check)
 
 VOL = modal.Volume.from_name(F.MODAL_VOLUME, create_if_missing=True)
 
@@ -294,6 +295,21 @@ def do_diagnose_bos(depth=12, version="v1"):
     print(f"[diagnose-bos] tokenizer_kv={res.get('tokenizer_kv')}")
 
 
+def do_bos_fix(depth=12, version="v1"):
+    """PART 0 — apply the BOS fix (add_bos_token=true in the GGUF), reconvert f16+Q4, and
+    re-run the cross-runtime greedy agreement check (gate 6). CPU-only, no GPU spend."""
+    cfg_fl = G.FLAGSHIP_V1 if version == "v1" else G.FLAGSHIP
+    tag = cfg_fl["model_tag"].format(depth=depth)
+    step = cfg_fl["num_iterations"]
+    with modal.enable_output(), app.run():
+        res = reconvert_bos_and_check.remote(tag, step)
+    _save("g_v1_bos_fix.json", res)
+    print(f"[bos-fix] add_bos_token_in_gguf={res.get('add_bos_token_in_gguf')} "
+          f"prepends_bos_24567={res.get('llamacpp_now_prepends_bos_24567')} "
+          f"first_token_agree={res.get('n_first_token_agree')}/{res.get('n_prompts')} "
+          f"mean_lcp={res.get('mean_native_vs_llamacpp_lcp')} clean={res.get('gate6_pass_clean')}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -311,6 +327,8 @@ def main():
     ex.add_argument("--version", choices=["v0", "v1"], default="v1")
     db = sub.add_parser("diagnose-bos"); db.add_argument("--depth", type=int, default=12)
     db.add_argument("--version", choices=["v0", "v1"], default="v1")
+    bf = sub.add_parser("bos-fix"); bf.add_argument("--depth", type=int, default=12)
+    bf.add_argument("--version", choices=["v0", "v1"], default="v1")
     args = ap.parse_args()
 
     if args.cmd == "upload":
@@ -332,6 +350,8 @@ def main():
         do_exhibits(args.depth, version=args.version)
     elif args.cmd == "diagnose-bos":
         do_diagnose_bos(args.depth, version=args.version)
+    elif args.cmd == "bos-fix":
+        do_bos_fix(args.depth, version=args.version)
 
 
 if __name__ == "__main__":
