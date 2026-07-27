@@ -615,6 +615,139 @@ sources:
       historical orthography, so Kreyòl passages are isolated by a marker-based
       page/line pass then reviewed. Probe-proverb check applied.
 
+  # =========================================================================
+  # Workstream I — SFT / midtraining instruction data (docs/data.md §3, the
+  # three-layer stack). Off-the-shelf Apache-2.0 Kreyòl instruction data — these
+  # are TRAINING inputs to the chat model, not corpus text; they land under
+  # ml/data/ (git-ignored), never committed. Registered BEFORE ingestion per
+  # standing policy. PROBE RULE EXTENDS TO SFT: none of the 15 held-out probe
+  # proverbs may appear in any midtrain/SFT example (screened at build). EVAL
+  # CARVE-OUT: any FLORES-derived example (xP3x/aya_collection template rows whose
+  # source dataset is facebook/flores, or split dev/devtest) is DROPPED even
+  # though the license permits training — FLORES is our standing eval set and must
+  # not leak. Native-speaker audit governs kakugo (Layer 1): APPROVED WITH
+  # FILTERING 2026-07-26 (reports/kakugo_audit_sheet.md).
+  # =========================================================================
+
+  - key: kakugo_hat
+    name: "Kreyol/kakugo-hat — synthetic Kreyòl multi-turn conversations (SFT Layer 1)"
+    priority_class: authored
+    hf_repo: "Kreyol/kakugo-hat"
+    license:
+      id: "Apache-2.0"
+      url: "https://huggingface.co/datasets/Kreyol/kakugo-hat"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: apache-2.0. 41,264 synthetic HT multi-turn
+        conversations, built specifically for Kreyòl SLMs; the card itself warns
+        "NOT PERFECT!" → mandatory native audit before use (done 2026-07-25/26).
+    uses:
+      analysis: allowed
+      tokenizer_training: denied        # not used for the (frozen) tokenizer
+      model_training: allowed           # midtraining Layer 1, with filtering
+      redistribution: allowed           # Apache-2.0 (we ship weights, not the data)
+    quarantined: false
+    notes: >-
+      Layer 1 (format-teaching bulk). CLEANING (conservative auto-filters, holistic
+      verdict): strip the English <think>…</think> reasoning + the `system` field
+      (English reasoning traces must NOT enter training); drop conversations with a
+      non-Kreyòl turn (per-turn fastText langid); drop degenerate/template repeats +
+      near-duplicates; screen the 15 probe proverbs. Verdict on record: "overall
+      good to go; some items could be better" → APPROVED WITH FILTERING.
+
+  - key: muri_it_hat
+    name: "akoksal/muri-it (hat subset) — MURI native-output instruction pairs (SFT Layer 3)"
+    priority_class: authored
+    hf_repo: "akoksal/muri-it"
+    hf_config: "default"
+    license:
+      id: "Apache-2.0"
+      url: "https://huggingface.co/datasets/akoksal/muri-it"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: apache-2.0 (MURI, TACL 2025). Filter
+        language=='hat' → ~9,876 native-output pairs (the MURI method keeps the
+        OUTPUT authentic native text; the instruction is reverse-generated).
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: allowed           # SFT Layer 3 cap
+      redistribution: allowed           # Apache-2.0
+    quarantined: false
+    notes: >-
+      Layer 3 (small + excellent). Single-turn input→output; loss masked to the
+      response. Probe-proverb screen applied.
+
+  - key: aya_dataset_hat
+    name: "CohereForAI/aya_dataset (hat) — gold human instruction examples (SFT Layer 3)"
+    priority_class: authored
+    hf_repo: "CohereForAI/aya_dataset"
+    license:
+      id: "Apache-2.0"
+      url: "https://huggingface.co/datasets/CohereForAI/aya_dataset"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: apache-2.0 (Aya, ACL 2024). Filter
+        language_code=='hat' → 106 gold human-written examples — the entire world
+        supply of gold Kreyòl instruction data; also used as eval anchors.
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: allowed           # SFT Layer 3 (gold)
+      redistribution: allowed           # Apache-2.0
+    quarantined: false
+    notes: >-
+      Layer 3 gold (106). Human-authored, highest quality tier. Single-turn.
+
+  - key: aya_collection_hat
+    name: "CohereForAI/aya_collection_language_split (haitian) — templated bulk (SFT Layer 1)"
+    priority_class: crawl             # templated/translated bulk — format variety, not quality
+    hf_repo: "CohereForAI/aya_collection_language_split"
+    hf_config: "haitian"
+    license:
+      id: "Apache-2.0"
+      url: "https://huggingface.co/datasets/CohereForAI/aya_collection_language_split"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: apache-2.0. 'haitian' config ~4.12M
+        template-expanded rows (single-turn inputs→targets). Machine-templated /
+        translated → format variety, NOT native quality; kept MINORITY + hard-capped.
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: allowed           # midtraining Layer 1 (capped, deduped, minority)
+      redistribution: allowed           # Apache-2.0
+    quarantined: false
+    notes: >-
+      Layer 1 format variety. Filter split=='train'; DROP FLORES-derived rows (eval
+      carve-out); dedup; hard cap so templated bulk stays a minority of Layer 1.
+      Probe-proverb screen applied.
+
+  - key: xp3x_hat
+    name: "CohereForAI/xP3x (hat_Latn) — templated cross-lingual bulk (SFT Layer 1)"
+    priority_class: crawl
+    hf_repo: "CohereForAI/xP3x"
+    hf_config: "hat_Latn"
+    license:
+      id: "Apache-2.0"
+      url: "https://huggingface.co/datasets/CohereForAI/xP3x"
+      status: clear
+      evidence: >-
+        HuggingFace dataset card license: apache-2.0. 'hat_Latn' config ~1.23M
+        template rows. ⚠️ heavily FLORES-derived (many rows dataset=facebook/flores,
+        split=dev/devtest) → eval-contamination risk.
+    uses:
+      analysis: allowed
+      tokenizer_training: denied
+      model_training: allowed           # midtraining Layer 1, AFTER dropping FLORES rows
+      redistribution: allowed           # Apache-2.0
+    quarantined: false
+    notes: >-
+      Layer 1 format variety. HARD EVAL CARVE-OUT: drop every row whose source
+      dataset is facebook/flores OR whose split is dev/devtest/validation/test — even
+      though Apache-2.0 permits training — because FLORES is our standing MT eval
+      slice. Whatever survives is capped small + deduped. Probe-proverb screen applied.
+
 # ---------------------------------------------------------------------------
 # Explicitly unresolved items — each blocks a specific use until closed.
 # ---------------------------------------------------------------------------
