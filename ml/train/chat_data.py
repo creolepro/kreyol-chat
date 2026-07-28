@@ -444,7 +444,9 @@ def assemble_layer3(include_layer2=True) -> dict:
     rng.shuffle(gloss); gloss = gloss[:500]
     for r in gloss:
         r["layer"] = 3
-    layer2 = _read_jsonl(C.LAYER2_GEN) if include_layer2 else []
+    layer2 = (_read_jsonl(C.LAYER2_PILOT) + _read_jsonl(C.LAYER2_GEN)) if include_layer2 else []
+    # keep only the higher-quality Layer-2 items (teacher self-score ≥ 4) for the SFT cap
+    layer2 = [r for r in layer2 if (r.get("meta", {}).get("self_score") or 5) >= 4]
     for r in layer2:
         r["layer"] = 3
     allrows = muri + gold + gloss + layer2

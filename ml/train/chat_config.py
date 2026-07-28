@@ -141,3 +141,34 @@ CHAT_GEN_MAX_TOKENS = 200        # frozen prompts answered in chat mode
 CHAT_EXHIBIT_TEMP = 0.7
 CHAT_EXHIBIT_TOP_P = 0.95
 NATURALNESS_SHEET_N = 30         # blinded chat outputs for the 2nd native review
+
+# 20 additional chat prompts (authored fresh; NOT the frozen exhibit list, NO probe
+# proverbs) → combined with the 10 frozen prompts = the 30 blinded naturalness outputs.
+NATURALNESS_PROMPTS = [
+    "Ki sa ki fè yon manje bon pou sante?",
+    "Eksplike m kijan yon volkan fè eripsyon.",
+    "Bay mwen twa ide pou yon kado fèt pou yon zanmi.",
+    "Ki diferans ki genyen ant yon fwi ak yon legim?",
+    "Ekri yon ti powèm kout sou lanmè a.",
+    "Kijan mwen ka aprann jwe gita?",
+    "Poukisa li enpòtan pou bwè anpil dlo?",
+    "Rakonte m yon istwa kout sou yon chat ak yon chen.",
+    "Ki sa yon moun ta dwe fè si li pèdi nan yon vil li pa konnen?",
+    "Eksplike m kisa entèlijans atifisyèl ye an senp mo.",
+    "Bay mwen yon resèt senp pou diri ak pwa.",
+    "Ki konsèy ou ta bay yon moun ki vle kòmanse fè espò?",
+    "Poukisa syèl la ble?",
+    "Ekri yon imèl kout pou mande yon jou konje nan travay.",
+    "Ki sa ki pi enpòtan nan yon bon zanmitay?",
+    "Eksplike m kijan lajan dijital tankou Bitcoin fonksyone.",
+    "Bay mwen kèk konsèy pou m dòmi pi byen lannwit.",
+    "Ki jan yo fè kafe soti nan grenn kafe?",
+    "Rakonte m yon bagay enteresan sou istwa Ayiti.",
+    "Ki sa mwen ka fè pou m ede pwoteje anviwònman an?",
+]
+# exhibit: a few prompts sampled at temperature (labeled sampled in the report)
+CHAT_EXHIBIT_PROMPTS = [
+    "Rakonte m yon istwa kout an kreyòl sou yon ti fi ki gen anpil kouraj.",
+    "Ki konsèy ou genyen pou yon moun ki fèk rive nan yon nouvo peyi?",
+    "Eksplike m poukisa kilti ayisyen an gen anpil valè.",
+]

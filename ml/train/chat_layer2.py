@@ -344,13 +344,15 @@ def run_full(target=4000, budget=75.0, seed=C.DL_SEED + 7) -> dict:
     key = _api_key()
     assert key, "no ANTHROPIC_API_KEY in .env"
     done = set()
-    if os.path.exists(C.LAYER2_GEN):                # resume: skip already-generated pids
-        for l in open(C.LAYER2_GEN, encoding="utf-8"):
-            try:
-                done.add(json.loads(l)["meta"]["pid"])
-            except Exception:
-                pass
-        _log(f"resuming: {len(done)} already generated")
+    # skip pids already generated in the full file AND in the pilot (no duplicate passages)
+    for path in (C.LAYER2_GEN, C.LAYER2_PILOT):
+        if os.path.exists(path):
+            for l in open(path, encoding="utf-8"):
+                try:
+                    done.add(json.loads(l)["meta"]["pid"])
+                except Exception:
+                    pass
+    _log(f"resuming: {len(done)} pids already generated (full + pilot)")
     passages = select_passages(target, seed)
     agg = _run_batch(passages, key, C.LAYER2_GEN, budget=budget, done_pids=done)
     total = len(done) + agg["n_ok"]
