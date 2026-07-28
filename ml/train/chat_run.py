@@ -24,7 +24,7 @@ import modal
 from . import chat_config as CC
 from . import config as F
 from .chat_app import (app, chat_train, chat_eval, chat_convert,
-                       chat_read_result, chat_upload_check, chat_reset)
+                       chat_read_result, chat_upload_check, chat_reset, chat_regression)
 
 VOL = modal.Volume.from_name(F.MODAL_VOLUME, create_if_missing=True)
 
@@ -137,12 +137,31 @@ def do_reset_sft():
     print(f"[chat_run] reset {tag}: {r}")
 
 
+def do_regression(label, step=None):
+    """Run ml/corpus/chat_regression_prompts.json through the SFT model at temp 0 + 0.7."""
+    tag = CC.SFT["model_tag"]
+    step = step if step is not None else _sft_final_step()
+    prompts = json.load(open(os.path.join(F.REPO_ROOT, "corpus", "chat_regression_prompts.json"),
+                             encoding="utf-8"))["prompts"]
+    with modal.enable_output(), app.run():
+        res = chat_regression.remote(tag, int(step), prompts)
+    _save(f"chat_regression_{label}.json", res)
+    for r in res["regression"][:4]:
+        print(f"  [{r['id']}] t0 -> {r['temp0'][:80]!r}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["upload", "midtrain", "sft", "eval", "convert", "all", "reset-sft"])
+    ap.add_argument("cmd", choices=["upload", "midtrain", "sft", "eval", "convert", "all",
+                                    "reset-sft", "regression"])
+    ap.add_argument("--label", type=str, default="baseline")
+    ap.add_argument("--step", type=int, default=None)
     args = ap.parse_args()
     if args.cmd == "reset-sft":
         do_reset_sft()
+        return
+    if args.cmd == "regression":
+        do_regression(args.label, args.step)
         return
     if args.cmd in ("upload", "all"):
         do_upload()

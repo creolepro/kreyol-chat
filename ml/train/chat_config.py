@@ -66,6 +66,11 @@ MURI_IT_HAT = os.path.join(CHAT_RAW, "muri_it_hat.jsonl")
 AYA_GOLD = os.path.join(CHAT_RAW, "aya_gold.jsonl")
 LAYER2_GEN = os.path.join(CHAT_RAW, "layer2_generated.jsonl")   # Part 2 output
 LAYER2_PILOT = os.path.join(CHAT_RAW, "layer2_pilot.jsonl")     # Part 2 pilot output
+# v1.1 informal patch (synthetic_unreviewed): short everyday exchanges + mined short kakugo
+INFORMAL_GENERATED = os.path.join(CHAT_RAW, "informal_generated.jsonl")
+INFORMAL_MINED = os.path.join(CHAT_RAW, "informal_mined_kakugo.jsonl")
+INFORMAL_GEN_UPWEIGHT = 2        # duplicate the targeted informal style in the SFT mix
+INFORMAL_MINED_CAP = 600         # cap the mined kakugo short exchanges added to SFT
 
 # assembled layers (what the tokenizer packs)
 LAYER1_JSONL = os.path.join(CHAT_RAW, "layer1_midtrain.jsonl")

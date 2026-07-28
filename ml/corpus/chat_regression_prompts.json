@@ -1,0 +1,28 @@
+{
+  "status": "dev-eval (NOT the frozen exhibit list)",
+  "purpose": "Before/after instrument for the SFT v1.1 patch: ultra-short informal inputs that regressed into ht.wikipedia bot-stub completions, plus a short-story ask. Match how people actually type (lowercase, punctuation-light). Free to edit/extend as new failures surface.",
+  "snapshot_date": "2026-07-28",
+  "note": "Screened against the 15 probe proverbs. These are eval prompts only — never training examples.",
+  "prompts": [
+    {"id": "reg_sakpase_bare", "category": "ultra-short informal opener", "prompt": "sak pase?"},
+    {"id": "reg_sakpase_zanmi", "category": "informal opener (multi-clause)", "prompt": "Sak pase, zanmi mwen? Kijan ou ye?"},
+    {"id": "reg_sakapfet", "category": "ultra-short informal opener", "prompt": "sa k ap fèt?"},
+    {"id": "reg_koman", "category": "ultra-short informal (lowercase)", "prompt": "kòman ou ye?"},
+    {"id": "reg_oula", "category": "ultra-short check-in", "prompt": "ou la?"},
+    {"id": "reg_mesi", "category": "closing / thanks", "prompt": "mèsi anpil!"},
+    {"id": "reg_nawe", "category": "closing (no punctuation)", "prompt": "n a wè pita"},
+    {"id": "reg_banmnouvel", "category": "informal check-in", "prompt": "banm nouvèl ou"},
+    {"id": "reg_sakgen", "category": "ultra-short informal opener", "prompt": "sak gen?"},
+    {"id": "reg_alo", "category": "phone opener", "prompt": "alo? ki moun sa?"},
+    {"id": "reg_bonswa", "category": "greeting (lowercase)", "prompt": "bonswa, kijan aswè a ye?"},
+    {"id": "reg_kinouvel", "category": "informal check-in (lowercase)", "prompt": "ki nouvèl?"},
+    {"id": "reg_eske_byen", "category": "short yes/no check-in", "prompt": "eske ou byen?"},
+    {"id": "reg_wi_ou", "category": "one-word / fragment", "prompt": "wi, epi ou menm?"},
+    {"id": "reg_map_fatige", "category": "casual statement (invites reply)", "prompt": "map fatige anpil jodi a"},
+    {"id": "reg_short_story_ptp", "category": "short-story request", "prompt": "Rakonte m yon ti istwa sou yon ti gason nan Pòtoprens."},
+    {"id": "reg_ti_blag", "category": "casual request (short)", "prompt": "ban m yon ti blag"},
+    {"id": "reg_konsey_kout", "category": "casual advice ask (short)", "prompt": "m gen yon randevou demen, ki jan pou m pa strese?"},
+    {"id": "reg_kote_ou", "category": "casual question (lowercase)", "prompt": "kote ou ye la?"},
+    {"id": "reg_bon_jounen", "category": "closing / well-wish", "prompt": "ok, pase yon bon jounen!"}
+  ]
+}

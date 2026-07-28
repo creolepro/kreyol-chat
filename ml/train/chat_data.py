@@ -453,11 +453,20 @@ def assemble_layer3(include_layer2=True) -> dict:
     layer2 = [r for r in layer2 if not any(_ref.search(m["content"]) for m in r["messages"])]
     for r in layer2:
         r["layer"] = 3
-    allrows = muri + gold + gloss + layer2
+    # v1.1 informal patch (synthetic_unreviewed): short everyday exchanges (upweighted) + mined
+    # short kakugo exchanges. Teaches clean termination after short replies + informal register.
+    informal = _read_jsonl(C.INFORMAL_GENERATED)
+    for r in informal:
+        r["layer"] = 3
+    informal = informal * C.INFORMAL_GEN_UPWEIGHT
+    mined = _read_jsonl(C.INFORMAL_MINED)[:C.INFORMAL_MINED_CAP]
+    for r in mined:
+        r["layer"] = 3
+    allrows = muri + gold + gloss + layer2 + informal + mined
     rng.shuffle(allrows)
     n = _write_jsonl(C.LAYER3_JSONL, allrows)
     comp = {"muri-it": len(muri), "aya-gold": len(gold), "glossary-qa": len(gloss),
-            "layer2": len(layer2)}
+            "layer2": len(layer2), "informal_gen(xN)": len(informal), "kakugo_mined": len(mined)}
     _log(f"layer3: total={n} composition={comp}")
     return {"total": n, "composition": comp}
 

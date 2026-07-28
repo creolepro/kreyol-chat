@@ -362,6 +362,28 @@ def chat_convert(tag: str, step: int, do_quant: bool = True) -> dict:
     return res
 
 
+@app.function(image=image, gpu=F.MODAL_GPU, volumes={CACHE: VOL}, timeout=60 * 60)
+def chat_regression(tag: str, step: int, prompts: list) -> dict:
+    """Run the regression prompt list (Part 0 instrument) through a checkpoint at temp 0 and a
+    single temp-0.7 sample — the before/after comparison for the v1.1 informal patch."""
+    import torch
+    from transformers import LlamaForCausalLM
+    enc = _load_enc()
+    sp = _sp(enc)
+    d = os.path.join(_CKPT(tag), f"step_{step}")
+    model = LlamaForCausalLM.from_pretrained(d, torch_dtype=torch.bfloat16).to("cuda").eval()
+    dev = torch.device("cuda")
+    out = []
+    for p in prompts:
+        t0 = _chat_generate(model, enc, sp, p["prompt"], CC.CHAT_GEN_MAX_TOKENS, dev, do_sample=False)
+        t07 = _chat_generate(model, enc, sp, p["prompt"], CC.CHAT_GEN_MAX_TOKENS, dev, do_sample=True,
+                             temperature=0.7, top_p=0.95, seed=20260728)
+        out.append({"id": p["id"], "category": p["category"], "prompt": p["prompt"],
+                    "temp0": t0, "temp0_7": t07})
+        print(f"[chat_regression] {p['id']}: t0={t0[:70]!r}")
+    return {"tag": tag, "step": step, "regression": out}
+
+
 @app.function(image=image, volumes={CACHE: VOL}, timeout=300)
 def chat_read_result(name: str) -> dict | None:
     p = os.path.join(CC.CHAT_DIR, "results", name)
