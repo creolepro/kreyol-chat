@@ -1,0 +1,92 @@
+{
+  "model": "modelc-chat-sft-d12",
+  "base": "modelc-v1-d12@1907",
+  "snapshot": "2026-07-28",
+  "note": "Frozen 10 prompts answered in CHAT mode (continuer->answerer). Generation uses repeat_penalty=1.3 + no_repeat_ngram_size=3. before = v1 base greedy continuation, after = chat-mode answer. Committable slider asset (mirrors modelc_v1_generations.json).",
+  "frozen_chat": [
+    {
+      "id": "greet_1",
+      "category": "greeting",
+      "prompt": "Bonjou! Kijan ou ye jodi a?",
+      "base_continuation": " - The Haitian Times\nBonjou! Kijan ou ye jodi a?\nNou se yon gwoup jèn ki gen yon seri moun ki pa gen anpil konesans nan domèn nan. Nou gen yon seri moun ki pa gen anpil konesans nan domèn nan. Nou",
+      "chat_answer": "Bonjou! Wi, se vre. Se pa sèlman nan Pòtoprens nou pral fè yon ti vwayaj pou peyi a, men tou nan vil yo ak zòn ki antoure l. Nou gen anpil bèl plaj sou lanmè. N ap tann w la lè solèy kouche."
+    },
+    {
+      "id": "proverb_1",
+      "category": "proverb completion (probe split)",
+      "prompt": "Lè chat pa la,",
+      "base_continuation": " li se pa gen okenn ankò yon bagay ki te pase, men li se yon bagay ki te pase nan lavi nou. Li se yon bagay ki pa ka di sou lavi nou, men sou tan, li te gen yon bagay ki te pase",
+      "chat_answer": "Chat se yon bèt ki gen anpil enèji. Chat renmen manje tout bagay li yo ak zanmi l yo.\n\nTradiksyon \n Lòt kreyòl:\n Franse: chat\n\nIstwa \nIstwa mo sa\n\nReferans\n\nLyen deyò"
+    },
+    {
+      "id": "translate_1",
+      "category": "short translation (eng→hat)",
+      "prompt": "Tradui an kreyòl: \"Haiti became independent in 1804.\"",
+      "base_continuation": " - Journal Haïti Progrès - Haitian #1 Newspaper - Jounal Ayiti\nTradui an kreyòl: \"Haiti became independent in 1804\"\nNan yon atik ki te pibliye nan jounal Le Nouvelliste, nou",
+      "chat_answer": "Ayiti se yon peyi ki sitye nan Karayib. Kapital li se Pòtoprens.\n\nIstwa\n\nPolitik\n\nAdministrasyon\nKominote Ayisyen, relasyon ant eta sa epi Ayiti\n6 fevrye 1996 : Gouvènman ayisyen reprann kontak ak otorite Kiben ( 2 chanselye Ayisyen epi Kiben Emmanuel Fritz Longchamp epi Roberto Robaina ); relasyon diplomatik sa te sispann depi 1962, dat Kiba te dwèt retire l de òganizasyon OEA. Relasyon sa te koumanse depi 3 fevya 1904.\nKooperasyon ant 2 peyi yo nan domèn sa yo :\nAgrikilti\nKilti sik (izin Dabòn)\nSante, asistans medikal\nAewonotik sivil\nEspò\nTouris\nKonstriksyon\nPèch\nEdikasyon, alfabetizasyon, timoun piti\n\nPopilasyon ayisyen nan Kiba rive 300000 moun nan lane 2004.\nKreyòl ayisyen se dezyèm lang ki pale nan Kiba, lang ayisyen an gen menm yon estasyon radyo pou kò l.\n\nJewografi\n\nEkonomi\n\nDevlòpman\n\nPolitik)\n\nEdikasyon"
+    },
+    {
+      "id": "translate_2",
+      "category": "short translation (eng→hat)",
+      "prompt": "An kreyòl, «I love my country very much» vle di:",
+      "base_continuation": " «Nou pa gen okenn pwoblèm ak sa. Nou pa gen pwoblèm ak sa. Nou pa gen pwoblèm ak sa. Nou pa gen pwoblèm ak sa. Nou pa gen pwoblèm ak sa. Nou pa gen pwoblèm ak sa. Nou pa gen pwoblèm",
+      "chat_answer": "Prè pou moun ki pa gen kay nan peyi a"
+    },
+    {
+      "id": "question_1",
+      "category": "question (factual)",
+      "prompt": "Ki kapital Ayiti a?",
+      "base_continuation": " - windowsonhaiti.com\nKi kapital Ayiti a?\nPost by admin » Sun Oct 13, 2006 9:51 am\nMwen pa konnen ki kote w prale, men mwen pa konnen ki kote w prale. Mwen",
+      "chat_answer": "se yon vil Etazini. Li sitye nan leta Alabama.\n\nIstwa \nIstwa\n\nRelasyon ak Ayiti \nKominote Ayisyen, relasyon ant eta sa epi Ayiti\n\nJewografi\n\nEkonomi\n\nDevlòpman\n\nPolitik\n\nEdikasyon\n\nAnviwònman\n\nreferans\n\nKèk lyen \n\nvil nan Alabasterola\nVil nan Etazini\njewografi"
+    },
+    {
+      "id": "question_2",
+      "category": "question (causal)",
+      "prompt": "Poukisa lapli tonbe?",
+      "base_continuation": " - windowsonhaiti.com\nPost by admin » Sun Oct 09, 2004 12:22 pm\nMwen pa konnen ki jan pou mwen ta fè yon kout je sou sa. Men, mwen pa konnen ki jan pou",
+      "chat_answer": "Lapli se yon gwo van ki ap deplase nan direksyon lwès, epi li ka rive sou tè a avèk anpil fòs. Li kapab tou frape pa nèj la oswa glas la lè dlo yo cho ak frèt.\n\nReferans\n\nSyans"
+    },
+    {
+      "id": "continue_1",
+      "category": "continuation (narrative)",
+      "prompt": "Krik! Krak! Te gen yon fwa, yon ti gason yo te rele Ti Jan. Chak maten, li",
+      "base_continuation": " te ale nan yon kafe nan yon Kafe, li te ale nan yon kafe, li te ale nan yon kafe, li te ale nan yon kafe, li te ale nan yon kafe, li te ale nan yon kafe, li te ale nan",
+      "chat_answer": "Tifi Dram nan peyi Ayiti\nLi se pitit fi yon jèn gason ki renmen lanmè a.\nMen sa l di: \"Mwen pa ka viv ak moun.\"\n\n\"Ou mèt voye zye sou kat jewografik li nan paj sa\n\nIstwa \nIstwa mo sa\n\nreferans\n\nKèk lyen"
+    },
+    {
+      "id": "continue_2",
+      "category": "continuation (expository)",
+      "prompt": "Ayiti se yon peyi ki gen yon istwa rich. Kilti li",
+      "base_continuation": " se yon kilti ki gen yon istwa rich. Se yon kilti ki gen yon istwa rich. Se yon kilti ki gen yon istwa rich. Se yon kilti ki gen yon istwa rich. Se yon kilti ki gen yon istwa rich. Se yon kilti",
+      "chat_answer": "se yon vil Etazini. Li sitye nan leta Alabama.\n\nChèf-lye li se ?\n\nNan lane 2004, popilasyon l te konte 1,410 moun. Lòt lane yo te genyen : 2003 (2), \n2002 (2).\n\nIstwa \nIstwa\n\nreferans\n\nKèk lyen \n\nVil nan Alabasteròs\nVil nan Kiba\nJewografi"
+    },
+    {
+      "id": "register_1",
+      "category": "register shift (formal)",
+      "prompt": "Mesyedam, se yon gwo onè pou mwen prezante",
+      "base_continuation": " w bay piblik la nan okazyon fèt manman yo. Se yon onè pou mwen prezante w bay piblik la nan okazyon fèt manman yo. Se yon onè pou mwen prezante w bay piblik la nan okazyon fèt manman yo. Mwen prezante w bay piblik la",
+      "chat_answer": "M'ap sonje nan ane 1950 yo lè m te timoun piti. Se konsa li t ap fè lwanj Bondye e l t ap sèvi ak tout kalite bagay ki gen rapò avè l tankou rad, jwèt aza oswa lòt bagay ankò. Li te konn di: \"Se pa sa sèlman k' ta dwe fèt\". Nan lane 2000, li te ekri sou papye sa a epi li te mande padon pou peche nou yo. Lè n reflechi sou jan pawòl sa a sonnen, ann Ayiti tou patou, men kounye a se pitit fi Papa Nasyon an ki te voye nou. Nou ka konprann egzanp Jezi te bay la byen vit lè n rakonte istwa vrè lanmou li genyen pou moun ki renmen l yo. Men repons lan:\n\"Papa nasyon an\n\"Jezi vivan\"\n\"Moun ki kwè toutbonvre\n\"Bondye beni.\"\n\nTradiksyon \nLòt kreyòl:\nFranse : papa\nAngle :\nAlman:\nPanyòl:\n\nIstwa \nIstwa mo sa\n\nreferans"
+    },
+    {
+      "id": "register_2",
+      "category": "register shift (casual)",
+      "prompt": "Frè m, kite m di w yon bagay:",
+      "base_continuation": " ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen. Ou pa konnen.",
+      "chat_answer": "Bonjou! Frè m ak mwen se moun ki nan zòn riral yo. Mwen gen anpil zanmi e nou tout konnen sa k ap pase la a. Nou pa ka pale de li pou kont nou."
+    }
+  ],
+  "exhibit_sampled": [
+    {
+      "prompt": "Rakonte m yon istwa kout an kreyòl sou yon ti fi ki gen anpil kouraj.",
+      "sampled": "Janm se ki pa ka konte, men li kapab sèlman swiv moun avèk fòs.\n\nTradiksyon \n Lòt kreyòl:\n Franse: jamais\n Angle:\n\n Panyòl:\n Pòtigè:\n Alman:\n\nEtimoloji"
+    },
+    {
+      "prompt": "Ki konsèy ou genyen pou yon moun ki fèk rive nan yon nouvo peyi?",
+      "sampled": "Dapre enfòmasyon yo, ann Ayiti toujou gen anviwon 60 milyon migran ayisyen. Selon sa k fè konprann pi fò migran ayisyen se granmoun sèlman; plis pase mwatye ladan yo se timoun. Gen kèk gwoup Ayisyen tou pwofite antre nan vil Pòtoprens kote anpil Ayisyen deja ap kouri kite lakay yo epi oblije pran avyon pou al vizite fanmi oubyen zanmi.\n\nSepandan, selon kominike a, administrasyon Obama a poko bay okenn garanti ke moun kap viv an Ayiti ka retounen sou tè li te planifye depi lontan an san gwo chanjman. Se poutèt sa gouvènman ameriken anonse lap bay asistans finansye pou ede konstwi enfrastrikti touristik ak ti biznis lokal la nan zòn sinistre."
+    },
+    {
+      "prompt": "Eksplike m poukisa kilti ayisyen an gen anpil valè.",
+      "sampled": "Dapre enfòmasyon ki disponib, tout bagay ap diskite nan sosyete a pou rive fè moun santi yo fyè de li. Anpil Ayisyen santi sa pa gen sans e sa lakòz menm pwoblèm lan: nou plis tande vwa pèp la sou Twitter; se paske se yon sitiyasyon oubyen yon lòt k ap pase.\nSe poutèt sa mwen te anvi al gade dokimantè \"The People of African American Mind\" (1995) ki rele \"From the World Trade Center for Haitians\".\n\nIstwa \nNan ane 2015, Ayiti te bay peyi manm Nasyonzini yo pèmisyon pou yo pibliye ak distribye videyo koutwazi « The People Of African Indian », epi li montre kèk lyen kote gouvènman ameriken finanse fim tankou \"Everything we can't wait to talk about single other people.\" Sityasyon etranje sou medya sosyal souvan parèt devan je otorite Ameriken ki vle sèvi kominote entènasyonal la.\n\nFim Twazyèmman, gen plizyè rezon diferan :\n\n1- Dekrè egzekitif 21 Desanm 1976"
+    }
+  ]
+}
