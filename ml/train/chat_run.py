@@ -137,6 +137,44 @@ def do_reset_sft():
     print(f"[chat_run] reset {tag}: {r}")
 
 
+def _dl_volume(vol_path, local_path):
+    os.makedirs(os.path.dirname(local_path), exist_ok=True)
+    with open(local_path, "wb") as fh:
+        for chunk in VOL.read_file(vol_path):
+            fh.write(chunk)
+    return os.path.getsize(local_path)
+
+
+def do_fetch_serve(step=None):
+    """Part 4: pull the v1.1 GGUF from the Volume into ml/data/serve/ (the live llama-server test
+    copy) + write a Modelfile with the BOS/template + belt-and-suspenders stub stop strings.
+    A running llama-server picks up the new weights on restart."""
+    tag = CC.SFT["model_tag"]
+    step = step if step is not None else _sft_final_step()
+    serve = os.path.join(F.DATA, "serve")
+    base = f"chat/artifacts/{tag}/modelc-chat-{tag}-step{step}"
+    q4_name = f"modelc-chat-v1_1-step{step}-Q4_K_M.gguf"
+    f16_name = f"modelc-chat-v1_1-step{step}-f16.gguf"
+    q4_bytes = _dl_volume(f"{base}-Q4_K_M.gguf", os.path.join(serve, q4_name))
+    f16_bytes = _dl_volume(f"{base}-f16.gguf", os.path.join(serve, f16_name))
+    modelfile = (f"FROM ./{q4_name}\n"
+                 'TEMPLATE """{{ if .System }}<|user_start|>{{ .System }}<|user_end|>{{ end }}'
+                 '<|user_start|>{{ .Prompt }}<|user_end|><|assistant_start|>{{ .Response }}<|assistant_end|>"""\n'
+                 'PARAMETER stop "<|assistant_end|>"\n'
+                 'PARAMETER stop "<|user_start|>"\n'
+                 'PARAMETER stop "\\nIstwa"\n'
+                 'PARAMETER stop "\\nReferans"\n'
+                 'PARAMETER stop "\\nKèk lyen"\n'
+                 'PARAMETER stop "\\nLyen deyò"\n'
+                 'PARAMETER repeat_penalty 1.3\n'
+                 'PARAMETER temperature 0.7\n')
+    open(os.path.join(serve, "Modelfile"), "w").write(modelfile)
+    print(f"[chat_run] refreshed {serve}: {q4_name} ({q4_bytes//1_000_000}MB) + f16 "
+          f"({f16_bytes//1_000_000}MB) + Modelfile.")
+    print(f"[chat_run] restart the llama-server to pick up v1.1:  "
+          f"llama-server -m {q4_name} --repeat-penalty 1.3 --temp 0.7 --port 8080")
+
+
 def do_regression(label, step=None):
     """Run ml/corpus/chat_regression_prompts.json through the SFT model at temp 0 + 0.7."""
     tag = CC.SFT["model_tag"]
@@ -153,7 +191,7 @@ def do_regression(label, step=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["upload", "midtrain", "sft", "eval", "convert", "all",
-                                    "reset-sft", "regression"])
+                                    "reset-sft", "regression", "fetch-serve"])
     ap.add_argument("--label", type=str, default="baseline")
     ap.add_argument("--step", type=int, default=None)
     args = ap.parse_args()
@@ -162,6 +200,9 @@ def main():
         return
     if args.cmd == "regression":
         do_regression(args.label, args.step)
+        return
+    if args.cmd == "fetch-serve":
+        do_fetch_serve(args.step)
         return
     if args.cmd in ("upload", "all"):
         do_upload()

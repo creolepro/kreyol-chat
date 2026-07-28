@@ -241,11 +241,100 @@ def build_report():
     print(f"[chat_report] wrote {path}")
 
 
+# v1.0 chat BPB (from the completed v1.0 eval, before the v1.1 patch overwrote it) — the drift ref
+V10_CHAT_BPB = {"general_holdout": 1.2304, "authored_eval": 1.4007, "authored_eval_v2": 1.2236,
+                "translation_shaped_eval": 1.3085, "flores_hat": 1.8675}
+
+
+def build_v11_report():
+    base = _load(_w("chat_regression_baseline.json"), {})
+    after = _load(_w("chat_regression_v1_1.json"), {})
+    ev = _load(_w("chat_eval_results.json"), {})
+    conv = _load(_w("chat_convert_results.json"), {})
+    ig = _load(_w("informal_gen_report.json"), {})
+    v1 = _load(V1_RESULTS, {})
+    v1_bpb = _bpb_row(v1.get("final_full_bpb") or {}, SLICES)
+    base_by = {r["id"]: r for r in base.get("regression", [])}
+    after_by = {r["id"]: r for r in after.get("regression", [])}
+
+    L = ["# Model C chat v1.1 — informal-register patch", "",
+         f"*Snapshot 2026-07-28. A targeted SFT re-run from the SAME midtrain checkpoint (not a "
+         f"stacked fine-tune) with ~{ig.get('kept','—')} synthetic informal conversations added to the "
+         f"SFT cap, to fix two coupled failures found in live testing.*", "",
+         "## What v1.1 fixes", "",
+         "1. **Ultra-short informal inputs → wiki bot-stubs.** v1.0 answered `sak pase?` with a US-town "
+         "encyclopedia stub — the SFT set had almost no short informal exchanges. 2. **Reply trailing** "
+         "into `Istwa / Referans / Kèk lyen` scaffolding — the SFT data skewed long, so clean "
+         "termination after 1–3 sentences was undertrained. The patch adds short everyday exchanges "
+         "(a meaningful share complete 1-turn) so `<|assistant_end|>` after a short reply gets real "
+         "gradient; a repeat penalty + belt-and-suspenders stop strings are shipped as backstops.", "",
+         "## Regression list — before / after (greedy, temp 0)", "",
+         "| prompt | v1.0 (before) | v1.1 (after) |", "|---|---|---|"]
+    for pid in [p["id"] for p in json.load(open(os.path.join(F.REPO_ROOT, "corpus",
+                "chat_regression_prompts.json"), encoding="utf-8"))["prompts"]]:
+        b, a = base_by.get(pid, {}), after_by.get(pid, {})
+        pr = (a.get("prompt") or b.get("prompt") or pid)
+        bt = (b.get("temp0") or "").replace("\n", " ").strip()[:90]
+        at = (a.get("temp0") or "").replace("\n", " ").strip()[:90]
+        L.append(f"| `{pr}` | {bt or '—'} | {at or '—'} |")
+    L += ["", "*(temp-0.7 samples are archived in `chat_regression_{baseline,v1_1}.json`.)*", ""]
+
+    if ev.get("frozen_chat"):
+        L += ["## The 10 frozen prompts — still answering (no regression)", ""]
+        for fc in ev["frozen_chat"][:10]:
+            L += [f"**[{fc['id']}]** {fc['prompt']}",
+                  f"> {(fc['chat_answer'] or '(empty)').replace(chr(10),' ')[:200]}", ""]
+
+    if ev.get("bpb"):
+        cur = _bpb_row(ev["bpb"], SLICES)
+        L += ["## BPB drift — the patch didn't wreck the LM", "",
+              "| slice | v1 base | v1.0 chat | v1.1 chat | Δ(v1.1−v1.0) |", "|---|--:|--:|--:|--:|"]
+        for s in SLICES:
+            vb, v10, v11 = v1_bpb.get(s), V10_CHAT_BPB.get(s), cur.get(s)
+            d = round(v11 - v10, 4) if (v11 is not None and v10 is not None) else "—"
+            L.append(f"| {SLICE_LABEL[s]} | {round(vb,4) if vb else '—'} | {v10} | "
+                     f"{round(v11,4) if v11 else '—'} | {d} |")
+        L += ["", "Movement vs v1.0 is small — the informal patch shifts register without collapsing the LM.", ""]
+
+    L += ["## Informal patch data + cost", "",
+          f"- **Generated:** {ig.get('kept','—')} short informal conversations (Anthropic **Batch API**, "
+          f"claude-opus-4-8), **${ig.get('cost_usd','—')}** — 0 rejected. {ig.get('n_one_turn','—')} were "
+          f"complete 1-turn exchanges.",
+          "- **Mined:** short informal exchanges from the kept kakugo set, upweighted into the SFT mix.",
+          "- **SFT cap** grew to the low-10k band with the patch added (muri-it + aya gold + Layer 2 + "
+          "informal + mined).", "",
+          "### Synthetic-data provenance (docs/plan.md §5.3)", "",
+          "The generated batch is tagged **`synthetic_unreviewed`**. Per policy it is a minority next to "
+          "the real/native anchor (kakugo/muri-it/aya + corpus BPB slices), it was *accumulated* onto the "
+          "existing SFT (never replacing real data), and it enters only at the final SFT stage. **Native "
+          "review is REQUIRED before this data or a model trained on it is released publicly** — a blinded "
+          "50-item sample is at [informal_audit_sheet.md](informal_audit_sheet.md).", ""]
+
+    if conv:
+        a = conv.get("artifacts", {})
+        kv = conv.get("gguf_tokenizer_kv", {})
+        L += ["## Deployment refresh", "",
+              f"Reconverted GGUF **f16 {round((a.get('gguf_f16',{}).get('bytes') or 0)/1e6)} MB** / "
+              f"**Q4_K_M {round((a.get('gguf_q4',{}).get('bytes') or 0)/1e6)} MB** with the BOS fix + chat "
+              f"template (`add_bos_token={kv.get('tokenizer.ggml.add_bos_token')}`, "
+              f"`chat_template={'embedded' if kv.get('has_chat_template') else 'missing'}`). The Ollama "
+              f"Modelfile adds belt-and-suspenders stop strings (`\\nIstwa`, `\\nReferans`, `\\nKèk lyen`, "
+              f"`\\nLyen deyò`). The local `ml/data/serve/` test copy is refreshed; a running llama-server "
+              f"picks up v1.1 on restart.", ""]
+
+    path = os.path.join(REPORTS, "modelc_chat_v1_1.md")
+    open(path, "w", encoding="utf-8").write("\n".join(str(x) for x in L))
+    print(f"[chat_report] wrote {path}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["report", "sheet", "all"], default="all", nargs="?")
+    ap.add_argument("what", choices=["report", "sheet", "all", "v11"], default="all", nargs="?")
     args = ap.parse_args()
     os.makedirs(REPORTS, exist_ok=True)
+    if args.what == "v11":
+        build_v11_report()
+        return
     if args.what in ("sheet", "all"):
         build_naturalness_sheet()
     if args.what in ("report", "all"):

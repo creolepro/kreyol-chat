@@ -331,6 +331,11 @@ def chat_convert(tag: str, step: int, do_quant: bool = True) -> dict:
                  f'<|user_start|>{{{{ .Prompt }}}}<|user_end|><|assistant_start|>{{{{ .Response }}}}<|assistant_end|>"""\n'
                  f'PARAMETER stop "<|assistant_end|>"\n'
                  f'PARAMETER stop "<|user_start|>"\n'
+                 # belt-and-suspenders: cut the residual ht.wikipedia stub scaffolding if it appears
+                 f'PARAMETER stop "\\nIstwa"\n'
+                 f'PARAMETER stop "\\nReferans"\n'
+                 f'PARAMETER stop "\\nKèk lyen"\n'
+                 f'PARAMETER stop "\\nLyen deyò"\n'
                  f'PARAMETER repeat_penalty 1.3\n'
                  f'PARAMETER temperature 0.7\n')
     with open(os.path.join(art, "Modelfile"), "w") as fh:

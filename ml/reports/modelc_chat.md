@@ -1,5 +1,9 @@
 # Model C chat — midtraining + SFT (the first conversational Kreyòl-first model)
 
+> **Superseded in part by v1.1** ([modelc_chat_v1_1.md](modelc_chat_v1_1.md), 2026-07-28): an
+> informal-register patch that fixes the short-informal→wiki-stub failure and the stub-trailing
+> reflex noted below (see "Quality — an honest read"). This report documents the v1.0 baseline.
+
 *Snapshot 2026-07-26. Continues the Model C v1 base (123M, d12) through a three-layer SFT stack (docs/data.md §3): midtraining (format) → SFT (voice), on Modal H100. Nothing under `ml/data/` is committed.*
 
 ## Data composition + licenses
