@@ -189,8 +189,10 @@ def _chat_generate(model, enc, sp, prompt, max_tokens, device, do_sample=False,
     import torch
     ids = [sp["bos"], sp["user_start"]] + enc.encode_ordinary(prompt) + [sp["user_end"], sp["assistant_start"]]
     x = torch.tensor([ids], device=device)
+    # a repetition penalty is essential for a 123M model — greedy without it degenerates into
+    # loops. Matches the deployment default (llama.cpp/Ollama repeat_penalty).
     kw = dict(max_new_tokens=max_tokens, num_beams=1, eos_token_id=sp["assistant_end"],
-              pad_token_id=sp["assistant_end"])
+              pad_token_id=sp["assistant_end"], repetition_penalty=1.3, no_repeat_ngram_size=3)
     if seed is not None:
         torch.manual_seed(seed)
     with torch.inference_mode():
@@ -328,7 +330,9 @@ def chat_convert(tag: str, step: int, do_quant: bool = True) -> dict:
                  f'TEMPLATE """{{{{ if .System }}}}<|user_start|>{{{{ .System }}}}<|user_end|>{{{{ end }}}}'
                  f'<|user_start|>{{{{ .Prompt }}}}<|user_end|><|assistant_start|>{{{{ .Response }}}}<|assistant_end|>"""\n'
                  f'PARAMETER stop "<|assistant_end|>"\n'
-                 f'PARAMETER stop "<|user_start|>"\n')
+                 f'PARAMETER stop "<|user_start|>"\n'
+                 f'PARAMETER repeat_penalty 1.3\n'
+                 f'PARAMETER temperature 0.7\n')
     with open(os.path.join(art, "Modelfile"), "w") as fh:
         fh.write(modelfile)
     res["modelfile"] = modelfile
@@ -362,6 +366,24 @@ def chat_convert(tag: str, step: int, do_quant: bool = True) -> dict:
 def chat_read_result(name: str) -> dict | None:
     p = os.path.join(CC.CHAT_DIR, "results", name)
     return json.load(open(p)) if os.path.exists(p) else None
+
+
+@app.function(image=image, volumes={CACHE: VOL}, timeout=300)
+def chat_reset(tag: str) -> dict:
+    """Remove a stage's cached results + checkpoints so it re-runs cleanly (used when the
+    SFT data changes and we re-SFT on the SAME midtrain checkpoint)."""
+    import shutil
+    removed = []
+    rd = os.path.join(CC.CHAT_DIR, "results")
+    for f in [f"train_{tag}.json", f"eval_{tag}.json", f"convert_{tag}.json"]:
+        p = os.path.join(rd, f)
+        if os.path.exists(p):
+            os.remove(p); removed.append(f)
+    ck = _CKPT(tag)
+    if os.path.isdir(ck):
+        shutil.rmtree(ck); removed.append(f"ckpt:{tag}")
+    VOL.commit()
+    return {"removed": removed}
 
 
 @app.function(image=image, volumes={CACHE: VOL}, timeout=600)

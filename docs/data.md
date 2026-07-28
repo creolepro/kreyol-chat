@@ -146,6 +146,8 @@ MURI-style reverse instructions (write the instruction whose answer IS an authen
 
 Rights notes: kakugo/muri-it/aya are Apache-2.0 (TRAIN-OK); TaCo's 52k translated Alpaca is CC BY-NC (QUARANTINE). Native review remains the long pole (phase-1 risk list) — schedule reviewer time first, not last.
 
+**§3 executed — status 2026-07-28 (Model C chat done).** Report: [../ml/reports/modelc_chat.md](../ml/reports/modelc_chat.md). All five SFT sources registered in `rights.yaml` before ingestion. **Layer 1** (midtrain, 19.9M tok): kakugo-hat **38,475** (English `<think>`/system stripped, per-turn langid, dedup, probe-screened), aya_collection **6,000** (capped), federal-PD + CMU translation-QA **3,955**. ⚠️ **xP3x hat_Latn measured 100% FLORES-derived → 0 kept** (the eval carve-out held — the whole config is our MT benchmark; ingesting it would have leaked FLORES into training). **Layer 2** (quality core): **1,176** corpus-grounded conversations (claude-opus-4-8 over authored VOA/wiki/legal passages), **pilot-gated** — the 3–5k target extrapolated past the ≈$75 budget so a budget-fit ≈$75 run was chosen ($72.38 total); 977 survived the passage-reference filter. **Layer 3** (SFT cap, response-masked): muri-it **6,817** + aya gold **98** + glossary-QA 500 + Layer-2 977 = **8,392** (inside the 1–10k band). The probe rule extended to every SFT example; nothing under `ml/data/` committed.
+
 ---
 
 ## §4 Open items

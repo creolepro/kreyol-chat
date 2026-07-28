@@ -112,6 +112,32 @@ Turns the text-continuer into something a visitor can talk to.
 > dedup, probe-proverb screen) rather than reviewer-derived per-item patterns. This unblocks
 > Workstream I (the long-pole human dependency).
 
+> **Status 2026-07-28: Model C chat done.** Report: [modelc_chat.md](../ml/reports/modelc_chat.md).
+> The v1 base (123M, d12) was taken through the three-layer stack on Modal H100.
+> - **Part 0 (BOS fix):** the GGUF converter now emits `tokenizer.ggml.add_bos_token=true`
+>   (`gates.export_hf`), so **gate 6 is CLEAN** — native↔llama.cpp greedy LCP **1.000** on 10/10
+>   frozen prompts (was 0.002). Fixes every downstream llama.cpp/Ollama user.
+> - **Layer 1 (midtrain, 19.9M tok):** kakugo-hat **38,475** (English `<think>`/system stripped,
+>   per-turn langid, dedup, probe-screened) + aya_collection **6,000** + translation-QA **3,955**.
+>   **xP3x hat_Latn = 0 kept** — it is **100% FLORES-derived**, so the eval carve-out dropped all of
+>   it (would have contaminated our FLORES slice).
+> - **Layer 2 (quality core):** corpus-grounded generation (MURI reverse-instructions + doc→dialogue)
+>   over authored VOA/wiki/legal passages, teacher **claude-opus-4-8**. **Pilot-gated:** 100/100 clean
+>   at $6.36; the 3–5k target extrapolated to $191–318 (> the ≈$75 budget) so — per the gate — it was
+>   surfaced and a **budget-fit ≈$75 run** chosen → **1,176 conversations for $72.38**; 977 kept for SFT
+>   after dropping passage-referencing items.
+> - **Layer 3 (SFT cap, 1.72M tok, response-masked):** muri-it **6,817** + aya gold **98** + glossary-QA
+>   500 + best Layer-2 977 = **8,392**.
+> - **Train:** midtrain 455 steps (loss→2.33) then SFT 79 steps (loss→1.81). **BPB regression** vs v1
+>   base is small (+0.05 authored_v2 … +0.15 FLORES) — the LM is intact, retuned to answer.
+> - **Eval:** the 10 frozen prompts now **answer** in chat mode (continuer→answerer transition);
+>   blinded [chat_naturalness_sheet.md](../ml/reports/chat_naturalness_sheet.md) built for a 2nd native
+>   review. Honest read: a real 123M chat model — fluent Kreyòl chat shapes, needs `repeat_penalty`,
+>   residual encyclopedic bleed + factual thinness (base-scale limit).
+> - **Ship:** GGUF **f16 246 MB / Q4_K_M 78 MB** with the BOS fix **and** the chat template embedded
+>   (`tokenizer.chat_template`) + ONNX bundle + an Ollama Modelfile; gate 1 Δ=0, token-ID parity 1.000,
+>   gate 5 ONNX OK. GPU ≈$4; API $72.38.
+
 > **Data plan (2026-07-24):** [data.md](data.md) records the verified source survey — corpus v0.2 acquisition (Workstream J: VOA Nouvèl PD crawl, federal PDF harvest, family-contributed set, small CC wins) and the three-layer SFT data stack (kakugo-hat audit → corpus-grounded generation → muri-it + gold cap). It supersedes the sketches in I.1/I.2 below where they differ.
 
 > **Workstream J — corpus v0.2 status 2026-07-24: done (measure-first; register-focused).** Reports: [corpus_v0_2_scoping.md](../ml/reports/corpus_v0_2_scoping.md) (J0 gate) · [corpus_v0_2.md](../ml/reports/corpus_v0_2.md) (build). **J0 red-flag gate TRIPPED:** VOA — the survey's "one big unlock" for authored journalism — measured **~2.25M net-new kreyol-bpe tokens, not 20–60M** (only 54% of `/a/` URLs are text — the rest are audio/video radio programs; 34% of articles are AFP/AP/Reuters wire, dropped; 45% of the rest already in MADLAD). Surfaced to the human; per the **"Full v0.2 + mix control"** decision, proceeded with the goal restated as *register diversity + an authored-journalism eval axis*, driving authored emphasis via **train-mix weights**, not corpus composition. **Surprise:** fineweb-2 hat is **~108M net-new** (not the "heavy overlap" the survey assumed — 17% doc-dup), a large web-crawl volume held at mix weight 1×. **Built:** v0.1 frozen base + net-new J survivors, register-tagged, with authored-beats-crawl dedup replacement — VOA journalism, **33 federal PD PDFs** (IRS/OSHA/DHS-OIDO/USCIS I-589/CFPB/EPA/CMS; CDC/SSA/FEMA Akamai-blocked → reported, not bypassed), Bib La (1.14M, religious ≤2% cap), Konstitisyon, Storybooks, fineweb-2. **Committable artifacts:** `corpus/glossary_pairs_federal.json` (1,955 federal-PD EN↔HT pairs) + the contributor record. **New eval axes:** `authored_eval_v2` (held-out VOA temporal slice — closes the standing fertility translated-vs-authored TODO) + NJ/MA/BMC terminology probe pools. VOA crawl is **partial/resumable** (2024→2025 slice); Bloom pending an HF-gate click. Nothing under `ml/data/` committed.
@@ -131,7 +157,7 @@ Turns the text-continuer into something a visitor can talk to.
 - G-v0: d12 on defaults → checkpoints + slider assets + learning curves → vs-scorecard comparison
 - H: Q3/Q4/Q5 (corpus/schedule decisions) → Q1/Q2 (thesis experiments, 2 seeds)
 - G-v1: fleet-informed rerun → final Model C base + nutrition label v1
-- I: midtrain (rights-clear pairs) → SFT (native-reviewed) → chat-capable Model C
+- I: ✅ midtrain (kakugo + aya_collection + PD translation-QA) → SFT (muri-it + aya gold + corpus-grounded Layer 2) → chat-capable Model C (naturalness sheet pending native review)
 - Wrap: update plan.md §3.2/§11 with actuals; fertility + BPB tables gain Model C rows; queue series material
 
 **Definition of done:** conversion chain proven; d12 trained with archived checkpoint generations + learning curves on the standing slices; Q1–Q5 answered with recorded configs/seeds; a chat-capable Model C that answers in Kreyòl; nutrition label v1 generated from provenance.

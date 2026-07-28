@@ -61,7 +61,7 @@ def build_naturalness_sheet():
     random.Random(20260728).shuffle(rows)          # blind the order
     lines = ["# Blinded naturalness review — Model C chat outputs", "",
              "> **For a native Haitian-Creole reviewer.** Below are chat answers the model",
-             "> produced (greedy). The prompts are shown; nothing about how they were generated",
+             "> produced. The prompts are shown; nothing about how they were generated",
              "> is revealed, and the order is shuffled. Judge the KREYÒL only.", "",
              "## How to score each item", "",
              "For every item: **(1) Naturalness 1–5** (1=not Kreyòl/nonsense, 3=understandable but",
@@ -194,6 +194,27 @@ def build_report():
         L += ["## Exhibit — temperature-sampled (labeled sampled)", ""]
         for e in ev["exhibit_sampled"]:
             L += [f"**{e['prompt']}**", f"> {(e['sampled'] or '').replace(chr(10),' ')}", ""]
+
+    # ---- honest quality assessment ----
+    L += ["## Quality — an honest read", "",
+          "This is a **123M** model — the smallest useful scale — so the bar is *speaks Kreyòl and "
+          "answers*, not *is knowledgeable*. What the SFT achieved and what it did not:", "",
+          "- **The continuer→answerer transition is real.** Where the v1 base *continues* a prompt "
+          "(newspaper mastheads, encyclopedic drift), the chat model *responds*: greetings answer back, "
+          "\"give me three gift ideas\" produces a numbered list, \"how do I learn guitar\" produces steps. "
+          "The before/after table above is the demoable moment.",
+          "- **A repetition penalty is required.** Pure greedy on a 123M model degenerates into loops; "
+          "generation (and the shipped Ollama Modelfile) uses `repeat_penalty 1.3` + `no_repeat_ngram_size 3`. "
+          "With it the loops are gone.",
+          "- **Residual encyclopedic bleed.** The base trained heavily on Wikipedia, so some answers still "
+          "trail into article scaffolding (`Istwa / Referans / Lyen deyò`) or confabulate facts (e.g. "
+          "\"Ki kapital Ayiti a?\" → a US town). This is a base-scale limit, not a format failure — the "
+          "model is answering, just thinly. A larger base is the lever, out of scope here.",
+          "- **Grounding phrasing.** Layer-2's doc-dialogue taught an \"according to…\" opener; the worst form "
+          "(\"dapre pasaj la\" — *according to the passage*, with no passage present) was removed by dropping "
+          "the 175 passage-referencing Layer-2 items before the final SFT.",
+          "", "The blinded naturalness sheet (below) puts this in front of a native reviewer rather than "
+          "asserting it.", ""]
 
     # ---- conversion ----
     if conv:

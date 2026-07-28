@@ -24,7 +24,7 @@ import modal
 from . import chat_config as CC
 from . import config as F
 from .chat_app import (app, chat_train, chat_eval, chat_convert,
-                       chat_read_result, chat_upload_check)
+                       chat_read_result, chat_upload_check, chat_reset)
 
 VOL = modal.Volume.from_name(F.MODAL_VOLUME, create_if_missing=True)
 
@@ -130,10 +130,20 @@ def do_convert():
           f"q4={a.get('gguf_q4',{}).get('bytes')} kv={res.get('gguf_tokenizer_kv')}")
 
 
+def do_reset_sft():
+    tag = CC.SFT["model_tag"]
+    with modal.enable_output(), app.run():
+        r = chat_reset.remote(tag)
+    print(f"[chat_run] reset {tag}: {r}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["upload", "midtrain", "sft", "eval", "convert", "all"])
+    ap.add_argument("cmd", choices=["upload", "midtrain", "sft", "eval", "convert", "all", "reset-sft"])
     args = ap.parse_args()
+    if args.cmd == "reset-sft":
+        do_reset_sft()
+        return
     if args.cmd in ("upload", "all"):
         do_upload()
     if args.cmd in ("midtrain", "all"):

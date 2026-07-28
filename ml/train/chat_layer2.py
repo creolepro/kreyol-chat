@@ -184,7 +184,9 @@ _DIALOGUE_PROMPT = (
     "konvèsasyon 2 a 3 vire ki chita sou enfòmasyon nan pasaj la; (2) ekri yon bouyon; "
     "(3) kritike bouyon an — èske kreyòl la natirèl? èske li fidèl ak pasaj la? — epi korije. "
     "Konvèsasyon final la dwe an kreyòl natirèl ant yon itilizatè ak yon asistan, epi rete "
-    "fidèl ak pasaj la (pa envante fè).\n\n"
+    "fidèl ak pasaj la (pa envante fè). ENPÒTAN: ni itilizatè a ni asistan an pa DWE janm "
+    "refere a «pasaj la», «tèks la», oswa «dokiman an» — konvèsasyon an dwe kanpe pou kont li, "
+    "kòm si se yon vrè chat san okenn pasaj devan je moun nan.\n\n"
     "Retounen JSON konsa: {{\"conversation\": [{{\"role\": \"user\", \"content\": \"...\"}}, "
     "{{\"role\": \"assistant\", \"content\": \"...\"}}], \"self_score\": 1-5, \"critique\": \"...\"}}"
 )

@@ -6,7 +6,8 @@ Python workspace for all model, corpus, and tokenizer work. Managed with
 **Phase 0** is complete (corpus v0, Kreyòl tokenizer, fertility, base-model probe). **Phase 1**
 is under way: **Workstreams E** (corpus v0.1 + eval slices), **F** (nanochat-on-Modal infra +
 conversion proof), **G** (Model C v0 **+ v1**, standard-Llama d12), **J** (corpus v0.2/v0.2.1
-acquisition), and **H** (micro-model fleet → the fleet-informed G-v1 config) are done. Runbooks:
+acquisition), **H** (micro-model fleet → the fleet-informed G-v1 config), and **I** (midtraining +
+SFT → **Model C chat**) are done. Runbooks:
 [../docs/phase-0.md](../docs/phase-0.md), [../docs/phase-1.md](../docs/phase-1.md); overall plan
 [../docs/plan.md](../docs/plan.md).
 
@@ -93,3 +94,15 @@ Implemented so far:
   Committed: the **english-24k ablation tokenizer** (`tokenizer/english-24k/`). Plus Part-0 CPU
   side-quests: probe-leak audit (probe #31 clean in v0.1) + the blinded [kakugo-hat audit
   sheet](reports/kakugo_audit_sheet.md). See [reports/fleet.md](reports/fleet.md).
+- **`train/` (Workstream I)** — **Model C chat**: the v1 base through a three-layer SFT stack
+  (`train/chat_*.py`). **Part 0** BOS fix — the converter now emits `add_bos_token=true`, so gate 6
+  is **clean** (native↔llama.cpp greedy LCP 1.000, was 0.002). **Layer 1** midtrain (19.9M tok):
+  kakugo-hat 38,475 (English `<think>`/system stripped) + aya_collection 6,000 + PD translation-QA
+  3,955 (**xP3x hat_Latn = 0 kept, 100% FLORES → eval carve-out**). **Layer 2** quality core: 1,176
+  corpus-grounded conversations (claude-opus-4-8 over authored passages), **pilot-gated** to a
+  budget-fit ≈$75 run ($72.38). **Layer 3** SFT cap: muri-it 6,817 + aya gold 98 + Layer-2 977 +
+  glossary-QA = 8,392, response-masked. Ships GGUF **f16 246 MB / Q4_K_M 78 MB** (BOS fix + chat
+  template embedded) + ONNX + an Ollama Modelfile; small BPB regression (LM intact). Honest read:
+  a real 123M chat model (needs `repeat_penalty`; residual encyclopedic bleed). Blinded
+  [chat_naturalness_sheet.md](reports/chat_naturalness_sheet.md) awaits a 2nd native review. See
+  [reports/modelc_chat.md](reports/modelc_chat.md).

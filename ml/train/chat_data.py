@@ -447,6 +447,10 @@ def assemble_layer3(include_layer2=True) -> dict:
     layer2 = (_read_jsonl(C.LAYER2_PILOT) + _read_jsonl(C.LAYER2_GEN)) if include_layer2 else []
     # keep only the higher-quality Layer-2 items (teacher self-score ≥ 4) for the SFT cap
     layer2 = [r for r in layer2 if (r.get("meta", {}).get("self_score") or 5) >= 4]
+    # DROP items that reference "the passage/text" — a grounding artifact that makes the model
+    # say "dapre pasaj la" ("according to the passage") when there is no passage at inference.
+    _ref = re.compile(r"\b(dapre|selon|nan)\s+(pasaj|tèks|dokiman)|pasaj\s+(la|sa)|tèks\s+(la|sa)", re.I)
+    layer2 = [r for r in layer2 if not any(_ref.search(m["content"]) for m in r["messages"])]
     for r in layer2:
         r["layer"] = 3
     allrows = muri + gold + gloss + layer2
